@@ -30,9 +30,8 @@ source <name of env>/bin/activate
 
 (venv)$ 
 ```
-Jak uruchomić środowisko pythona w systemie Windows. 
-
-Szybka instalacja podstawowych bibliotek i jupyterlab.
+ 
+Instalacja podstawowych bibliotek i jupyterlab.
 ```bash
 pip install --no-cache --upgrade pip setuptools
 
@@ -146,7 +145,7 @@ Warto obejrzeć [Youtube course](https://www.youtube.com/watch?v=HVsySz-h9r4).
 
 Ciekawe i proste wprowadzenie mozna znaleźć [tutaj](http://rogerdudler.github.io/git-guide/index.pl.html)
 
-## Zacznij korzystać z Dockera
+<!-- ## Zacznij korzystać z Dockera
 <div id="docker"></div>
 W celu pobrania oprogramowania docker na swój system przejdź do [strony](https://docs.docker.com/get-docker/).
 
@@ -191,5 +190,5 @@ docker stop <CONTAINER ID>
 docker rm -f <CONTAINER ID>
 ```
 
-Polecam również [krótkie intro](https://medium.com/codingthesmartway-com-blog/docker-beginners-guide-part-1-images-containers-6f3507fffc98)
+Polecam również [krótkie intro](https://medium.com/codingthesmartway-com-blog/docker-beginners-guide-part-1-images-containers-6f3507fffc98) -->
 
