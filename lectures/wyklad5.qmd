@@ -1,0 +1,24 @@
+---
+title: "Algorytmy kwantowego uczenia maszynowego"
+---
+
+Dziedziną łączącą klasyczne uczenie maszynowe i obliczenia kwantowe nazywamy kwantowym uczeniem maszynowym.
+QML powstało aby szybciej i sprawniej rozwiązywać problemu uczenia maszynowego.
+Do tego celu chcemy wykorzystać procesory kwantowe oraz własności algorytmów kwantowych i ich przewagi nad klasycznymi odpowiednikami.
+
+## PQC
+
+## Kwantowe Algorytmy Wariacyjne 
+
+Variational Quantum Algorithms (VQA) czyli kwantowe algorytmy wariacyjne nalezą do klasy 
+algorytmów hybrydowych. Oznacza to, ze do ich realizacji wykorzystamy zarówno procesor kwantowy jak i klasyczne algorytmy optymalizacyjne. 
+
+## Quantum Neural Networks
+
+## Quantum Support Vector Classification 
+
+## Variational Quantum Eigensolver
+
+## QUBO
+
+## Quantum Approximation Optimization Algorithm 

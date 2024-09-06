@@ -1,0 +1,84 @@
+---
+title: Sylabus
+---
+
+> Nazwa przedmiotu: {{< var main.nazwa >}}
+> 
+> Jednostka: {{< var main.uczelnia >}}
+> 
+> Kod przedmiotu: {{< var main.kod >}}, 232530-S
+>
+> Punkty ECTS: 3
+>
+> Język prowadzenia: polski
+>
+> Poziom przedmiotu: średnio-zaawansowany
+
+
+**Prowadzący:** [Sebastian Zając](https://sebastianzajac.pl), 
+  [sebastian.zajac@sgh.waw.pl](mailto:sebastian.zajac@sgh.waw.pl)
+
+
+**Website:**
+  [https://sebkaz-teaching.github.io/intro_to_qml/](https://sebkaz-teaching.github.io/intro_to_qml/)
+
+
+
+## Cel Przedmiotu
+
+Jeszcze do niedawna rozwój technologiczny oparty był na zmniejszaniu rozmiaru tranzystorów i zwiększaniu mocy obliczeniowej procesorów. 
+Ze względu na fizyczne aspekty natury proces ten, od pewnego momentu, musi uwzględniać ograniczenia fizyki kwantowej. 
+Przyszłość może jednak wykorzystać inne narzędzia, których możliwości wykraczają poza klasyczne moce obliczeniowe. 
+Mimo, iż konstrukcja komputerów kwantowych to wciąż etap inżynierski, to okazuje się, że można już wskazać i wykorzystać je do tworzenia algorytmów, 
+które można wykorzystać w dziedzinie uczenia maszynowego. 
+Wykorzystanie algorytmów kwantowych pozwala zmniejszyć czas przetwarzania dużej ilości danych, a tym samym rozszerza możliwości 
+przetwarzania i modelowania danych. Przedstawione na zajęciach biblioteki - IBM qiskit czy Pennylane (python) pozwalają na prostą
+i szybką konstrukcje dowolnego algorytmu kwantowego. 
+Algorytmy te, jak np. algorytm Grovera wykorzystać można do wielu problemów obliczeniowych uczenia
+maszynowego bądź do konstrukcji kwantowych sieci neuronowych.
+
+## Program przedmiotu
+
+1. 
+## Efekty kształcenia
+
+1. Wiedza:
+
+- Zna i rozumie koncepcje działania komputera klasycznego i kwantowego
+- Zna metody kwantowego uczenia maszynowego możliwe do wykorzystania w biznesie
+- Rozumie potrzebę i możliwości zastosowania komputerów kwantowych
+
+2. Umiejętności:
+
+- Potrafi stworzyć proste algorytmy z wykorzystaniem kwantowych bramek logicznych
+- Umie wykorzystać biblioteki pythonowe do generowania kodów obliczeń kwantowych
+- Potrafi wykorzystać metody nadzorowane wykorzystywane w kwantowym uczeniu maszynowym
+- Potrafi wykorzystać metody nienadzorowane wykorzystywane w kwantowym uczeniu maszynowym
+- Umie stworzyć prostą kwantową sieć neuronową
+
+3. Kompetencje społeczne:
+
+- formułuje problem biznesowy wraz z jego informatycznym rozwiązaniem
+- uzupełniania wiedzę teoretyczną jak i praktyczną, w zakresie teorii, programowania, modelowania, nowych technologii informatycznych z wykorzystaniem kwantowego uczenia maszynowego
+
+## Realizacja przedmiotu
+
+- egzamin testowy: 40\%
+- kolokwium: 20\%
+- referaty/eseje: 40\%
+
+## Literatura
+
+1. M. Schuld, F. Petruccione - Supervised Learning with Quantum Computers, Quantum Science and Technology. Springer 2018 https://doi.org/10.1007/978-3-319-96424-9
+2. C. Bernhardt - Obliczenia kwantowe dla każdego, Wydawnictwo Naukowe PWN 2020
+3. E. R. Johnston, N. Harrigan, M.Gimeno-Segovia - Komputer kwantowy.Programowanie, algorytmy, kod. Helion 2020
+4. S. Zajac - Modelowanie dla Biznesu. Analiza danych w czasie rzeczywistym. Oficyna Wydawnicza SGH. 2021
+5. A. K. Bishwas, A. Nani, V. Palade "Quantum Supervised Clustering Algorithm for Big Data" 2018- 3rd International Conference for Convergence in Technology.
+6. C. Ciliberto er al. "Statistical limits of supervised quantum learning" Physical Review A 102. 4. 2020
+7. N Wiebe, A. Kapoor, K M. Svore "Quantum perceptron models" NIPS'16 Procedings of the 30th Internationa Conference on Neural information processing Systems. Vol. 29. 2016
+
+## Literatura uzupełniająca
+
+1. Michael A. Nielsen & Isaac L. Chuang - Quantum Computation and Quantum Information, Cambridge University Press, 2010
+2. K. Przanowski, S. Zając - Modelowanie dla Biznesu. Metody Machine learning, Modele portfela consumer finance, modelek rekurencyjne analizy przeżycia, modele scoringowe. Oficyna Wydawnicza SGH. 2020
+3. E. Frątczak - Modelowanie dla Biznesu. Regresja Logistyczna, Regresja Poissona, Survival Data Mining, CRM, Credit Scoring. Oficyna Wydawnicza SGH. 2019
