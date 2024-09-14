@@ -8,22 +8,22 @@ website:
     style: "docked" 
     contents:
       - index.qmd
+      - info.qmd
       - section : "Wykłady"
         contents:
-          - info.qmd
           # - lectures/wyklad1.qmd
           # - lectures/wyklad2.qmd
           # - lectures/wyklad3.qmd
           # - lectures/wyklad4.qmd
       - section: "Ćwiczenia"
         contents:
-          # - cwiczenia/cw1.ipynb
-          # - cwiczenia/cw2.ipynb
-          # - cwiczenia/cw3.ipynb
-          # - cwiczenia/cw4.ipynb
-          # - cwiczenia/cw5.ipynb
-          # - cwiczenia/ml.ipynb
-          # - cwiczenia/titanic.ipynb
+          # - labs/cw1.ipynb
+          # - labs/cw2.ipynb
+          # - labs/cw3.ipynb
+          # - labs/cw4.ipynb
+          # - labs/cw5.ipynb
+          # - labs/ml.ipynb
+          # - labs/titanic.ipynb
   navbar:
     left:
           - href: sylabus.qmd

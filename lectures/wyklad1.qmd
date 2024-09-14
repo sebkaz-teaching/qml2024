@@ -333,3 +333,40 @@ algorytmy [inspirowane obliczeniami kwantowymi](https://dl.acm.org/doi/10.1145/3
 - [D-Wave](https://www.dwavesys.com/build/getting-started/) - Python
 - [Xanadu](https://www.xanadu.ai) - Pennylane Python library
 - [Amazon braket](https://aws.amazon.com/braket/) - AWS Python, Julia
+
+## Zadania Python
+
+```python
+# 1. ile jest 5 do potęgi 5? 
+
+wynik = ...
+
+# 2. ile razy liczba 3 mieści się w 123? 
+
+ile = ...
+
+# 3. wskaż na string ze zmiennej l
+l = [10, [3, 4], [5, [100, 200, ["MDS"]], 23, 11], 1, 7]
+
+string = ...
+
+# 4. wsaż na napis 'MDS' ze słownika
+d = {
+    "outer": [
+        1,
+        2,
+        3,
+        {"inner": ["this", "is", "inception", {"inner_inner": [1, 2, 3, "MDS"]}]},
+    ]
+}
+
+# 5. Napisz funkcje website() która wyciąga nazwę domeny z url. np, z "www.google.com", powinno wskazać "google".
+
+def website():
+    pass # tutaj wpisz kod
+
+# 6. Podnieś liczby w liście do kwadratu 
+# skorzystaj z list comprehension
+
+l = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+```

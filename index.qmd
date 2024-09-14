@@ -55,6 +55,3 @@ Uczestnicząc w zajęciach musisz opanować i przynajmniej w podstawowym zakresi
 ## QPoland 
 
 [QPoland](https://qworld.net/qpoland/) jest cześcią międzynarodowej sieci [QWorld](https://qworld.net).
-
-Zapraszamy do wspólnego poszerzania wiedzy. [Szczegóły](https://qworld.net/join-us/) 
-> QWorld is a global network of individuals, groups, and communities collaborating on education and implementation of quantum technologies and research activities.

@@ -50,11 +50,6 @@ title: Literatura
 1. [Qiskit](http://www.numpy.org)
 2. [PennyLane](http://www.scipy.org)
 
-### Pakiety Julia 
-
-1. [Yao]()
-2. [QAOA]()
-
 ### Edytory tekstu
 
 1. [Visual Studio Code](https://code.visualstudio.com)
