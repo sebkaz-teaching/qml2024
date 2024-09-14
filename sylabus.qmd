@@ -44,7 +44,7 @@ maszynowego bądź do konstrukcji kwantowych sieci neuronowych.
 3. Przestrzenie wektorowe, stany kwantowe, reprezentacja klasycznych i kwantowych bitów
 4. Kwantowe bramki logiczne w prostych algorytmach i obwodach kwantowych
 5. Algorytmy kwantowego uczenia maszynowego
-6. Biblioteka Pennylane wprowadzenie
+6. Biblioteka Qiskit, Pennylane wprowadzenie
 7. Bramki jednokubitowe
 8. Bramki wielokubitowe
 9. Algorytm Deutscha, szyfrowanie kwantowe
