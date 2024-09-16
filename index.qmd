@@ -2,6 +2,14 @@
 title: "Informacje ogólne"
 ---
 
+Witajcie wszyscy! Dziś chiałbym poruszyć temat nowego kursu z zakresu kwantowego uczenia maszynowego. 
+Kurs ten będzie skupiał się na wykorzystaniu biblioteki pennylane, która jest jedną z najpopularniejszych bibliotek do tworzenia modeli kwantowych. 
+W ramach kursu będziemy uczyć się podstaw kwantowego uczenia maszynowego, a także zastosowania tej wiedzy w praktyce. 
+W trakcie kursu będziemy mieli okazję zapoznać się z różnymi narzędziami i technikami, które pozwolą nam na tworzenie skomplikowanych modeli kwantowych. 
+W trakcie kursu będziemy również mieli okazję zapoznać się z różnymi algorytmami kwantowymi.
+Bardziej szczegółowo przetwarzać będziemy parametryzowane obwody kwantowe, które będą podstawowym elementem naszych modeli kwantowego uczenia maszynowego. Wszystko to pozwoli nam na lepsze zrozumienie zasad rządzących światem kwantowym i na wykorzystanie tej wiedzy w praktyce.
+
+
 ## {{< var main.nazwa >}}
 
 Kod: {{< var main.kod >}}

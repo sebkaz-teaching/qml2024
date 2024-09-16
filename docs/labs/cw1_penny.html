@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Literatura – Wstęp do kwantowego uczenia maszynowego</title>
+<title>Pennylane wprowadzenie – Wstęp do kwantowego uczenia maszynowego</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,25 +20,59 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,7 +102,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="../style.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed">
@@ -78,7 +112,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Wstęp do kwantowego uczenia maszynowego</span>
     </a>
   </div>
@@ -89,11 +123,11 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./sylabus.html"> 
+    <a class="nav-link" href="../sylabus.html"> 
 <span class="menu-text">Sylabus</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./ksiazki.html" aria-current="page"> 
+    <a class="nav-link" href="../ksiazki.html"> 
 <span class="menu-text">Książki</span></a>
   </li>  
 </ul>
@@ -107,7 +141,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Literatura</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Pennylane wprowadzenie</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -121,13 +155,13 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Informacje ogólne</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./info.html" class="sidebar-item-text sidebar-link">
+  <a href="../info.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Narzędzia</span></a>
   </div>
 </li>
@@ -142,7 +176,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures/wyklad1.html" class="sidebar-item-text sidebar-link">
+  <a href="../lectures/wyklad1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Komputery klasyczne i kwantowe</span></a>
   </div>
 </li>
@@ -157,33 +191,15 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#książki" id="toc-książki" class="nav-link active" data-scroll-target="#książki">Książki</a>
-  <ul class="collapse">
-  <li><a href="#obliczenia-kwantowe-quantum-computing" id="toc-obliczenia-kwantowe-quantum-computing" class="nav-link" data-scroll-target="#obliczenia-kwantowe-quantum-computing">Obliczenia kwantowe (Quantum Computing)</a></li>
-  <li><a href="#quantum-machine-learning" id="toc-quantum-machine-learning" class="nav-link" data-scroll-target="#quantum-machine-learning">Quantum Machine Learning</a></li>
-  <li><a href="#ai" id="toc-ai" class="nav-link" data-scroll-target="#ai">AI</a></li>
-  </ul></li>
-  <li><a href="#strony-www" id="toc-strony-www" class="nav-link" data-scroll-target="#strony-www">Strony WWW</a>
-  <ul class="collapse">
-  <li><a href="#pakiety-python" id="toc-pakiety-python" class="nav-link" data-scroll-target="#pakiety-python">Pakiety Python</a></li>
-  <li><a href="#edytory-tekstu" id="toc-edytory-tekstu" class="nav-link" data-scroll-target="#edytory-tekstu">Edytory tekstu</a></li>
-  <li><a href="#markdown" id="toc-markdown" class="nav-link" data-scroll-target="#markdown">Markdown</a></li>
-  <li><a href="#filmy" id="toc-filmy" class="nav-link" data-scroll-target="#filmy">Filmy</a></li>
-  </ul></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Literatura</h1>
+<h1 class="title">Pennylane wprowadzenie</h1>
 </div>
 
 
@@ -200,103 +216,24 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="książki" class="level2">
-<h2 class="anchored" data-anchor-id="książki">Książki</h2>
-<div id="QC">
-<section id="obliczenia-kwantowe-quantum-computing" class="level3">
-<h3 class="anchored" data-anchor-id="obliczenia-kwantowe-quantum-computing">Obliczenia kwantowe (Quantum Computing)</h3>
-</section>
+<ol type="1">
+<li>Budowa obwodu kwantowego</li>
+<li>Odczyt stanu</li>
+</ol>
+<div id="cell-2" class="cell" data-execution_count="48">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pennylane <span class="im">as</span> qml</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>dev <span class="op">=</span> qml.device(<span class="st">"default.qubit"</span>, wires<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># trzeba pamiętać że wires liczy się od 0 a nie od 1 !!!</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="at">@qml.qnode</span>(dev)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> circuit():</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="co">#qml.X(wires=0)</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    qml.Hadamard(wires<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="co">#return qml.state()</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> qml.expval(qml.PauliZ(<span class="dv">0</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<ol type="1">
-<li><p>C. Bernhardt, <em>Obliczenia kwantowe dla każdego</em>. PWN 2020</p></li>
-<li><p>T. G. Wong, <em>Introduction to Classical and Quantum Computing</em>. Rooted Grove 2022.</p></li>
-<li><p>P. Gawron, M. Cholewa, … <em>Rewolucja stanu. Fantastyczne wprowadzenie do informatyki kwantowej</em>. Quantumz.io 2021</p></li>
-<li><p>M. Le Bellac, <em>Wstęp do informatyki kwantowej</em>. PWN 2011</p></li>
-<li><p>R. S. Sutor, <em>Dancing with Qubits</em>. Second edition, Packt 2024</p></li>
-</ol>
-<div id="QML">
-<section id="quantum-machine-learning" class="level3">
-<h3 class="anchored" data-anchor-id="quantum-machine-learning">Quantum Machine Learning</h3>
-</section>
-</div>
-<ol type="1">
-<li><p>M. Schuld, F. Petruccione, <em>Machine Learning with Quantum Computers</em>, Springer 2021.</p></li>
-<li><p>A. Jacquier, O. Kondratyev, <em>Quantum Machine Learning and Optimisation in Finance. On the Road to Quantum Advantage</em>.</p></li>
-<li><p>A. Saxena, J. Mancilla, I. Montalban, C. Pere, <em>Financial Modeling Using Quantum Computing</em>. Packt 2023</p></li>
-</ol>
-<div id="AI">
-<section id="ai" class="level3">
-<h3 class="anchored" data-anchor-id="ai">AI</h3>
-</section>
-</div>
-<ol type="1">
-<li><p>A. Geron, <em>Uczenie maszynowe z użyciem Scikit-Learn i TensorFlow</em>. Helion 2024</p></li>
-<li><p>S. Zajac, <em>Modelowanie dla biznesu, Analityka w czasie rzeczywistym - narzędzia informatyczne i biznesowe</em>. SGH 2022</p></li>
-<li><p>L. Moroney, <em>Sztuczna inteligencja i uczenie maszynowe dla programistów. Praktyczny przewodnik po sztucznej inteligencji</em>. Helion 2021. <a href="http://helion.pl/view/111546/szinum.html">Zobacz opis</a> lub <a href="http://helion.pl/add111546~szinum_ebook">Kup e-book</a></p></li>
-<li><p>Bruce, Bruce, Gedeck, <em>Statystyka praktyczna w data science. Wydanie II</em>. Helion. 2021.</p></li>
-</ol>
-</section>
-<section id="strony-www" class="level2">
-<h2 class="anchored" data-anchor-id="strony-www">Strony WWW</h2>
-<ol type="1">
-<li>Peter Shor <a href="https://math.mit.edu/~shor/435-LN/">Wykład</a></li>
-</ol>
-<section id="pakiety-python" class="level3">
-<h3 class="anchored" data-anchor-id="pakiety-python">Pakiety Python</h3>
-<ol type="1">
-<li><a href="http://www.numpy.org">Qiskit</a></li>
-<li><a href="http://www.scipy.org">PennyLane</a></li>
-</ol>
-</section>
-<section id="edytory-tekstu" class="level3">
-<h3 class="anchored" data-anchor-id="edytory-tekstu">Edytory tekstu</h3>
-<ol type="1">
-<li><a href="https://code.visualstudio.com">Visual Studio Code</a></li>
-<li><a href="https://www.sublimetext.com">Sublime Text</a></li>
-<li><a href="https://notepad-plus-plus.org/download">Notepad++</a></li>
-</ol>
-</section>
-<section id="markdown" class="level3">
-<h3 class="anchored" data-anchor-id="markdown">Markdown</h3>
-<ol type="1">
-<li><a href="http://daringfireball.net/projects/markdown/">MD</a></li>
-</ol>
-</section>
-<section id="filmy" class="level3">
-<h3 class="anchored" data-anchor-id="filmy">Filmy</h3>
-<ul>
-<li><a href="https://www.youtube.com/watch?v=-UlxHPIEVqA">Wprowadzenie do obliczeń kwantowych</a></li>
-<li>QPoland, Bronze, <a href="https://www.youtube.com/watch?v=nDCROyWULkw&amp;list=PLjZhz-aJHvA1q5DcsR_Y1XvsF2juz0FoN&amp;index=2">Warsztaty z programowania komputerów kwantowych 2023</a></li>
-</ul>
-<p>Wprowadzenie do Mechaniki Kwantowej</p>
-<ul>
-<li><a href="https://plato.stanford.edu/entries/qt-interpret/">Quantum Mechanics - Stanford Encyclopedia of Philosophy</a></li>
-<li><a href="https://www.khanacademy.org/science/quantum-physics">Introduction to Quantum Mechanics - Khan Academy</a></li>
-</ul>
-<p>Podstawy Obliczeń Kwantowych</p>
-<ul>
-<li><a href="https://docs.microsoft.com/en-us/azure/quantum/overview-quantum-computing">Quantum Computing for Beginners - Microsoft Azure</a></li>
-<li><a href="https://www.ibm.com/quantum-computing/learn/what-is-quantum-computing/">A Beginner’s Guide to Quantum Computing - IBM Quantum</a></li>
-</ul>
-<p>Wprowadzenie do Qubits i Algorytmów Kwantowych</p>
-<ul>
-<li><a href="https://qiskit.org/textbook/ch-algorithms/what-are-qubits.html">Qubits - What Are They and How Do They Work? - Qiskit</a></li>
-<li><a href="https://qiskit.org/textbook/ch-algorithms/index.html">Quantum Algorithms - Qiskit Textbook</a></li>
-</ul>
-<p>Praktyczne Zastosowania i Rozwój Komputerów Kwantowych</p>
-<ul>
-<li><a href="https://www.ibm.com/blog/quantum-computing/">The State of Quantum Computing - IBM Research</a></li>
-<li><a href="https://quantumai.google/">Google’s Quantum AI Research</a></li>
-</ul>
-<p>Dyskusje i Kursy Online</p>
-<ul>
-<li><a href="https://www.coursera.org/learn/quantum-computing">Quantum Computing - Coursera</a></li>
-<li><a href="https://www.edx.org/course/quantum-mechanics-and-quantum-computation">Quantum Mechanics and Quantum Computation - edX</a></li>
-</ul>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

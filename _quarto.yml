@@ -11,7 +11,7 @@ website:
       - info.qmd
       - section : "Wykłady"
         contents:
-          # - lectures/wyklad1.qmd
+          - lectures/wyklad1.qmd
           # - lectures/wyklad2.qmd
           # - lectures/wyklad3.qmd
           # - lectures/wyklad4.qmd
