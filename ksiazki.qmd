@@ -60,33 +60,3 @@ title: Literatura
 
 1. [MD](http://daringfireball.net/projects/markdown/)
 
-### Filmy
-
--  [Wprowadzenie do obliczeń kwantowych](https://www.youtube.com/watch?v=-UlxHPIEVqA)
--   QPoland, Bronze, [Warsztaty z programowania komputerów kwantowych 2023](https://www.youtube.com/watch?v=nDCROyWULkw&list=PLjZhz-aJHvA1q5DcsR_Y1XvsF2juz0FoN&index=2)
-
-Wprowadzenie do Mechaniki Kwantowej
-
--	[Quantum Mechanics - Stanford Encyclopedia of Philosophy](https://plato.stanford.edu/entries/qt-interpret/)
--	[Introduction to Quantum Mechanics - Khan Academy](https://www.khanacademy.org/science/quantum-physics)
-
-Podstawy Obliczeń Kwantowych
-
--	[Quantum Computing for Beginners - Microsoft Azure](https://docs.microsoft.com/en-us/azure/quantum/overview-quantum-computing)
--	[A Beginner’s Guide to Quantum Computing - IBM Quantum](https://www.ibm.com/quantum-computing/learn/what-is-quantum-computing/)
-
-
-Wprowadzenie do Qubits i Algorytmów Kwantowych
-
--	[Qubits - What Are They and How Do They Work? - Qiskit](https://qiskit.org/textbook/ch-algorithms/what-are-qubits.html)
--	[Quantum Algorithms - Qiskit Textbook](https://qiskit.org/textbook/ch-algorithms/index.html)
-
-Praktyczne Zastosowania i Rozwój Komputerów Kwantowych
-
--	[The State of Quantum Computing - IBM Research](https://www.ibm.com/blog/quantum-computing/)
--	[Google’s Quantum AI Research](https://quantumai.google/)
-
-Dyskusje i Kursy Online
-
--    [Quantum Computing - Coursera](https://www.coursera.org/learn/quantum-computing)
--    [Quantum Mechanics and Quantum Computation - edX](https://www.edx.org/course/quantum-mechanics-and-quantum-computation)
