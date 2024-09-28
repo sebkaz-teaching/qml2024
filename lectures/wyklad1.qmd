@@ -386,3 +386,22 @@ def website():
 
 l = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 ```
+
+### Instalacja PennyLane
+
+Najprostrzym sposobem korzystania z biblioteki PennyLane jest wykorzystanie środowiska Google Colab.
+W nowym notatniku uruchom następujący kod: 
+```
+!pip install pennylane
+```
+Aby zainstalować bibliotekę PennyLane na własnym komputerze zaleca się utworzenie nowego środowiska wirtualnego Python (Zalecam Python3.10 lub 3.11). 
+```bash
+python3.11 -m venv venv
+source venv/bin/activate
+(venv) pip install pennylane jupyter matplotlib
+(venv) jupyter notebook 
+```
+
+Realizację instalacji na środowisku windows i Linux możesz wykonać zgodnie z~[filmem](https://www.youtube.com/watch?v=eiah6I3SnFk&list=PL_hJxz_HrXxsY23iiLZTxiPctXKYI6tNV).
+
+Polecam również zaznajomić się z podstawami biblioteki [PennyLane](https://www.youtube.com/playlist?list=PL_hJxz_HrXxsY23iiLZTxiPctXKYI6tNV). 

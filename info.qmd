@@ -38,7 +38,7 @@ Instalacja podstawowych bibliotek i jupyterlab.
 ```bash
 pip install --no-cache --upgrade pip setuptools
 
-pip install jupyterlab numpy pandas matplotlib scipy
+pip install pip install pennylane jupyter matplotlib
 # jeśli masz plik requirements.txt z potrzebnymi bibliotekami
 pip install -r requirements.txt
 # uruchom 

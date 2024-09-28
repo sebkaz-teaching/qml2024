@@ -217,7 +217,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#realizacje-problemów-biznesowych-na-komputerach-kwantowych" id="toc-realizacje-problemów-biznesowych-na-komputerach-kwantowych" class="nav-link" data-scroll-target="#realizacje-problemów-biznesowych-na-komputerach-kwantowych">Realizacje problemów biznesowych na komputerach kwantowych</a></li>
   <li><a href="#dostęp-do-obliczeń-kwantowych-w-chmurze" id="toc-dostęp-do-obliczeń-kwantowych-w-chmurze" class="nav-link" data-scroll-target="#dostęp-do-obliczeń-kwantowych-w-chmurze">Dostęp do obliczeń kwantowych w chmurze</a></li>
   </ul></li>
-  <li><a href="#zadania-python" id="toc-zadania-python" class="nav-link" data-scroll-target="#zadania-python">Zadania Python</a></li>
+  <li><a href="#zadania-python" id="toc-zadania-python" class="nav-link" data-scroll-target="#zadania-python">Zadania Python</a>
+  <ul class="collapse">
+  <li><a href="#instalacja-pennylane" id="toc-instalacja-pennylane" class="nav-link" data-scroll-target="#instalacja-pennylane">Instalacja PennyLane</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -570,8 +573,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="co"># skorzystaj z list comprehension</span></span>
 <span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>l <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="instalacja-pennylane" class="level3">
+<h3 class="anchored" data-anchor-id="instalacja-pennylane">Instalacja PennyLane</h3>
+<p>Najprostrzym sposobem korzystania z biblioteki PennyLane jest wykorzystanie środowiska Google Colab. W nowym notatniku uruchom następujący kod:</p>
+<pre><code>!pip install pennylane</code></pre>
+<p>Aby zainstalować bibliotekę PennyLane na własnym komputerze zaleca się utworzenie nowego środowiska wirtualnego Python (Zalecam Python3.10 lub 3.11).</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python3.11</span> <span class="at">-m</span> venv venv</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> venv/bin/activate</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv</span><span class="kw">)</span> <span class="ex">pip</span> install pennylane jupyter matplotlib</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv</span><span class="kw">)</span> <span class="ex">jupyter</span> notebook </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Realizację instalacji na środowisku windows i Linux możesz wykonać zgodnie z~<a href="https://www.youtube.com/watch?v=eiah6I3SnFk&amp;list=PL_hJxz_HrXxsY23iiLZTxiPctXKYI6tNV">filmem</a>.</p>
+<p>Polecam również zaznajomić się z podstawami biblioteki <a href="https://www.youtube.com/playlist?list=PL_hJxz_HrXxsY23iiLZTxiPctXKYI6tNV">PennyLane</a>.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
