@@ -243,7 +243,7 @@ Aby znaleźć wynik dla dwóch liczb (np.  $x = 0$  i  $x = 1$), klasyczny kompu
 Komputer kwantowy może uzyskać ten wynik, przeprowadzając obliczenia jednocześnie dla obu wartości.
  Do wykonania takiej operacji wystarczy jeden kubit.
 
-Jeśli chcemy obliczyć naszą funkcję dla kolejnych liczb  x = 2  (które binarnie reprezentowane jest jako  10 ) oraz liczby  x = 3  (binarnie  11 ), musimy dodać kolejny kubit. 
+Jeśli chcemy obliczyć naszą funkcję dla kolejnych liczb  $x = 2$  (które binarnie reprezentowane jest jako  10 ) oraz liczby  $x = 3$  (binarnie  11 ), musimy dodać kolejny kubit. 
 Dwa kubity mogą posłużyć do realizacji czterech równoległych operacji. Jeśli rozważymy 3 kubity, możemy podwoić liczbę operacji (3 kubity mają 8 stanów bazowych).
 Dodanie kubitu do komputera kwantowego pozwala podwoić liczbę równoległych obliczeń.
 W przypadku klasycznego komputera, aby uzyskać taki efekt, trzeba by podwoić liczbę bitów. Generalnie,  n -kubitów może realizować  2^n  równoległych obliczeń.
