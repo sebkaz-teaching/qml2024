@@ -20,7 +20,7 @@ title: Sylabus
 
 
 **Website:**
-  [https://sebkaz-teaching.github.io/intro_to_qml/](https://sebkaz-teaching.github.io/qml2024/)
+  [https://sebkaz-teaching.github.io/qml2024/](https://sebkaz-teaching.github.io/qml2024/)
 
 
 **Support**
