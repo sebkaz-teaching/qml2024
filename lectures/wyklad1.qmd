@@ -24,9 +24,16 @@ Więcej na ten temat znajdziesz w [książce](/ksiazki#AI)
 
 > Warto zauważyć, że klasyczne komputery (bazujące na tranzystorach) również działają zgodnie z prawami mechaniki kwantowej, jednak wykonywane przez nie operacje opierają się na klasycznej logice.
 
-Oba podejścia – klasyczne i kwantowe – odgrywają kluczową rolę w przetwarzaniu danych zarówno dziś, jak i w niedalekiej przyszłości. Zatem nasuwa się naturalne pytanie: jak można te dwa światy ze sobą połączyć?
+Oba podejścia – klasyczne i kwantowe – odgrywają kluczową rolę w przetwarzaniu danych zarówno dziś, jak i w niedalekiej przyszłości. 
+Zatem nasuwa się naturalne pytanie: jak można te dwa światy ze sobą połączyć?
 
-**Kwantowe uczenie maszynowe** (ang. _Quantum Machine Learning_) to zastosowanie metod uczenia maszynowego, które mogą być realizowane na komputerach kwantowych. Wykorzystuje ono zjawiska mechaniki kwantowej, takie jak superpozycja i splątanie, aby potencjalnie przyspieszyć procesy uczenia i rozwiązywania problemów, które dla klasycznych komputerów mogą być zbyt złożone.
+**[Xanadu link - what is quantum computing](https://pennylane.ai/qml/what-is-quantum-computing/)**
+
+**Kwantowe uczenie maszynowe** (ang. _Quantum Machine Learning_) to zastosowanie metod uczenia maszynowego, które mogą być realizowane na komputerach kwantowych.
+Wykorzystuje ono zjawiska mechaniki kwantowej, takie jak superpozycja i splątanie, aby potencjalnie przyspieszyć procesy uczenia i rozwiązywania problemów, które dla klasycznych komputerów mogą być zbyt złożone.
+
+**[Xanadu link - What is QML](https://pennylane.ai/qml/whatisqml/)**
+
 
 > you start with classical mechanics and electrodynamics, solving lots of differential equations at every step. 
 > Then you learn about the "black-body paradox" and various strange experimental results, and the great crisis these things posed for physics. 
@@ -41,12 +48,6 @@ Zasadnicze pytanie brzmi: na ile komputery kwantowe mogą faktycznie poprawić j
 
 > Co o tym sądzisz? 
 
-komputery kwantowe mają teoretyczny potencjał, aby znacząco przyspieszyć niektóre aspekty uczenia maszynowego, szczególnie w kontekście wyszukiwania dużych zbiorów danych, optymalizacji czy analizy bardzo skomplikowanych systemów. Przykładem jest algorytm Grovera, który może przyspieszyć proces wyszukiwania do O(\sqrt{N}) w porównaniu z klasycznym O(N), co mogłoby zrewolucjonizować niektóre modele uczące się na dużych zbiorach danych.
-
-Jednakże, wciąż pozostaje wiele otwartych kwestii – szczególnie dotyczących skalowalności komputerów kwantowych, odporności na błędy oraz tego, jak dobrze kwantowe algorytmy będą mogły współpracować z obecnymi metodami uczenia maszynowego. Obecne komputery kwantowe (tzw. Noisy Intermediate-Scale Quantum, NISQ) są ograniczone pod względem liczby kubitów i poziomu szumów, co sprawia, że pełny potencjał QML jeszcze nie został zrealizowany.
-
-W praktyce, w najbliższym czasie bardziej prawdopodobne jest, że zobaczymy hybrydowe podejścia, łączące klasyczne i kwantowe komputery do zadań, w których komputery kwantowe mogą przyspieszyć wybrane podproblemy.
-
 **Moja i książkowa odpowiedź**: To zależy:
 
 -	jaki problem chcemy rozwiązać?
@@ -54,6 +55,17 @@ W praktyce, w najbliższym czasie bardziej prawdopodobne jest, że zobaczymy hyb
 -	jaki typ analizy chcemy przeprowadzić?
 -	jaki typ komputera kwantowego wykorzystujemy (np. NISQ czy pełnoskalowy komputer kwantowy)?
 -	co rozumiemy przez “lepiej”? Precyzja, czas obliczeń, koszt, skalowalność, zużycie energii, a może coś innego?
+
+**[Xanadu link - QML blog](https://pennylane.ai/blog/2022/03/why-measuring-performance-is-our-biggest-blind-spot-in-quantum-machine-learning/)**
+
+Komputery kwantowe mają teoretyczny potencjał, aby znacząco przyspieszyć niektóre aspekty uczenia maszynowego, szczególnie w kontekście wyszukiwania dużych zbiorów danych, optymalizacji czy analizy bardzo skomplikowanych systemów. 
+Przykładem jest algorytm Grovera, który może przyspieszyć proces wyszukiwania do $O(\sqrt{N})$ w porównaniu z klasycznym $O(N)$, co mogłoby zrewolucjonizować niektóre modele uczące się na dużych zbiorach danych.
+
+Jednakże, wciąż pozostaje wiele otwartych kwestii – szczególnie dotyczących skalowalności komputerów kwantowych, odporności na błędy oraz tego, jak dobrze kwantowe algorytmy będą mogły współpracować z obecnymi metodami uczenia maszynowego.
+Obecne komputery kwantowe (tzw. Noisy Intermediate-Scale Quantum, NISQ) są ograniczone pod względem liczby kubitów i poziomu szumów, co sprawia, że pełny potencjał QML jeszcze nie został zrealizowany.
+
+W praktyce, w najbliższym czasie bardziej prawdopodobne jest, że wykorzystamy hybrydowe podejścia, łączące klasyczne i kwantowe komputery do zadań, w których komputery kwantowe mogą przyspieszyć wybrane podproblemy.
+
 
 ## Sztuczna inteligencja
 
@@ -70,7 +82,7 @@ Historia sztucznej inteligencji (AI) sięga 1950 roku, kiedy Alan Turing zapropo
 -	podejmowanie decyzji,
 -	chatboty i wirtualnych asystentów.
 
-Wszystkie te zadania są realizowane dzięki zastosowaniu uczenia maszynowego (Machine Learning) oraz głębokich sieci neuronowych (Deep Learning).
+Wszystkie te zadania są realizowane dzięki zastosowaniu uczenia maszynowego (_Machine Learning_) oraz głębokich sieci neuronowych (_Deep Learning_).
 
 Dlaczego sztuczna inteligencja jest tak chętnie wykorzystywana?
 
@@ -85,7 +97,7 @@ Dlaczego sztuczna inteligencja jest tak chętnie wykorzystywana?
 
 **Uczenie maszynowe** (ang. _Machine Learning_) można podzielić na kilka głównych kategorii:
 
-1.	Uczenie nadzorowane (ang. supervised learning) – mając oznaczone dane  (x_i, y_i) , uczymy model, który znajdzie funkcję  f(x_i) = y_i , aby poprawnie przewidywać wartości dla nowych, nieznanych danych. Przykłady obejmują decyzje o przyznaniu kredytu lub klasyfikację obrazów, takich jak rozpoznanie, czy na obrazie znajduje się kot, czy pies.
+1.	Uczenie nadzorowane (ang. supervised learning) – mając oznaczone dane  $(x_i, y_i)$ , uczymy model, który znajdzie funkcję  $f(x_i) = y_i$ , aby poprawnie przewidywać wartości dla nowych, nieznanych danych. Przykłady obejmują decyzje o przyznaniu kredytu lub klasyfikację obrazów, takich jak rozpoznanie, czy na obrazie znajduje się kot, czy pies.
 
 
 **Zadania do wykonania:**
@@ -93,6 +105,7 @@ Dlaczego sztuczna inteligencja jest tak chętnie wykorzystywana?
 -	Wyjaśnij model regresji (zarówno liniowej, jak i logistycznej).
 -	Czy modele regresji (liniowej i logistycznej) można przedstawić jako rozwiązanie sieci neuronowej?
 -	Zaimplementuj oba algorytmy (regresji liniowej i logistycznej) w środowisku PyTorch.
+
 
 2.	Uczenie nienadzorowane (ang. unsupervised learning) – mając nieoznaczone dane  (x_i) , szukamy ukrytych struktur w danych, takich jak grupowanie (klasteryzacja) czy redukcja wymiarów. Celem jest odkrywanie zależności lub wzorców, które nie są jawnie widoczne.
 
@@ -105,8 +118,8 @@ Dlaczego sztuczna inteligencja jest tak chętnie wykorzystywana?
 ## Komputery klasyczne
 
 **Komputer** to fizyczne urządzenie, które przetwarza informacje za pomocą obwodów elektronicznych (ang. electronic circuits). 
-Jego działanie opiera się na klasycznej logice binarnej, w której informacje są reprezentowane przez bity przyjmujące wartości 0 lub 1. 
-Komputery klasyczne wykonują obliczenia, przetwarzając te bity za pomocą zestawu logicznych operacji, takich jak AND, OR, NOT, oraz innych.
+Jego działanie opiera się na klasycznej logice binarnej, w której informacje są reprezentowane przez bity przyjmujące wartości $0$ lub $1$. 
+Komputery klasyczne wykonują obliczenia, przetwarzając te bity za pomocą zestawu logicznych operacji, takich jak $AND$, $OR$, $NOT$, oraz innych.
 
 Komputery klasyczne opierają swoje działanie na:
 
@@ -145,14 +158,17 @@ Miniaturyzacja tranzystorów staje się coraz trudniejsza, co sugeruje, że dals
 6.	Generowanie ciepła: Zaawansowane komputery wykonujące intensywne obliczenia generują znaczne ilości ciepła. Problemy z chłodzeniem mogą wpływać na wydajność i niezawodność systemu, co wymaga innowacji w zakresie rozwiązań chłodzących.
 7.	Wykorzystanie rzadkich materiałów: Produkcja mikroprocesorów i układów scalonych wymaga rzadkich materiałów i zasobów, co może stanowić wyzwanie dla zrównoważonego rozwoju technologii komputerowych.
 
-Dla większości praktycznych zastosowań opis makroskopowy oraz klasyczne teorie fizyczne są wystarczające do opisu właściwości prądu w obwodach elektrycznych. Jednak gdy celem jest realizacja obliczeń wykorzystujących mikroskopowe właściwości obiektów, klasyczny opis przestaje być adekwatny.
+Dla większości praktycznych zastosowań opis makroskopowy oraz klasyczne teorie fizyczne są wystarczające do opisu właściwości prądu w obwodach elektrycznych. 
+Jednak gdy celem jest realizacja obliczeń wykorzystujących mikroskopowe właściwości obiektów, klasyczny opis przestaje być adekwatny.
 
-W takich przypadkach konieczne jest zwrócenie się ku mechanice kwantowej, która jest najdokładniejszym i najbardziej powszechnie stosowanym modelem opisującym mikroświat. Komputer, który realizuje obliczenia zgodnie z zasadami mechaniki kwantowej, nazywamy komputerem kwantowym.
+W takich przypadkach konieczne jest zwrócenie się ku mechanice kwantowej, która jest najdokładniejszym i najbardziej powszechnie stosowanym modelem opisującym mikroświat.
+Komputer, który realizuje obliczenia zgodnie z zasadami mechaniki kwantowej, nazywamy komputerem kwantowym.
 
-Dzięki zdolności do wykorzystania zjawisk kwantowych, takich jak superpozycja i splątanie, komputery kwantowe mogą rozwiązywać problemy, które są trudne lub wręcz niemożliwe do rozwiązania za pomocą klasycznych komputerów. Komputery kwantowe oferują obiecującą technologię, która otwiera nowe możliwości w dziedzinie obliczeń oraz nauki.
+Dzięki zdolności do wykorzystania zjawisk kwantowych, takich jak superpozycja i splątanie, komputery kwantowe mogą rozwiązywać problemy, które są trudne lub wręcz niemożliwe do rozwiązania za pomocą klasycznych komputerów. 
+Komputery kwantowe oferują obiecującą technologię, która otwiera nowe możliwości w dziedzinie obliczeń oraz nauki.
 
 
-## Obliczenia kwantowe 
+## Obliczenia kwantowe bardziej szczegółowo
 
 > Film wprowadzający: [link](https://www.youtube.com/watch?v=-UlxHPIEVqA)
 
@@ -208,43 +224,64 @@ Fizyczna konstrukcja komputera kwantowego, a właściwie qubitu, jest zadaniem n
 
 #### Kwantowa Złożoność (Quantum Complexity)
 
-Nowy paradygmat obliczeń kwantowych wykorzystuje unikalne cechy interferencji, superpozycji i splątania do realizacji obliczeń. Obecnie realizowany jest w trzech głównych modelach:
+Nowy paradygmat obliczeń kwantowych wykorzystuje unikalne cechy interferencji, superpozycji i splątania do realizacji obliczeń. 
+Obecnie realizowany jest w trzech głównych modelach:
 
 1.	Quantum Circuits (Obwody Kwantowe) - oparty na modelu bramkowym, pozwala realizować algorytmy typu QAOA, VQA oraz metody hybrydowe.
 2.	Adiabatyczne Obliczenia Kwantowe (D-Wave) - polegające na minimalizacji energii, wykorzystując optymalizację QUBO i analogię do modelu Isinga.
 3.	Topologiczne Komputery Kwantowe - oparte na topologicznych kubitach.
 
-Problemy, które klasycznie są trudne do rozwiązania, takie jak optymalizacja, mogą stać się łatwiejsze dla komputerów kwantowych. Przykładem jest faktoryzacja liczb. Klasyczne komputery nie są w stanie efektywnie symulować działania komputerów kwantowych; koszt najlepszych symulatorów rośnie wykładniczo wraz z liczbą kubitów. Możliwości komputerów kwantowych są potencjalnie ogromne, ale obecnie istnieją pewne ograniczenia. Więcej informacji można znaleźć w artykule Co naprawdę może zrobić komputer kwantowy.
+Problemy, które klasycznie są trudne do rozwiązania, takie jak optymalizacja, mogą być realizowane szybciej przez komputery kwantowe. 
+Przykładem jest faktoryzacja liczb. 
 
-Podstawowym faktem przewagi komputerów kwantowych nad klasycznymi jest tzw. parallelizm. Dzięki temu, że kubity mogą znajdować się w superpozycji stanów, komputer kwantowy może przeprowadzać obliczenia jednocześnie na wszystkich stanach. Co dokładnie to oznacza, poznamy w dalszej części wykładu.
+Podstawowym faktem przewagi komputerów kwantowych nad klasycznymi jest tzw. parallelizm. 
+Dzięki temu, że kubity mogą znajdować się w superpozycji stanów, komputer kwantowy może przeprowadzać obliczenia jednocześnie na wszystkich stanach. 
+Co dokładnie to oznacza, poznamy w dalszej części wykładu.
 
-Rozważmy sytuację, w której chcemy poznać działanie funkcji  f(x)  dla pewnego argumentu  x . Aby znaleźć wynik dla dwóch liczb (np.  x = 0  i  x = 1 ), klasyczny komputer musi wykonać dwie operacje. Komputer kwantowy może uzyskać ten wynik, przeprowadzając obliczenia jednocześnie dla obu wartości. Do wykonania takiej operacji wystarczy jeden kubit.
+Rozważmy sytuację, w której chcemy poznać działanie funkcji  $f(x)$  dla pewnego argumentu  $x$ . 
+Aby znaleźć wynik dla dwóch liczb (np.  $x = 0$  i  $x = 1$), klasyczny komputer musi wykonać dwie operacje. 
+Komputer kwantowy może uzyskać ten wynik, przeprowadzając obliczenia jednocześnie dla obu wartości.
+ Do wykonania takiej operacji wystarczy jeden kubit.
 
-Jeśli chcemy obliczyć naszą funkcję dla kolejnych liczb  x = 2  (które binarnie reprezentowane jest jako  10 ) oraz liczby  x = 3  (binarnie  11 ), musimy dodać kolejny kubit. Dwa kubity mogą posłużyć do realizacji czterech równoległych operacji. Jeśli rozważymy 3 kubity, możemy podwoić liczbę operacji (3 kubity mają 8 stanów bazowych). Dodanie kubitu do komputera kwantowego pozwala podwoić liczbę równoległych obliczeń. W przypadku klasycznego komputera, aby uzyskać taki efekt, trzeba by podwoić liczbę bitów. Generalnie,  n -kubitów może realizować  2^n  równoległych obliczeń.
+Jeśli chcemy obliczyć naszą funkcję dla kolejnych liczb  x = 2  (które binarnie reprezentowane jest jako  10 ) oraz liczby  x = 3  (binarnie  11 ), musimy dodać kolejny kubit. 
+Dwa kubity mogą posłużyć do realizacji czterech równoległych operacji. Jeśli rozważymy 3 kubity, możemy podwoić liczbę operacji (3 kubity mają 8 stanów bazowych).
+Dodanie kubitu do komputera kwantowego pozwala podwoić liczbę równoległych obliczeń.
+W przypadku klasycznego komputera, aby uzyskać taki efekt, trzeba by podwoić liczbę bitów. Generalnie,  n -kubitów może realizować  2^n  równoległych obliczeń.
 
 Druga istotna koncepcja w obliczeniach kwantowych to pamięć.
 
-W klasycznych komputerach (np. 64-bitowy laptop) każda liczba może być reprezentowana w 64-bitowej formie (rozszerzenie reprezentacji 8-bitowej). Jeśli chcemy przechować 4 liczby w tej reprezentacji, potrzebujemy  4 \times 64 = 256  bitów pamięci na twardym dysku. Generalnie, dla  M  liczb potrzebujemy  M \times 64  bitów pamięci.
+W klasycznych komputerach (np. 64-bitowy laptop) każda liczba może być reprezentowana w 64-bitowej formie (rozszerzenie reprezentacji 8-bitowej). 
+Jeśli chcemy przechować 4 liczby w tej reprezentacji, potrzebujemy  $4 \times 64 = 256$  bitów pamięci na twardym dysku. 
+Generalnie, dla  $M$  liczb potrzebujemy  $M \times 64$  bitów pamięci.
 
-W przypadku komputerów kwantowych operujących na  n -kubitach, sytuacja wygląda inaczej. Możemy przechowywać  2^n  różnych współczynników, traktując taki stan jako pamięć. W odróżnieniu od klasycznej pamięci, gdzie ilość bitów pamięci jest liniowa w stosunku do liczby przechowywanych danych, pamięć realizowana na kubitach jest funkcją logarytmiczną od liczby liczb.
+W przypadku komputerów kwantowych operujących na  $n$-kubitach, sytuacja wygląda inaczej. 
+Możemy przechowywać  $2^n$  różnych współczynników, traktując taki stan jako pamięć.
+W odróżnieniu od klasycznej pamięci, gdzie ilość bitów pamięci jest liniowa w stosunku do liczby przechowywanych danych, pamięć realizowana na kubitach jest funkcją logarytmiczną od liczby liczb.
 
-Przykładowo, dla  n-kubitów, komputer kwantowy jest w stanie przechować  2^n  stanów, co jest równoważne  2^n  różnym współczynnikom. Tak więc, liczba kubitów potrzebnych do przechowania dużej ilości informacji rośnie znacznie wolniej niż liczba bitów w klasycznych komputerach.
+Przykładowo, dla  $n$-kubitów, komputer kwantowy jest w stanie przechować  $2^n$  stanów, co jest równoważne  $2^n$  różnym współczynnikom. 
+Tak więc, liczba kubitów potrzebnych do przechowania dużej ilości informacji rośnie znacznie wolniej niż liczba bitów w klasycznych komputerach.
 
-Współczesne klasyczne komputery są bardzo zaawansowane i mogą zawierać dziesiątki terabajtów pamięci, co pozwala im na symulację niewielkich układów kwantowych. Największe klasyczne komputery są w stanie symulować układy do około 46 kubitów. Dla porównania, obecnie IBM oferuje komputery kwantowe oparte na 127 kubitach, a nawet rozwijają technologie dla układów z 1000 kubitami.
+Współczesne klasyczne komputery są bardzo zaawansowane i mogą zawierać dziesiątki terabajtów pamięci, co pozwala im na symulację niewielkich układów kwantowych.
+Największe klasyczne komputery są w stanie symulować układy do około 46 kubitów. 
+Dla porównania, obecnie IBM oferuje komputery kwantowe oparte na 127 kubitach, a nawet rozwijają technologie dla układów z 1000 kubitami.
 
-Podsumowanie: Pamięć w komputerach kwantowych jest znacznie bardziej efektywna w przechowywaniu informacji w porównaniu do klasycznych komputerów. Dzięki możliwości reprezentowania wielu stanów jednocześnie, komputery kwantowe oferują potencjalnie ogromne możliwości obliczeniowe przy znacznie mniejszych wymaganiach pamięciowych.
+Pamięć w komputerach kwantowych jest znacznie bardziej efektywna w przechowywaniu informacji w porównaniu do klasycznych komputerów. 
+Dzięki możliwości reprezentowania wielu stanów jednocześnie, komputery kwantowe oferują potencjalnie ogromne możliwości obliczeniowe przy znacznie mniejszych wymaganiach pamięciowych.
 
 #### Kwantowa Korekcja Błędów (Quantum Error Correction)
 
-Dekoherencja, czyli oddziaływanie kwantowego systemu z jego otoczeniem, może zniszczyć stan komputera kwantowego i wprowadzać błędy obliczeniowe. Aby zapewnić integralność obliczeń w komputerach kwantowych, konieczne jest zastosowanie technik korekcji błędów.
+Dekoherencja, czyli oddziaływanie kwantowego systemu z jego otoczeniem, może zniszczyć stan komputera kwantowego i wprowadzać błędy obliczeniowe. 
+Aby zapewnić integralność obliczeń w komputerach kwantowych, konieczne jest zastosowanie technik korekcji błędów.
 
-Kwantowa korekcja błędów (Quantum Error Correction) jest kluczowym obszarem badawczym w dziedzinie obliczeń kwantowych, który zajmuje się identyfikowaniem i korygowaniem błędów w systemach kwantowych. W przeciwieństwie do klasycznych systemów komputerowych, gdzie błędy mogą być łatwo korygowane, w przypadku komputerów kwantowych sytuacja jest bardziej złożona z powodu delikatnej natury stanów kwantowych oraz zjawisk takich jak superpozycja i splątanie.
+Kwantowa korekcja błędów (Quantum Error Correction) jest kluczowym obszarem badawczym w dziedzinie obliczeń kwantowych, który zajmuje się identyfikowaniem i korygowaniem błędów w systemach kwantowych. 
+W przeciwieństwie do klasycznych systemów komputerowych, gdzie błędy mogą być łatwo korygowane, w przypadku komputerów kwantowych sytuacja jest bardziej złożona z powodu delikatnej natury stanów kwantowych oraz zjawisk takich jak superpozycja i splątanie.
 
-Era Noisy Intermediate-Scale Quantum (NISQ) oznacza, że obecne komputery kwantowe, mimo że są zaawansowane, wciąż są w fazie rozwoju i borykają się z problemami związanymi z błędami i stabilnością. Systemy NISQ są wystarczająco zaawansowane, by wykonywać pewne interesujące obliczenia kwantowe, ale nadal wymagają dalszych postępów w zakresie korekcji błędów oraz stabilności, aby mogły osiągnąć pełny potencjał.
+Era Noisy Intermediate-Scale Quantum (NISQ) oznacza, że obecne komputery kwantowe, mimo że są zaawansowane, wciąż są w fazie rozwoju i borykają się z problemami związanymi z błędami i stabilnością. 
+Systemy NISQ są wystarczająco zaawansowane, by wykonywać pewne interesujące obliczenia kwantowe, ale nadal wymagają dalszych postępów w zakresie korekcji błędów oraz stabilności, aby mogły osiągnąć pełny potencjał.
 
-W praktyce, kwantowa korekcja błędów wymaga stosowania specjalnych kodów kwantowych, które pozwalają na detekcję i korekcję błędów bez bezpośredniego pomiaru stanów kwantowych. Kody te wprowadzają redundancję w reprezentacji informacji kwantowej, co pozwala na naprawę błędów i utrzymanie poprawności obliczeń.
+W praktyce, kwantowa korekcja błędów wymaga stosowania specjalnych kodów kwantowych, które pozwalają na detekcję i korekcję błędów bez bezpośredniego pomiaru stanów kwantowych. 
+Kody te wprowadzają redundancję w reprezentacji informacji kwantowej, co pozwala na naprawę błędów i utrzymanie poprawności obliczeń.
 
-Podsumowanie: Korekcja błędów w obliczeniach kwantowych jest kluczowym wyzwaniem, które musi być rozwiązane, aby komputery kwantowe mogły działać efektywnie i niezawodnie. W miarę rozwoju technologii kwantowej, oczekuje się, że techniki korekcji błędów będą się rozwijać, umożliwiając coraz bardziej zaawansowane i stabilne komputery kwantowe.
 
 ### Realizacja fizyczna komputerów kwantowych
 
@@ -256,21 +293,22 @@ Podsumowanie: Korekcja błędów w obliczeniach kwantowych jest kluczowym wyzwan
 
 W obliczeniach kwantowych cały proces można podzielić na trzy główne etapy:
 
-1.	Przygotowanie
+1.	**Przygotowanie**
 
 Przygotowanie stanów kwantowych kubitów to pierwszy krok w procesie obliczeń kwantowych. W tym etapie tworzymy początkowy stan kubitów, który będzie podstawą dla dalszych operacji. Stan ten może być przygotowany na różne sposoby, w zależności od problemu i algorytmu, który chcemy zaimplementować. Przykładowo, kubity mogą być przygotowane w stanach podstawowych, stanach superpozycji lub w stanach splątanych.
 
-2.	Ewolucja
+2.	**Ewolucja**
 
-Ewolucja polega na stosowaniu bramek kwantowych, które transformują stan kubitów zgodnie z zaplanowanym algorytmem. Bramki kwantowe to odpowiedniki operacji logicznych w klasycznych komputerach, ale operują one na stanach kwantowych, wykorzystując zjawiska takie jak superpozycja i splątanie. Bramki kwantowe są reprezentowane przez macierze unitarnie, które przekształcają stany kubitów w czasie ewolucji obliczeń.
+Ewolucja polega na stosowaniu bramek kwantowych, które transformują stan kubitów zgodnie z zaplanowanym algorytmem. 
+Bramki kwantowe to odpowiedniki operacji logicznych w klasycznych komputerach, ale operują one na stanach kwantowych, wykorzystując zjawiska takie jak superpozycja i splątanie. 
+Bramki kwantowe są reprezentowane przez macierze unitarnie, które przekształcają stany kubitów w czasie ewolucji obliczeń.
 
-3.	Pomiar i interpretacja wyników
+3.	**Pomiar i interpretacja wyników**
 
-Po przeprowadzeniu ewolucji kwantowej następuje pomiar kubitów, który kończy obliczenia. Pomiar kwantowy “zapada” stan kubitu do jednego z możliwych wyników, co powoduje kolaps stanu kwantowego. Wyniki pomiaru są klasycznymi bitami, które można analizować i interpretować, aby uzyskać końcowy wynik obliczeń. Pomiar jest kluczowy, ponieważ to właśnie na podstawie wyników pomiarów uzyskujemy informacje, które są następnie analizowane w kontekście rozwiązania problemu.
-
-Podsumowanie
-
-Proces obliczeń kwantowych obejmuje przygotowanie stanów kubitów, ich transformację za pomocą bramek kwantowych oraz pomiar wyników. Każdy z tych kroków jest kluczowy dla uzyskania poprawnych i użytecznych wyników w obliczeniach kwantowych.
+Po przeprowadzeniu ewolucji kwantowej następuje pomiar kubitów, który kończy obliczenia. 
+Pomiar kwantowy “zapada” stan kubitu do jednego z możliwych wyników, co powoduje kolaps stanu kwantowego. 
+Wyniki pomiaru są klasycznymi bitami, które można analizować i interpretować, aby uzyskać końcowy wynik obliczeń. 
+Pomiar jest kluczowy, ponieważ to właśnie na podstawie wyników pomiarów uzyskujemy informacje, które są następnie analizowane w kontekście rozwiązania problemu.
 
 <img class="center" src="../img/quantum_proces2.png">
 
@@ -279,27 +317,27 @@ Proces obliczeń kwantowych obejmuje przygotowanie stanów kubitów, ich transfo
 
 Każdy komputer kwantowy (lub koprocesor kwantowy) musi współpracować z układem klasycznym, aby realizować pełne obliczenia i operacje. Oto, jak ta integracja zazwyczaj wygląda:
 
-1.	Interfejs Komunikacyjny
+1.	**Interfejs Komunikacyjny**
 
 Komputer kwantowy potrzebuje interfejsu do komunikacji z klasycznym komputerem. Interfejs ten umożliwia przesyłanie danych wejściowych do komputera kwantowego oraz odbieranie wyników obliczeń. Współczesne systemy często używają standardowych protokołów komunikacyjnych, takich jak TCP/IP, do przesyłania danych między układami klasycznymi a kwantowymi.
 
-2.	Przygotowanie Danych
+2.	**Przygotowanie Danych**
 
 Klasyczny komputer przygotowuje dane wejściowe dla komputera kwantowego. Może to obejmować kodowanie danych w formacie odpowiednim dla kwantowego algorytmu oraz przygotowanie stanów kwantowych. Proces ten często wymaga przetworzenia i dostosowania danych do specyficznych wymagań obliczeń kwantowych.
 
-3.	Wykonanie Obliczeń
+3.	**Wykonanie Obliczeń**
 
 Komputer kwantowy realizuje obliczenia, wykorzystując swoje qubity i bramki kwantowe. Operacje te są przeprowadzane zgodnie z algorytmami kwantowymi, które mogą wymagać precyzyjnego kontrolowania stanu qubitów i przeprowadzania skomplikowanych transformacji kwantowych.
 
-4.	Pomiar i Interpretacja
+4.	**Pomiar i interpretacja**
 
 Po zakończeniu obliczeń kwantowych, wyniki są mierzone i interpretowane. Pomiar kwantowy powoduje kolaps stanu qubitów do jednego z możliwych wyników, który jest następnie przesyłany do klasycznego komputera.
 
-5.	Postprocessing
+5.	**Postprocessing**
 
 Klasyczny komputer przeprowadza dalszą obróbkę wyników, interpretując i analizując dane uzyskane z obliczeń kwantowych. Może to obejmować interpretację wyników, porównanie z oczekiwaniami oraz podejmowanie decyzji na podstawie uzyskanych wyników.
 
-6.	Współpraca i Synchronizacja
+6.	**Współpraca i Synchronizacja**
 
 Współczesne systemy kwantowe często integrują komputery kwantowe jako koprocesory, które wspierają obliczenia klasyczne. Synchronizacja między komputerami kwantowymi a klasycznymi jest kluczowa dla efektywnego wykorzystania obu typów obliczeń i osiągnięcia optymalnych wyników.
 
@@ -386,22 +424,3 @@ def website():
 
 l = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 ```
-
-### Instalacja PennyLane
-
-Najprostrzym sposobem korzystania z biblioteki PennyLane jest wykorzystanie środowiska Google Colab.
-W nowym notatniku uruchom następujący kod: 
-```
-!pip install pennylane
-```
-Aby zainstalować bibliotekę PennyLane na własnym komputerze zaleca się utworzenie nowego środowiska wirtualnego Python (Zalecam Python3.10 lub 3.11). 
-```bash
-python3.11 -m venv venv
-source venv/bin/activate
-(venv) pip install pennylane jupyter matplotlib
-(venv) jupyter notebook 
-```
-
-Realizację instalacji na środowisku windows i Linux możesz wykonać zgodnie z~[filmem](https://www.youtube.com/watch?v=eiah6I3SnFk&list=PL_hJxz_HrXxsY23iiLZTxiPctXKYI6tNV).
-
-Polecam również zaznajomić się z podstawami biblioteki [PennyLane](https://www.youtube.com/playlist?list=PL_hJxz_HrXxsY23iiLZTxiPctXKYI6tNV). 

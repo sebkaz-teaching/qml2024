@@ -23,6 +23,25 @@ title: Sylabus
   [https://sebkaz-teaching.github.io/intro_to_qml/](https://sebkaz-teaching.github.io/qml2024/)
 
 
+**Support**
+Program realizowany jest ze wsparciem firmy Xanadu.
+
+**[Xanadu](https://xanadu.ai)** is a Canadian quantum computing company with the mission to build quantum computers that are useful and available to people everywhere. 
+Xanadu is one of the world's leading quantum hardware and software companies and also leads the development of PennyLane.
+
+**[PennyLane](https://pennylane.ai)** is an open-source software framework for quantum machine learning, quantum chemistry, and quantum computing, with the ability to run on all hardware. 
+
+Support and additional resources:
+
+- [QML demos](https://pennylane.ai/search/?contentType=DEMO&categories=quantum%20machine%20learning): Additional demos on quantum machine learning.
+- [Discussion Forum](https://discuss.pennylane.ai/): Where students can ask questions.
+- [Xanadu Slack](https://xanadu-quantum.slack.com/join/shared_invite/zt-nkwn25v9-H4hituCb_PUj4idG0MhSug#/shared-invite/email): Where students can join the community.
+- [QHack](https://qhack.ai/): for participating in a one-of-a-kind global quantum hackathon.
+- [PennyLane challenges](https://pennylane.ai/challenges/): For additional practice ideas.
+- [Xanadu research](https://xanadu.ai/research): Contains research on quantum machine learning, quantum chemistry, photonic quantum computing, quantum software, fault-tolerant architectures, and more.
+- [Xanadu newsletter](http://eepurl.com/gC-VQr): to stay up to date with the latest content and news.
+
+
 
 ## Cel Przedmiotu
 
@@ -36,6 +55,9 @@ przetwarzania i modelowania danych. Przedstawione na zajęciach biblioteki - IBM
 i szybką konstrukcje dowolnego algorytmu kwantowego. 
 Algorytmy te, jak np. algorytm Grovera wykorzystać można do wielu problemów obliczeniowych uczenia
 maszynowego bądź do konstrukcji kwantowych sieci neuronowych.
+
+
+
 
 ## Program przedmiotu
 

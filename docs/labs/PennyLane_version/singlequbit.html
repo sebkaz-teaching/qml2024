@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Narzędzia – Wstęp do kwantowego uczenia maszynowego</title>
+<title>X and H gates Flipping bits – Wstęp do kwantowego uczenia maszynowego</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -57,22 +57,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -101,8 +101,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="style.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../style.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed">
@@ -112,7 +141,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Wstęp do kwantowego uczenia maszynowego</span>
     </a>
   </div>
@@ -123,11 +152,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./sylabus.html"> 
+    <a class="nav-link" href="../../sylabus.html"> 
 <span class="menu-text">Sylabus</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./ksiazki.html"> 
+    <a class="nav-link" href="../../ksiazki.html"> 
 <span class="menu-text">Książki</span></a>
   </li>  
 </ul>
@@ -141,7 +170,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./info.html">Narzędzia</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">X and H gates Flipping bits</li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -155,13 +184,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Informacje ogólne</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./info.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../info.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Narzędzia</span></a>
   </div>
 </li>
@@ -176,7 +205,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures/wyklad1.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lectures/wyklad1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Komputery klasyczne i kwantowe</span></a>
   </div>
 </li>
@@ -191,32 +220,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#python" id="toc-python" class="nav-link active" data-scroll-target="#python">Python</a>
-  <ul class="collapse">
-  <li><a href="#nowe-środowisko-pythona" id="toc-nowe-środowisko-pythona" class="nav-link" data-scroll-target="#nowe-środowisko-pythona">Nowe środowisko pythona</a></li>
-  <li><a href="#instalacja-pennylane" id="toc-instalacja-pennylane" class="nav-link" data-scroll-target="#instalacja-pennylane">Instalacja PennyLane</a></li>
-  <li><a href="#naucz-się-pythona-w-2-godziny" id="toc-naucz-się-pythona-w-2-godziny" class="nav-link" data-scroll-target="#naucz-się-pythona-w-2-godziny">Naucz się Pythona w 2 godziny</a></li>
-  </ul></li>
-  <li><a href="#zacznij-korzystać-z-serwisu-github" id="toc-zacznij-korzystać-z-serwisu-github" class="nav-link" data-scroll-target="#zacznij-korzystać-z-serwisu-github">Zacznij korzystać z serwisu GitHub</a>
-  <ul class="collapse">
-  <li><a href="#struktura-githuba" id="toc-struktura-githuba" class="nav-link" data-scroll-target="#struktura-githuba">Struktura GitHuba</a></li>
-  <li><a href="#branche" id="toc-branche" class="nav-link" data-scroll-target="#branche">Branche</a></li>
-  <li><a href="#najważniejsze-polecnia-do-zapamiętania" id="toc-najważniejsze-polecnia-do-zapamiętania" class="nav-link" data-scroll-target="#najważniejsze-polecnia-do-zapamiętania">Najważniejsze polecnia do zapamiętania</a></li>
-  </ul></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Narzędzia</h1>
+<h1 class="title">X and H gates Flipping bits</h1>
 </div>
 
 
@@ -233,176 +245,54 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="python" class="level2">
-<h2 class="anchored" data-anchor-id="python">Python</h2>
-<p>W terminalu (Windows CMD) wpisz</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Jeśli nie odnaleziono komendy uruchom polecenie:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Zwróć uwagę, aby Twoja wersja nie była niższa niż 3.X Aby wyjść z powłoki pythona użyj funkcji <code>exit()</code></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">Python</span> 3.10.9 <span class="er">(</span><span class="ex">main,</span> Dec 15 2022, 17:11:09<span class="kw">)</span> <span class="ex">[Clang</span> 14.0.0 <span class="er">(</span><span class="ex">clang-1400.0.29.202</span><span class="kw">)</span><span class="ex">]</span> on darwin</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">Type</span> <span class="st">"help"</span>, <span class="st">"copyright"</span>, <span class="st">"credits"</span> or <span class="st">"license"</span> for more information.</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> exit<span class="kw">()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<section id="nowe-środowisko-pythona" class="level3">
-<h3 class="anchored" data-anchor-id="nowe-środowisko-pythona">Nowe środowisko pythona</h3>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> <span class="at">-m</span> venv <span class="op">&lt;</span>name of env<span class="op">&gt;</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> <span class="op">&lt;</span>name of env<span class="op">&gt;</span>/bin/activate</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Przykład</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> <span class="at">-m</span> venv venv</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> venv/bin/activate</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># . venv/bin/activate</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv</span><span class="kw">)</span> <span class="ex">$</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Instalacja podstawowych bibliotek i jupyterlab.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">--no-cache</span> <span class="at">--upgrade</span> pip setuptools</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install pip install pennylane jupyter matplotlib</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># jeśli masz plik requirements.txt z potrzebnymi bibliotekami</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-r</span> requirements.txt</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># uruchom </span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="ex">jupyterlab</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>W przeglądarce internetowej wpisz: <em>localhost:8888</em></p>
-<p>Po ponownym uruchomieniu przejdź do katalogu w którym utworzyłeś środowisko, następnie uruchom środowisko i jupyterlab.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> <span class="op">&lt;</span>name of env<span class="op">&gt;</span>/bin/activate</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">jupyterlab</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
-<section id="instalacja-pennylane" class="level3">
-<h3 class="anchored" data-anchor-id="instalacja-pennylane">Instalacja PennyLane</h3>
-<p>Najprostrzym sposobem korzystania z biblioteki PennyLane jest wykorzystanie środowiska Google Colab. W nowym notatniku uruchom następujący kod:</p>
-<pre><code>!pip install pennylane</code></pre>
-<p>Aby zainstalować bibliotekę PennyLane na własnym komputerze zaleca się utworzenie nowego środowiska wirtualnego Python (Zalecam Python3.10 lub 3.11).</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python3.11</span> <span class="at">-m</span> venv venv</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> venv/bin/activate</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv</span><span class="kw">)</span> <span class="ex">pip</span> install pennylane jupyter matplotlib</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="kw">(</span><span class="ex">venv</span><span class="kw">)</span> <span class="ex">jupyter</span> notebook </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Realizację instalacji na środowisku windows i Linux możesz wykonać zgodnie z~<a href="https://www.youtube.com/watch?v=eiah6I3SnFk&amp;list=PL_hJxz_HrXxsY23iiLZTxiPctXKYI6tNV">filmem</a>.</p>
-<p>Polecam również zaznajomić się z podstawami biblioteki <a href="https://www.youtube.com/playlist?list=PL_hJxz_HrXxsY23iiLZTxiPctXKYI6tNV">PennyLane</a>.</p>
-</section>
-<section id="naucz-się-pythona-w-2-godziny" class="level3">
-<h3 class="anchored" data-anchor-id="naucz-się-pythona-w-2-godziny">Naucz się Pythona w 2 godziny</h3>
-<p>Kurs podstaw pythona <a href="https://www.tomasbeuzen.com/python-programming-for-data-science/README.html">Tomas Beuzen</a> polecam.</p>
-<p>Utwórz konto na <a href="https://kaggle.com">Kaggle</a>, przejdź do zakładki <code>Courses</code> i przerób cały moduł Pythona. Zawiera on:</p>
+<p>Learning Objectives:</p>
 <ul>
-<li>wyrażenia i zmienne</li>
-<li>funkcje</li>
-<li>warunki i flow programu</li>
-<li>listy</li>
-<li>pętle</li>
-<li>stringi i słowniki</li>
-<li>dodawanie i używanie zewnętrznych bibliotek</li>
+<li>Explain why we can understand how an operation works by applying it to the basis states.</li>
+<li>Describe the action of the X gate, its matrix representation, and eigenvalues.</li>
+<li>Describe the action of the Hadamard gate, its matrix representation, and eigenvalues.</li>
 </ul>
-</section>
-</section>
-<section id="zacznij-korzystać-z-serwisu-github" class="level2">
-<h2 class="anchored" data-anchor-id="zacznij-korzystać-z-serwisu-github">Zacznij korzystać z serwisu GitHub</h2>
-<div id="git">
-
+<p>A common use of the gate is in initializing the state of a qubit at the beginning of an algorithm. Quite often, we would like our qubits to start in state (which is the default in PennyLane), however there are many cases where we instead would like to start from Complete the function below by using qml.PauliX to initialize the qubit’s state to or based on an input flag. Then, use qml.QubitUnitary to apply the provided unitary U.</p>
+<p><span class="math display">\[
+\newcommand{\bra}[1]{\left \langle #1 \right \rvert}
+\newcommand{\ket}[1]{\left \rvert #1 \right \rangle}
+\newcommand{\braket}[2]{\left \langle #1 \middle \rvert #2 \right \rangle}
+\]</span></p>
+<div id="cell-3" class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>dev <span class="op">=</span> qml.device(<span class="st">"default.qubit"</span>, wires<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>U <span class="op">=</span> np.array([[<span class="dv">1</span>, <span class="dv">1</span>], [<span class="dv">1</span>, <span class="op">-</span><span class="dv">1</span>]]) <span class="op">/</span> np.sqrt(<span class="dv">2</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="at">@qml.qnode</span>(dev)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> varied_initial_state(state):</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Complete the function such that we can apply the operation U to</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">    either |0&gt; or |1&gt; depending on the input argument flag.</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">    Args:</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">        state (int): Either 0 or 1. If 1, prepare the qubit in state |1&gt;,</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co">            otherwise, leave it in state 0.</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns:</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co">        np.array[complex]: The state of the qubit after the operations.</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="co">##################</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="co"># YOUR CODE HERE #</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="co">##################</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="co"># KEEP THE QUBIT IN |0&gt; OR CHANGE IT TO |1&gt; DEPENDING ON THE state PARAMETER</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="co"># APPLY U TO THE STATE</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> qml.state()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Tekst na podstawie strony <a href="http://pbiecek.github.io/Przewodnik/Programowanie/jak_korzystac_z_serwisu_github_i_waffle.html">jak korzystać z serwisu github</a></p>
-<p>Pracując nad projektem np. praca magisterska, (samodzielnie lub w zespole) często potrzebujesz sprawdzić jakie zmiany, kiedy i przez kogo zostały wprowadzone do projektu. W zadaniu tym świetnie sprawdza się <code>system kontroli wersji</code> czyli <a href="https://git-scm.com">GIT</a>.</p>
-<p>Git możesz pobrać i zainstalować jak zwykły program na dowolnym komputerze. Jednak najczęściej (małe projekty) korzysta się z serwisów z jakimś systemem git. Jednym z najbardziej rozpoznawanych jest <a href="www.github.com">GitHub</a> dzięki któremu możesz korzystać z systemu git bez jego instalacji na swoim komputerze.</p>
-<p>W darmowej wersji serwisu <code>GitHub</code> swoje pliki możesz przechowywać w publicznych (dostęp mają wszyscy) repozytoriach.<br>
-Skupimy się wyłącznie na darmowej wersji serwisu GitHub.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> <span class="at">--version</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<section id="struktura-githuba" class="level3">
-<h3 class="anchored" data-anchor-id="struktura-githuba">Struktura GitHuba</h3>
-<p>Na najwyższym poziomie znajdują się konta indywidualne (np <a href="http://github.com/sebkaz">http://github.com/sebkaz</a>, bądź zakładane przez organizacje. Użytkownicy indywidualni mogą tworzyć <strong>repozytoria</strong> publiczne (<code>public</code> ) bądź prywatne (<code>private</code>).</p>
-<p>Jeden plik nie powinien przekraczać 100 MB.</p>
-<p><strong>Repo</strong> (skrót do repozytorium) tworzymy za pomocą <code>Create a new repository</code>. Każde repo powinno mieć swoją indywidualną nazwę.</p>
-</section>
-<section id="branche" class="level3">
-<h3 class="anchored" data-anchor-id="branche">Branche</h3>
-<p>Główna (tworzona domyślnie) gałąź rapozytorium ma nazwę <code>master</code>.</p>
-</section>
-<section id="najważniejsze-polecnia-do-zapamiętania" class="level3">
-<h3 class="anchored" data-anchor-id="najważniejsze-polecnia-do-zapamiętania">Najważniejsze polecnia do zapamiętania</h3>
-<ul>
-<li><em>ściąganie repozytorium z sieci</em></li>
-</ul>
-<div class="sourceCode" id="cb10"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone https://adres_repo.git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<blockquote class="blockquote">
-<p>W przypadku githuba możesz pobrać repozytorium jako plik zip.</p>
-</blockquote>
-<ul>
-<li><em>Tworzenie repozytorium dla lokalnego katalogu</em></li>
-</ul>
-<div class="sourceCode" id="cb11"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># tworzenie nowego katalogu</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> datamining</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># przejście do katalogu</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> datamining</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co"># inicjalizacja repozytorium w katalogu</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> init</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co"># powinien pojawić się ukryty katalog .git</span></span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="co"># dodajmy plik</span></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">"Info "</span> <span class="op">&gt;&gt;</span> README.md</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ul>
-<li>Połącz lokalne repozytorium z kontem na githubie</li>
-</ul>
-<div class="sourceCode" id="cb12"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> remote add origin https://github.com/<span class="op">&lt;</span>twojGit<span class="op">&gt;</span>/nazwa.git</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ul>
-<li>Obsługa w 3 krokach</li>
-</ul>
-<div class="sourceCode" id="cb13"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sprawdź zmiany jakie zostały dokonane</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> status</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. dodaj wszystkie zmiany</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. zapisz bierzący stan wraz z informacją co zrobiłeś</span></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">" opis "</span></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. potem już zostaje tylko</span></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push origin master</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Warto obejrzeć <a href="https://www.youtube.com/watch?v=HVsySz-h9r4">Youtube course</a>.</p>
-<p>Ciekawe i proste wprowadzenie mozna znaleźć <a href="http://rogerdudler.github.io/git-guide/index.pl.html">tutaj</a></p>
-<!-- ## Zacznij korzystać z Dockera
-<div id="docker"></div>
-W celu pobrania oprogramowania docker na swój system przejdź do [strony](https://docs.docker.com/get-docker/).
+<!-- 
+if state:
+        qml.PauliX(wires=0)
 
-Jeżli wszystko zainstalowało się prawidłowo wykonaj następujące polecenia:
-
-1. Sprawdź zainstalowaną wersję
-
-```bash
-docker --version
-```
-
-2. Ściągnij i uruchom obraz `Hello World` i 
-
-```bash
-docker run hello-world
-```
-
-3. Przegląd ściągnietych obrazów:
-
-```bash
-docker image ls
-
-docker images
-```
-
-4. Przegląd uruchomionych kontenerów:
-
-```bash
-docker ps 
-
-docker ps -all
-```
-
-5. Zatrzymanie uruchomionego kontenera: 
-
-```bash
-docker stop <CONTAINER ID>
-```
-
-6. Usunięcie kontenera
-```bash
-docker rm -f <CONTAINER ID>
-```
-
-Polecam również [krótkie intro](https://medium.com/codingthesmartway-com-blog/docker-beginners-guide-part-1-images-containers-6f3507fffc98) -->
+    qml.QubitUnitary(U, wires=0)
+-->
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
