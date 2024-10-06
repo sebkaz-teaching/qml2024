@@ -16,85 +16,141 @@ $$
 \newcommand{\braket}[2]{\left \langle #1 \middle \rvert #2 \right \rangle}
 $$
 
-1. Codercise l.1.1 - Normalization of quantum states
+### PyTorch Regresja liniowa
 
-In this codercise, you are given an unnormalized vector
+```{python}
+import torch
+import numpy as np
+import matplotlib.pyplot as plt
 
-$$ \ket{\psi} = \alpha \ket{0} + \beta \ket{1} $$
-$$ |\alpha|^2 + |\beta|^2 \neq 1 $$ 
+class LinearRegression(torch.nn.Module):
 
-We can turn this into an equivalent, valid quantum state  by normalizing it. 
-Your task is to complete the function `normalize_state` so that, given  and  it normalizes this state to
-$$ \ket{\psi^{\ast}} = \alpha^{\ast} \ket{0} + \beta^{\ast} \ket{1} $$
-$$ |\alpha^{\ast}|^2 + |\beta^{\ast}|^2 \neq 1 $$ 
+    def __init__(self, inputSize, outputSize):
+        super(LinearRegression, self).__init__()
+        self.linear = torch.nn.Linear(inputSize, outputSize)
 
-```python
-ket_0 = np.array([1, 0])
-ket_1 = np.array([0, 1])
+    def forward(self, x):
+        out = self.linear(x)
+        return out
 
 
-def normalize_state(alpha, beta):
-    """Compute a normalized quantum state given arbitrary amplitudes.
+inputDim = 1
+outputDim = 1
+learningRate = 0.01
+epochs = 100
 
-    Args:
-        alpha (complex): The amplitude associated with the |0> state.
-        beta (complex): The amplitude associated with the |1> state.
+model = LinearRegression(inputDim, outputDim)
 
-    Returns:
-        np.array[complex]: A vector (numpy array) with 2 elements that represents
-        a normalized quantum state.
-    """
-    ##################
-    # YOUR CODE HERE #
-    ##################
+x = np.arange(11)
+print(f"dane: {x}")
 
+y = [2*el - 1 for el in x]
+print(f"target: {y}")
+
+# dostosowanie do pytorch
+y  = np.array(y, dtype=np.float32)
+x_train = np.array(x, dtype=np.float32)
+x_train, y_train = x_train.reshape(-1, 1), y.reshape(-1, 1)
+
+inputs = torch.from_numpy(x_train)
+outputs = torch.from_numpy(y_train)
+
+criterion = torch.nn.MSELoss() 
+optimizer = torch.optim.SGD(model.parameters(), lr=learningRate)
+# petla uczaca 
+for epoch in range(epochs):
+    # forward pass and loss
+    y_predicted = model(inputs)
+    loss = criterion(y_predicted, outputs)
     
-    # CREATE A VECTOR [a', b'] BASED ON alpha AND beta SUCH THAT |a'|^2 + |b'|^2 = 1
+    # backward pass
+    loss.backward()
+    
+    # updates
+    optimizer.step()
+    
+    # zero gradients
+    optimizer.zero_grad()
+    
+    if (epoch+1) % 10 == 0:
+        print(f'epoch: {epoch+1}, loss = {loss.item():.4f}')
 
-    # RETURN A VECTOR
-    pass
+with torch.no_grad():
+    predicted = model(inputs)
+
+plt.clf()
+plt.plot(x_train, y_train, 'go', label='True data', alpha=0.5)
+plt.plot(x_train, predicted, '--', label='Predictions', alpha=0.5)
+plt.legend(loc='best')
+plt.show()
+
+
 ```
 
+### PyTorch Regresja logistyczna
 
-2. Codercise l.1.2 - Inner product and orthonormal bases
-Complete the `inner_product` function below that computes the inner product between two arbitrary states.
- Then, use it to verify that $\ket{0}$  and $\ket{1}$  form an orthonormal basis, i.e., 
- the states are normalized and orthogonal.
+```{python}
+import torch
+import numpy as np
+import matplotlib.pyplot as plt
 
-```python
-def inner_product(state_1, state_2):
-    """Compute the inner product between two states.
+class LogisticRegression(torch.nn.Module):
 
-    Args:
-        state_1 (np.array[complex]): A normalized quantum state vector
-        state_2 (np.array[complex]): A second normalized quantum state vector
+    def __init__(self, inputSize, outputSize):
+        super(LogisticRegression, self).__init__()
+        self.linear = torch.nn.Linear(inputSize, outputSize)
 
-    Returns:
-        complex: The value of the inner product <state_1 | state_2>.
-    """
-    ##################
-    # YOUR CODE HERE #
-    ##################
+    def forward(self, x):
+        x = self.linear(x)
+        y_pred = torch.sigmoid(x)
+        return y_pred
+
+
+inputDim = 1
+outputDim = 1
+learningRate = 0.001
+epochs = 100
+
+model = LogisticRegression(inputDim, outputDim)
+
+x = np.arange(11)
+print(f"dane: {x}")
+
+import random
+y = [random.choice([0,1]) for _ in range(11)]
+print(f"target: {y}")
+
+# dostosowanie do pytorch
+y  = np.array(y, dtype=np.float32)
+x_train = np.array(x, dtype=np.float32)
+x_train, y_train = x_train.reshape(-1, 1), y.reshape(-1, 1)
+
+inputs = torch.from_numpy(x_train)
+outputs = torch.from_numpy(y_train)
+
+criterion = torch.nn.CrossEntropyLoss()
+optimizer = torch.optim.SGD(model.parameters(), lr=learningRate)
+# petla uczaca 
+for epoch in range(epochs):
+    # forward pass and loss
+    y_predicted = model(inputs)
+    loss = criterion(y_predicted, outputs)
     
+    # backward pass
+    loss.backward()
+    
+    # updates
+    optimizer.step()
+    
+    # zero gradients
+    optimizer.zero_grad()
+    
+    if (epoch+1) % 10 == 0:
+        print(f'epoch: {epoch+1}, loss = {loss.item():.4f}')
 
-    # COMPUTE AND RETURN THE INNER PRODUCT
 
-    return solution
-
-
-# Test your results with this code
-ket_0 = np.array([1, 0])
-ket_1 = np.array([0, 1])
-
-print(f"<0|0> = {inner_product(ket_0, ket_0)}")
-print(f"<0|1> = {inner_product(ket_0, ket_1)}")
-print(f"<1|0> = {inner_product(ket_1, ket_0)}")
-print(f"<1|1> = {inner_product(ket_1, ket_1)}")
+with torch.no_grad():
+    y_predicted = model(inputs) 
+    acc = y_predicted.eq(outputs).sum() / float(y_train.shape[0])  # accuracy
+    print(f'accuracy = {acc:.4f}')
 ```
-
-
-
-3. Codercise l.1.3 - Sampling measurement outcomes
-
-
-
