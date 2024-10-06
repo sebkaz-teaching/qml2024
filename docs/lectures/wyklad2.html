@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -170,7 +136,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Klasyczne bramki logiczne - Algebra Boola</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lectures/wyklad1.html">Wykłady</a></li><li class="breadcrumb-item"><a href="../lectures/wyklad2.html">Klasyczne bramki logiczne - Algebra Boola</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -209,6 +175,46 @@ window.Quarto = {
  <span class="menu-text">Komputery klasyczne i kwantowe</span></a>
   </div>
 </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">ćwiczenia do W1</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/cw_w1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Zadania Python</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/wyklad2.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Klasyczne bramki logiczne - Algebra Boola</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">ćwiczenia do W2</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/cw_w2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Pennylane Codebook</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -237,7 +243,6 @@ window.Quarto = {
   <li><a href="#inne-bramki-i-operacje-logiczne" id="toc-inne-bramki-i-operacje-logiczne" class="nav-link" data-scroll-target="#inne-bramki-i-operacje-logiczne">Inne bramki i operacje logiczne</a></li>
   <li><a href="#uniweralne-bramki-logiczne---nand" id="toc-uniweralne-bramki-logiczne---nand" class="nav-link" data-scroll-target="#uniweralne-bramki-logiczne---nand">Uniweralne bramki logiczne - NAND</a></li>
   </ul></li>
-  <li><a href="#kody-python" id="toc-kody-python" class="nav-link" data-scroll-target="#kody-python">Kody python</a></li>
   <li><a href="#szyfrowanie-z-wykorzystaniem-bramki-xor" id="toc-szyfrowanie-z-wykorzystaniem-bramki-xor" class="nav-link" data-scroll-target="#szyfrowanie-z-wykorzystaniem-bramki-xor">Szyfrowanie z wykorzystaniem bramki XOR</a>
   <ul class="collapse">
   <li><a href="#decyrpting-message" id="toc-decyrpting-message" class="nav-link" data-scroll-target="#decyrpting-message">decyrpting message</a></li>
@@ -249,7 +254,7 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lectures/wyklad1.html">Wykłady</a></li><li class="breadcrumb-item"><a href="../lectures/wyklad2.html">Klasyczne bramki logiczne - Algebra Boola</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Klasyczne bramki logiczne - Algebra Boola</h1>
 </div>
@@ -651,21 +656,6 @@ Pamięć RAM jest zorganizowana w komórki, które mogą przechowywać pojedyncz
 Do implementacji pamięci RAM wykorzystuje się zbiór bramek logicznych (NAND) oraz tranzystorów. -->
 </section>
 </section>
-<section id="kody-python" class="level2">
-<h2 class="anchored" data-anchor-id="kody-python">Kody python</h2>
-<blockquote class="blockquote">
-<p>Zadanie 1: Napisz kod symuljący wyrzucenie symetrycznej monety <span class="math inline">\(100\)</span>, <span class="math inline">\(1000\)</span>, <span class="math inline">\(10000\)</span> i <span class="math inline">\(100000\)</span> razy</p>
-</blockquote>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> random <span class="im">import</span> randrange</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># randrange(n) zwraca losową wartośc z przedziału (0,...,n-1)</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Twoje rozwiązanie </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<blockquote class="blockquote">
-<p>Zadanie 2: Napisz kod symulujący wyrzucenie niesymetrycznej monety gdzie prawdopodobieństwo wyrzucenia orła będzie wynosiło <span class="math inline">\(60\%\)</span>.</p>
-</blockquote>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> random <span class="im">import</span> randrange</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># randrange(n) zwraca losową wartośc z przedziału (0,...,n-1)</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Twoje rozwiązanie </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</section>
 <section id="szyfrowanie-z-wykorzystaniem-bramki-xor" class="level2">
 <h2 class="anchored" data-anchor-id="szyfrowanie-z-wykorzystaniem-bramki-xor">Szyfrowanie z wykorzystaniem bramki XOR</h2>
 <p>Weźmy dwie sekwencje bitów:</p>
@@ -701,34 +691,6 @@ Następnie losuje ciąg 0 i 1 jako szyfr i pokazuje wynik szyfrowania.
 Potem jak mam klucz to jak to odszyfrować. -Przyda się do BB84
 
 -->
-<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> random <span class="im">import</span> randrange</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># randrange(n) zwraca losową wartośc z przedziału (0,...,n-1)</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> experiment <span class="kw">in</span> [<span class="dv">100</span>,<span class="dv">1000</span>,<span class="dv">10000</span>,<span class="dv">100000</span>]:</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    heads <span class="op">=</span> tails <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(experiment):</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> randrange(<span class="dv">2</span>) <span class="op">==</span> <span class="dv">0</span>: heads <span class="op">=</span> heads <span class="op">+</span> <span class="dv">1</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>: tails <span class="op">=</span> tails <span class="op">+</span> <span class="dv">1</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"experiment:"</span>,experiment)</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"heads ="</span>,heads,<span class="st">"  tails = "</span>,tails)</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"the ratio of #heads/#tails is"</span>,(<span class="bu">round</span>(heads<span class="op">/</span>tails,<span class="dv">4</span>)))</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>() <span class="co"># empty line</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> random <span class="im">import</span> randrange</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># let's pick a random number between {0,1,...,99}</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># it is expected to be less than 60 with probability 0.6</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">#     and greater than or equal to 60 with probability 0.4</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># ten sam przypadek możesz zrealizować dla losowania wartosci rzeczywistej</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># pomiędzy 0 i 1.</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> experiment <span class="kw">in</span> [<span class="dv">100</span>,<span class="dv">1000</span>,<span class="dv">10000</span>,<span class="dv">100000</span>]:</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    heads <span class="op">=</span> tails <span class="op">=</span> <span class="dv">0</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(experiment):</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> randrange(<span class="dv">100</span>) <span class="op">&lt;</span><span class="dv">60</span>: heads <span class="op">=</span> heads <span class="op">+</span> <span class="dv">1</span> <span class="co"># with probability 0.6</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>: tails <span class="op">=</span> tails <span class="op">+</span> <span class="dv">1</span> <span class="co"># with probability 0.4</span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"experiment:"</span>,experiment)</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"heads ="</span>,heads,<span class="st">"  tails = "</span>,tails)</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"the ratio of #heads/#tails is"</span>,(<span class="bu">round</span>(heads<span class="op">/</span>tails,<span class="dv">4</span>)))</span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>() <span class="co"># empty line</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>

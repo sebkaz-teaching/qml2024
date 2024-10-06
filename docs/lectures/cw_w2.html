@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Informacje ogólne – Wstęp do kwantowego uczenia maszynowego</title>
+<title>cw_w2 – Wstęp do kwantowego uczenia maszynowego</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,25 +20,59 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -67,8 +101,37 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="style.css">
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../style.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed">
@@ -78,7 +141,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Wstęp do kwantowego uczenia maszynowego</span>
     </a>
   </div>
@@ -89,11 +152,11 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./sylabus.html"> 
+    <a class="nav-link" href="../sylabus.html"> 
 <span class="menu-text">Sylabus</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./ksiazki.html"> 
+    <a class="nav-link" href="../ksiazki.html"> 
 <span class="menu-text">Książki</span></a>
   </li>  
 </ul>
@@ -107,7 +170,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Informacje ogólne</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lectures/wyklad1.html">Wykłady</a></li><li class="breadcrumb-item"><a href="../lectures/cw_w2.html">ćwiczenia do W2</a></li><li class="breadcrumb-item"><a href="../lectures/cw_w2.html">Pennylane Codebook</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -121,13 +184,13 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Informacje ogólne</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./info.html" class="sidebar-item-text sidebar-link">
+  <a href="../info.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Narzędzia</span></a>
   </div>
 </li>
@@ -142,7 +205,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures/wyklad1.html" class="sidebar-item-text sidebar-link">
+  <a href="../lectures/wyklad1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Komputery klasyczne i kwantowe</span></a>
   </div>
 </li>
@@ -157,7 +220,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures/cw_w1.html" class="sidebar-item-text sidebar-link">
+  <a href="../lectures/cw_w1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Zadania Python</span></a>
   </div>
 </li>
@@ -165,22 +228,22 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures/wyklad2.html" class="sidebar-item-text sidebar-link">
+  <a href="../lectures/wyklad2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Klasyczne bramki logiczne - Algebra Boola</span></a>
   </div>
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
  <span class="menu-text">ćwiczenia do W2</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures/cw_w2.html" class="sidebar-item-text sidebar-link">
+  <a href="../lectures/cw_w2.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Pennylane Codebook</span></a>
   </div>
 </li>
@@ -202,90 +265,97 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section">Wstęp do kwantowego uczenia maszynowego</a></li>
-  <li><a href="#kalendarz" id="toc-kalendarz" class="nav-link" data-scroll-target="#kalendarz">Kalendarz</a></li>
-  <li><a href="#technologie" id="toc-technologie" class="nav-link" data-scroll-target="#technologie">Technologie</a></li>
-  <li><a href="#qpoland" id="toc-qpoland" class="nav-link" data-scroll-target="#qpoland">QPoland</a></li>
+  <li><a href="#pennylane-codebook" id="toc-pennylane-codebook" class="nav-link active" data-scroll-target="#pennylane-codebook">Pennylane Codebook</a>
+  <ul class="collapse">
+  <li><a href="#iqc-introduction-to-quantum-computing" id="toc-iqc-introduction-to-quantum-computing" class="nav-link" data-scroll-target="#iqc-introduction-to-quantum-computing">IQC: Introduction to Quantum Computing</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Informacje ogólne</h1>
-</div>
 
 
 
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<p>Witajcie wszyscy! Dziś chiałbym poruszyć temat nowego kursu z zakresu kwantowego uczenia maszynowego. Kurs ten będzie skupiał się na wykorzystaniu biblioteki pennylane, która jest jedną z najpopularniejszych bibliotek do tworzenia modeli kwantowych. W ramach kursu będziemy uczyć się podstaw kwantowego uczenia maszynowego, a także zastosowania tej wiedzy w praktyce. W trakcie kursu będziemy mieli okazję zapoznać się z różnymi narzędziami i technikami, które pozwolą nam na tworzenie skomplikowanych modeli kwantowych. W trakcie kursu będziemy również mieli okazję zapoznać się z różnymi algorytmami kwantowymi. Bardziej szczegółowo przetwarzać będziemy parametryzowane obwody kwantowe, które będą podstawowym elementem naszych modeli kwantowego uczenia maszynowego. Wszystko to pozwoli nam na lepsze zrozumienie zasad rządzących światem kwantowym i na wykorzystanie tej wiedzy w praktyce.</p>
-<section id="section" class="level2">
-<h2 class="anchored" data-anchor-id="section">Wstęp do kwantowego uczenia maszynowego</h2>
-<p>Kod: 232530-D</p>
-<p>Semestr zimowy 2024/2025,</p>
-<p>SGH Szkoła Główna Handlowa w Warszawie</p>
-<p>Podstawowe informacje znajdziesz w <a href="./sylabus">sylabusie</a>.</p>
-<p>Ciekawe książki i strony internetowe zamieszczone zostały w zakładce <a href="./ksiazki">książki</a>. Jeśli chciał(a)byś coś dodać prześlij informację przez MS teams.</p>
-</section>
-<section id="kalendarz" class="level2">
-<h2 class="anchored" data-anchor-id="kalendarz">Kalendarz</h2>
-<section id="wykład" class="level4">
-<h4 class="anchored" data-anchor-id="wykład">Wykład</h4>
-<p>Wykład jest realizowany w trybie hybrydowym. Jest on NIEOBOWIĄZKOWY i odbywa się w sali C4D.</p>
+<section id="pennylane-codebook" class="level2">
+<h2 class="anchored" data-anchor-id="pennylane-codebook">Pennylane Codebook</h2>
+<p>Wejdz na stronę <a href="https://pennylane.ai/codebook/">codebook</a>. Zarejestruj się i zaloguj.</p>
+<section id="iqc-introduction-to-quantum-computing" class="level3">
+<h3 class="anchored" data-anchor-id="iqc-introduction-to-quantum-computing">IQC: Introduction to Quantum Computing</h3>
+<p>Wykonaj pierwsze trzy ćwiczenia z sekcji wprowadzenie od obliczeń kwantowych.</p>
+<p><span class="math display">\[
+\newcommand{\bra}[1]{\left \langle #1 \right \rvert}
+\newcommand{\ket}[1]{\left \rvert #1 \right \rangle}
+\newcommand{\braket}[2]{\left \langle #1 \middle \rvert #2 \right \rangle}
+\]</span></p>
 <ol type="1">
-<li><del>
-30-09-2024 (poniedziałek) 11:40-13:20 - Wykład 1
-</del></li>
-<li>07-10-2024 (poniedziałek) 11:40-13:20 - Wykład 2</li>
-<li>14-10-2024 (poniedziałek) 11:40-13:20 - Wykład 3</li>
-<li>21-10-2023 (poniedziałek) 11:40-13:20 - Wykład 4</li>
-<li>28-10-2023 (poniedziałek) 11:40-13:20 - Wykład 5</li>
+<li>Codercise l.1.1 - Normalization of quantum states</li>
 </ol>
-</section>
-<section id="laboratoria" class="level4">
-<h4 class="anchored" data-anchor-id="laboratoria">Laboratoria</h4>
-<p>Wszystkie laboratoria odbywają się w sali C5D.</p>
-<ol type="1">
-<li>04-11-2024 (poniedziałek) 11:40-13:20 - Lab1</li>
-<li>13-11-2023 (poniedziałek) 11:40-13:20 - Lab2</li>
-<li>20-11-2023 (poniedziałek) 11:40-13:20 - Lab3</li>
-<li>27-11-2023 (poniedziałek) 11:40-13:20 - Lab4</li>
-<li>04-12-2023 (poniedziałek) 11:40-13:20 - Lab5</li>
-<li>11-12-2023 (poniedziałek) 11:40-13:20 - Lab6</li>
-<li>18-12-2023 (poniedziałek) 11:40-13:20 - Lab7</li>
-<li>08-01-2024 (poniedziałek) 11:40-13:20 - Lab8</li>
-<li>15-01-2024 (poniedziałek) 11:40-13:20 - Lab9</li>
-<li>22-01-2024 (poniedziałek) 11:40-13:20 - Lab10</li>
+<p>In this codercise, you are given an unnormalized vector</p>
+<p><span class="math display">\[ \ket{\psi} = \alpha \ket{0} + \beta \ket{1} \]</span> <span class="math display">\[ |\alpha|^2 + |\beta|^2 \neq 1 \]</span></p>
+<p>We can turn this into an equivalent, valid quantum state by normalizing it. Your task is to complete the function <code>normalize_state</code> so that, given and it normalizes this state to <span class="math display">\[ \ket{\psi^{\ast}} = \alpha^{\ast} \ket{0} + \beta^{\ast} \ket{1} \]</span> <span class="math display">\[ |\alpha^{\ast}|^2 + |\beta^{\ast}|^2 \neq 1 \]</span></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>ket_0 <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">0</span>])</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>ket_1 <span class="op">=</span> np.array([<span class="dv">0</span>, <span class="dv">1</span>])</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> normalize_state(alpha, beta):</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Compute a normalized quantum state given arbitrary amplitudes.</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">    Args:</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">        alpha (complex): The amplitude associated with the |0&gt; state.</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">        beta (complex): The amplitude associated with the |1&gt; state.</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns:</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co">        np.array[complex]: A vector (numpy array) with 2 elements that represents</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co">        a normalized quantum state.</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="co">##################</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="co"># YOUR CODE HERE #</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="co">##################</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="co"># CREATE A VECTOR [a', b'] BASED ON alpha AND beta SUCH THAT |a'|^2 + |b'|^2 = 1</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    <span class="co"># RETURN A VECTOR</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">pass</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="2" type="1">
+<li>Codercise l.1.2 - Inner product and orthonormal bases Complete the <code>inner_product</code> function below that computes the inner product between two arbitrary states. Then, use it to verify that <span class="math inline">\(\ket{0}\)</span> and <span class="math inline">\(\ket{1}\)</span> form an orthonormal basis, i.e., the states are normalized and orthogonal.</li>
 </ol>
-</section>
-</section>
-<section id="technologie" class="level2">
-<h2 class="anchored" data-anchor-id="technologie">Technologie</h2>
-<p>Uczestnicząc w zajęciach musisz opanować i przynajmniej w podstawowym zakresie posługiwać się następującymi technologiami informatycznymi:</p>
-<ol type="1">
-<li>Algebra liniowa - wektory, macierze, baza, iloczyn skalarny, iloczyn tensorowy</li>
-<li>Python, Jupyter notebook, Jupyter lab, Colab</li>
-<li>Algorytmy sieci neuronowych i uczenia maszynowego w procesie klasyfikacji binarnej</li>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> inner_product(state_1, state_2):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Compute the inner product between two states.</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">    Args:</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">        state_1 (np.array[complex]): A normalized quantum state vector</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">        state_2 (np.array[complex]): A second normalized quantum state vector</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns:</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">        complex: The value of the inner product &lt;state_1 | state_2&gt;.</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="co">##################</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># YOUR CODE HERE #</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="co">##################</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="co"># COMPUTE AND RETURN THE INNER PRODUCT</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> solution</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Test your results with this code</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>ket_0 <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">0</span>])</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>ket_1 <span class="op">=</span> np.array([<span class="dv">0</span>, <span class="dv">1</span>])</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"&lt;0|0&gt; = </span><span class="sc">{</span>inner_product(ket_0, ket_0)<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"&lt;0|1&gt; = </span><span class="sc">{</span>inner_product(ket_0, ket_1)<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"&lt;1|0&gt; = </span><span class="sc">{</span>inner_product(ket_1, ket_0)<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"&lt;1|1&gt; = </span><span class="sc">{</span>inner_product(ket_1, ket_1)<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="3" type="1">
+<li>Codercise l.1.3 - Sampling measurement outcomes</li>
 </ol>
-</section>
-<section id="qpoland" class="level2">
-<h2 class="anchored" data-anchor-id="qpoland">QPoland</h2>
-<p><a href="https://qworld.net/qpoland/">QPoland</a> jest cześcią międzynarodowej sieci <a href="https://qworld.net">QWorld</a>.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

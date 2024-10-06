@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -209,6 +175,46 @@ window.Quarto = {
  <span class="menu-text">Komputery klasyczne i kwantowe</span></a>
   </div>
 </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">ćwiczenia do W1</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/cw_w1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Zadania Python</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/wyklad2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Klasyczne bramki logiczne - Algebra Boola</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">ćwiczenia do W2</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/cw_w2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Pennylane Codebook</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -227,26 +233,29 @@ window.Quarto = {
   <ul>
   <li><a href="#zanim-zaczniemy" id="toc-zanim-zaczniemy" class="nav-link active" data-scroll-target="#zanim-zaczniemy">Zanim zaczniemy</a></li>
   <li><a href="#podstawowe-pojęcia" id="toc-podstawowe-pojęcia" class="nav-link" data-scroll-target="#podstawowe-pojęcia">Podstawowe pojęcia</a></li>
-  <li><a href="#sztuczna-inteligencja" id="toc-sztuczna-inteligencja" class="nav-link" data-scroll-target="#sztuczna-inteligencja">Sztuczna inteligencja</a></li>
-  <li><a href="#komputery-klasyczne" id="toc-komputery-klasyczne" class="nav-link" data-scroll-target="#komputery-klasyczne">Komputery klasyczne</a>
+  <li><a href="#sztuczna-inteligencja" id="toc-sztuczna-inteligencja" class="nav-link" data-scroll-target="#sztuczna-inteligencja">Sztuczna inteligencja</a>
+  <ul class="collapse">
+  <li><a href="#kategorie-uczenia-maszynowego" id="toc-kategorie-uczenia-maszynowego" class="nav-link" data-scroll-target="#kategorie-uczenia-maszynowego">Kategorie uczenia maszynowego</a></li>
+  </ul></li>
+  <li><a href="#klasyczny-model-obliczeń" id="toc-klasyczny-model-obliczeń" class="nav-link" data-scroll-target="#klasyczny-model-obliczeń">Klasyczny model obliczeń</a>
   <ul class="collapse">
   <li><a href="#fizyczne-klasyczne-ograniczenia-dla-procesorów" id="toc-fizyczne-klasyczne-ograniczenia-dla-procesorów" class="nav-link" data-scroll-target="#fizyczne-klasyczne-ograniczenia-dla-procesorów">Fizyczne (klasyczne) ograniczenia dla procesorów</a></li>
   </ul></li>
-  <li><a href="#obliczenia-kwantowe-bardziej-szczegółowo" id="toc-obliczenia-kwantowe-bardziej-szczegółowo" class="nav-link" data-scroll-target="#obliczenia-kwantowe-bardziej-szczegółowo">Obliczenia kwantowe bardziej szczegółowo</a>
+  <li><a href="#obliczenia-kwantowe" id="toc-obliczenia-kwantowe" class="nav-link" data-scroll-target="#obliczenia-kwantowe">Obliczenia kwantowe</a>
   <ul class="collapse">
+  <li><a href="#nie-za-krótkie-wprowadzenie-do-fizyki-kwantowej" id="toc-nie-za-krótkie-wprowadzenie-do-fizyki-kwantowej" class="nav-link" data-scroll-target="#nie-za-krótkie-wprowadzenie-do-fizyki-kwantowej">Nie za krótkie wprowadzenie do fizyki kwantowej</a></li>
   <li><a href="#historia-mk" id="toc-historia-mk" class="nav-link" data-scroll-target="#historia-mk">Historia MK</a></li>
+  <li><a href="#realizacja-komputerów-kwantowych" id="toc-realizacja-komputerów-kwantowych" class="nav-link" data-scroll-target="#realizacja-komputerów-kwantowych">Realizacja komputerów kwantowych</a></li>
   <li><a href="#historia-obliczeń-kwantowych" id="toc-historia-obliczeń-kwantowych" class="nav-link" data-scroll-target="#historia-obliczeń-kwantowych">Historia obliczeń kwantowych</a></li>
   <li><a href="#dlaczego-chcemy-używać-komputerów-kwantowych" id="toc-dlaczego-chcemy-używać-komputerów-kwantowych" class="nav-link" data-scroll-target="#dlaczego-chcemy-używać-komputerów-kwantowych">Dlaczego chcemy używać komputerów kwantowych?</a></li>
-  <li><a href="#realizacja-fizyczna-komputerów-kwantowych" id="toc-realizacja-fizyczna-komputerów-kwantowych" class="nav-link" data-scroll-target="#realizacja-fizyczna-komputerów-kwantowych">Realizacja fizyczna komputerów kwantowych</a></li>
-  <li><a href="#proces-obliczeń-kwantowych" id="toc-proces-obliczeń-kwantowych" class="nav-link" data-scroll-target="#proces-obliczeń-kwantowych">Proces obliczeń kwantowych</a></li>
   </ul></li>
+  <li><a href="#proces-obliczeń-kwantowych" id="toc-proces-obliczeń-kwantowych" class="nav-link" data-scroll-target="#proces-obliczeń-kwantowych">Proces obliczeń kwantowych</a></li>
   <li><a href="#quantum-machine-learning" id="toc-quantum-machine-learning" class="nav-link" data-scroll-target="#quantum-machine-learning">Quantum Machine Learning</a>
   <ul class="collapse">
   <li><a href="#dane-w-qml" id="toc-dane-w-qml" class="nav-link" data-scroll-target="#dane-w-qml">Dane w QML</a></li>
   <li><a href="#realizacje-problemów-biznesowych-na-komputerach-kwantowych" id="toc-realizacje-problemów-biznesowych-na-komputerach-kwantowych" class="nav-link" data-scroll-target="#realizacje-problemów-biznesowych-na-komputerach-kwantowych">Realizacje problemów biznesowych na komputerach kwantowych</a></li>
   <li><a href="#dostęp-do-obliczeń-kwantowych-w-chmurze" id="toc-dostęp-do-obliczeń-kwantowych-w-chmurze" class="nav-link" data-scroll-target="#dostęp-do-obliczeń-kwantowych-w-chmurze">Dostęp do obliczeń kwantowych w chmurze</a></li>
   </ul></li>
-  <li><a href="#zadania-python" id="toc-zadania-python" class="nav-link" data-scroll-target="#zadania-python">Zadania Python</a></li>
   </ul>
 </nav>
     </div>
@@ -301,22 +310,7 @@ window.Quarto = {
 <blockquote class="blockquote">
 <p>you start with classical mechanics and electrodynamics, solving lots of differential equations at every step. Then you learn about the “black-body paradox” and various strange experimental results, and the great crisis these things posed for physics. Next you learn a complicated patchwork of ideas that physicists invented between 1900 and 1926 to try to make the crisis go away. Then, if you’re lucky, after years of study you finally get around to the central conceptual point: <em>that nature is described not by probabilities</em> (which are always non-negative), but by numbers called amplitudes that can be positive, negative, or even complex. Scott Aaronson, <a href="https://www.amazon.com/Quantum-Computing-since-Democritus-Aaronson/dp/0521199565">Quantum Computing Since Democritus</a></p>
 </blockquote>
-<p>Zasadnicze pytanie brzmi: na ile komputery kwantowe mogą faktycznie poprawić jakość modeli uczenia maszynowego i czy umożliwią realizację zadań, które są poza zasięgiem klasycznych komputerów.</p>
-<blockquote class="blockquote">
-<p>Co o tym sądzisz?</p>
-</blockquote>
-<p><strong>Moja i książkowa odpowiedź</strong>: To zależy:</p>
-<ul>
-<li>jaki problem chcemy rozwiązać?</li>
-<li>jakie dane są dostępne i jakiej są natury?</li>
-<li>jaki typ analizy chcemy przeprowadzić?</li>
-<li>jaki typ komputera kwantowego wykorzystujemy (np. NISQ czy pełnoskalowy komputer kwantowy)?</li>
-<li>co rozumiemy przez “lepiej”? Precyzja, czas obliczeń, koszt, skalowalność, zużycie energii, a może coś innego?</li>
-</ul>
 <p><strong><a href="https://pennylane.ai/blog/2022/03/why-measuring-performance-is-our-biggest-blind-spot-in-quantum-machine-learning/">Xanadu link - QML blog</a></strong></p>
-<p>Komputery kwantowe mają teoretyczny potencjał, aby znacząco przyspieszyć niektóre aspekty uczenia maszynowego, szczególnie w kontekście wyszukiwania dużych zbiorów danych, optymalizacji czy analizy bardzo skomplikowanych systemów. Przykładem jest algorytm Grovera, który może przyspieszyć proces wyszukiwania do <span class="math inline">\(O(\sqrt{N})\)</span> w porównaniu z klasycznym <span class="math inline">\(O(N)\)</span>, co mogłoby zrewolucjonizować niektóre modele uczące się na dużych zbiorach danych.</p>
-<p>Jednakże, wciąż pozostaje wiele otwartych kwestii – szczególnie dotyczących skalowalności komputerów kwantowych, odporności na błędy oraz tego, jak dobrze kwantowe algorytmy będą mogły współpracować z obecnymi metodami uczenia maszynowego. Obecne komputery kwantowe (tzw. Noisy Intermediate-Scale Quantum, NISQ) są ograniczone pod względem liczby kubitów i poziomu szumów, co sprawia, że pełny potencjał QML jeszcze nie został zrealizowany.</p>
-<p>W praktyce, w najbliższym czasie bardziej prawdopodobne jest, że wykorzystamy hybrydowe podejścia, łączące klasyczne i kwantowe komputery do zadań, w których komputery kwantowe mogą przyspieszyć wybrane podproblemy.</p>
 </section>
 <section id="sztuczna-inteligencja" class="level2">
 <h2 class="anchored" data-anchor-id="sztuczna-inteligencja">Sztuczna inteligencja</h2>
@@ -344,36 +338,31 @@ window.Quarto = {
 <blockquote class="blockquote">
 <p>Uwaga! Zakładam, że masz podstawową znajomość pojęć związanych z uczeniem maszynowym i głębokim, ale w razie potrzeby, będziemy przypominać kluczowe zagadnienia.</p>
 </blockquote>
+<section id="kategorie-uczenia-maszynowego" class="level3">
+<h3 class="anchored" data-anchor-id="kategorie-uczenia-maszynowego">Kategorie uczenia maszynowego</h3>
 <p><strong>Uczenie maszynowe</strong> (ang. <em>Machine Learning</em>) można podzielić na kilka głównych kategorii:</p>
 <ol type="1">
-<li>Uczenie nadzorowane (ang. supervised learning) – mając oznaczone dane <span class="math inline">\((x_i, y_i)\)</span> , uczymy model, który znajdzie funkcję <span class="math inline">\(f(x_i) = y_i\)</span> , aby poprawnie przewidywać wartości dla nowych, nieznanych danych. Przykłady obejmują decyzje o przyznaniu kredytu lub klasyfikację obrazów, takich jak rozpoznanie, czy na obrazie znajduje się kot, czy pies.</li>
-</ol>
-<p><strong>Zadania do wykonania:</strong></p>
-<ul>
-<li>Wyjaśnij model regresji (zarówno liniowej, jak i logistycznej).</li>
-<li>Czy modele regresji (liniowej i logistycznej) można przedstawić jako rozwiązanie sieci neuronowej?</li>
-<li>Zaimplementuj oba algorytmy (regresji liniowej i logistycznej) w środowisku PyTorch.</li>
-</ul>
-<ol start="2" type="1">
+<li><p>Uczenie nadzorowane (ang. supervised learning) – mając oznaczone dane <span class="math inline">\((x_i, y_i)\)</span> , uczymy model, który znajdzie funkcję <span class="math inline">\(f(x_i) = y_i\)</span> , aby poprawnie przewidywać wartości dla nowych, nieznanych danych. Przykłady obejmują decyzje o przyznaniu kredytu lub klasyfikację obrazów, takich jak rozpoznanie, czy na obrazie znajduje się kot, czy pies.</p></li>
 <li><p>Uczenie nienadzorowane (ang. unsupervised learning) – mając nieoznaczone dane (x_i) , szukamy ukrytych struktur w danych, takich jak grupowanie (klasteryzacja) czy redukcja wymiarów. Celem jest odkrywanie zależności lub wzorców, które nie są jawnie widoczne.</p></li>
 <li><p>Uczenie przez wzmacnianie (ang. reinforcement learning) – agent uczy się podejmować decyzje w środowisku na podstawie nagród i kar, optymalizując swoje działania w celu maksymalizacji długoterminowych korzyści. Przykłady obejmują gry komputerowe, sterowanie robotami czy optymalizację procesów biznesowych.</p></li>
 <li><p>Uczenie transferowe (ang. transfer learning) – technika, która polega na wykorzystaniu wiedzy nabytej w jednym zadaniu do rozwiązania innych, podobnych zadań. Przykładem jest model językowy nauczony rozumienia języka naturalnego, który może być wykorzystany do innych zadań, takich jak tłumaczenie maszynowe, analiza sentymentu czy rozpoznawanie tekstu pisanego.</p></li>
 <li><p>Uczenie pół-nadzorowane (ang. semi-supervised learning) – podejście, które łączy dane oznaczone (z etykietami) i nieoznaczone (bez etykiet) w celu trenowania modelu. Jest to przydatne, gdy dostępnych jest dużo danych nieoznaczonych, ale tylko niewielka część z nich ma przypisane etykiety.</p></li>
 </ol>
 </section>
-<section id="komputery-klasyczne" class="level2">
-<h2 class="anchored" data-anchor-id="komputery-klasyczne">Komputery klasyczne</h2>
-<p><strong>Komputer</strong> to fizyczne urządzenie, które przetwarza informacje za pomocą obwodów elektronicznych (ang. electronic circuits). Jego działanie opiera się na klasycznej logice binarnej, w której informacje są reprezentowane przez bity przyjmujące wartości <span class="math inline">\(0\)</span> lub <span class="math inline">\(1\)</span>. Komputery klasyczne wykonują obliczenia, przetwarzając te bity za pomocą zestawu logicznych operacji, takich jak <span class="math inline">\(AND\)</span>, <span class="math inline">\(OR\)</span>, <span class="math inline">\(NOT\)</span>, oraz innych.</p>
+</section>
+<section id="klasyczny-model-obliczeń" class="level2">
+<h2 class="anchored" data-anchor-id="klasyczny-model-obliczeń">Klasyczny model obliczeń</h2>
+<p><strong>Komputer</strong> to fizyczne urządzenie, które przetwarza informacje za pomocą obwodów elektronicznych (ang. electronic circuits). Jego działanie opiera się na klasycznej <em>logice binarnej</em>, w której informacje są reprezentowane przez bity przyjmujące wartości <span class="math inline">\(0\)</span> lub <span class="math inline">\(1\)</span>. Komputery klasyczne wykonują obliczenia, przetwarzając te bity za pomocą zestawu logicznych operacji, takich jak <span class="math inline">\(AND\)</span>, <span class="math inline">\(OR\)</span>, <span class="math inline">\(NOT\)</span>, oraz innych.</p>
 <p>Komputery klasyczne opierają swoje działanie na:</p>
 <ul>
-<li>Procesorach (CPU – Central Processing Unit), które wykonują instrukcje programu.</li>
-<li>Pamięci (RAM – Random Access Memory), która tymczasowo przechowuje dane potrzebne do obliczeń.</li>
+<li>Procesorach (<strong>CPU</strong> – <em>Central Processing Unit</em>), które wykonują instrukcje programu.</li>
+<li>Pamięci (<strong>RAM</strong> – <em>Random Access Memory</em>), która tymczasowo przechowuje dane potrzebne do obliczeń.</li>
 <li>Magazynach danych, takich jak dyski twarde (HDD) lub półprzewodnikowe dyski (SSD), które służą do trwałego przechowywania danych.</li>
 <li>Obwodach logicznych, zbudowanych na podstawie tranzystorów, które tworzą podstawowe elementy przetwarzania danych.</li>
 </ul>
 <p>Komputery klasyczne są niezwykle wydajne w rozwiązywaniu szerokiego spektrum problemów, zwłaszcza tych, które dają się łatwo zredukować do logicznych operacji lub operacji arytmetycznych. Jednakże, w miarę wzrostu złożoności problemów, ich wydajność może być ograniczona przez dostępne zasoby obliczeniowe i czas.</p>
 <p><img class="center" src="../img/circ.png"></p>
-<p><strong>Algorytmy</strong> (programy komputerowe – ang. software) to sekwencje logicznych i matematycznych kroków, które definiują sposób rozwiązywania problemów lub wykonywania obliczeń przy użyciu komputera. Algorytmy są abstrakcyjnymi przepisami, które programy komputerowe implementują, aby przetwarzać dane i osiągać zamierzone cele. Wykorzystują one zasoby obliczeniowe komputera, takie jak procesor, pamięć i dysk, do wykonywania zadań w określonej kolejności i z określoną efektywnością.</p>
+<p><strong>Algorytmy</strong> (programy komputerowe – ang. <em>software</em>) to sekwencje logicznych i matematycznych kroków, które definiują sposób rozwiązywania problemów lub wykonywania obliczeń przy użyciu komputera. Algorytmy są abstrakcyjnymi przepisami, które programy komputerowe implementują, aby przetwarzać dane i osiągać zamierzone cele. Wykorzystują one zasoby obliczeniowe komputera, takie jak procesor, pamięć i dysk, do wykonywania zadań w określonej kolejności i z określoną efektywnością.</p>
 <p><strong>Prawo Moore’a</strong></p>
 <blockquote class="blockquote">
 <p>Prawo Moore’a to obserwacja, że liczba tranzystorów na mikroczipie podwaja się mniej więcej co dwa lata, podczas gdy jego koszt zmniejsza się o połowę w tym samym okresie. Wzrost mocy mikroprocesorów jest wykładniczy.</p>
@@ -396,12 +385,14 @@ window.Quarto = {
 <p>Dzięki zdolności do wykorzystania zjawisk kwantowych, takich jak superpozycja i splątanie, komputery kwantowe mogą rozwiązywać problemy, które są trudne lub wręcz niemożliwe do rozwiązania za pomocą klasycznych komputerów. Komputery kwantowe oferują obiecującą technologię, która otwiera nowe możliwości w dziedzinie obliczeń oraz nauki.</p>
 </section>
 </section>
-<section id="obliczenia-kwantowe-bardziej-szczegółowo" class="level2">
-<h2 class="anchored" data-anchor-id="obliczenia-kwantowe-bardziej-szczegółowo">Obliczenia kwantowe bardziej szczegółowo</h2>
+<section id="obliczenia-kwantowe" class="level2">
+<h2 class="anchored" data-anchor-id="obliczenia-kwantowe">Obliczenia kwantowe</h2>
 <blockquote class="blockquote">
 <p>Film wprowadzający: <a href="https://www.youtube.com/watch?v=-UlxHPIEVqA">link</a></p>
 </blockquote>
-<p>Termin <strong>Mechanika Kwantowa</strong> (MK) jest często używany zamiennie z Teorią Kwantową, choć istnieją również inne teorie kwantowe, takie jak Kwantowa Teoria Pola, które wykraczają poza zakres klasycznej mechaniki kwantowej.</p>
+<section id="nie-za-krótkie-wprowadzenie-do-fizyki-kwantowej" class="level3">
+<h3 class="anchored" data-anchor-id="nie-za-krótkie-wprowadzenie-do-fizyki-kwantowej">Nie za krótkie wprowadzenie do fizyki kwantowej</h3>
+<p>Termin <strong>Mechanika Kwantowa</strong> (MK) jest często używany zamiennie z teorią kwantową, choć istnieją również inne teorie kwantowe, takie jak Kwantowa Teoria Pola (ang. <em>quantum field theory</em>), które wykraczają poza zakres standardowej mechaniki kwantowej.</p>
 <p>Mechanika Kwantowa przewiduje wyniki eksperymentów przeprowadzanych na układach kwantowych, tj. mikroskopowych obiektach fizycznych, dla których fizyka klasyczna nie jest wystarczająca do opisania ich zachowania. Przykładem może być atom wodoru. MK opisuje zachowanie takich obiektów jak fotony, elektrony oraz kwantowe bity (qubity).</p>
 <p>Warto zaznaczyć, że Mechanika Kwantowa jest fundamentem, na którym opiera się wiele innych teorii i dziedzin fizyki, w tym teorie kwantowe stosowane w obliczeniach kwantowych.</p>
 <blockquote class="blockquote">
@@ -409,6 +400,7 @@ window.Quarto = {
 </blockquote>
 <p>Fizyka klasyczna jest zazwyczaj traktowana jako graniczny przypadek mechaniki kwantowej. Mimo to, w praktyce fizycy często oddzielają te dwie dziedziny i stosują odpowiednią teorię do odpowiednich problemów. Na przykład, w konstrukcji mostów wykorzystuje się fizykę klasyczną, a nie mechanikę kwantową.</p>
 <p>Warto również zaznaczyć, że wyniki mechaniki kwantowej mają charakter probabilistyczny, co może prowadzić do błędnego przekonania, że mechanika kwantowa jest teorią statystyczną. W rzeczywistości mechanikę kwantową można raczej uznać za uogólnienie klasycznej definicji prawdopodobieństwa.</p>
+</section>
 <section id="historia-mk" class="level3">
 <h3 class="anchored" data-anchor-id="historia-mk">Historia MK</h3>
 <p>Początki Mechaniki Kwantowej sięgają prac Maxa Plancka (1900) i Alberta Einsteina (1905), którzy wprowadzili pojęcie kwantu - najmniejszej jednostki energii. Rozwój tej dziedziny związany jest z badaniami wielu wybitnych naukowców, takich jak Niels Bohr, Erwin Schrödinger, Louis de Broglie, Werner Heisenberg, Paul Dirac, Richard Feynman i wielu innych.</p>
@@ -416,6 +408,11 @@ window.Quarto = {
 <blockquote class="blockquote">
 <p>Informatyków zazwyczaj nie interesuje, jak dokładnie fizyczne właściwości układów są wykorzystywane do przechowywania informacji w komputerze klasycznym. Podobnie, nie muszą oni zgłębiać fizycznego mechanizmu, dzięki któremu informacja kwantowa jest realizowana w komputerze kwantowym. Tak jak prowadząc samochód, nie zastanawiasz się nad działaniem każdej jego części, tak samo pisząc kod, nie musisz interesować się, jak został on zaimplementowany w bibliotece. Informatycy często koncentrują się na efektywnym wykorzystaniu technologii komputerowych, a nie na szczegółach ich fizycznej realizacji.</p>
 </blockquote>
+</section>
+<section id="realizacja-komputerów-kwantowych" class="level3">
+<h3 class="anchored" data-anchor-id="realizacja-komputerów-kwantowych">Realizacja komputerów kwantowych</h3>
+<p><a href="https://en.wikipedia.org/wiki/List_of_quantum_processors">procesory kwantowe</a></p>
+<p><img class="center" src="../img/maszyny_kwantowe.png"></p>
 </section>
 <section id="historia-obliczeń-kwantowych" class="level3">
 <h3 class="anchored" data-anchor-id="historia-obliczeń-kwantowych">Historia obliczeń kwantowych</h3>
@@ -433,7 +430,8 @@ window.Quarto = {
 <li>2019: 23 października, Google ogłosił uzyskanie tzw. quantum supremacy na 53 kubitach.</li>
 <li>2020: Zespół Jian-Wei Pana z University of Science and Technology of China dokonał przełomu, realizując 76 fotonowych kubitów na komputerze Jiuzhang.</li>
 <li>2022: Firma Xanadu dokonała znaczących postępów w dziedzinie technologii komputerów kwantowych.</li>
-<li>2023: Pojawienie się pierwszego logicznego qubita? (wymaga dalszych szczegółów lub aktualizacji)</li>
+<li>2023: Pojawienie się pierwszego logicznego qubitu? (wymaga dalszych szczegółów lub aktualizacji)</li>
+<li>2024: Google - Pierwsze zadowalające wyniki z kwantowej korekcji błędów</li>
 </ul>
 <p>Od około 1990 roku fizycy i informatycy pracują nad fizyczną realizacją komputerów kwantowych. Jednym z popularnych modeli obliczeń na komputerach kwantowych jest model oparty na kwantowych obwodach (ang. quantum circuits), który wykorzystuje qubity zamiast klasycznych bitów.</p>
 <p>Podobnie jak w przypadku obwodów klasycznych, w modelu kwantowym definiuje się bramki kwantowe (ang. quantum gates), które umożliwiają wykonywanie operacji na qubitach.</p>
@@ -442,6 +440,18 @@ window.Quarto = {
 </section>
 <section id="dlaczego-chcemy-używać-komputerów-kwantowych" class="level3">
 <h3 class="anchored" data-anchor-id="dlaczego-chcemy-używać-komputerów-kwantowych">Dlaczego chcemy używać komputerów kwantowych?</h3>
+<p>Zasadnicze pytanie brzmi: na ile komputery kwantowe mogą faktycznie poprawić jakość modeli uczenia maszynowego i czy umożliwią realizację zadań, które są poza zasięgiem klasycznych komputerów.</p>
+<blockquote class="blockquote">
+<p>Co o tym sądzisz?</p>
+</blockquote>
+<p><strong>Moja i książkowa odpowiedź</strong>: To zależy:</p>
+<ul>
+<li>jaki problem chcemy rozwiązać?</li>
+<li>jakie dane są dostępne i jakiej są natury?</li>
+<li>jaki typ analizy chcemy przeprowadzić?</li>
+<li>jaki typ komputera kwantowego wykorzystujemy (np. NISQ czy pełnoskalowy komputer kwantowy)?</li>
+<li>co rozumiemy przez “lepiej”? Precyzja, czas obliczeń, koszt, skalowalność, zużycie energii, a może coś innego?</li>
+</ul>
 <section id="kwantowa-złożoność-quantum-complexity" class="level4">
 <h4 class="anchored" data-anchor-id="kwantowa-złożoność-quantum-complexity">Kwantowa Złożoność (Quantum Complexity)</h4>
 <p>Nowy paradygmat obliczeń kwantowych wykorzystuje unikalne cechy interferencji, superpozycji i splątania do realizacji obliczeń. Obecnie realizowany jest w trzech głównych modelach:</p>
@@ -469,13 +479,9 @@ window.Quarto = {
 <p>W praktyce, kwantowa korekcja błędów wymaga stosowania specjalnych kodów kwantowych, które pozwalają na detekcję i korekcję błędów bez bezpośredniego pomiaru stanów kwantowych. Kody te wprowadzają redundancję w reprezentacji informacji kwantowej, co pozwala na naprawę błędów i utrzymanie poprawności obliczeń.</p>
 </section>
 </section>
-<section id="realizacja-fizyczna-komputerów-kwantowych" class="level3">
-<h3 class="anchored" data-anchor-id="realizacja-fizyczna-komputerów-kwantowych">Realizacja fizyczna komputerów kwantowych</h3>
-<p><a href="https://en.wikipedia.org/wiki/List_of_quantum_processors">procesory kwantowe</a></p>
-<p><img class="center" src="../img/maszyny_kwantowe.png"></p>
 </section>
-<section id="proces-obliczeń-kwantowych" class="level3">
-<h3 class="anchored" data-anchor-id="proces-obliczeń-kwantowych">Proces obliczeń kwantowych</h3>
+<section id="proces-obliczeń-kwantowych" class="level2">
+<h2 class="anchored" data-anchor-id="proces-obliczeń-kwantowych">Proces obliczeń kwantowych</h2>
 <p>W obliczeniach kwantowych cały proces można podzielić na trzy główne etapy:</p>
 <ol type="1">
 <li><strong>Przygotowanie</strong></li>
@@ -521,7 +527,6 @@ window.Quarto = {
 <p>Integracja komputerów kwantowych z klasycznymi umożliwia korzystanie z unikalnych właściwości obliczeń kwantowych przy jednoczesnym wykorzystaniu sprawdzonych technologii klasycznych, co pozwala na efektywne i wszechstronne podejście do rozwiązywania problemów obliczeniowych.</p>
 <p><img class="center" src="../img/proces_kwantowy.png"></p>
 </section>
-</section>
 <section id="quantum-machine-learning" class="level2">
 <h2 class="anchored" data-anchor-id="quantum-machine-learning">Quantum Machine Learning</h2>
 <section id="dane-w-qml" class="level3">
@@ -563,44 +568,9 @@ window.Quarto = {
 <li><a href="https://www.xanadu.ai">Xanadu</a> - Pennylane Python library</li>
 <li><a href="https://aws.amazon.com/braket/">Amazon braket</a> - AWS Python, Julia</li>
 </ul>
-</section>
-</section>
-<section id="zadania-python" class="level2">
-<h2 class="anchored" data-anchor-id="zadania-python">Zadania Python</h2>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. ile jest 5 do potęgi 5? </span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>wynik <span class="op">=</span> ...</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. ile razy liczba 3 mieści się w 123? </span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>ile <span class="op">=</span> ...</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. wskaż na string ze zmiennej l</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>l <span class="op">=</span> [<span class="dv">10</span>, [<span class="dv">3</span>, <span class="dv">4</span>], [<span class="dv">5</span>, [<span class="dv">100</span>, <span class="dv">200</span>, [<span class="st">"MDS"</span>]], <span class="dv">23</span>, <span class="dv">11</span>], <span class="dv">1</span>, <span class="dv">7</span>]</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>string <span class="op">=</span> ...</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. wsaż na napis 'MDS' ze słownika</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> {</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">"outer"</span>: [</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>        <span class="dv">1</span>,</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>        <span class="dv">2</span>,</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>        <span class="dv">3</span>,</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>        {<span class="st">"inner"</span>: [<span class="st">"this"</span>, <span class="st">"is"</span>, <span class="st">"inception"</span>, {<span class="st">"inner_inner"</span>: [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="st">"MDS"</span>]}]},</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    ]</span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="co"># 5. Napisz funkcje website() która wyciąga nazwę domeny z url. np, z "www.google.com", powinno wskazać "google".</span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> website():</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">pass</span> <span class="co"># tutaj wpisz kod</span></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="co"># 6. Podnieś liczby w liście do kwadratu </span></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="co"># skorzystaj z list comprehension</span></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>l <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

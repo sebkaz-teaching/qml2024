@@ -289,24 +289,6 @@ Stan pamięci RAM jest tracony gdy urządzenie zostanie odłączone od zasilania
 Pamięć RAM jest zorganizowana w komórki, które mogą przechowywać pojedynczy bit informacji.
 Do implementacji pamięci RAM wykorzystuje się zbiór bramek logicznych (NAND) oraz tranzystorów. -->
 
-## Kody python
-
-> Zadanie 1: Napisz kod symuljący wyrzucenie symetrycznej monety $100$, $1000$, $10000$ i $100000$ razy
-
-```python
-from random import randrange
-# randrange(n) zwraca losową wartośc z przedziału (0,...,n-1)
-# Twoje rozwiązanie 
-```
-
-> Zadanie 2: Napisz kod symulujący wyrzucenie niesymetrycznej monety gdzie prawdopodobieństwo
-> wyrzucenia orła będzie wynosiło $60\%$.
-```python
-from random import randrange
-# randrange(n) zwraca losową wartośc z przedziału (0,...,n-1)
-# Twoje rozwiązanie 
-```
-
 
 ## Szyfrowanie z wykorzystaniem bramki XOR 
 Weźmy dwie sekwencje bitów:
@@ -363,36 +345,3 @@ Potem jak mam klucz to jak to odszyfrować. -Przyda się do BB84
 
 -->
 
-```python
-from random import randrange
-# randrange(n) zwraca losową wartośc z przedziału (0,...,n-1)
-for experiment in [100,1000,10000,100000]:
-    heads = tails = 0
-    for i in range(experiment):
-        if randrange(2) == 0: heads = heads + 1
-        else: tails = tails + 1
-    print("experiment:",experiment)
-    print("heads =",heads,"  tails = ",tails)
-    print("the ratio of #heads/#tails is",(round(heads/tails,4)))
-    print() # empty line
-```
-
-```python
-from random import randrange
-
-# let's pick a random number between {0,1,...,99}
-# it is expected to be less than 60 with probability 0.6
-#     and greater than or equal to 60 with probability 0.4
-# ten sam przypadek możesz zrealizować dla losowania wartosci rzeczywistej
-# pomiędzy 0 i 1.
-
-for experiment in [100,1000,10000,100000]:
-    heads = tails = 0
-    for i in range(experiment):
-        if randrange(100) <60: heads = heads + 1 # with probability 0.6
-        else: tails = tails + 1 # with probability 0.4
-    print("experiment:",experiment)
-    print("heads =",heads,"  tails = ",tails)
-    print("the ratio of #heads/#tails is",(round(heads/tails,4)))
-    print() # empty line
-```

@@ -1,0 +1,100 @@
+
+## Pennylane Codebook
+
+Wejdz na stronę [codebook](https://pennylane.ai/codebook/).
+Zarejestruj się i zaloguj.
+
+### IQC: Introduction to Quantum Computing
+
+Wykonaj pierwsze trzy ćwiczenia z sekcji wprowadzenie od obliczeń kwantowych. 
+
+
+
+$$
+\newcommand{\bra}[1]{\left \langle #1 \right \rvert}
+\newcommand{\ket}[1]{\left \rvert #1 \right \rangle}
+\newcommand{\braket}[2]{\left \langle #1 \middle \rvert #2 \right \rangle}
+$$
+
+1. Codercise l.1.1 - Normalization of quantum states
+
+In this codercise, you are given an unnormalized vector
+
+$$ \ket{\psi} = \alpha \ket{0} + \beta \ket{1} $$
+$$ |\alpha|^2 + |\beta|^2 \neq 1 $$ 
+
+We can turn this into an equivalent, valid quantum state  by normalizing it. 
+Your task is to complete the function `normalize_state` so that, given  and  it normalizes this state to
+$$ \ket{\psi^{\ast}} = \alpha^{\ast} \ket{0} + \beta^{\ast} \ket{1} $$
+$$ |\alpha^{\ast}|^2 + |\beta^{\ast}|^2 \neq 1 $$ 
+
+```python
+ket_0 = np.array([1, 0])
+ket_1 = np.array([0, 1])
+
+
+def normalize_state(alpha, beta):
+    """Compute a normalized quantum state given arbitrary amplitudes.
+
+    Args:
+        alpha (complex): The amplitude associated with the |0> state.
+        beta (complex): The amplitude associated with the |1> state.
+
+    Returns:
+        np.array[complex]: A vector (numpy array) with 2 elements that represents
+        a normalized quantum state.
+    """
+    ##################
+    # YOUR CODE HERE #
+    ##################
+
+    
+    # CREATE A VECTOR [a', b'] BASED ON alpha AND beta SUCH THAT |a'|^2 + |b'|^2 = 1
+
+    # RETURN A VECTOR
+    pass
+```
+
+
+2. Codercise l.1.2 - Inner product and orthonormal bases
+Complete the `inner_product` function below that computes the inner product between two arbitrary states.
+ Then, use it to verify that $\ket{0}$  and $\ket{1}$  form an orthonormal basis, i.e., 
+ the states are normalized and orthogonal.
+
+```python
+def inner_product(state_1, state_2):
+    """Compute the inner product between two states.
+
+    Args:
+        state_1 (np.array[complex]): A normalized quantum state vector
+        state_2 (np.array[complex]): A second normalized quantum state vector
+
+    Returns:
+        complex: The value of the inner product <state_1 | state_2>.
+    """
+    ##################
+    # YOUR CODE HERE #
+    ##################
+    
+
+    # COMPUTE AND RETURN THE INNER PRODUCT
+
+    return solution
+
+
+# Test your results with this code
+ket_0 = np.array([1, 0])
+ket_1 = np.array([0, 1])
+
+print(f"<0|0> = {inner_product(ket_0, ket_0)}")
+print(f"<0|1> = {inner_product(ket_0, ket_1)}")
+print(f"<1|0> = {inner_product(ket_1, ket_0)}")
+print(f"<1|1> = {inner_product(ket_1, ket_1)}")
+```
+
+
+
+3. Codercise l.1.3 - Sampling measurement outcomes
+
+
+

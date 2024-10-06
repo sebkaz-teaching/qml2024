@@ -12,7 +12,13 @@ website:
       - section : "Wykłady"
         contents:
           - lectures/wyklad1.qmd
-          # - lectures/wyklad2.qmd
+          - section : "ćwiczenia do W1"
+            contents:
+            - lectures/cw_w1.qmd
+          - lectures/wyklad2.qmd
+          - section : "ćwiczenia do W2"
+            contents:
+            - lectures/cw_w2.qmd
           # - lectures/wyklad3.qmd
           # - lectures/wyklad4.qmd
       - section: "Ćwiczenia"

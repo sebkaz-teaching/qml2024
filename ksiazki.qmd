@@ -4,6 +4,12 @@ title: Literatura
 
 ## Książki 
 
+Klasyczne przetwarzanie informacji, działanie komputerów. 
+
+1. Richard P. Feynman, Przetwarzanie informacji, z serii Feynmana wykłady, PWN 2022
+
+2. T. G. Wong, _Introduction to Classical and Quantum Computing_. Rooted Grove 2022.
+
 <div id="QC">
 ### Obliczenia kwantowe (Quantum Computing)
 </div>
@@ -35,6 +41,8 @@ title: Literatura
 1. A. Geron, _Uczenie maszynowe z użyciem Scikit-Learn i TensorFlow_. Helion 2024
 
 2. S. Zajac, _Modelowanie dla biznesu, Analityka w czasie rzeczywistym - narzędzia informatyczne i biznesowe_. SGH 2022
+
+3. S. Raschka, Build a Large Language Model from scratch, Manning 2024
 
 3. L. Moroney, _Sztuczna inteligencja i uczenie maszynowe dla programistów. Praktyczny przewodnik po sztucznej inteligencji_. Helion 2021.
 [Zobacz opis](http://helion.pl/view/111546/szinum.html) lub [Kup e-book](http://helion.pl/add111546~szinum_ebook)

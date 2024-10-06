@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Informacje ogólne – Wstęp do kwantowego uczenia maszynowego</title>
+<title>cw_w1 – Wstęp do kwantowego uczenia maszynowego</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,25 +20,59 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,7 +102,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="../style.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed">
@@ -78,7 +112,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Wstęp do kwantowego uczenia maszynowego</span>
     </a>
   </div>
@@ -89,11 +123,11 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./sylabus.html"> 
+    <a class="nav-link" href="../sylabus.html"> 
 <span class="menu-text">Sylabus</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./ksiazki.html"> 
+    <a class="nav-link" href="../ksiazki.html"> 
 <span class="menu-text">Książki</span></a>
   </li>  
 </ul>
@@ -107,7 +141,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Informacje ogólne</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lectures/wyklad1.html">Wykłady</a></li><li class="breadcrumb-item"><a href="../lectures/cw_w1.html">ćwiczenia do W1</a></li><li class="breadcrumb-item"><a href="../lectures/cw_w1.html">Zadania Python</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -121,13 +155,13 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Informacje ogólne</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./info.html" class="sidebar-item-text sidebar-link">
+  <a href="../info.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Narzędzia</span></a>
   </div>
 </li>
@@ -142,22 +176,22 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures/wyklad1.html" class="sidebar-item-text sidebar-link">
+  <a href="../lectures/wyklad1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Komputery klasyczne i kwantowe</span></a>
   </div>
 </li>
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
  <span class="menu-text">ćwiczenia do W1</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures/cw_w1.html" class="sidebar-item-text sidebar-link">
+  <a href="../lectures/cw_w1.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Zadania Python</span></a>
   </div>
 </li>
@@ -165,7 +199,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures/wyklad2.html" class="sidebar-item-text sidebar-link">
+  <a href="../lectures/wyklad2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Klasyczne bramki logiczne - Algebra Boola</span></a>
   </div>
 </li>
@@ -180,7 +214,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures/cw_w2.html" class="sidebar-item-text sidebar-link">
+  <a href="../lectures/cw_w2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Pennylane Codebook</span></a>
   </div>
 </li>
@@ -202,88 +236,56 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section">Wstęp do kwantowego uczenia maszynowego</a></li>
-  <li><a href="#kalendarz" id="toc-kalendarz" class="nav-link" data-scroll-target="#kalendarz">Kalendarz</a></li>
-  <li><a href="#technologie" id="toc-technologie" class="nav-link" data-scroll-target="#technologie">Technologie</a></li>
-  <li><a href="#qpoland" id="toc-qpoland" class="nav-link" data-scroll-target="#qpoland">QPoland</a></li>
+  <li><a href="#zadania-python" id="toc-zadania-python" class="nav-link active" data-scroll-target="#zadania-python">Zadania Python</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Informacje ogólne</h1>
-</div>
 
 
 
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-
-</header>
-
-
-<p>Witajcie wszyscy! Dziś chiałbym poruszyć temat nowego kursu z zakresu kwantowego uczenia maszynowego. Kurs ten będzie skupiał się na wykorzystaniu biblioteki pennylane, która jest jedną z najpopularniejszych bibliotek do tworzenia modeli kwantowych. W ramach kursu będziemy uczyć się podstaw kwantowego uczenia maszynowego, a także zastosowania tej wiedzy w praktyce. W trakcie kursu będziemy mieli okazję zapoznać się z różnymi narzędziami i technikami, które pozwolą nam na tworzenie skomplikowanych modeli kwantowych. W trakcie kursu będziemy również mieli okazję zapoznać się z różnymi algorytmami kwantowymi. Bardziej szczegółowo przetwarzać będziemy parametryzowane obwody kwantowe, które będą podstawowym elementem naszych modeli kwantowego uczenia maszynowego. Wszystko to pozwoli nam na lepsze zrozumienie zasad rządzących światem kwantowym i na wykorzystanie tej wiedzy w praktyce.</p>
-<section id="section" class="level2">
-<h2 class="anchored" data-anchor-id="section">Wstęp do kwantowego uczenia maszynowego</h2>
-<p>Kod: 232530-D</p>
-<p>Semestr zimowy 2024/2025,</p>
-<p>SGH Szkoła Główna Handlowa w Warszawie</p>
-<p>Podstawowe informacje znajdziesz w <a href="./sylabus">sylabusie</a>.</p>
-<p>Ciekawe książki i strony internetowe zamieszczone zostały w zakładce <a href="./ksiazki">książki</a>. Jeśli chciał(a)byś coś dodać prześlij informację przez MS teams.</p>
-</section>
-<section id="kalendarz" class="level2">
-<h2 class="anchored" data-anchor-id="kalendarz">Kalendarz</h2>
-<section id="wykład" class="level4">
-<h4 class="anchored" data-anchor-id="wykład">Wykład</h4>
-<p>Wykład jest realizowany w trybie hybrydowym. Jest on NIEOBOWIĄZKOWY i odbywa się w sali C4D.</p>
-<ol type="1">
-<li><del>
-30-09-2024 (poniedziałek) 11:40-13:20 - Wykład 1
-</del></li>
-<li>07-10-2024 (poniedziałek) 11:40-13:20 - Wykład 2</li>
-<li>14-10-2024 (poniedziałek) 11:40-13:20 - Wykład 3</li>
-<li>21-10-2023 (poniedziałek) 11:40-13:20 - Wykład 4</li>
-<li>28-10-2023 (poniedziałek) 11:40-13:20 - Wykład 5</li>
-</ol>
-</section>
-<section id="laboratoria" class="level4">
-<h4 class="anchored" data-anchor-id="laboratoria">Laboratoria</h4>
-<p>Wszystkie laboratoria odbywają się w sali C5D.</p>
-<ol type="1">
-<li>04-11-2024 (poniedziałek) 11:40-13:20 - Lab1</li>
-<li>13-11-2023 (poniedziałek) 11:40-13:20 - Lab2</li>
-<li>20-11-2023 (poniedziałek) 11:40-13:20 - Lab3</li>
-<li>27-11-2023 (poniedziałek) 11:40-13:20 - Lab4</li>
-<li>04-12-2023 (poniedziałek) 11:40-13:20 - Lab5</li>
-<li>11-12-2023 (poniedziałek) 11:40-13:20 - Lab6</li>
-<li>18-12-2023 (poniedziałek) 11:40-13:20 - Lab7</li>
-<li>08-01-2024 (poniedziałek) 11:40-13:20 - Lab8</li>
-<li>15-01-2024 (poniedziałek) 11:40-13:20 - Lab9</li>
-<li>22-01-2024 (poniedziałek) 11:40-13:20 - Lab10</li>
-</ol>
-</section>
-</section>
-<section id="technologie" class="level2">
-<h2 class="anchored" data-anchor-id="technologie">Technologie</h2>
-<p>Uczestnicząc w zajęciach musisz opanować i przynajmniej w podstawowym zakresie posługiwać się następującymi technologiami informatycznymi:</p>
-<ol type="1">
-<li>Algebra liniowa - wektory, macierze, baza, iloczyn skalarny, iloczyn tensorowy</li>
-<li>Python, Jupyter notebook, Jupyter lab, Colab</li>
-<li>Algorytmy sieci neuronowych i uczenia maszynowego w procesie klasyfikacji binarnej</li>
-</ol>
-</section>
-<section id="qpoland" class="level2">
-<h2 class="anchored" data-anchor-id="qpoland">QPoland</h2>
-<p><a href="https://qworld.net/qpoland/">QPoland</a> jest cześcią międzynarodowej sieci <a href="https://qworld.net">QWorld</a>.</p>
+<section id="zadania-python" class="level2">
+<h2 class="anchored" data-anchor-id="zadania-python">Zadania Python</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. ile jest 5 do potęgi 5? </span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>wynik <span class="op">=</span> ...</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. ile razy liczba 3 mieści się w 123? </span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>ile <span class="op">=</span> ...</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. wskaż na string ze zmiennej l</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>l <span class="op">=</span> [<span class="dv">10</span>, [<span class="dv">3</span>, <span class="dv">4</span>], [<span class="dv">5</span>, [<span class="dv">100</span>, <span class="dv">200</span>, [<span class="st">"MDS"</span>]], <span class="dv">23</span>, <span class="dv">11</span>], <span class="dv">1</span>, <span class="dv">7</span>]</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>string <span class="op">=</span> ...</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. wsaż na napis 'MDS' ze słownika</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>d <span class="op">=</span> {</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">"outer"</span>: [</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>        <span class="dv">1</span>,</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>        <span class="dv">2</span>,</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>        <span class="dv">3</span>,</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>        {<span class="st">"inner"</span>: [<span class="st">"this"</span>, <span class="st">"is"</span>, <span class="st">"inception"</span>, {<span class="st">"inner_inner"</span>: [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="st">"MDS"</span>]}]},</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    ]</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="co"># 5. Napisz funkcje website() która wyciąga nazwę domeny z url. np, z "www.google.com", powinno wskazać "google".</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> website():</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">pass</span> <span class="co"># tutaj wpisz kod</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="co"># 6. Podnieś liczby w liście do kwadratu </span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="co"># skorzystaj z list comprehension</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>l <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>]</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>l2 <span class="op">=</span> ...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Wyjaśnij model regresji (zarówno liniowej, jak i logistycznej).</li>
+<li>Czy modele regresji (liniowej i logistycznej) można przedstawić jako rozwiązanie sieci neuronowej?</li>
+<li>Zaimplementuj oba algorytmy (regresji liniowej i logistycznej) w środowisku PyTorch.</li>
+</ul>
 
 
 </section>

@@ -44,34 +44,16 @@ Wykorzystuje ono zjawiska mechaniki kwantowej, takie jak superpozycja i splątan
 > Scott Aaronson, [Quantum Computing Since Democritus](https://www.amazon.com/Quantum-Computing-since-Democritus-Aaronson/dp/0521199565)
 
 
-Zasadnicze pytanie brzmi: na ile komputery kwantowe mogą faktycznie poprawić jakość modeli uczenia maszynowego i czy umożliwią realizację zadań, które są poza zasięgiem klasycznych komputerów.
-
-> Co o tym sądzisz? 
-
-**Moja i książkowa odpowiedź**: To zależy:
-
--	jaki problem chcemy rozwiązać?
--	jakie dane są dostępne i jakiej są natury?
--	jaki typ analizy chcemy przeprowadzić?
--	jaki typ komputera kwantowego wykorzystujemy (np. NISQ czy pełnoskalowy komputer kwantowy)?
--	co rozumiemy przez “lepiej”? Precyzja, czas obliczeń, koszt, skalowalność, zużycie energii, a może coś innego?
-
 **[Xanadu link - QML blog](https://pennylane.ai/blog/2022/03/why-measuring-performance-is-our-biggest-blind-spot-in-quantum-machine-learning/)**
-
-Komputery kwantowe mają teoretyczny potencjał, aby znacząco przyspieszyć niektóre aspekty uczenia maszynowego, szczególnie w kontekście wyszukiwania dużych zbiorów danych, optymalizacji czy analizy bardzo skomplikowanych systemów. 
-Przykładem jest algorytm Grovera, który może przyspieszyć proces wyszukiwania do $O(\sqrt{N})$ w porównaniu z klasycznym $O(N)$, co mogłoby zrewolucjonizować niektóre modele uczące się na dużych zbiorach danych.
-
-Jednakże, wciąż pozostaje wiele otwartych kwestii – szczególnie dotyczących skalowalności komputerów kwantowych, odporności na błędy oraz tego, jak dobrze kwantowe algorytmy będą mogły współpracować z obecnymi metodami uczenia maszynowego.
-Obecne komputery kwantowe (tzw. Noisy Intermediate-Scale Quantum, NISQ) są ograniczone pod względem liczby kubitów i poziomu szumów, co sprawia, że pełny potencjał QML jeszcze nie został zrealizowany.
-
-W praktyce, w najbliższym czasie bardziej prawdopodobne jest, że wykorzystamy hybrydowe podejścia, łączące klasyczne i kwantowe komputery do zadań, w których komputery kwantowe mogą przyspieszyć wybrane podproblemy.
 
 
 ## Sztuczna inteligencja
 
 <img class="center" src="../img/ai1.png" >
 
-Historia sztucznej inteligencji (AI) sięga 1950 roku, kiedy Alan Turing zaproponował swój słynny test Turinga. Od tamtej pory rozwój technologii AI przyspieszył, obejmując zarówno dane ustrukturyzowane, jak i nieustrukturyzowane. Przykłady zastosowań AI obejmują:
+Historia sztucznej inteligencji (AI) sięga 1950 roku, kiedy Alan Turing zaproponował swój słynny test Turinga. 
+Od tamtej pory rozwój technologii AI przyspieszył, obejmując zarówno dane ustrukturyzowane, jak i nieustrukturyzowane. 
+Przykłady zastosowań AI obejmują:
 
 -	rozpoznawanie i generowanie mowy,
 -	,,rozumienie’’ obrazów i filmów,
@@ -95,17 +77,11 @@ Dlaczego sztuczna inteligencja jest tak chętnie wykorzystywana?
 
 > Uwaga! Zakładam, że masz podstawową znajomość pojęć związanych z uczeniem maszynowym i głębokim, ale w razie potrzeby, będziemy przypominać kluczowe zagadnienia.
 
+### Kategorie uczenia maszynowego
+
 **Uczenie maszynowe** (ang. _Machine Learning_) można podzielić na kilka głównych kategorii:
 
 1.	Uczenie nadzorowane (ang. supervised learning) – mając oznaczone dane  $(x_i, y_i)$ , uczymy model, który znajdzie funkcję  $f(x_i) = y_i$ , aby poprawnie przewidywać wartości dla nowych, nieznanych danych. Przykłady obejmują decyzje o przyznaniu kredytu lub klasyfikację obrazów, takich jak rozpoznanie, czy na obrazie znajduje się kot, czy pies.
-
-
-**Zadania do wykonania:**
-
--	Wyjaśnij model regresji (zarówno liniowej, jak i logistycznej).
--	Czy modele regresji (liniowej i logistycznej) można przedstawić jako rozwiązanie sieci neuronowej?
--	Zaimplementuj oba algorytmy (regresji liniowej i logistycznej) w środowisku PyTorch.
-
 
 2.	Uczenie nienadzorowane (ang. unsupervised learning) – mając nieoznaczone dane  (x_i) , szukamy ukrytych struktur w danych, takich jak grupowanie (klasteryzacja) czy redukcja wymiarów. Celem jest odkrywanie zależności lub wzorców, które nie są jawnie widoczne.
 
@@ -115,16 +91,16 @@ Dlaczego sztuczna inteligencja jest tak chętnie wykorzystywana?
 
 5.	Uczenie pół-nadzorowane (ang. semi-supervised learning) – podejście, które łączy dane oznaczone (z etykietami) i nieoznaczone (bez etykiet) w celu trenowania modelu. Jest to przydatne, gdy dostępnych jest dużo danych nieoznaczonych, ale tylko niewielka część z nich ma przypisane etykiety.
 
-## Komputery klasyczne
+## Klasyczny model obliczeń
 
 **Komputer** to fizyczne urządzenie, które przetwarza informacje za pomocą obwodów elektronicznych (ang. electronic circuits). 
-Jego działanie opiera się na klasycznej logice binarnej, w której informacje są reprezentowane przez bity przyjmujące wartości $0$ lub $1$. 
+Jego działanie opiera się na klasycznej _logice binarnej_, w której informacje są reprezentowane przez bity przyjmujące wartości $0$ lub $1$. 
 Komputery klasyczne wykonują obliczenia, przetwarzając te bity za pomocą zestawu logicznych operacji, takich jak $AND$, $OR$, $NOT$, oraz innych.
 
 Komputery klasyczne opierają swoje działanie na:
 
--	Procesorach (CPU – Central Processing Unit), które wykonują instrukcje programu.
--	Pamięci (RAM – Random Access Memory), która tymczasowo przechowuje dane potrzebne do obliczeń.
+-	Procesorach (**CPU** – _Central Processing Unit_), które wykonują instrukcje programu.
+-	Pamięci (**RAM** – _Random Access Memory_), która tymczasowo przechowuje dane potrzebne do obliczeń.
 -	Magazynach danych, takich jak dyski twarde (HDD) lub półprzewodnikowe dyski (SSD), które służą do trwałego przechowywania danych.
 -	Obwodach logicznych, zbudowanych na podstawie tranzystorów, które tworzą podstawowe elementy przetwarzania danych.
 
@@ -133,7 +109,7 @@ Jednakże, w miarę wzrostu złożoności problemów, ich wydajność może być
 
 <img class="center" src="../img/circ.png">
 
-**Algorytmy** (programy komputerowe – ang. software) to sekwencje logicznych i matematycznych kroków, które definiują sposób rozwiązywania problemów lub wykonywania obliczeń przy użyciu komputera.
+**Algorytmy** (programy komputerowe – ang. _software_) to sekwencje logicznych i matematycznych kroków, które definiują sposób rozwiązywania problemów lub wykonywania obliczeń przy użyciu komputera.
 Algorytmy są abstrakcyjnymi przepisami, które programy komputerowe implementują, aby przetwarzać dane i osiągać zamierzone cele. 
 Wykorzystują one zasoby obliczeniowe komputera, takie jak procesor, pamięć i dysk, do wykonywania zadań w określonej kolejności i z określoną efektywnością.
 
@@ -168,22 +144,28 @@ Dzięki zdolności do wykorzystania zjawisk kwantowych, takich jak superpozycja 
 Komputery kwantowe oferują obiecującą technologię, która otwiera nowe możliwości w dziedzinie obliczeń oraz nauki.
 
 
-## Obliczenia kwantowe bardziej szczegółowo
+## Obliczenia kwantowe
 
 > Film wprowadzający: [link](https://www.youtube.com/watch?v=-UlxHPIEVqA)
 
+### Nie za krótkie wprowadzenie do fizyki kwantowej
 
-Termin **Mechanika Kwantowa** (MK) jest często używany zamiennie z Teorią Kwantową, choć istnieją również inne teorie kwantowe, takie jak Kwantowa Teoria Pola, które wykraczają poza zakres klasycznej mechaniki kwantowej.
+Termin **Mechanika Kwantowa** (MK) jest często używany zamiennie z teorią kwantową, choć istnieją również inne teorie kwantowe, takie jak Kwantowa Teoria Pola (ang. _quantum field theory_), które wykraczają poza zakres standardowej mechaniki kwantowej.
 
-Mechanika Kwantowa przewiduje wyniki eksperymentów przeprowadzanych na układach kwantowych, tj. mikroskopowych obiektach fizycznych, dla których fizyka klasyczna nie jest wystarczająca do opisania ich zachowania. Przykładem może być atom wodoru. MK opisuje zachowanie takich obiektów jak fotony, elektrony oraz kwantowe bity (qubity).
+Mechanika Kwantowa przewiduje wyniki eksperymentów przeprowadzanych na układach kwantowych, tj. mikroskopowych obiektach fizycznych, dla których fizyka klasyczna nie jest wystarczająca do opisania ich zachowania. 
+Przykładem może być atom wodoru. 
+MK opisuje zachowanie takich obiektów jak fotony, elektrony oraz kwantowe bity (qubity).
 
 Warto zaznaczyć, że Mechanika Kwantowa jest fundamentem, na którym opiera się wiele innych teorii i dziedzin fizyki, w tym teorie kwantowe stosowane w obliczeniach kwantowych.
 
 > Na naszym wykładzie nie będziemy koncentrować się na fizycznych właściwościach kubitów, lecz ograniczymy się do znajomości ich pewnych, abstrakcyjnych stanów, w jakich mogą się znajdować. Stany te będą numerowane liczbami naturalnymi.
 
-Fizyka klasyczna jest zazwyczaj traktowana jako graniczny przypadek mechaniki kwantowej. Mimo to, w praktyce fizycy często oddzielają te dwie dziedziny i stosują odpowiednią teorię do odpowiednich problemów. Na przykład, w konstrukcji mostów wykorzystuje się fizykę klasyczną, a nie mechanikę kwantową.
+Fizyka klasyczna jest zazwyczaj traktowana jako graniczny przypadek mechaniki kwantowej. 
+Mimo to, w praktyce fizycy często oddzielają te dwie dziedziny i stosują odpowiednią teorię do odpowiednich problemów. 
+Na przykład, w konstrukcji mostów wykorzystuje się fizykę klasyczną, a nie mechanikę kwantową.
 
-Warto również zaznaczyć, że wyniki mechaniki kwantowej mają charakter probabilistyczny, co może prowadzić do błędnego przekonania, że mechanika kwantowa jest teorią statystyczną. W rzeczywistości mechanikę kwantową można raczej uznać za uogólnienie klasycznej definicji prawdopodobieństwa.
+Warto również zaznaczyć, że wyniki mechaniki kwantowej mają charakter probabilistyczny, co może prowadzić do błędnego przekonania, że mechanika kwantowa jest teorią statystyczną. 
+W rzeczywistości mechanikę kwantową można raczej uznać za uogólnienie klasycznej definicji prawdopodobieństwa.
 
 ### Historia MK
 
@@ -192,6 +174,12 @@ Początki Mechaniki Kwantowej sięgają prac Maxa Plancka (1900) i Alberta Einst
 Szczegółowe informacje na temat historii obliczeń kwantowych można znaleźć w [artykule o obliczeniach kwantowych](https://medium.com/@warsaw.quantum/czym-są-technologie-kwantowe-13de3f3e4475).
 
 > Informatyków zazwyczaj nie interesuje, jak dokładnie fizyczne właściwości układów są wykorzystywane do przechowywania informacji w komputerze klasycznym. Podobnie, nie muszą oni zgłębiać fizycznego mechanizmu, dzięki któremu informacja kwantowa jest realizowana w komputerze kwantowym. Tak jak prowadząc samochód, nie zastanawiasz się nad działaniem każdej jego części, tak samo pisząc kod, nie musisz interesować się, jak został on zaimplementowany w bibliotece. Informatycy często koncentrują się na efektywnym wykorzystaniu technologii komputerowych, a nie na szczegółach ich fizycznej realizacji.
+
+### Realizacja komputerów kwantowych
+
+[procesory kwantowe](https://en.wikipedia.org/wiki/List_of_quantum_processors)
+
+<img class="center" src="../img/maszyny_kwantowe.png">
 
 ### Historia obliczeń kwantowych
 
@@ -208,7 +196,8 @@ Szczegółowe informacje na temat historii obliczeń kwantowych można znaleźć
 -	2019: 23 października, Google ogłosił uzyskanie tzw. quantum supremacy na 53 kubitach.
 -	2020: Zespół Jian-Wei Pana z University of Science and Technology of China dokonał przełomu, realizując 76 fotonowych kubitów na komputerze Jiuzhang.
 -	2022: Firma Xanadu dokonała znaczących postępów w dziedzinie technologii komputerów kwantowych.
--	2023: Pojawienie się pierwszego logicznego qubita? (wymaga dalszych szczegółów lub aktualizacji)
+-	2023: Pojawienie się pierwszego logicznego qubitu? (wymaga dalszych szczegółów lub aktualizacji)
+-   2024: Google - Pierwsze zadowalające wyniki z kwantowej korekcji błędów
 
 
 Od około 1990 roku fizycy i informatycy pracują nad fizyczną realizacją komputerów kwantowych. 
@@ -221,6 +210,19 @@ Fizyczna konstrukcja komputera kwantowego, a właściwie qubitu, jest zadaniem n
 <img class="center" src="../img/qiskit.jpeg">
 
 ### Dlaczego chcemy używać komputerów kwantowych?
+
+Zasadnicze pytanie brzmi: na ile komputery kwantowe mogą faktycznie poprawić jakość modeli uczenia maszynowego i czy umożliwią realizację zadań, które są poza zasięgiem klasycznych komputerów.
+
+> Co o tym sądzisz? 
+
+**Moja i książkowa odpowiedź**: To zależy:
+
+-	jaki problem chcemy rozwiązać?
+-	jakie dane są dostępne i jakiej są natury?
+-	jaki typ analizy chcemy przeprowadzić?
+-	jaki typ komputera kwantowego wykorzystujemy (np. NISQ czy pełnoskalowy komputer kwantowy)?
+-	co rozumiemy przez “lepiej”? Precyzja, czas obliczeń, koszt, skalowalność, zużycie energii, a może coś innego?
+
 
 #### Kwantowa Złożoność (Quantum Complexity)
 
@@ -283,13 +285,8 @@ W praktyce, kwantowa korekcja błędów wymaga stosowania specjalnych kodów kwa
 Kody te wprowadzają redundancję w reprezentacji informacji kwantowej, co pozwala na naprawę błędów i utrzymanie poprawności obliczeń.
 
 
-### Realizacja fizyczna komputerów kwantowych
 
-[procesory kwantowe](https://en.wikipedia.org/wiki/List_of_quantum_processors)
-
-<img class="center" src="../img/maszyny_kwantowe.png">
-
-### Proces obliczeń kwantowych
+## Proces obliczeń kwantowych
 
 W obliczeniach kwantowych cały proces można podzielić na trzy główne etapy:
 
@@ -387,40 +384,3 @@ algorytmy [inspirowane obliczeniami kwantowymi](https://dl.acm.org/doi/10.1145/3
 - [D-Wave](https://www.dwavesys.com/build/getting-started/) - Python
 - [Xanadu](https://www.xanadu.ai) - Pennylane Python library
 - [Amazon braket](https://aws.amazon.com/braket/) - AWS Python, Julia
-
-## Zadania Python
-
-```python
-# 1. ile jest 5 do potęgi 5? 
-
-wynik = ...
-
-# 2. ile razy liczba 3 mieści się w 123? 
-
-ile = ...
-
-# 3. wskaż na string ze zmiennej l
-l = [10, [3, 4], [5, [100, 200, ["MDS"]], 23, 11], 1, 7]
-
-string = ...
-
-# 4. wsaż na napis 'MDS' ze słownika
-d = {
-    "outer": [
-        1,
-        2,
-        3,
-        {"inner": ["this", "is", "inception", {"inner_inner": [1, 2, 3, "MDS"]}]},
-    ]
-}
-
-# 5. Napisz funkcje website() która wyciąga nazwę domeny z url. np, z "www.google.com", powinno wskazać "google".
-
-def website():
-    pass # tutaj wpisz kod
-
-# 6. Podnieś liczby w liście do kwadratu 
-# skorzystaj z list comprehension
-
-l = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-```
