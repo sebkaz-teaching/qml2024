@@ -19,7 +19,7 @@ website:
           - section : "ćwiczenia do W2"
             contents:
             - lectures/cw_w2.qmd
-          # - lectures/wyklad3.qmd
+          - lectures/wyklad3.qmd
           # - lectures/wyklad4.qmd
       - section: "Ćwiczenia"
         contents:
