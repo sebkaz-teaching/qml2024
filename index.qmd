@@ -31,7 +31,7 @@ Wykład jest realizowany w trybie hybrydowym.
 Jest on NIEOBOWIĄZKOWY i odbywa się w sali C4D.
 
 1. <del>30-09-2024 (poniedziałek) 11:40-13:20 -  Wykład 1</del>
-2. 07-10-2024 (poniedziałek) 11:40-13:20 -  Wykład 2
+2. <del>07-10-2024 (poniedziałek) 11:40-13:20 -  Wykład 2</del>
 3. 14-10-2024 (poniedziałek) 11:40-13:20 -  Wykład 3 
 4. 21-10-2023 (poniedziałek) 11:40-13:20 -  Wykład 4
 5. 28-10-2023 (poniedziałek) 11:40-13:20 -  Wykład 5 
@@ -51,6 +51,11 @@ Wszystkie laboratoria odbywają się w sali C5D.
 9. 15-01-2024 (poniedziałek) 11:40-13:20 - Lab9
 10. 22-01-2024 (poniedziałek) 11:40-13:20 - Lab10
 
+
+## Sobota-Niedziela
+
+1. 12.10.2024 11:40-13:20 - Wykład 1
+2. 26.10.2024 11:40-13:20 - Wykład 2
 
 ## Technologie
 
