@@ -337,11 +337,4 @@ Jeśli użyjemy jej więcej niż raz, to łatwo jest złamać szyfrowanie.
 > Dlaczego nie powinno się używać szyfru więcej niż jeden raz? 
 > Podpowiedź: Zakodowana wiadomość przestaje być losowa. 
 
-## kody - rozwiązania zadań 
-
-<!-- // TODO  Napisać kod który bierze string przekłada na bity np 4 litery.
-Następnie losuje ciąg 0 i 1 jako szyfr i pokazuje wynik szyfrowania. 
-Potem jak mam klucz to jak to odszyfrować. -Przyda się do BB84
-
--->
 

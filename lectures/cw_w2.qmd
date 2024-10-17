@@ -1,13 +1,16 @@
 
-## Pennylane Codebook
+## Bramki i funkcje
 
-Wejdz na stronę [codebook](https://pennylane.ai/codebook/).
-Zarejestruj się i zaloguj.
+Napisać kod obiektowy, który pobiera string (treść do zaszyfrowania) i przekłada go na zapis bitowy. 
+Dodatkowo wylosuj klucz do zaszyfrowania wiadomości (losowy ciąg 0 i 1).
 
-### IQC: Introduction to Quantum Computing
+Metoda 1 - szyfrowanie - Zaszyfruj wiadomość wykorzystując operacje `XOR`. 
 
-Wykonaj pierwsze trzy ćwiczenia z sekcji wprowadzenie od obliczeń kwantowych. 
+Metoda 2 - wyświetl zaszyfrowaną wiadomość w postaci normalnej. 
 
+Metoda 3 - odszyfruj wiadomość (ciąg zaszyfrowanego kodu binarnego)
+
+Metoda 4 - wyświetl odszyfrowaną wiadomość
 
 
 $$
