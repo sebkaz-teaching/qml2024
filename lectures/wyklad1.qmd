@@ -20,7 +20,10 @@ Dzięki temu mogą one rozwiązywać problemy, których tradycyjne programowanie
 Zamiast ręcznie programować konkretne rozwiązania, algorytmy uczą się na podstawie dostępnych danych, aby samodzielnie znaleźć wzorce i optymalne odpowiedzi.
 Więcej na ten temat znajdziesz w [książce](/ksiazki#AI)
 
-**Obliczenia kwantowe** to metoda przetwarzania informacji na urządzeniach, które operują zgodnie z zasadami mechaniki kwantowej.
+**Obliczenia kwantowe** to interdyscyplinarna dziedzina wykorzystująca świat nauki kwantowej (fizyki, chemii) i technologii. Rozwija takie dziedziny jak: projektowanie algorytmów, teoria obliczeń złozonych, optymalizacja, 
+architektura systemów komputerowych, czy tworzenie sprzętu komputerowego. 
+
+
 
 > Warto zauważyć, że klasyczne komputery (bazujące na tranzystorach) również działają zgodnie z prawami mechaniki kwantowej, jednak wykonywane przez nie operacje opierają się na klasycznej logice.
 
@@ -148,6 +151,14 @@ Komputery kwantowe oferują obiecującą technologię, która otwiera nowe możl
 
 > Film wprowadzający: [link](https://www.youtube.com/watch?v=-UlxHPIEVqA)
 
+
+Nowy paradygmat obliczeń kwantowych wykorzystuje unikalne cechy interferencji, superpozycji i splątania do realizacji obliczeń. 
+Obecnie realizowany jest w trzech głównych modelach:
+
+1.	Quantum Circuits (Obwody Kwantowe) - oparty na modelu bramkowym, pozwala realizować algorytmy typu QAOA, VQA oraz metody hybrydowe.
+2.	Adiabatyczne Obliczenia Kwantowe (D-Wave) - polegające na minimalizacji energii, wykorzystując optymalizację QUBO i analogię do modelu Isinga.
+3.	Topologiczne Komputery Kwantowe - oparte na topologicznych kubitach.
+
 ### Nie za krótkie wprowadzenie do fizyki kwantowej
 
 Termin **Mechanika Kwantowa** (MK) jest często używany zamiennie z teorią kwantową, choć istnieją również inne teorie kwantowe, takie jak Kwantowa Teoria Pola (ang. _quantum field theory_), które wykraczają poza zakres standardowej mechaniki kwantowej.
@@ -167,7 +178,7 @@ Na przykład, w konstrukcji mostów wykorzystuje się fizykę klasyczną, a nie 
 Warto również zaznaczyć, że wyniki mechaniki kwantowej mają charakter probabilistyczny, co może prowadzić do błędnego przekonania, że mechanika kwantowa jest teorią statystyczną. 
 W rzeczywistości mechanikę kwantową można raczej uznać za uogólnienie klasycznej definicji prawdopodobieństwa.
 
-### Historia MK
+### Historia fizyki kwantowej
 
 Początki Mechaniki Kwantowej sięgają prac Maxa Plancka (1900) i Alberta Einsteina (1905), którzy wprowadzili pojęcie kwantu - najmniejszej jednostki energii. Rozwój tej dziedziny związany jest z badaniami wielu wybitnych naukowców, takich jak Niels Bohr, Erwin Schrödinger, Louis de Broglie, Werner Heisenberg, Paul Dirac, Richard Feynman i wielu innych.
 
@@ -226,13 +237,6 @@ Zasadnicze pytanie brzmi: na ile komputery kwantowe mogą faktycznie poprawić j
 
 #### Kwantowa Złożoność (Quantum Complexity)
 
-Nowy paradygmat obliczeń kwantowych wykorzystuje unikalne cechy interferencji, superpozycji i splątania do realizacji obliczeń. 
-Obecnie realizowany jest w trzech głównych modelach:
-
-1.	Quantum Circuits (Obwody Kwantowe) - oparty na modelu bramkowym, pozwala realizować algorytmy typu QAOA, VQA oraz metody hybrydowe.
-2.	Adiabatyczne Obliczenia Kwantowe (D-Wave) - polegające na minimalizacji energii, wykorzystując optymalizację QUBO i analogię do modelu Isinga.
-3.	Topologiczne Komputery Kwantowe - oparte na topologicznych kubitach.
-
 Problemy, które klasycznie są trudne do rozwiązania, takie jak optymalizacja, mogą być realizowane szybciej przez komputery kwantowe. 
 Przykładem jest faktoryzacja liczb. 
 
@@ -243,7 +247,7 @@ Co dokładnie to oznacza, poznamy w dalszej części wykładu.
 Rozważmy sytuację, w której chcemy poznać działanie funkcji  $f(x)$  dla pewnego argumentu  $x$ . 
 Aby znaleźć wynik dla dwóch liczb (np.  $x = 0$  i  $x = 1$), klasyczny komputer musi wykonać dwie operacje. 
 Komputer kwantowy może uzyskać ten wynik, przeprowadzając obliczenia jednocześnie dla obu wartości.
- Do wykonania takiej operacji wystarczy jeden kubit.
+Do wykonania takiej operacji wystarczy jeden kubit.
 
 Jeśli chcemy obliczyć naszą funkcję dla kolejnych liczb  $x = 2$  (które binarnie reprezentowane jest jako  10 ) oraz liczby  $x = 3$  (binarnie  11 ), musimy dodać kolejny kubit. 
 Dwa kubity mogą posłużyć do realizacji czterech równoległych operacji. Jeśli rozważymy 3 kubity, możemy podwoić liczbę operacji (3 kubity mają 8 stanów bazowych).

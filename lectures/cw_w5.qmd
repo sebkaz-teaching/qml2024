@@ -1,0 +1,99 @@
+# Trenowanie sieci neuronowej PyTorch
+
+```{python}
+import pennylane as qml
+import torch
+import pandas as pd 
+import matplotlib.pyplot as plt
+
+from IPython.display import clear_output
+
+N_QUBITS = 2
+
+torch.manual_seed(1234)
+
+# DANE 
+
+x = torch.linspace(0,10,500).view(-1,1)
+y = torch.sin(x)
+y = y + 0.1*(torch.rand(500).view(-1,1)-0.5)
+
+plt.figure(figsize=(8,4))
+plt.plot(x, torch.sin(x).view(-1,1), color="tab:grey", alpha=0.6, label="sin(x)")
+plt.scatter(x,y, label="dane treningowe")
+plt.xlabel('x')
+plt.ylabel('y')
+plt.legend()
+plt.show()
+```
+
+## klasyczna sieć neuronowa
+
+```{python}
+class NN(torch.nn.Module):
+
+    def __init__(self, N_INPUT: int, N_OUTPUT: int):
+        super().__init__()
+        self.clayer1 = torch.nn.Linear(N_INPUT, 8)
+        self.clayer2 = torch.nn.Linear(8,4)
+        self.clayer3 = torch.nn.Linear(4, N_OUTPUT)
+
+    def forward(self, x):
+        x = self.clayer1(x)
+        x = torch.relu(x)
+        x = self.clayer2(x)
+        x = torch.relu(x)
+        x = self.clayer3(x)
+        return x
+
+model = NN(1,1)
+
+learning_rate=1e-3
+optimiser = torch.optim.Adam(model.parameters(), lr=learning_rate)
+epochs = 100
+
+
+def mse(y, y_pred) -> torch.Tensor:
+    return torch.mean((y-y_pred)**2)
+
+def special_loss_fn(y, y_pred) -> torch.Tensor:
+    return mse(y, y_pred) + torch.mean((y_pred - torch.sin(x))**2)
+
+
+losses = []
+
+def callback(model, loss):
+    losses.append(loss.item())
+
+    clear_output(wait=True)
+    prediction = model(x).detach()
+    plt.figure(figsize=(6,2.5))
+    plt.plot(x[:,0].detach(), torch.sin(x)[:,0].detach(), label="Exact solution", color="tab:grey", alpha=0.6)
+    plt.plot(x[:,0].detach(), prediction[:,0], label="Classical solution", color="tab:green")
+    plt.title(f"Training step {len(losses)}")
+    plt.legend()
+    plt.show()
+
+    plt.figure(figsize=(6,2.5))
+    plt.title('Lossfn Visualised')
+    plt.plot(losses)
+    plt.show()
+
+
+def train(X,Y, model, optimiser, epochs, lossfn, callback = None):
+    for epoch in range(epochs):
+        optimiser.zero_grad()
+        prediction = model(X)
+
+        loss = lossfn(Y, prediction)
+        loss.backward()
+        optimiser.step()
+
+        if callback != None:
+            callback(model, loss)
+
+
+x_train = x.requires_grad_(True)
+
+train(x_train, y, model, optimiser, 1000, special_loss_fn, callback)
+```

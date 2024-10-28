@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Algorytmy kwantowego uczenia maszynowego – Wstęp do kwantowego uczenia maszynowego</title>
+<title>Algorytmy kwantowego uczenia maszynowego QML – Wstęp do kwantowego uczenia maszynowego</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -107,7 +107,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Algorytmy kwantowego uczenia maszynowego</li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lectures/wyklad1.html">Wykłady</a></li><li class="breadcrumb-item"><a href="../lectures/wyklad5.html">Algorytmy kwantowego uczenia maszynowego QML</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -198,6 +198,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Kwantowe bramki logiczne w prostych algorytmach i obwodach kwantowych</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/wyklad5.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Algorytmy kwantowego uczenia maszynowego QML</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -218,18 +224,16 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#kwantowe-algorytmy-wariacyjne" id="toc-kwantowe-algorytmy-wariacyjne" class="nav-link" data-scroll-target="#kwantowe-algorytmy-wariacyjne">Kwantowe Algorytmy Wariacyjne</a></li>
   <li><a href="#quantum-neural-networks" id="toc-quantum-neural-networks" class="nav-link" data-scroll-target="#quantum-neural-networks">Quantum Neural Networks</a></li>
   <li><a href="#quantum-support-vector-classification" id="toc-quantum-support-vector-classification" class="nav-link" data-scroll-target="#quantum-support-vector-classification">Quantum Support Vector Classification</a></li>
-  <li><a href="#variational-quantum-eigensolver" id="toc-variational-quantum-eigensolver" class="nav-link" data-scroll-target="#variational-quantum-eigensolver">Variational Quantum Eigensolver</a></li>
-  <li><a href="#qubo" id="toc-qubo" class="nav-link" data-scroll-target="#qubo">QUBO</a></li>
-  <li><a href="#quantum-approximation-optimization-algorithm" id="toc-quantum-approximation-optimization-algorithm" class="nav-link" data-scroll-target="#quantum-approximation-optimization-algorithm">Quantum Approximation Optimization Algorithm</a></li>
+  <li><a href="#quantum-approximation-optimization-algorithm-dla-problemów-qubo" id="toc-quantum-approximation-optimization-algorithm-dla-problemów-qubo" class="nav-link" data-scroll-target="#quantum-approximation-optimization-algorithm-dla-problemów-qubo">Quantum Approximation Optimization Algorithm dla problemów QUBO</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lectures/wyklad1.html">Wykłady</a></li><li class="breadcrumb-item"><a href="../lectures/wyklad5.html">Algorytmy kwantowego uczenia maszynowego QML</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Algorytmy kwantowego uczenia maszynowego</h1>
+<h1 class="title">Algorytmy kwantowego uczenia maszynowego QML</h1>
 </div>
 
 
@@ -246,9 +250,13 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Dziedziną łączącą klasyczne uczenie maszynowe i obliczenia kwantowe nazywamy kwantowym uczeniem maszynowym. QML powstało aby szybciej i sprawniej rozwiązywać problemu uczenia maszynowego. Do tego celu chcemy wykorzystać procesory kwantowe oraz własności algorytmów kwantowych i ich przewagi nad klasycznymi odpowiednikami.</p>
+<p><img src="../img/classicalML.png" class="img-fluid"></p>
+<p>Dziedziną łączącą klasyczne uczenie maszynowe i obliczenia kwantowe nazywamy kwantowym uczeniem maszynowym. QML powstało aby szybciej (czas trenowania modelu) i sprawniej (ewaluacja) rozwiązywać problemy uczenia maszynowego. Do tego celu chcemy wykorzystać procesory kwantowe oraz własności algorytmów kwantowych i ich przewagi nad klasycznymi odpowiednikami.</p>
+<p>Dobre i uzyteczne procesory kwantowe, realizujące w pełni nasze oczekiwania to wciąz odległa przyszłość. Jednak bardzo szybko rozwija się dziedzina, która wskazuje jak uzywać aktualnych (słabych i zaszumionych) procesorów kwantowych z wykorzystaniem klasycznych optymalizatorów w podejściu hybrydowym. W podejściu tym komputery kwantowe mogą być uzywane i trenowane podobnie do sieci neuronowych. Mozemy np. kontrolować parametry fizyczne naszego układu kwantowego (natęzenie pola elektromagnetycznego, częstotliwość promienia laserowego), co pozwinno pozwolić rozwiązać probelmy analogicznie jak ma to miejsce w sieciach neuronowych. W bardziej rozszerzonym podejściu okazuje się, ze cały obwód kwantowy moze być kontrolowany za pomocą parametrów realizowanych w bramkach. Mozna go traktować jako rózniczkowalną funkcję. Automatyczne rózniczkowanie wykorzystywane jest w paradygmacie programowania <a href="https://en.wikipedia.org/wiki/Differentiable_programming">Differentiable programming</a> jak równiez w szeroko stosowanych sieciach neuronowych. Podejście to mozna wyrazic jako coś więcej niz sieci neuronowe. To paradygmat gdzie algorytmy nie są kodowane ale “uczące się”.</p>
+<p>Dlatego idea trenowania komputerów kwantowych pozwala na więcej niz tylko realizacja modeli uczenia maszynowego. Trenowane obwody kwantowe mozna wykorzystać w chemii kwantowe, kwantowej optymalizacji, projektowaniu algorytmów kwantowych, kwantowej korekcji błędów czy zrozumienia układów fizycznych.</p>
 <section id="pqc" class="level2">
 <h2 class="anchored" data-anchor-id="pqc">PQC</h2>
+<p><img src="../img/proces.png" class="img-fluid"></p>
 </section>
 <section id="kwantowe-algorytmy-wariacyjne" class="level2">
 <h2 class="anchored" data-anchor-id="kwantowe-algorytmy-wariacyjne">Kwantowe Algorytmy Wariacyjne</h2>
@@ -256,18 +264,13 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="quantum-neural-networks" class="level2">
 <h2 class="anchored" data-anchor-id="quantum-neural-networks">Quantum Neural Networks</h2>
+<p><img src="../img/algo.png" class="img-fluid"></p>
 </section>
 <section id="quantum-support-vector-classification" class="level2">
 <h2 class="anchored" data-anchor-id="quantum-support-vector-classification">Quantum Support Vector Classification</h2>
 </section>
-<section id="variational-quantum-eigensolver" class="level2">
-<h2 class="anchored" data-anchor-id="variational-quantum-eigensolver">Variational Quantum Eigensolver</h2>
-</section>
-<section id="qubo" class="level2">
-<h2 class="anchored" data-anchor-id="qubo">QUBO</h2>
-</section>
-<section id="quantum-approximation-optimization-algorithm" class="level2">
-<h2 class="anchored" data-anchor-id="quantum-approximation-optimization-algorithm">Quantum Approximation Optimization Algorithm</h2>
+<section id="quantum-approximation-optimization-algorithm-dla-problemów-qubo" class="level2">
+<h2 class="anchored" data-anchor-id="quantum-approximation-optimization-algorithm-dla-problemów-qubo">Quantum Approximation Optimization Algorithm dla problemów QUBO</h2>
 
 
 </section>

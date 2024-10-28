@@ -227,6 +227,12 @@ window.Quarto = {
  <span class="menu-text">Kwantowe bramki logiczne w prostych algorytmach i obwodach kwantowych</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/wyklad5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Algorytmy kwantowego uczenia maszynowego QML</span></a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -256,7 +262,7 @@ window.Quarto = {
   <li><a href="#obliczenia-kwantowe" id="toc-obliczenia-kwantowe" class="nav-link" data-scroll-target="#obliczenia-kwantowe">Obliczenia kwantowe</a>
   <ul class="collapse">
   <li><a href="#nie-za-krótkie-wprowadzenie-do-fizyki-kwantowej" id="toc-nie-za-krótkie-wprowadzenie-do-fizyki-kwantowej" class="nav-link" data-scroll-target="#nie-za-krótkie-wprowadzenie-do-fizyki-kwantowej">Nie za krótkie wprowadzenie do fizyki kwantowej</a></li>
-  <li><a href="#historia-mk" id="toc-historia-mk" class="nav-link" data-scroll-target="#historia-mk">Historia MK</a></li>
+  <li><a href="#historia-fizyki-kwantowej" id="toc-historia-fizyki-kwantowej" class="nav-link" data-scroll-target="#historia-fizyki-kwantowej">Historia fizyki kwantowej</a></li>
   <li><a href="#realizacja-komputerów-kwantowych" id="toc-realizacja-komputerów-kwantowych" class="nav-link" data-scroll-target="#realizacja-komputerów-kwantowych">Realizacja komputerów kwantowych</a></li>
   <li><a href="#historia-obliczeń-kwantowych" id="toc-historia-obliczeń-kwantowych" class="nav-link" data-scroll-target="#historia-obliczeń-kwantowych">Historia obliczeń kwantowych</a></li>
   <li><a href="#dlaczego-chcemy-używać-komputerów-kwantowych" id="toc-dlaczego-chcemy-używać-komputerów-kwantowych" class="nav-link" data-scroll-target="#dlaczego-chcemy-używać-komputerów-kwantowych">Dlaczego chcemy używać komputerów kwantowych?</a></li>
@@ -311,7 +317,7 @@ window.Quarto = {
 <section id="podstawowe-pojęcia" class="level2">
 <h2 class="anchored" data-anchor-id="podstawowe-pojęcia">Podstawowe pojęcia</h2>
 <p><strong>Uczenie maszynowe</strong> (w tym także uczenie głębokie) to dziedzina, która łączy naukę i technikę, pozwalając komputerom <em>uczyć się</em> na podstawie danych. Dzięki temu mogą one rozwiązywać problemy, których tradycyjne programowanie nie byłoby w stanie efektywnie rozwiązać – ze względu na złożoność, brak wzorców lub dynamicznie zmieniające się dane. Zamiast ręcznie programować konkretne rozwiązania, algorytmy uczą się na podstawie dostępnych danych, aby samodzielnie znaleźć wzorce i optymalne odpowiedzi. Więcej na ten temat znajdziesz w <a href="../ksiazki#AI">książce</a></p>
-<p><strong>Obliczenia kwantowe</strong> to metoda przetwarzania informacji na urządzeniach, które operują zgodnie z zasadami mechaniki kwantowej.</p>
+<p><strong>Obliczenia kwantowe</strong> to interdyscyplinarna dziedzina wykorzystująca świat nauki kwantowej (fizyki, chemii) i technologii. Rozwija takie dziedziny jak: projektowanie algorytmów, teoria obliczeń złozonych, optymalizacja, architektura systemów komputerowych, czy tworzenie sprzętu komputerowego.</p>
 <blockquote class="blockquote">
 <p>Warto zauważyć, że klasyczne komputery (bazujące na tranzystorach) również działają zgodnie z prawami mechaniki kwantowej, jednak wykonywane przez nie operacje opierają się na klasycznej logice.</p>
 </blockquote>
@@ -402,6 +408,12 @@ window.Quarto = {
 <blockquote class="blockquote">
 <p>Film wprowadzający: <a href="https://www.youtube.com/watch?v=-UlxHPIEVqA">link</a></p>
 </blockquote>
+<p>Nowy paradygmat obliczeń kwantowych wykorzystuje unikalne cechy interferencji, superpozycji i splątania do realizacji obliczeń. Obecnie realizowany jest w trzech głównych modelach:</p>
+<ol type="1">
+<li>Quantum Circuits (Obwody Kwantowe) - oparty na modelu bramkowym, pozwala realizować algorytmy typu QAOA, VQA oraz metody hybrydowe.</li>
+<li>Adiabatyczne Obliczenia Kwantowe (D-Wave) - polegające na minimalizacji energii, wykorzystując optymalizację QUBO i analogię do modelu Isinga.</li>
+<li>Topologiczne Komputery Kwantowe - oparte na topologicznych kubitach.</li>
+</ol>
 <section id="nie-za-krótkie-wprowadzenie-do-fizyki-kwantowej" class="level3">
 <h3 class="anchored" data-anchor-id="nie-za-krótkie-wprowadzenie-do-fizyki-kwantowej">Nie za krótkie wprowadzenie do fizyki kwantowej</h3>
 <p>Termin <strong>Mechanika Kwantowa</strong> (MK) jest często używany zamiennie z teorią kwantową, choć istnieją również inne teorie kwantowe, takie jak Kwantowa Teoria Pola (ang. <em>quantum field theory</em>), które wykraczają poza zakres standardowej mechaniki kwantowej.</p>
@@ -413,8 +425,8 @@ window.Quarto = {
 <p>Fizyka klasyczna jest zazwyczaj traktowana jako graniczny przypadek mechaniki kwantowej. Mimo to, w praktyce fizycy często oddzielają te dwie dziedziny i stosują odpowiednią teorię do odpowiednich problemów. Na przykład, w konstrukcji mostów wykorzystuje się fizykę klasyczną, a nie mechanikę kwantową.</p>
 <p>Warto również zaznaczyć, że wyniki mechaniki kwantowej mają charakter probabilistyczny, co może prowadzić do błędnego przekonania, że mechanika kwantowa jest teorią statystyczną. W rzeczywistości mechanikę kwantową można raczej uznać za uogólnienie klasycznej definicji prawdopodobieństwa.</p>
 </section>
-<section id="historia-mk" class="level3">
-<h3 class="anchored" data-anchor-id="historia-mk">Historia MK</h3>
+<section id="historia-fizyki-kwantowej" class="level3">
+<h3 class="anchored" data-anchor-id="historia-fizyki-kwantowej">Historia fizyki kwantowej</h3>
 <p>Początki Mechaniki Kwantowej sięgają prac Maxa Plancka (1900) i Alberta Einsteina (1905), którzy wprowadzili pojęcie kwantu - najmniejszej jednostki energii. Rozwój tej dziedziny związany jest z badaniami wielu wybitnych naukowców, takich jak Niels Bohr, Erwin Schrödinger, Louis de Broglie, Werner Heisenberg, Paul Dirac, Richard Feynman i wielu innych.</p>
 <p>Szczegółowe informacje na temat historii obliczeń kwantowych można znaleźć w <a href="https://medium.com/@warsaw.quantum/czym-są-technologie-kwantowe-13de3f3e4475">artykule o obliczeniach kwantowych</a>.</p>
 <blockquote class="blockquote">
@@ -466,12 +478,6 @@ window.Quarto = {
 </ul>
 <section id="kwantowa-złożoność-quantum-complexity" class="level4">
 <h4 class="anchored" data-anchor-id="kwantowa-złożoność-quantum-complexity">Kwantowa Złożoność (Quantum Complexity)</h4>
-<p>Nowy paradygmat obliczeń kwantowych wykorzystuje unikalne cechy interferencji, superpozycji i splątania do realizacji obliczeń. Obecnie realizowany jest w trzech głównych modelach:</p>
-<ol type="1">
-<li>Quantum Circuits (Obwody Kwantowe) - oparty na modelu bramkowym, pozwala realizować algorytmy typu QAOA, VQA oraz metody hybrydowe.</li>
-<li>Adiabatyczne Obliczenia Kwantowe (D-Wave) - polegające na minimalizacji energii, wykorzystując optymalizację QUBO i analogię do modelu Isinga.</li>
-<li>Topologiczne Komputery Kwantowe - oparte na topologicznych kubitach.</li>
-</ol>
 <p>Problemy, które klasycznie są trudne do rozwiązania, takie jak optymalizacja, mogą być realizowane szybciej przez komputery kwantowe. Przykładem jest faktoryzacja liczb.</p>
 <p>Podstawowym faktem przewagi komputerów kwantowych nad klasycznymi jest tzw. parallelizm. Dzięki temu, że kubity mogą znajdować się w superpozycji stanów, komputer kwantowy może przeprowadzać obliczenia jednocześnie na wszystkich stanach. Co dokładnie to oznacza, poznamy w dalszej części wykładu.</p>
 <p>Rozważmy sytuację, w której chcemy poznać działanie funkcji <span class="math inline">\(f(x)\)</span> dla pewnego argumentu <span class="math inline">\(x\)</span> . Aby znaleźć wynik dla dwóch liczb (np. <span class="math inline">\(x = 0\)</span> i <span class="math inline">\(x = 1\)</span>), klasyczny komputer musi wykonać dwie operacje. Komputer kwantowy może uzyskać ten wynik, przeprowadzając obliczenia jednocześnie dla obu wartości. Do wykonania takiej operacji wystarczy jeden kubit.</p>
