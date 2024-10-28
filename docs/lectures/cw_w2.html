@@ -267,6 +267,23 @@ window.Quarto = {
  <span class="menu-text">Algorytmy kwantowego uczenia maszynowego QML</span></a>
   </div>
 </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">ćwiczenia do W5</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/cw_w5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Trenowanie sieci neuronowej PyTorch</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -322,7 +339,7 @@ window.Quarto = {
 \]</span></p>
 <section id="pytorch-regresja-liniowa" class="level3">
 <h3 class="anchored" data-anchor-id="pytorch-regresja-liniowa">PyTorch Regresja liniowa</h3>
-<div id="c2055e8a" class="cell" data-execution_count="1">
+<div id="3268fd92" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -390,16 +407,16 @@ window.Quarto = {
 <div class="cell-output cell-output-stdout">
 <pre><code>dane: [ 0  1  2  3  4  5  6  7  8  9 10]
 target: [-1, 1, 3, 5, 7, 9, 11, 13, 15, 17, 19]
-epoch: 10, loss = 0.2218
-epoch: 20, loss = 0.1982
-epoch: 30, loss = 0.1772
-epoch: 40, loss = 0.1584
-epoch: 50, loss = 0.1415
-epoch: 60, loss = 0.1265
-epoch: 70, loss = 0.1131
-epoch: 80, loss = 0.1011
-epoch: 90, loss = 0.0903
-epoch: 100, loss = 0.0807</code></pre>
+epoch: 10, loss = 0.4884
+epoch: 20, loss = 0.4365
+epoch: 30, loss = 0.3902
+epoch: 40, loss = 0.3487
+epoch: 50, loss = 0.3117
+epoch: 60, loss = 0.2786
+epoch: 70, loss = 0.2490
+epoch: 80, loss = 0.2225
+epoch: 90, loss = 0.1989
+epoch: 100, loss = 0.1778</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
@@ -412,7 +429,7 @@ epoch: 100, loss = 0.0807</code></pre>
 </section>
 <section id="pytorch-regresja-logistyczna" class="level3">
 <h3 class="anchored" data-anchor-id="pytorch-regresja-logistyczna">PyTorch Regresja logistyczna</h3>
-<div id="2c18fe7c" class="cell" data-execution_count="2">
+<div id="9241e6a4" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -478,7 +495,7 @@ epoch: 100, loss = 0.0807</code></pre>
 <span id="cb3-63"><a href="#cb3-63" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'accuracy = </span><span class="sc">{</span>acc<span class="sc">:.4f}</span><span class="ss">'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>dane: [ 0  1  2  3  4  5  6  7  8  9 10]
-target: [1, 0, 0, 1, 0, 1, 1, 1, 0, 0, 0]
+target: [0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 0]
 epoch: 10, loss = -0.0000
 epoch: 20, loss = -0.0000
 epoch: 30, loss = -0.0000

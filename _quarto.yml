@@ -22,6 +22,9 @@ website:
           - lectures/wyklad3.qmd
           - lectures/wyklad4.qmd
           - lectures/wyklad5.qmd
+          - section : "ćwiczenia do W5"
+            contents:
+            - lectures/cw_w5.qmd
       - section: "Ćwiczenia"
         contents:
           # - labs/cw1.ipynb

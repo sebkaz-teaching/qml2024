@@ -67,6 +67,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../style.css">
 </head>
@@ -204,6 +233,23 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Algorytmy kwantowego uczenia maszynowego QML</span></a>
   </div>
 </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false">
+ <span class="menu-text">ćwiczenia do W5</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../lectures/cw_w5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Trenowanie sieci neuronowej PyTorch</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -220,11 +266,17 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#pqc" id="toc-pqc" class="nav-link active" data-scroll-target="#pqc">PQC</a></li>
-  <li><a href="#kwantowe-algorytmy-wariacyjne" id="toc-kwantowe-algorytmy-wariacyjne" class="nav-link" data-scroll-target="#kwantowe-algorytmy-wariacyjne">Kwantowe Algorytmy Wariacyjne</a></li>
+  <li><a href="#parameterised-quantum-circuit-jak-ogólny-model-uczenia-maszynowego" id="toc-parameterised-quantum-circuit-jak-ogólny-model-uczenia-maszynowego" class="nav-link active" data-scroll-target="#parameterised-quantum-circuit-jak-ogólny-model-uczenia-maszynowego">Parameterised Quantum Circuit jak ogólny model uczenia maszynowego</a></li>
+  <li><a href="#variational-quantum-eigensolver" id="toc-variational-quantum-eigensolver" class="nav-link" data-scroll-target="#variational-quantum-eigensolver">Variational Quantum Eigensolver</a></li>
   <li><a href="#quantum-neural-networks" id="toc-quantum-neural-networks" class="nav-link" data-scroll-target="#quantum-neural-networks">Quantum Neural Networks</a></li>
-  <li><a href="#quantum-support-vector-classification" id="toc-quantum-support-vector-classification" class="nav-link" data-scroll-target="#quantum-support-vector-classification">Quantum Support Vector Classification</a></li>
-  <li><a href="#quantum-approximation-optimization-algorithm-dla-problemów-qubo" id="toc-quantum-approximation-optimization-algorithm-dla-problemów-qubo" class="nav-link" data-scroll-target="#quantum-approximation-optimization-algorithm-dla-problemów-qubo">Quantum Approximation Optimization Algorithm dla problemów QUBO</a></li>
+  <li><a href="#modele-generatywne" id="toc-modele-generatywne" class="nav-link" data-scroll-target="#modele-generatywne">Modele generatywne</a></li>
+  <li><a href="#kodowanie-danych" id="toc-kodowanie-danych" class="nav-link" data-scroll-target="#kodowanie-danych">Kodowanie danych</a>
+  <ul class="collapse">
+  <li><a href="#angle-encoding" id="toc-angle-encoding" class="nav-link" data-scroll-target="#angle-encoding">Angle Encoding</a>
+  <ul class="collapse">
+  <li><a href="#schemat-kodowania" id="toc-schemat-kodowania" class="nav-link" data-scroll-target="#schemat-kodowania">Schemat kodowania</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -251,28 +303,52 @@ ul.task-list li input[type="checkbox"] {
 
 
 <p><img src="../img/classicalML.png" class="img-fluid"></p>
-<p>Dziedziną łączącą klasyczne uczenie maszynowe i obliczenia kwantowe nazywamy kwantowym uczeniem maszynowym. QML powstało aby szybciej (czas trenowania modelu) i sprawniej (ewaluacja) rozwiązywać problemy uczenia maszynowego. Do tego celu chcemy wykorzystać procesory kwantowe oraz własności algorytmów kwantowych i ich przewagi nad klasycznymi odpowiednikami.</p>
-<p>Dobre i uzyteczne procesory kwantowe, realizujące w pełni nasze oczekiwania to wciąz odległa przyszłość. Jednak bardzo szybko rozwija się dziedzina, która wskazuje jak uzywać aktualnych (słabych i zaszumionych) procesorów kwantowych z wykorzystaniem klasycznych optymalizatorów w podejściu hybrydowym. W podejściu tym komputery kwantowe mogą być uzywane i trenowane podobnie do sieci neuronowych. Mozemy np. kontrolować parametry fizyczne naszego układu kwantowego (natęzenie pola elektromagnetycznego, częstotliwość promienia laserowego), co pozwinno pozwolić rozwiązać probelmy analogicznie jak ma to miejsce w sieciach neuronowych. W bardziej rozszerzonym podejściu okazuje się, ze cały obwód kwantowy moze być kontrolowany za pomocą parametrów realizowanych w bramkach. Mozna go traktować jako rózniczkowalną funkcję. Automatyczne rózniczkowanie wykorzystywane jest w paradygmacie programowania <a href="https://en.wikipedia.org/wiki/Differentiable_programming">Differentiable programming</a> jak równiez w szeroko stosowanych sieciach neuronowych. Podejście to mozna wyrazic jako coś więcej niz sieci neuronowe. To paradygmat gdzie algorytmy nie są kodowane ale “uczące się”.</p>
+<p><span class="math display">\[
+\newcommand{\bra}[1]{\left \langle #1 \right \rvert}
+\newcommand{\ket}[1]{\left \rvert #1 \right \rangle}
+\newcommand{\braket}[2]{\left \langle #1 \middle \rvert #2 \right \rangle}
+\]</span></p>
+<p>Dziedziną łączącą klasyczne uczenie maszynowe i obliczenia kwantowe nazywamy kwantowym uczeniem maszynowym. QML (Quantum Machine Learning) powstało aby szybciej (czas trenowania modelu) i sprawniej (ewaluacja) rozwiązywać problemy uczenia maszynowego. Do tego celu chcemy wykorzystać procesory kwantowe oraz własności algorytmów kwantowych i ich przewagi nad klasycznymi odpowiednikami.</p>
+<p>Dobre i uzyteczne procesory kwantowe, realizujące w pełni nasze oczekiwania to wciąz odległa przyszłość. Jednak bardzo szybko rozwija się dziedzina, która wskazuje jak uzywać aktualnych (słabych i zaszumionych) procesorów kwantowych z wykorzystaniem klasycznych optymalizatorów w podejściu hybrydowym.</p>
+<p>Postaramy się zdefiniować jakie problemy i modele mozemy sformułować tak by nie wymagały one duzej liczby (zaszumionych) kubitów.</p>
+<p>W podejściu tym komputery kwantowe mogą być uzywane i trenowane podobnie do sieci neuronowych. Mozemy np. kontrolować parametry fizyczne naszego układu kwantowego (natęzenie pola elektromagnetycznego, częstotliwość promienia laserowego), co pozwinno pozwolić rozwiązać probelmy analogicznie jak ma to miejsce w sieciach neuronowych. W bardziej rozszerzonym podejściu okazuje się, ze cały obwód kwantowy moze być kontrolowany za pomocą parametrów realizowanych w bramkach. Mozna go traktować jako rózniczkowalną funkcję. Automatyczne rózniczkowanie wykorzystywane jest w paradygmacie programowania <a href="https://en.wikipedia.org/wiki/Differentiable_programming">Differentiable programming</a> jak równiez w szeroko stosowanych sieciach neuronowych. Podejście to mozna wyrazic jako coś więcej niz sieci neuronowe. To paradygmat gdzie algorytmy nie są kodowane ale “uczące się”.</p>
 <p>Dlatego idea trenowania komputerów kwantowych pozwala na więcej niz tylko realizacja modeli uczenia maszynowego. Trenowane obwody kwantowe mozna wykorzystać w chemii kwantowe, kwantowej optymalizacji, projektowaniu algorytmów kwantowych, kwantowej korekcji błędów czy zrozumienia układów fizycznych.</p>
-<section id="pqc" class="level2">
-<h2 class="anchored" data-anchor-id="pqc">PQC</h2>
+<section id="parameterised-quantum-circuit-jak-ogólny-model-uczenia-maszynowego" class="level2">
+<h2 class="anchored" data-anchor-id="parameterised-quantum-circuit-jak-ogólny-model-uczenia-maszynowego">Parameterised Quantum Circuit jak ogólny model uczenia maszynowego</h2>
+<p>Wiemy juz jak składać bramki w celu utworzenia dowolnego (i o dowolnej głębokości) obwodu. <span class="math display">\[ \ket{\psi'} = U_m(\theta_m)\dots U_2(\theta_2) U_1(\theta_1) \ket{\psi} \]</span></p>
+<p>Część indywidualnych bramek (ze zbioru <span class="math inline">\((U_i)_{i=1,/dots,m}\)</span>) moze być ustalona np. <span class="math inline">\(X\)</span>, <span class="math inline">\(CNOT\)</span>, czyli ich parametry są ściśle określone (np. <span class="math inline">\(\pi\)</span>). Jednak część bramek moze zalezeć od parametrów obrotów wyrazonych najczęściej jako radiany (w zakresi <span class="math inline">\(\theta \in [-\pi, \pi]\)</span>). Po przygotowaniu stanu <span class="math inline">\(\ket{\psi'}\)</span> mozemy zmierzyć jeden lub cały zestaw kubitów. Po pomiarze kubity zostają w stanie bazowym zgodnie z wykorzystanym operatorem. Najczęściej wybieramy bazę obliczeniową pozwalającą uzyskać rezultat jako listę bitów.</p>
+<p>Tak zdefiniowany i działający obwód kwantowy mozna wykorzystać do wielu rzeczy. Dla nas najwazniejszym aspektem jest mozliwość trenowania parametrów obwodu.</p>
 <p><img src="../img/proces.png" class="img-fluid"></p>
 </section>
-<section id="kwantowe-algorytmy-wariacyjne" class="level2">
-<h2 class="anchored" data-anchor-id="kwantowe-algorytmy-wariacyjne">Kwantowe Algorytmy Wariacyjne</h2>
-<p>Variational Quantum Algorithms (VQA) czyli kwantowe algorytmy wariacyjne nalezą do klasy algorytmów hybrydowych. Oznacza to, ze do ich realizacji wykorzystamy zarówno procesor kwantowy jak i klasyczne algorytmy optymalizacyjne.</p>
+<section id="variational-quantum-eigensolver" class="level2">
+<h2 class="anchored" data-anchor-id="variational-quantum-eigensolver">Variational Quantum Eigensolver</h2>
+<p>PQC uzywany jest do wygenerowania końcowego stanu <span class="math inline">\(\ket{\psi'}\)</span>, który jest bliski stanowi odpowiadającemu najmniejszej wartości własnej problemu zakodowanego w postaci Hamiltonianiu. Odpowiada to stanowi podstawowemu (o najnizszej energii) powiązanemu z minimum funkcji kosztu.</p>
 </section>
 <section id="quantum-neural-networks" class="level2">
 <h2 class="anchored" data-anchor-id="quantum-neural-networks">Quantum Neural Networks</h2>
+<p>PQC mozna wykorzystać do tworzenia modelu predykcyjnego - kwantowa sieć neuronowa jako klasyfikator. W tym przypadku dokonuje się pomiaru kilku a nawet jednego kubitu w celu weryfikacji wyniku. Stan początkowy powinien kodować próbkę danych do sklasyfikowania</p>
 <p><img src="../img/algo.png" class="img-fluid"></p>
 </section>
-<section id="quantum-support-vector-classification" class="level2">
-<h2 class="anchored" data-anchor-id="quantum-support-vector-classification">Quantum Support Vector Classification</h2>
+<section id="modele-generatywne" class="level2">
+<h2 class="anchored" data-anchor-id="modele-generatywne">Modele generatywne</h2>
+<p>W tym przypadku mozemy zbudować Quantum Circuit Born Machine gdzie dokonujemy pomiaru wszystkich kubitów w celu wygenerowania nowej próbki. Prawdopodobieństwo pojawienia się wartości otrzymanych z próbki zakodowane zostaje w stanie <span class="math inline">\(\ket{\psi'}\)</span>.</p>
 </section>
-<section id="quantum-approximation-optimization-algorithm-dla-problemów-qubo" class="level2">
-<h2 class="anchored" data-anchor-id="quantum-approximation-optimization-algorithm-dla-problemów-qubo">Quantum Approximation Optimization Algorithm dla problemów QUBO</h2>
+<section id="kodowanie-danych" class="level1">
+<h1>Kodowanie danych</h1>
+<section id="angle-encoding" class="level2">
+<h2 class="anchored" data-anchor-id="angle-encoding">Angle Encoding</h2>
+<p>Kazdy kubit moze być opisany przez <strong>dwa</strong> kąty <span class="math inline">\(\theta\in [0,\pi]\)</span> oraz <span class="math inline">\(\phi \in [0,2\pi]\)</span>. Kazda wartość opisuje jeden punkt na sferze Blocha.</p>
+<section id="schemat-kodowania" class="level3">
+<h3 class="anchored" data-anchor-id="schemat-kodowania">Schemat kodowania</h3>
+<p>Rozwazmy N wierszy 8 zmiennych <span class="math inline">\(X_1\dots X_8\)</span> o wartościach rzeczywistych.</p>
+<p>Potrzebujemy określić <span class="math inline">\(X_i^{max}\)</span> oraz <span class="math inline">\(X_i^{min}\)</span>.</p>
+<p><span class="math inline">\(\theta^j_i = \frac{X^j_i - X_i^{min}}{X_i^{max}-X_i^{min}} \pi\)</span></p>
+<p>Korzystając z bramki <span class="math inline">\(R_y\)</span> mozemy zakodować kazdy kubit z osobnym kątem. Mozna takze wybrać dwie bramki z dwoma kątami dla jednego kubitu (<span class="math inline">\(R_y\)</span> i <span class="math inline">\(R_z\)</span>)</p>
+<p>Więcej przykładów <a href="https://pennylane.ai/qml/glossary/quantum_embedding/">kwantowego embeddingu</a></p>
 
 
+</section>
+</section>
 </section>
 
 </main> <!-- /main -->

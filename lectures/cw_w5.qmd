@@ -95,5 +95,5 @@ def train(X,Y, model, optimiser, epochs, lossfn, callback = None):
 
 x_train = x.requires_grad_(True)
 
-train(x_train, y, model, optimiser, 1000, special_loss_fn, callback)
+train(x_train, y, model, optimiser, 100, special_loss_fn, callback)
 ```
