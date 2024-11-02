@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Pierwsza kwantowa sieć neuronowa – Wstęp do kwantowego uczenia maszynowego</title>
+<title>kwantowa sieć neuronowa – Wstęp do kwantowego uczenia maszynowego</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -170,7 +170,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../labs/cw1.html">Ćwiczenia</a></li><li class="breadcrumb-item"><a href="../labs/cw1.html">Pierwsza kwantowa sieć neuronowa</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../labs/cw1.html">Ćwiczenia</a></li><li class="breadcrumb-item"><a href="../labs/cw1.html">kwantowa sieć neuronowa</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -298,12 +298,15 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../labs/cw1.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Pierwsza kwantowa sieć neuronowa</span></a>
+ <span class="menu-text">kwantowa sieć neuronowa</span></a>
   </div>
 </li>
           <li class="sidebar-item">
- <span class="menu-text">lab/cw1_qiskit.ipynb</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../labs/cw1_qiskit.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Biblioteka Qiskit wprowadzenie</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -316,7 +319,8 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#pennylane-wprowadzenie" id="toc-pennylane-wprowadzenie" class="nav-link active" data-scroll-target="#pennylane-wprowadzenie">Pennylane wprowadzenie</a></li>
+  <li><a href="#sieci-neuronowe-z-kwantowym-obwodem" id="toc-sieci-neuronowe-z-kwantowym-obwodem" class="nav-link active" data-scroll-target="#sieci-neuronowe-z-kwantowym-obwodem">Sieci neuronowe z kwantowym obwodem</a></li>
+  <li><a href="#pennylane-wprowadzenie" id="toc-pennylane-wprowadzenie" class="nav-link" data-scroll-target="#pennylane-wprowadzenie">Pennylane wprowadzenie</a></li>
   <li><a href="#definicja-obwodu-quantum-circuit" id="toc-definicja-obwodu-quantum-circuit" class="nav-link" data-scroll-target="#definicja-obwodu-quantum-circuit">definicja obwodu quantum circuit</a></li>
   <li><a href="#uruchomienie-obwodu-kwantowego" id="toc-uruchomienie-obwodu-kwantowego" class="nav-link" data-scroll-target="#uruchomienie-obwodu-kwantowego">Uruchomienie obwodu kwantowego</a>
   <ul class="collapse">
@@ -329,9 +333,9 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../labs/cw1.html">Ćwiczenia</a></li><li class="breadcrumb-item"><a href="../labs/cw1.html">Pierwsza kwantowa sieć neuronowa</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../labs/cw1.html">Ćwiczenia</a></li><li class="breadcrumb-item"><a href="../labs/cw1.html">kwantowa sieć neuronowa</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Pierwsza kwantowa sieć neuronowa</h1>
+<h1 class="title">kwantowa sieć neuronowa</h1>
 </div>
 
 
@@ -348,6 +352,8 @@ window.Quarto = {
 </header>
 
 
+<section id="sieci-neuronowe-z-kwantowym-obwodem" class="level2">
+<h2 class="anchored" data-anchor-id="sieci-neuronowe-z-kwantowym-obwodem">Sieci neuronowe z kwantowym obwodem</h2>
 <div id="cell-2" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pennylane <span class="im">as</span> qml</span>
@@ -525,6 +531,7 @@ window.Quarto = {
 <pre><code>tensor(0.0179, grad_fn=&lt;MeanBackward0&gt;)</code></pre>
 </div>
 </div>
+</section>
 <section id="pennylane-wprowadzenie" class="level2">
 <h2 class="anchored" data-anchor-id="pennylane-wprowadzenie">Pennylane wprowadzenie</h2>
 <p><img src="../img/Qnode.png"></p>
