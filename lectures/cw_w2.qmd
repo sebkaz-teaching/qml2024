@@ -30,64 +30,64 @@ class LinearRegression(torch.nn.Module):
 
     def __init__(self, inputSize, outputSize):
         super(LinearRegression, self).__init__()
-        self.linear = torch.nn.Linear(inputSize, outputSize)
-
+        self.layers = torch.nn.Sequential(
+            torch.nn.Linear(inputSize, outputSize)
+        ) 
+        
     def forward(self, x):
-        out = self.linear(x)
-        return out
+        return self.layers(x)
 
-
-inputDim = 1
-outputDim = 1
-learningRate = 0.01
-epochs = 100
-
-lr_model = LinearRegression(inputDim, outputDim)
-
-x = np.arange(11)
-print(f"dane: {x}")
-
-y = [2*el - 1 for el in x]
-print(f"target: {y}")
+# zbior danych
+x = range(11)
+y = [2*xi - 1 for xi in x]
 
 # dostosowanie do pytorch
-y  = np.array(y, dtype=np.float32)
-x_train = np.array(x, dtype=np.float32)
-x_train, y_train = x_train.reshape(-1, 1), y.reshape(-1, 1)
+x = np.array(x, dtype=np.float32)
+y = np.array(y, dtype=np.float32)
 
-inputs = torch.from_numpy(x_train)
-outputs = torch.from_numpy(y_train)
+X_train = torch.from_numpy(x).view(-1,1)
+y_train = torch.from_numpy(y).view(-1,1)
 
-criterion = torch.nn.MSELoss() 
-optimizer = torch.optim.SGD(lr_model.parameters(), lr=learningRate)
+# obiekt liniowej regresji w wersji sieci nn
+lr_model = LinearRegression(1,1)
+
+criterion = torch.nn.MSELoss()
+optimizer = torch.optim.SGD(lr_model.parameters(), lr=0.01)
+
+
+print(lr_model)
+num_params = sum(p.numel() for p in lr_model.parameters() if p.requires_grad)
+print(f"liczba trenowalnych parametrów: {num_params}")
+
+epochs = 400
 # petla uczaca 
 for epoch in range(epochs):
-    # forward pass and loss
-    y_predicted = lr_model(inputs)
-    loss = criterion(y_predicted, outputs)
-    
-    # backward pass
+    lr_model.train()
+
+    y_pred = lr_model(X_train)
+    loss = criterion(y_pred, y_train)
+
+    optimizer.zero_grad()
     loss.backward()
-    
-    # updates
     optimizer.step()
     
-    # zero gradients
-    optimizer.zero_grad()
-    
-    if (epoch+1) % 10 == 0:
-        print(f'epoch: {epoch+1}, loss = {loss.item():.4f}')
+    if (epoch+1) % 50 == 0:
+        print(f'epoch: {epoch+1:03d}, loss = {loss.item():.2f}')
+ 
+    lr_model.eval()
 
+# po treningu jeszcze raz generujemy predykcje
+lr_model.eval()
 with torch.no_grad():
-    predicted = lr_model(inputs)
+    predicted = lr_model(X_train)
+
+print(lr_model.layers[0].weight, lr_model.layers[0].bias)
 
 plt.clf()
-plt.plot(x_train, y_train, 'go', label='True data', alpha=0.5)
-plt.plot(x_train, predicted, '--', label='Predictions', alpha=0.5)
+plt.plot(X_train, y_train, 'go', label='True data', alpha=0.5)
+plt.plot(X_train, predicted, '--', label='Predictions', alpha=0.5)
 plt.legend(loc='best')
 plt.show()
-
-
 ```
 
 ### PyTorch Regresja logistyczna
@@ -101,12 +101,14 @@ class LogisticRegression(torch.nn.Module):
 
     def __init__(self, inputSize, outputSize):
         super(LogisticRegression, self).__init__()
-        self.linear = torch.nn.Linear(inputSize, outputSize)
+        self.layers = torch.nn.Sequential(
+            torch.nn.Linear(inputSize, outputSize),
+            torch.nn.Sigmoid()
+        )
 
     def forward(self, x):
-        x = self.linear(x)
-        y_pred = torch.sigmoid(x)
-        return y_pred
+        logits = self.layers(x)
+        return logits
 
 
 # prepare dataset
@@ -117,7 +119,6 @@ y_train = torch.from_numpy(y.astype(np.float32))
 
 y_train = y_train.view(y_train.shape[0], 1)
 
-
 model = LogisticRegression(X_train.shape[1], y_train.shape[1])
 
 learningRate = 0.01
@@ -125,29 +126,30 @@ criterion = torch.nn.BCELoss()
 optimizer = torch.optim.SGD(model.parameters(), lr=learningRate)
 
 # petla uczaca 
-num_epochs = 200
+num_epochs = 800
 
 for epoch in range(num_epochs):
     # forward pass and loss
+    model.train()
     y_predicted = model(X_train)
     loss = criterion(y_predicted, y_train)
     
-    # backward pass
     loss.backward()
-    
-    # updates
     optimizer.step()
-    
-    # zero gradients
     optimizer.zero_grad()
-    
-    if (epoch+1) % 25 == 0:
+    model.eval()
+
+    if (epoch+1) % 50 == 0:
         print(f'epoch: {epoch+1}, loss = {loss.item():.4f}')
 
+
+
+model.eval()
 with torch.no_grad():
     y_predicted = model(X_train)  # no need to call model.forward()
     y_predicted_cls = y_predicted.round()   # round off to nearest class
     acc = y_predicted_cls.eq(y_train).sum() / float(y_train.shape[0])  # accuracy
     print(f'accuracy = {acc:.4f}')
+    print(f"predykcja dla wiersza 0:{y_predicted[0]}, wartosc prawdziwa: {y_train[0]}")
 
 ```
