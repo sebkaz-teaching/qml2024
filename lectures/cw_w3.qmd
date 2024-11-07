@@ -1,8 +1,0 @@
-
-
-Wejdz na stronę [codebook](https://pennylane.ai/codebook/).
-Zarejestruj się i zaloguj.
-
-### IQC: Introduction to Quantum Computing
-
-Wykonaj pierwsze trzy ćwiczenia z sekcji wprowadzenie do obliczeń kwantowych. 

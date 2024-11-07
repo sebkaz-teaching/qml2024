@@ -278,6 +278,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Biblioteka Qiskit wprowadzenie</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../labs/cw2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Konstrukcja obwodów kwantowych w Pennylane</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -316,7 +322,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<div id="2e27c297" class="cell" data-execution_count="1">
+<div id="f7b8e8f1" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd </span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -346,7 +352,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <section id="klasyczna-sieć-neuronowa" class="level2">
 <h2 class="anchored" data-anchor-id="klasyczna-sieć-neuronowa">klasyczna sieć neuronowa</h2>
-<div id="daa089fd" class="cell" data-execution_count="2">
+<div id="cea11282" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> SinusEstimator(torch.nn.Module):</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, N_INPUT: <span class="bu">int</span>, N_OUTPUT: <span class="bu">int</span>):</span>
@@ -407,7 +413,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>x_train <span class="op">=</span> x.requires_grad_(<span class="va">True</span>)</span>
 <span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>train(x_train, y, model, optimiser, <span class="dv">1000</span>, criterion, callback)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>train(x_train, y, model, optimiser, <span class="dv">500</span>, criterion, callback)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -426,7 +432,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Sprawdź czy modyfikacja funkcji straty pomoze polepszyć wynik</p>
 <p>def mse(y, y_pred) -&gt; torch.Tensor: return torch.mean((y-y_pred)**2)</p>
 <p>def special_loss_fn(y, y_pred) -&gt; torch.Tensor: return mse(y, y_pred) + torch.mean((y_pred - torch.sin(x))**2)</p>
-<p>train(x_train, y, model, optimiser, 1000, special_loss_fn, callback)</p>
+<p>train(x_train, y, model, optimiser, 500, special_loss_fn, callback)</p>
 
 
 </section>

@@ -85,7 +85,7 @@ def train(X,Y, model, optimiser, epochs, lossfn, callback = None):
 
 x_train = x.requires_grad_(True)
 
-train(x_train, y, model, optimiser, 1000, criterion, callback)
+train(x_train, y, model, optimiser, 500, criterion, callback)
 ```
 
 
@@ -98,4 +98,4 @@ def mse(y, y_pred) -> torch.Tensor:
 def special_loss_fn(y, y_pred) -> torch.Tensor:
     return mse(y, y_pred) + torch.mean((y_pred - torch.sin(x))**2)
 
-train(x_train, y, model, optimiser, 1000, special_loss_fn, callback)
+train(x_train, y, model, optimiser, 500, special_loss_fn, callback)

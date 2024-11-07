@@ -29,7 +29,7 @@ website:
         contents:
           - labs/cw1.ipynb
           - labs/cw1_qiskit.ipynb
-          # - labs/cw2.ipynb
+          - labs/cw2.ipynb
           # - labs/cw3.ipynb
           # - labs/cw4.ipynb
           # - labs/cw5.ipynb
