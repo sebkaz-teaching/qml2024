@@ -38,11 +38,11 @@ Jest on NIEOBOWIĄZKOWY i odbywa się w sali C4D.
 
 #### Laboratoria
 
-Wszystkie laboratoria odbywają się w sali C5D.
+Wszystkie laboratoria odbywają się w sali C4D.
 
 1. <del>04-11-2024 (poniedziałek) 11:40-13:20 - Lab1</del>
-2. 13-11-2023 (poniedziałek) 11:40-13:20 - Lab2
-3. 20-11-2023 (poniedziałek) 11:40-13:20 - Lab3
+2. <del>13-11-2023 (poniedziałek) 11:40-13:20 - Lab2</del>
+3. <del>20-11-2023 (poniedziałek) 11:40-13:20 - Lab3</del>
 4. 27-11-2023 (poniedziałek) 11:40-13:20 - Lab4
 5. 04-12-2023 (poniedziałek) 11:40-13:20 - Lab5
 6. 11-12-2023 (poniedziałek) 11:40-13:20 - Lab6
@@ -56,6 +56,8 @@ Wszystkie laboratoria odbywają się w sali C5D.
 
 1. <del>12.10.2024 11:40-13:20 - Wykład 1</del>
 2. <del>26.10.2024 11:40-13:20 - Wykład 2</del>
+3. <del>09.11.2024 11:40-13:20 - Lab1 </del>
+4. <del>23.11.2024 11:40-13:20 - Lab2 </del>
 
 ## Technologie
 
