@@ -370,7 +370,7 @@ window.Quarto = {
 \]</span></p>
 <section id="pytorch-regresja-liniowa" class="level3">
 <h3 class="anchored" data-anchor-id="pytorch-regresja-liniowa">PyTorch Regresja liniowa</h3>
-<div id="75ea364d" class="cell" data-execution_count="1">
+<div id="fd565bf8" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -444,17 +444,17 @@ window.Quarto = {
   )
 )
 liczba trenowalnych parametrów: 2
-epoch: 050, loss = 0.44
-epoch: 100, loss = 0.25
-epoch: 150, loss = 0.14
-epoch: 200, loss = 0.08
-epoch: 250, loss = 0.05
-epoch: 300, loss = 0.03
-epoch: 350, loss = 0.02
-epoch: 400, loss = 0.01
+epoch: 050, loss = 0.14
+epoch: 100, loss = 0.08
+epoch: 150, loss = 0.05
+epoch: 200, loss = 0.03
+epoch: 250, loss = 0.02
+epoch: 300, loss = 0.01
+epoch: 350, loss = 0.00
+epoch: 400, loss = 0.00
 Parameter containing:
-tensor([[1.9751]], requires_grad=True) Parameter containing:
-tensor([-0.8268], requires_grad=True)</code></pre>
+tensor([[1.9857]], requires_grad=True) Parameter containing:
+tensor([-0.9009], requires_grad=True)</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
@@ -467,7 +467,7 @@ tensor([-0.8268], requires_grad=True)</code></pre>
 </section>
 <section id="pytorch-regresja-logistyczna" class="level3">
 <h3 class="anchored" data-anchor-id="pytorch-regresja-logistyczna">PyTorch Regresja logistyczna</h3>
-<div id="27b0dfd4" class="cell" data-execution_count="2">
+<div id="77119f16" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.datasets <span class="im">import</span> make_classification</span>
@@ -527,24 +527,24 @@ tensor([-0.8268], requires_grad=True)</code></pre>
 <span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'accuracy = </span><span class="sc">{</span>acc<span class="sc">:.4f}</span><span class="ss">'</span>)</span>
 <span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"predykcja dla wiersza 0:</span><span class="sc">{</span>y_predicted[<span class="dv">0</span>]<span class="sc">}</span><span class="ss">, wartosc prawdziwa: </span><span class="sc">{</span>y_train[<span class="dv">0</span>]<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>epoch: 50, loss = 0.5177
-epoch: 100, loss = 0.4504
-epoch: 150, loss = 0.4119
-epoch: 200, loss = 0.3871
-epoch: 250, loss = 0.3699
-epoch: 300, loss = 0.3573
-epoch: 350, loss = 0.3476
-epoch: 400, loss = 0.3400
-epoch: 450, loss = 0.3338
-epoch: 500, loss = 0.3287
-epoch: 550, loss = 0.3245
-epoch: 600, loss = 0.3208
-epoch: 650, loss = 0.3177
-epoch: 700, loss = 0.3150
-epoch: 750, loss = 0.3127
-epoch: 800, loss = 0.3106
-accuracy = 0.8884
-predykcja dla wiersza 0:tensor([0.8502]), wartosc prawdziwa: tensor([1.])</code></pre>
+<pre><code>epoch: 50, loss = 0.6136
+epoch: 100, loss = 0.5190
+epoch: 150, loss = 0.4621
+epoch: 200, loss = 0.4250
+epoch: 250, loss = 0.3993
+epoch: 300, loss = 0.3806
+epoch: 350, loss = 0.3665
+epoch: 400, loss = 0.3555
+epoch: 450, loss = 0.3467
+epoch: 500, loss = 0.3395
+epoch: 550, loss = 0.3336
+epoch: 600, loss = 0.3286
+epoch: 650, loss = 0.3244
+epoch: 700, loss = 0.3208
+epoch: 750, loss = 0.3177
+epoch: 800, loss = 0.3150
+accuracy = 0.8862
+predykcja dla wiersza 0:tensor([0.8222]), wartosc prawdziwa: tensor([1.])</code></pre>
 </div>
 </div>
 
