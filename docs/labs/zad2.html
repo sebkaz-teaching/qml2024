@@ -313,6 +313,12 @@ window.Quarto = {
  <span class="menu-text">Konstrukcja obwodów kwantowych w Pennylane</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../labs/cw3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Proces optymalizacji</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -549,7 +555,7 @@ window.Quarto = {
 <span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>qc()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><span class="math display">\[
+<p>A co jesli chcemy otrzymać superpozycję wszystkich stanów bazowych <span class="math display">\[
 \ket{\psi}=\frac{1}{2}\left( \ket{00} + \ket{01} + \ket{10} + \ket{11} \right)
 \]</span></p>
 <div id="cell-17" class="cell">
@@ -738,12 +744,10 @@ H = \frac{1}{\sqrt{2}}\begin{pmatrix}
 <span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> ruch_2 <span class="kw">in</span> [<span class="st">'I'</span>,<span class="st">'X'</span>]:</span>
 <span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> ruch_3 <span class="kw">in</span> [<span class="st">'I'</span>,<span class="st">'X'</span>]:</span>
 <span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>                strategia <span class="op">=</span> ruch_1 <span class="op">+</span> ruch_2 <span class="op">+</span> ruch_3</span>
-<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>                <span class="co"># print("strategia", strategia)</span></span>
-<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>                ob <span class="op">=</span> obwod(strategia)</span>
-<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>                <span class="co">#qml.draw_mpl(ob)()</span></span>
-<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>                stats <span class="op">=</span> sedzia(ob())</span>
-<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>                wyniki.append((strategia, stats))</span>
-<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> wyniki</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>                ob <span class="op">=</span> obwod(strategia)</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>                stats <span class="op">=</span> sedzia(ob())</span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>                wyniki.append((strategia, stats))</span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> wyniki</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="cell-33" class="cell">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>klasycze_strategie()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>

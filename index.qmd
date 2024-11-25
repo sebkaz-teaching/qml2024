@@ -43,7 +43,7 @@ Wszystkie laboratoria odbywają się w sali C4D.
 1. <del>04-11-2024 (poniedziałek) 11:40-13:20 - Lab1</del>
 2. <del>13-11-2023 (poniedziałek) 11:40-13:20 - Lab2</del>
 3. <del>20-11-2023 (poniedziałek) 11:40-13:20 - Lab3</del>
-4. 27-11-2023 (poniedziałek) 11:40-13:20 - Lab4
+4. 25-11-2023 (poniedziałek) 11:40-13:20 - Lab4
 5. 04-12-2023 (poniedziałek) 11:40-13:20 - Lab5
 6. 11-12-2023 (poniedziałek) 11:40-13:20 - Lab6
 7. 18-12-2023 (poniedziałek) 11:40-13:20 - Lab7
