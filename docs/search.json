@@ -578,121 +578,121 @@
   {
     "objectID": "labs/cw3.html",
     "href": "labs/cw3.html",
-    "title": "Proces optymalizacji",
+    "title": "Proces optymalizacji dla prostych obwodów kwantowych",
     "section": "",
     "text": "Znasz już bramkę Hadamarda, bramkę \\(X\\) oraz bramki rotacji (\\(R_x\\), \\(R_y\\), \\(R_z\\))\nDla przypomnienia :\nBramka \\(X\\):\n\\[\n\\textbf{X} = \\begin{bmatrix} 0 \\,\\, 1 \\\\ 1 \\,\\, 0 \\end{bmatrix}\n\\]\n\\[\n\\textbf{X} \\ket{0} = \\begin{bmatrix} 0\\,\\, 1 \\\\ 1 \\, 0 \\end{bmatrix} \\begin{bmatrix} 1 \\\\ 0 \\end{bmatrix} =  \\begin{bmatrix} 0 \\\\ 1 \\end{bmatrix} = \\ket{1}\n\\] oraz \\[\n\\textbf{X} \\ket{0} = \\begin{bmatrix} 0\\,\\, 1 \\\\ 1 \\, 0 \\end{bmatrix} \\begin{bmatrix} 0 \\\\ 1 \\end{bmatrix} =  \\begin{bmatrix} 1 \\\\ 0 \\end{bmatrix} = \\ket{0}\n\\]\nBramka \\(H\\):\n\\[\n\\textbf{H}= \\frac{1}{\\sqrt{2}}\\begin{bmatrix} 1\\,\\,\\,\\,\\,\\,\\, 1 \\\\ 1 \\, -1 \\end{bmatrix}\n\\]\ndla której\n\\[\n\\textbf{H} \\ket{0} = \\frac{1}{\\sqrt{2}}\\begin{bmatrix} 1\\,\\,\\,\\,\\,\\,\\, 1 \\\\ 1 \\, -1 \\end{bmatrix} \\begin{bmatrix} 1 \\\\ 0 \\end{bmatrix} = \\frac{1}{\\sqrt{2}} \\left( \\ket{0} + \\ket{1} \\right) = \\ket{+}\n\\] oraz \\[\n\\textbf{H} \\ket{1} = \\frac{1}{\\sqrt{2}}\\begin{bmatrix} 1\\,\\,\\,\\,\\,\\,\\, 1 \\\\ 1 \\, -1 \\end{bmatrix}  \\begin{bmatrix} 0 \\\\ 1 \\end{bmatrix} = \\begin{bmatrix} 0 \\\\ 1 \\end{bmatrix} = \\frac{1}{\\sqrt{2}} \\left( \\ket{0} - \\ket{1} \\right) = \\ket{-}\n\\]",
     "crumbs": [
       "Sylabus",
       "Ćwiczenia",
-      "Proces optymalizacji"
+      "Proces optymalizacji dla prostych obwodów kwantowych"
     ]
   },
   {
     "objectID": "labs/cw3.html#zadanie---napisz-jedno-kubitowy-obwód-realizujący-bit-losowy.",
     "href": "labs/cw3.html#zadanie---napisz-jedno-kubitowy-obwód-realizujący-bit-losowy.",
-    "title": "Proces optymalizacji",
+    "title": "Proces optymalizacji dla prostych obwodów kwantowych",
     "section": "Zadanie - napisz jedno kubitowy obwód realizujący bit losowy.",
     "text": "Zadanie - napisz jedno kubitowy obwód realizujący bit losowy.\nklasycznie\n# generator liczb losowych\nfrom random import randrange\n''.join([str(randrange(2)) for i in range(8)])\nlub\n# mozna takze zrealizowac jako rzut monetą \n\nimport random\nfor n in range(5):\n    if random.random()&lt;0.5:       #if the random number is less than 0.5 print heads\n        print('HEADS')\n    else:\n        print('TAILS')\nKWANTOWO\n\nUżyj default.qubit jako klasyczny symulator w funkcji device\nzmień funkcję qc w obwód kwantowy korzystając z dekoratora @qml.qnode\nzdefinuj funkcję qc z jednym kubitem\nna kubicie wykorzystaj bramkę Hadamarda\nwyświetl stan po pomiarze pojedynczego kubitu\nwyświetl prawdopodobieństwa otrzymania stanu 0 i 1\nuruchom obwód 3 razy (do dev dodaj parametr , shots=3) i sprawdź wyniki otrzymywane przez metodę qml.counts() link\nuruchom powyzszą prcedurę 100 razy\n\nDo jakiego zdarzenia losowego podobne są wyniki?",
     "crumbs": [
       "Sylabus",
       "Ćwiczenia",
-      "Proces optymalizacji"
+      "Proces optymalizacji dla prostych obwodów kwantowych"
     ]
   },
   {
     "objectID": "labs/cw3.html#zadanie---losowy-bajt",
     "href": "labs/cw3.html#zadanie---losowy-bajt",
-    "title": "Proces optymalizacji",
+    "title": "Proces optymalizacji dla prostych obwodów kwantowych",
     "section": "Zadanie - Losowy bajt",
     "text": "Zadanie - Losowy bajt\n\nbajt to 8 bitów - jaki zakres wartości jesteś w stanie przechowywać w 8 kubitach ?\nwygeneruj losowy bajt z wykorzystaniem tylko bramki X\n\nif randrange(2) == 0:\n        qc.x(i)\n\nwygeneruj losowy bajt z wykorzystaniem bramek hadamarda\nwygeneruj 10 prób w pełni losowego bajtu - odkoduj wyniki w systemie int\noblicz różnicę dwóch bajtów dla których pierwsze cztery bity to 0, piąty bit pierwszego bajtu to 0 a drugiego bajtu to 1 . pozostałe bity są równe 1",
     "crumbs": [
       "Sylabus",
       "Ćwiczenia",
-      "Proces optymalizacji"
+      "Proces optymalizacji dla prostych obwodów kwantowych"
     ]
   },
   {
     "objectID": "labs/cw3.html#losowa-liczba-w-zakresie-0-15",
     "href": "labs/cw3.html#losowa-liczba-w-zakresie-0-15",
-    "title": "Proces optymalizacji",
+    "title": "Proces optymalizacji dla prostych obwodów kwantowych",
     "section": "Losowa liczba w zakresie 0-15",
     "text": "Losowa liczba w zakresie 0-15\n\nZa pomocą odpowiedniego obwodu kwantowego wylosuj liczbę z zakresu 0-15\nWykorzystaj 1000 wykonań modelu i narysuj histogram wyników dla poszczególnych liczb 0- 15",
     "crumbs": [
       "Sylabus",
       "Ćwiczenia",
-      "Proces optymalizacji"
+      "Proces optymalizacji dla prostych obwodów kwantowych"
     ]
   },
   {
     "objectID": "labs/cw3.html#zadanie-3",
     "href": "labs/cw3.html#zadanie-3",
-    "title": "Proces optymalizacji",
+    "title": "Proces optymalizacji dla prostych obwodów kwantowych",
     "section": "Zadanie 3",
     "text": "Zadanie 3\nRozszerz wygenerowany obwód dla losowego bitu i dodaj parametryzowaną bramkę \\(R_x\\) z kątem ustawionym jako pi/4\nOblicz wartość oczekiwaną operatora \\(&lt;\\sigma_z&gt;\\) wykorzystując qml.expval(qml.PauliZ(0))\nBramka (i operator) Z, w bazie obliczeniowej dany jest macierzą: \\[\n\\textbf{Z} = \\begin{bmatrix} 1 \\,\\,\\,\\,\\,\\,\\,\\, 0 \\\\ 0 \\,\\, -1 \\end{bmatrix}\n\\]\nOperator ten mierzy różnicę pomiędzy prawdopodobieństwem, że kubit jest w stanie \\(\\ket{0}\\) a prawdopodobieństwem, że jest w stanie \\(\\ket{1}\\)\nW ogólności wartość oczekiwana (wartość średnia wyniku pomiaru w bazie operatora Z) dana jest wzorem: \\[\n\\textbf{&lt;Z&gt;} = \\bra{\\psi} \\textbf{Z} \\ket{\\psi}\n\\]\nNiech \\[\n\\ket{\\psi} = \\alpha\\ket{0} + \\beta\\ket{1}\n\\] wtedy \\[\n\\bra{\\psi} = \\alpha^*\\bra{0} + \\beta^*\\bra{1}\n\\]\nMożemy obliczyć: \\[\n\\bra{\\psi} \\textbf{Z} \\ket{\\psi}  = (\\alpha^*\\bra{0} + \\beta^*\\bra{1} ) \\,\\,\\, Z \\,\\,\\,(\\alpha\\ket{0} + \\beta\\ket{1}) = |\\alpha|^2 - |\\beta|^2\n\\] Czyli dla kubitu w stanie \\(\\ket{0}\\) \\[\n\\textbf{&lt;Z&gt;} = 1  \n\\] Dla kubitu w stanie \\(\\ket{1}\\) \\[\n\\textbf{&lt;Z&gt;} = -1  \n\\] Dla kubitu w superpozycji \\(\\ket{0} +\\ket{1}\\) \\[\n\\textbf{&lt;Z&gt;} = 0  \n\\]",
     "crumbs": [
       "Sylabus",
       "Ćwiczenia",
-      "Proces optymalizacji"
+      "Proces optymalizacji dla prostych obwodów kwantowych"
     ]
   },
   {
     "objectID": "labs/cw3.html#gra-w-obracanie-monety",
     "href": "labs/cw3.html#gra-w-obracanie-monety",
-    "title": "Proces optymalizacji",
+    "title": "Proces optymalizacji dla prostych obwodów kwantowych",
     "section": "Gra w obracanie monety",
     "text": "Gra w obracanie monety\nWykorzystując powyżej zdefiniowane bramki możemy zrealizowa następującą grę:\n\nW grze bierze udział dwóch graczy. Gracze dysponują monetą, której nie widzą w trakcie gry (np. jest zamknięta w pudełku). Natomiast wiedzą, że początkowo moneta ułożona jest orłem do góry (w stanie \\(\\ket{0}\\)) Gra polega na wykonaniu trzech ruchów na przemian. Każdy ruch polega na odwróceniu monety bądź pozostawieniu jej w takim stanie w jakim była. Gracze nie wiedzą jaki ruch wykonuje przeciwnik. Po ostatnim ruchu pudełko zostaje otwarte i gracze sprawdzają w jakiej pozycji jest moneta. Pierwszy gracz wygrywa jeśli moneta jest w pozycji orła, a drugi jeśli przeciwnie.\n\nSzansa wygranej wynosi dla każdego \\(50\\%\\) i jak można sprawdzic nie istnieje strategia wygrywająca.\nZweryfikuj powyższy wynik wykorzystując obwód kwantowy.\ndef klasycze_strategie():\n    wyniki = []\n    for ruch_1 in ['I','X']:\n        for ruch_2 in ['I','X']:\n            for ruch_3 in ['I','X']:\n                strategia = ruch_1 + ruch_2 + ruch_3\n                ob = obwod(strategia)\n                stats = sedzia(ob())\n                wyniki.append((strategia, stats))\n    return wyniki\nUtwórz odpowiedni obwód parametryzowany stringiem “strategia” oraz dodaj funkcję sędziego.",
     "crumbs": [
       "Sylabus",
       "Ćwiczenia",
-      "Proces optymalizacji"
+      "Proces optymalizacji dla prostych obwodów kwantowych"
     ]
   },
   {
     "objectID": "labs/cw3.html#zadanie---a-co-jeśli-zamienimy-monetę-na-kubit",
     "href": "labs/cw3.html#zadanie---a-co-jeśli-zamienimy-monetę-na-kubit",
-    "title": "Proces optymalizacji",
+    "title": "Proces optymalizacji dla prostych obwodów kwantowych",
     "section": "Zadanie - a co jeśli zamienimy monetę na kubit?",
     "text": "Zadanie - a co jeśli zamienimy monetę na kubit?\nMożliwe operacje pozostawienia kubitu w takim samym stanie - bramka I, zmiany stanu na przeciwny bramka X.\nCzyli pierwszy gracz ustala pierwszą bramkę, drugi drugą i ponownie pierwszy trzecią. Otwarcie pudełka to pomiar stanu kubitu.\n\nPrzeanalizuj wynik dla sekwencji I X I\n\nA co jeśli pierwszy gracz wie, że działa na kubicie?\n\nCzy może sprawic on, że wygra zawsze? (skoro wie, że działa na kubicie może użyc innych bramek)\n\nzmodyfikuj kod obwodu i sprawdź strategię w której pierwszy gracz zawsze użyje dwóch bramek Hadamarda.\n\ndef kwantowa_strategia():\n    wyniki = []\n    for ruch_1 in ['H']:\n        for ruch_2 in ['I','X']:\n            for ruch_3 in ['H']:\n                strategia = ruch_1 + ruch_2 + ruch_3\n                ob = obwod(strategia)\n                stats = sedzia(ob())\n                wyniki.append((strategia, stats))\n    return wyniki",
     "crumbs": [
       "Sylabus",
       "Ćwiczenia",
-      "Proces optymalizacji"
+      "Proces optymalizacji dla prostych obwodów kwantowych"
     ]
   },
   {
     "objectID": "labs/cw3.html#zadanie---obwód-kwantowy-z-optymalizacją",
     "href": "labs/cw3.html#zadanie---obwód-kwantowy-z-optymalizacją",
-    "title": "Proces optymalizacji",
+    "title": "Proces optymalizacji dla prostych obwodów kwantowych",
     "section": "Zadanie - Obwód kwantowy z optymalizacją",
     "text": "Zadanie - Obwód kwantowy z optymalizacją\n\nNapisz nowy obwód kwantowy, który zawierać będzie tylko bramkę \\(R_X\\) dla dowolnego parametru \\(\\theta\\)\noblicz i uzasadnij, że wartość oczekiwana dla stanu \\(\\ket{\\psi} = R_X \\, \\ket{0}\\) \\[&lt;Z&gt; = cos^2(\\theta /2)- sin^2(\\theta /2) = cos(\\theta)\\]\n\nZałóżmy, że nasz problem obliczeniowy sprowadza się do wygenerowania wartości oczekiwanej o wartości 0.5.\n\\[\n\\textbf{&lt;Z&gt;} = \\bra{\\psi} \\textbf{Z} \\ket{\\psi} = 0.5\n\\]\nNapisz program znajdujący rozwiązanie - szukający wagę \\(\\theta\\) dla naszego obwodu\n\nZdefiniuj funkcję kosztu, którą bedziemy minimalizować \\((Y - y)^2\\)\nzainicjuj rozwiązanie \\(theta=0.01\\) i przypisz do tablicy array np.array(0.01, requires_grad=True)\nJako opt wybierz spadek po gradiencie : opt = qml.GradientDescentOptimizer(stepsize=0.1)\nuzyj poniższego kodu do wygenerowania pętli obiczeń\n\n\nepochs = 100\n\nfor epoch in range(epochs):\n    theta = opt.step(cost_fn, theta)\n\n    if epoch % 10 == 0:\n        print(f\"epoka: {epoch}, theta: {theta}, koszt: {cost_fn(theta)}\")",
     "crumbs": [
       "Sylabus",
       "Ćwiczenia",
-      "Proces optymalizacji"
+      "Proces optymalizacji dla prostych obwodów kwantowych"
     ]
   },
   {
     "objectID": "labs/cw3.html#stany-splątane",
     "href": "labs/cw3.html#stany-splątane",
-    "title": "Proces optymalizacji",
+    "title": "Proces optymalizacji dla prostych obwodów kwantowych",
     "section": "Stany splątane",
     "text": "Stany splątane\n\nimport pennylane as qml\nfrom pennylane import numpy as np \n\ndev = qml.device('default.qubit', wires=2, shots=100)\n\n@qml.qnode(dev)\ndef qc():\n    qml.Hadamard(wires=0)\n    qml.CNOT(wires=[0,1])\n    #return qml.state()\n    return qml.counts()\n\nqc()\n\n{'00': tensor(41, requires_grad=True), '11': tensor(59, requires_grad=True)}\n\n\n\nimport pennylane as qml\nfrom pennylane import numpy as np \n\ndev = qml.device('default.qubit', wires=2, shots=100)\n\n@qml.qnode(dev)\ndef qc():\n    qml.Hadamard(wires=0)\n    qml.CNOT(wires=[0,1])\n    qml.X(wires=1)\n    #return qml.state()\n    return qml.counts()\n\nqc()\n\n{'01': tensor(50, requires_grad=True), '10': tensor(50, requires_grad=True)}\n\n\n\nimport pennylane as qml\nfrom pennylane import numpy as np \n\ndev = qml.device('default.qubit', wires=2, shots=100)\n\n@qml.qnode(dev)\ndef qc():\n    qml.Hadamard(wires=0)\n    qml.CNOT(wires=[0,1])\n    qml.Z(wires=1)\n    #return qml.state()\n    return qml.counts()\n\nqc()\n\n{'00': tensor(50, requires_grad=True), '11': tensor(50, requires_grad=True)}\n\n\n\nimport pennylane as qml\nfrom pennylane import numpy as np \n\ndev = qml.device('default.qubit', wires=2, shots=100)\n\n@qml.qnode(dev)\ndef qc():\n    qml.Hadamard(wires=0)\n    qml.CNOT(wires=[0,1])\n    qml.X(wires=1)\n    qml.Z(wires=1)\n    #return qml.state()\n    return qml.counts()\n\nqc()\n\n{'01': tensor(53, requires_grad=True), '10': tensor(47, requires_grad=True)}\n\n\nCoś dziwnego\n\nimport pennylane as qml\nfrom pennylane import numpy as np \n\ndev = qml.device('default.qubit', wires=4, shots=1)\n\n@qml.qnode(dev)\ndef qc():\n    qml.X(wires=0)\n    qml.X(wires=1)\n    qml.CNOT([0,1])\n    qml.CNOT([0,2])\n    qml.Toffoli([0,1,3])\n    return qml.counts(wires=[2,3])\n\nqc()\n\nprint(\"wynik 1+1 =\",int('10', 2))\n\nwynik 1+1 = 2",
     "crumbs": [
       "Sylabus",
       "Ćwiczenia",
-      "Proces optymalizacji"
+      "Proces optymalizacji dla prostych obwodów kwantowych"
     ]
   },
   {
     "objectID": "labs/cw3.html#modele-klasyfikacji",
     "href": "labs/cw3.html#modele-klasyfikacji",
-    "title": "Proces optymalizacji",
+    "title": "Proces optymalizacji dla prostych obwodów kwantowych",
     "section": "Modele klasyfikacji",
     "text": "Modele klasyfikacji\nDane Titanic\n\nWygeneruj model na bazie jednokubitowego obwodu kwantowego, który dla każdego wiersza danych generuje wynik 0\nUtwórz model na bazie jednokubitowego obwody kwantowego, który dla każdego wiersza danych generuje wynik 1\nUtwórz model na bazie jednokubitowego obwodu kwantowego, który zwraca losową wartość 0 lub 1 z prawdopodobienstwem 1/2.",
     "crumbs": [
       "Sylabus",
       "Ćwiczenia",
-      "Proces optymalizacji"
+      "Proces optymalizacji dla prostych obwodów kwantowych"
     ]
   },
   {
@@ -1077,7 +1077,7 @@
     "href": "lectures/cw_w2.html",
     "title": "Bramki i funkcje",
     "section": "",
-    "text": "Napisać kod obiektowy, który pobiera string (treść do zaszyfrowania) i przekłada go na zapis bitowy. Dodatkowo wylosuj klucz do zaszyfrowania wiadomości (losowy ciąg 0 i 1).\nMetoda 1 - szyfrowanie - Zaszyfruj wiadomość wykorzystując operacje XOR.\nMetoda 2 - wyświetl zaszyfrowaną wiadomość w postaci normalnej.\nMetoda 3 - odszyfruj wiadomość (ciąg zaszyfrowanego kodu binarnego)\nMetoda 4 - wyświetl odszyfrowaną wiadomość\n\\[\n\\newcommand{\\bra}[1]{\\left \\langle #1 \\right \\rvert}\n\\newcommand{\\ket}[1]{\\left \\rvert #1 \\right \\rangle}\n\\newcommand{\\braket}[2]{\\left \\langle #1 \\middle \\rvert #2 \\right \\rangle}\n\\]\n\nPyTorch Regresja liniowa\n\nimport torch\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nclass LinearRegression(torch.nn.Module):\n\n    def __init__(self, inputSize, outputSize):\n        super(LinearRegression, self).__init__()\n        self.layers = torch.nn.Sequential(\n            torch.nn.Linear(inputSize, outputSize)\n        ) \n        \n    def forward(self, x):\n        return self.layers(x)\n\n# zbior danych\nx = range(11)\ny = [2*xi - 1 for xi in x]\n\n# dostosowanie do pytorch\nx = np.array(x, dtype=np.float32)\ny = np.array(y, dtype=np.float32)\n\nX_train = torch.from_numpy(x).view(-1,1)\ny_train = torch.from_numpy(y).view(-1,1)\n\n# obiekt liniowej regresji w wersji sieci nn\nlr_model = LinearRegression(1,1)\n\ncriterion = torch.nn.MSELoss()\noptimizer = torch.optim.SGD(lr_model.parameters(), lr=0.01)\n\n\nprint(lr_model)\nnum_params = sum(p.numel() for p in lr_model.parameters() if p.requires_grad)\nprint(f\"liczba trenowalnych parametrów: {num_params}\")\n\nepochs = 400\n# petla uczaca \nfor epoch in range(epochs):\n    lr_model.train()\n\n    y_pred = lr_model(X_train)\n    loss = criterion(y_pred, y_train)\n\n    optimizer.zero_grad()\n    loss.backward()\n    optimizer.step()\n    \n    if (epoch+1) % 50 == 0:\n        print(f'epoch: {epoch+1:03d}, loss = {loss.item():.2f}')\n \n    lr_model.eval()\n\n# po treningu jeszcze raz generujemy predykcje\nlr_model.eval()\nwith torch.no_grad():\n    predicted = lr_model(X_train)\n\nprint(lr_model.layers[0].weight, lr_model.layers[0].bias)\n\nplt.clf()\nplt.plot(X_train, y_train, 'go', label='True data', alpha=0.5)\nplt.plot(X_train, predicted, '--', label='Predictions', alpha=0.5)\nplt.legend(loc='best')\nplt.show()\n\nLinearRegression(\n  (layers): Sequential(\n    (0): Linear(in_features=1, out_features=1, bias=True)\n  )\n)\nliczba trenowalnych parametrów: 2\nepoch: 050, loss = 0.07\nepoch: 100, loss = 0.04\nepoch: 150, loss = 0.02\nepoch: 200, loss = 0.01\nepoch: 250, loss = 0.01\nepoch: 300, loss = 0.00\nepoch: 350, loss = 0.00\nepoch: 400, loss = 0.00\nParameter containing:\ntensor([[1.9899]], requires_grad=True) Parameter containing:\ntensor([-0.9302], requires_grad=True)\n\n\n\n\n\n\n\n\n\n\n\nPyTorch Regresja logistyczna\n\nimport torch\nimport numpy as np\nfrom sklearn.datasets import make_classification\n\nclass LogisticRegression(torch.nn.Module):\n\n    def __init__(self, inputSize, outputSize):\n        super(LogisticRegression, self).__init__()\n        self.layers = torch.nn.Sequential(\n            torch.nn.Linear(inputSize, outputSize),\n            torch.nn.Sigmoid()\n        )\n\n    def forward(self, x):\n        logits = self.layers(x)\n        return logits\n\n\n# prepare dataset\nX, y = make_classification(n_samples=10**4, n_features=10 ,random_state=42)\n\nX_train = torch.from_numpy(X.astype(np.float32))\ny_train = torch.from_numpy(y.astype(np.float32))\n\ny_train = y_train.view(y_train.shape[0], 1)\n\nmodel = LogisticRegression(X_train.shape[1], y_train.shape[1])\n\nlearningRate = 0.01\ncriterion = torch.nn.BCELoss()\noptimizer = torch.optim.SGD(model.parameters(), lr=learningRate)\n\n# petla uczaca \nnum_epochs = 800\n\nfor epoch in range(num_epochs):\n    # forward pass and loss\n    model.train()\n    y_predicted = model(X_train)\n    loss = criterion(y_predicted, y_train)\n    \n    loss.backward()\n    optimizer.step()\n    optimizer.zero_grad()\n    model.eval()\n\n    if (epoch+1) % 50 == 0:\n        print(f'epoch: {epoch+1}, loss = {loss.item():.4f}')\n\n\n\nmodel.eval()\nwith torch.no_grad():\n    y_predicted = model(X_train)  # no need to call model.forward()\n    y_predicted_cls = y_predicted.round()   # round off to nearest class\n    acc = y_predicted_cls.eq(y_train).sum() / float(y_train.shape[0])  # accuracy\n    print(f'accuracy = {acc:.4f}')\n    print(f\"predykcja dla wiersza 0:{y_predicted[0]}, wartosc prawdziwa: {y_train[0]}\")\n\nepoch: 50, loss = 0.4831\nepoch: 100, loss = 0.4327\nepoch: 150, loss = 0.4016\nepoch: 200, loss = 0.3807\nepoch: 250, loss = 0.3656\nepoch: 300, loss = 0.3543\nepoch: 350, loss = 0.3454\nepoch: 400, loss = 0.3383\nepoch: 450, loss = 0.3325\nepoch: 500, loss = 0.3277\nepoch: 550, loss = 0.3236\nepoch: 600, loss = 0.3201\nepoch: 650, loss = 0.3171\nepoch: 700, loss = 0.3145\nepoch: 750, loss = 0.3122\nepoch: 800, loss = 0.3102\naccuracy = 0.8900\npredykcja dla wiersza 0:tensor([0.8483]), wartosc prawdziwa: tensor([1.])",
+    "text": "Napisać kod obiektowy, który pobiera string (treść do zaszyfrowania) i przekłada go na zapis bitowy. Dodatkowo wylosuj klucz do zaszyfrowania wiadomości (losowy ciąg 0 i 1).\nMetoda 1 - szyfrowanie - Zaszyfruj wiadomość wykorzystując operacje XOR.\nMetoda 2 - wyświetl zaszyfrowaną wiadomość w postaci normalnej.\nMetoda 3 - odszyfruj wiadomość (ciąg zaszyfrowanego kodu binarnego)\nMetoda 4 - wyświetl odszyfrowaną wiadomość\n\\[\n\\newcommand{\\bra}[1]{\\left \\langle #1 \\right \\rvert}\n\\newcommand{\\ket}[1]{\\left \\rvert #1 \\right \\rangle}\n\\newcommand{\\braket}[2]{\\left \\langle #1 \\middle \\rvert #2 \\right \\rangle}\n\\]\n\nPyTorch Regresja liniowa\n\nimport torch\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nclass LinearRegression(torch.nn.Module):\n\n    def __init__(self, inputSize, outputSize):\n        super(LinearRegression, self).__init__()\n        self.layers = torch.nn.Sequential(\n            torch.nn.Linear(inputSize, outputSize)\n        ) \n        \n    def forward(self, x):\n        return self.layers(x)\n\n# zbior danych\nx = range(11)\ny = [2*xi - 1 for xi in x]\n\n# dostosowanie do pytorch\nx = np.array(x, dtype=np.float32)\ny = np.array(y, dtype=np.float32)\n\nX_train = torch.from_numpy(x).view(-1,1)\ny_train = torch.from_numpy(y).view(-1,1)\n\n# obiekt liniowej regresji w wersji sieci nn\nlr_model = LinearRegression(1,1)\n\ncriterion = torch.nn.MSELoss()\noptimizer = torch.optim.SGD(lr_model.parameters(), lr=0.01)\n\n\nprint(lr_model)\nnum_params = sum(p.numel() for p in lr_model.parameters() if p.requires_grad)\nprint(f\"liczba trenowalnych parametrów: {num_params}\")\n\nepochs = 400\n# petla uczaca \nfor epoch in range(epochs):\n    lr_model.train()\n\n    y_pred = lr_model(X_train)\n    loss = criterion(y_pred, y_train)\n\n    optimizer.zero_grad()\n    loss.backward()\n    optimizer.step()\n    \n    if (epoch+1) % 50 == 0:\n        print(f'epoch: {epoch+1:03d}, loss = {loss.item():.2f}')\n \n    lr_model.eval()\n\n# po treningu jeszcze raz generujemy predykcje\nlr_model.eval()\nwith torch.no_grad():\n    predicted = lr_model(X_train)\n\nprint(lr_model.layers[0].weight, lr_model.layers[0].bias)\n\nplt.clf()\nplt.plot(X_train, y_train, 'go', label='True data', alpha=0.5)\nplt.plot(X_train, predicted, '--', label='Predictions', alpha=0.5)\nplt.legend(loc='best')\nplt.show()\n\nLinearRegression(\n  (layers): Sequential(\n    (0): Linear(in_features=1, out_features=1, bias=True)\n  )\n)\nliczba trenowalnych parametrów: 2\nepoch: 050, loss = 0.44\nepoch: 100, loss = 0.25\nepoch: 150, loss = 0.14\nepoch: 200, loss = 0.08\nepoch: 250, loss = 0.05\nepoch: 300, loss = 0.03\nepoch: 350, loss = 0.02\nepoch: 400, loss = 0.01\nParameter containing:\ntensor([[1.9751]], requires_grad=True) Parameter containing:\ntensor([-0.8268], requires_grad=True)\n\n\n\n\n\n\n\n\n\n\n\nPyTorch Regresja logistyczna\n\nimport torch\nimport numpy as np\nfrom sklearn.datasets import make_classification\n\nclass LogisticRegression(torch.nn.Module):\n\n    def __init__(self, inputSize, outputSize):\n        super(LogisticRegression, self).__init__()\n        self.layers = torch.nn.Sequential(\n            torch.nn.Linear(inputSize, outputSize),\n            torch.nn.Sigmoid()\n        )\n\n    def forward(self, x):\n        logits = self.layers(x)\n        return logits\n\n\n# prepare dataset\nX, y = make_classification(n_samples=10**4, n_features=10 ,random_state=42)\n\nX_train = torch.from_numpy(X.astype(np.float32))\ny_train = torch.from_numpy(y.astype(np.float32))\n\ny_train = y_train.view(y_train.shape[0], 1)\n\nmodel = LogisticRegression(X_train.shape[1], y_train.shape[1])\n\nlearningRate = 0.01\ncriterion = torch.nn.BCELoss()\noptimizer = torch.optim.SGD(model.parameters(), lr=learningRate)\n\n# petla uczaca \nnum_epochs = 800\n\nfor epoch in range(num_epochs):\n    # forward pass and loss\n    model.train()\n    y_predicted = model(X_train)\n    loss = criterion(y_predicted, y_train)\n    \n    loss.backward()\n    optimizer.step()\n    optimizer.zero_grad()\n    model.eval()\n\n    if (epoch+1) % 50 == 0:\n        print(f'epoch: {epoch+1}, loss = {loss.item():.4f}')\n\n\n\nmodel.eval()\nwith torch.no_grad():\n    y_predicted = model(X_train)  # no need to call model.forward()\n    y_predicted_cls = y_predicted.round()   # round off to nearest class\n    acc = y_predicted_cls.eq(y_train).sum() / float(y_train.shape[0])  # accuracy\n    print(f'accuracy = {acc:.4f}')\n    print(f\"predykcja dla wiersza 0:{y_predicted[0]}, wartosc prawdziwa: {y_train[0]}\")\n\nepoch: 50, loss = 0.5177\nepoch: 100, loss = 0.4504\nepoch: 150, loss = 0.4119\nepoch: 200, loss = 0.3871\nepoch: 250, loss = 0.3699\nepoch: 300, loss = 0.3573\nepoch: 350, loss = 0.3476\nepoch: 400, loss = 0.3400\nepoch: 450, loss = 0.3338\nepoch: 500, loss = 0.3287\nepoch: 550, loss = 0.3245\nepoch: 600, loss = 0.3208\nepoch: 650, loss = 0.3177\nepoch: 700, loss = 0.3150\nepoch: 750, loss = 0.3127\nepoch: 800, loss = 0.3106\naccuracy = 0.8884\npredykcja dla wiersza 0:tensor([0.8502]), wartosc prawdziwa: tensor([1.])",
     "crumbs": [
       "Sylabus",
       "Wykłady",
