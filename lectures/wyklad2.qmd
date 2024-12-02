@@ -1,5 +1,5 @@
 ---
-title: "Klasyczne bramki logiczne - Algebra Boola"
+title: "Bramki logiczne"
 jupyter: python3
 ---
 $$
