@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Bramki jednokubitowe jako modele ML – Wstęp do kwantowego uczenia maszynowego</title>
+<title>Bramki jednokubitowe – Wstęp do kwantowego uczenia maszynowego</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -170,7 +170,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../labs/cw1.html">Ćwiczenia</a></li><li class="breadcrumb-item"><a href="../labs/cw3.html">Bramki jednokubitowe jako modele ML</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../labs/cw1.html">Ćwiczenia</a></li><li class="breadcrumb-item"><a href="../labs/cw3.html">Bramki jednokubitowe</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -298,25 +298,31 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../labs/cw1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Kwantowe sieci neuronowe</span></a>
+ <span class="menu-text">Obliczenia hybrydowe</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../labs/cw2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Bramki Jednokubitowe</span></a>
+ <span class="menu-text">Pennylane wprowadzenie</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../labs/cw3.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Bramki jednokubitowe jako modele ML</span></a>
+ <span class="menu-text">Bramki jednokubitowe</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../labs/cw4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Bramki wielokubitowe</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../labs/cw5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Optymalizacja</span></a>
   </div>
 </li>
       </ul>
@@ -342,6 +348,12 @@ window.Quarto = {
  <span class="menu-text">Bramki jednokubitowe</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../labs/Qiskit/cw3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bramki wielokubitowe</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -354,21 +366,22 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#zadanie---napisz-jedno-kubitowy-obwód-realizujący-bit-losowy." id="toc-zadanie---napisz-jedno-kubitowy-obwód-realizujący-bit-losowy." class="nav-link active" data-scroll-target="#zadanie---napisz-jedno-kubitowy-obwód-realizujący-bit-losowy.">Zadanie - napisz jedno kubitowy obwód realizujący bit losowy.</a></li>
-  <li><a href="#zadanie---losowy-bajt" id="toc-zadanie---losowy-bajt" class="nav-link" data-scroll-target="#zadanie---losowy-bajt">Zadanie - Losowy bajt</a></li>
+  <li><a href="#podstawowe-bramki-jednokubitowe" id="toc-podstawowe-bramki-jednokubitowe" class="nav-link active" data-scroll-target="#podstawowe-bramki-jednokubitowe">Podstawowe bramki jednokubitowe</a></li>
+  <li><a href="#losowy-bit" id="toc-losowy-bit" class="nav-link" data-scroll-target="#losowy-bit">Losowy bit</a></li>
+  <li><a href="#losowy-bajt" id="toc-losowy-bajt" class="nav-link" data-scroll-target="#losowy-bajt">Losowy bajt</a></li>
   <li><a href="#losowa-liczba-w-zakresie-0-15" id="toc-losowa-liczba-w-zakresie-0-15" class="nav-link" data-scroll-target="#losowa-liczba-w-zakresie-0-15">Losowa liczba w zakresie 0-15</a></li>
-  <li><a href="#zadanie-3" id="toc-zadanie-3" class="nav-link" data-scroll-target="#zadanie-3">Zadanie 3</a></li>
+  <li><a href="#wartość-oczekiwana-operatora-z-na-obwodzie" id="toc-wartość-oczekiwana-operatora-z-na-obwodzie" class="nav-link" data-scroll-target="#wartość-oczekiwana-operatora-z-na-obwodzie">Wartość oczekiwana operatora Z na obwodzie</a></li>
   <li><a href="#gra-w-obracanie-monety" id="toc-gra-w-obracanie-monety" class="nav-link" data-scroll-target="#gra-w-obracanie-monety">Gra w obracanie monety</a></li>
-  <li><a href="#zadanie---a-co-jeśli-zamienimy-monetę-na-kubit" id="toc-zadanie---a-co-jeśli-zamienimy-monetę-na-kubit" class="nav-link" data-scroll-target="#zadanie---a-co-jeśli-zamienimy-monetę-na-kubit">Zadanie - a co jeśli zamienimy monetę na kubit?</a></li>
+  <li><a href="#obracanie-monety-przypadek-kwantowy" id="toc-obracanie-monety-przypadek-kwantowy" class="nav-link" data-scroll-target="#obracanie-monety-przypadek-kwantowy">Obracanie monety przypadek kwantowy</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../labs/cw1.html">Ćwiczenia</a></li><li class="breadcrumb-item"><a href="../labs/cw3.html">Bramki jednokubitowe jako modele ML</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../labs/cw1.html">Ćwiczenia</a></li><li class="breadcrumb-item"><a href="../labs/cw3.html">Bramki jednokubitowe</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Bramki jednokubitowe jako modele ML</h1>
+<h1 class="title">Bramki jednokubitowe</h1>
 </div>
 
 
@@ -385,6 +398,8 @@ window.Quarto = {
 </header>
 
 
+<section id="podstawowe-bramki-jednokubitowe" class="level2">
+<h2 class="anchored" data-anchor-id="podstawowe-bramki-jednokubitowe">Podstawowe bramki jednokubitowe</h2>
 <p>Znasz już bramkę Hadamarda, bramkę <span class="math inline">\(X\)</span> oraz bramki rotacji (<span class="math inline">\(R_x\)</span>, <span class="math inline">\(R_y\)</span>, <span class="math inline">\(R_z\)</span>)</p>
 <p>Dla przypomnienia :</p>
 <p>Bramka <span class="math inline">\(X\)</span>:</p>
@@ -406,8 +421,9 @@ window.Quarto = {
 \]</span> oraz <span class="math display">\[
 \textbf{H} \ket{1} = \frac{1}{\sqrt{2}}\begin{bmatrix} 1\,\,\,\,\,\,\, 1 \\ 1 \, -1 \end{bmatrix}  \begin{bmatrix} 0 \\ 1 \end{bmatrix} = \begin{bmatrix} 0 \\ 1 \end{bmatrix} = \frac{1}{\sqrt{2}} \left( \ket{0} - \ket{1} \right) = \ket{-}
 \]</span></p>
-<section id="zadanie---napisz-jedno-kubitowy-obwód-realizujący-bit-losowy." class="level2">
-<h2 class="anchored" data-anchor-id="zadanie---napisz-jedno-kubitowy-obwód-realizujący-bit-losowy.">Zadanie - napisz jedno kubitowy obwód realizujący bit losowy.</h2>
+</section>
+<section id="losowy-bit" class="level2">
+<h2 class="anchored" data-anchor-id="losowy-bit">Losowy bit</h2>
 <p>klasycznie</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># generator liczb losowych</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> random <span class="im">import</span> randrange</span>
@@ -434,8 +450,8 @@ window.Quarto = {
 </ul>
 <p>Do jakiego zdarzenia losowego podobne są wyniki?</p>
 </section>
-<section id="zadanie---losowy-bajt" class="level2">
-<h2 class="anchored" data-anchor-id="zadanie---losowy-bajt">Zadanie - Losowy bajt</h2>
+<section id="losowy-bajt" class="level2">
+<h2 class="anchored" data-anchor-id="losowy-bajt">Losowy bajt</h2>
 <ul>
 <li><p>bajt to 8 bitów - jaki zakres wartości jesteś w stanie przechowywać w 8 kubitach ?</p></li>
 <li><p>wygeneruj losowy bajt z wykorzystaniem tylko bramki X</p></li>
@@ -452,11 +468,11 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="losowa-liczba-w-zakresie-0-15">Losowa liczba w zakresie 0-15</h2>
 <ul>
 <li><p>Za pomocą odpowiedniego obwodu kwantowego wylosuj liczbę z zakresu 0-15</p></li>
-<li><p>Wykorzystaj 1000 wykonań modelu i narysuj histogram wyników dla poszczególnych liczb 0- 15</p></li>
+<li><p>Wykorzystaj 1000 wykonań modelu i narysuj histogram wyników dla poszczególnych liczb 0-15</p></li>
 </ul>
 </section>
-<section id="zadanie-3" class="level2">
-<h2 class="anchored" data-anchor-id="zadanie-3">Zadanie 3</h2>
+<section id="wartość-oczekiwana-operatora-z-na-obwodzie" class="level2">
+<h2 class="anchored" data-anchor-id="wartość-oczekiwana-operatora-z-na-obwodzie">Wartość oczekiwana operatora Z na obwodzie</h2>
 <p>Rozszerz wygenerowany obwód dla losowego bitu i dodaj parametryzowaną bramkę <span class="math inline">\(R_x\)</span> z kątem ustawionym jako <code>pi/4</code></p>
 <p>Oblicz wartość oczekiwaną operatora <span class="math inline">\(&lt;\sigma_z&gt;\)</span> wykorzystując <code>qml.expval(qml.PauliZ(0))</code></p>
 <p>Bramka (i operator) Z, w bazie obliczeniowej dany jest macierzą: <span class="math display">\[
@@ -501,8 +517,8 @@ window.Quarto = {
 <span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> wyniki</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Utwórz odpowiedni obwód parametryzowany stringiem “strategia” oraz dodaj funkcję sędziego.</p>
 </section>
-<section id="zadanie---a-co-jeśli-zamienimy-monetę-na-kubit" class="level2">
-<h2 class="anchored" data-anchor-id="zadanie---a-co-jeśli-zamienimy-monetę-na-kubit">Zadanie - a co jeśli zamienimy monetę na kubit?</h2>
+<section id="obracanie-monety-przypadek-kwantowy" class="level2">
+<h2 class="anchored" data-anchor-id="obracanie-monety-przypadek-kwantowy">Obracanie monety przypadek kwantowy</h2>
 <p>Możliwe operacje pozostawienia kubitu w takim samym stanie - bramka I, zmiany stanu na przeciwny bramka X.</p>
 <p>Czyli pierwszy gracz ustala pierwszą bramkę, drugi drugą i ponownie pierwszy trzecią. Otwarcie pudełka to pomiar stanu kubitu.</p>
 <blockquote class="blockquote">

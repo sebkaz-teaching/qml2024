@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Kwantowe sieci neuronowe – Wstęp do kwantowego uczenia maszynowego</title>
+<title>Obliczenia hybrydowe – Wstęp do kwantowego uczenia maszynowego</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -141,7 +141,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../labs/cw1.html">Ćwiczenia</a></li><li class="breadcrumb-item"><a href="../labs/cw1.html">Kwantowe sieci neuronowe</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../labs/cw1.html">Ćwiczenia</a></li><li class="breadcrumb-item"><a href="../labs/cw1.html">Obliczenia hybrydowe</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -269,25 +269,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../labs/cw1.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Kwantowe sieci neuronowe</span></a>
+ <span class="menu-text">Obliczenia hybrydowe</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../labs/cw2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Bramki Jednokubitowe</span></a>
+ <span class="menu-text">Pennylane wprowadzenie</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../labs/cw3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Bramki jednokubitowe jako modele ML</span></a>
+ <span class="menu-text">Bramki jednokubitowe</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../labs/cw4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Bramki wielokubitowe</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../labs/cw5.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Optymalizacja</span></a>
   </div>
 </li>
       </ul>
@@ -313,6 +319,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Bramki jednokubitowe</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../labs/Qiskit/cw3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bramki wielokubitowe</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -320,23 +332,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#pennylane-wprowadzenie" id="toc-pennylane-wprowadzenie" class="nav-link active" data-scroll-target="#pennylane-wprowadzenie">Pennylane wprowadzenie</a></li>
-  <li><a href="#kod-pennylane" id="toc-kod-pennylane" class="nav-link" data-scroll-target="#kod-pennylane">Kod Pennylane</a></li>
-  <li><a href="#uruchomienie-obwodu-kwantowego" id="toc-uruchomienie-obwodu-kwantowego" class="nav-link" data-scroll-target="#uruchomienie-obwodu-kwantowego">Uruchomienie obwodu kwantowego</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../labs/cw1.html">Ćwiczenia</a></li><li class="breadcrumb-item"><a href="../labs/cw1.html">Kwantowe sieci neuronowe</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../labs/cw1.html">Ćwiczenia</a></li><li class="breadcrumb-item"><a href="../labs/cw1.html">Obliczenia hybrydowe</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Kwantowe sieci neuronowe</h1>
+<h1 class="title">Obliczenia hybrydowe</h1>
 </div>
 
 
@@ -353,6 +357,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<p>W przypadku obliczeń (kwantowych) <code>hybrydowe</code> oznacza strategię mieszania klasycznych i kwantowych obliczeń. Idea ta jest podstawowym elementem optymalizacji obwodów wariacyjnych, gdzie kwantowy obwód optymalizowany jest z wykorzystaniem klasycznego ko-procesora.</p>
+<p>Najczęściej, obwody (i komputery) kwantowe będziemy wykorzystywać do oszacowania (obliczania) średnich z wyników pomiarów (wartość oczekiwana obserwabli), które złozyć mozna do pojedynczej klasycznej funkcji kosztu. Pozwola nam to oszacować jak dobrze wybrane obwody kwantowe dopasowują się do danych. Przykładem moze być model realizowany jako <code>variational quantum eigensolver</code> <a href="https://arxiv.org/abs/1304.3061">Peruzzo 2013</a></p>
+<p><img src="../img/vqa.png" class="img-fluid"></p>
+<p>W ogólności łatwo wyobrazić sobie bardziej interesujący sposób w którym mozna łączyć składniki klasyczne i kwantowe w większy i bardziej złozony układ Kazdy element (czy to kwantowy czy klasyczny) mozna w takim obrazku przedstawić jako klasyczny bądź kwantowy <code>node</code>.</p>
+<p>Klasyczne i kwantowe nody mozemy składać w dowolny acykliczny graf (DAG). Informacja w takim grafie przebiega w ustalonym kierunku oraz nie występują w nim cykle (pętle).</p>
+<p>Struktura takiego DAG’a powinna być juz nam znajoma. Jednym z przykładów są sieci neuronowe.</p>
+<p>Poniewaz mozemy obliczać gradienty variacyjnych obwodów kwantowych, obliczenia hybrydowe są kompatybilne z algorytmem propagacji wstecznej. Potwierdza to mozliwość trenowania obwodów kwantowych w taki sam sposób w jaki trenuje sie klasyczne sieci neuronowe.</p>
 <p>W ponizszym kodzie przedstawiono realizację sieci neuronowej dla której jedna z warstw ukrytych zastąpiona została obwodem kwantowym. Cały kod zrealizowany został w bibliotece PyTorch i pennylane.</p>
 <div id="cell-2" class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pennylane <span class="im">as</span> qml</span>
@@ -366,7 +377,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> IPython.display <span class="im">import</span> clear_output</span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Torch version: </span><span class="sc">{</span>torch<span class="sc">.</span>__version__<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"mac new processor: </span><span class="sc">{</span>torch<span class="sc">.</span>backends<span class="sc">.</span>mps<span class="sc">.</span>is_available()<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"mac processor: </span><span class="sc">{</span>torch<span class="sc">.</span>backends<span class="sc">.</span>mps<span class="sc">.</span>is_available()<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> train(X, Y, model, optimiser, iteration, lossfn, callback <span class="op">=</span> <span class="va">None</span>):</span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="co">""" Dodatkowa funkcja pozwalająca wykonać trenowanie naszej sieci neuronowej"""</span></span>
@@ -380,11 +391,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>            callback(model, loss)</span>
 <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co"># dodatkowe ustawienia</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>torch.manual_seed(<span class="dv">123</span>)</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>n_qubits <span class="op">=</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>torch.manual_seed(<span class="dv">123</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Torch version: 2.5.0
-mac new processor: True</code></pre>
+<pre><code>Torch version: 2.5.1
+mac processor: True</code></pre>
 </div>
 </div>
 <div id="cell-3" class="cell" data-execution_count="2">
@@ -408,7 +418,7 @@ mac new processor: True</code></pre>
 </div>
 </div>
 </div>
-<div id="cell-4" class="cell" data-execution_count="4">
+<div id="cell-4" class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> QN(nn.Module):</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">'''Classical -&gt; Quantum -&gt; Classical'''</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -433,21 +443,23 @@ mac new processor: True</code></pre>
 <span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> torch.mean((y<span class="op">-</span>y_pred)<span class="op">**</span><span class="dv">2</span>)</span>
 <span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="co"># NASZ kwantowy PQC - parametryzowany obwód kwantowy dla jednej warstwy ukrytej</span></span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>dev <span class="op">=</span> qml.device(<span class="st">"default.qubit"</span>, wires<span class="op">=</span>n_qubits)</span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a><span class="at">@qml.qnode</span>(dev)</span>
-<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> qnode(inputs, weights):</span>
-<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>    qml.AngleEmbedding(inputs, wires<span class="op">=</span><span class="bu">range</span>(n_qubits))</span>
-<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>    qml.BasicEntanglerLayers(weights, wires<span class="op">=</span><span class="bu">range</span>(n_qubits))</span>
-<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> [qml.expval(qml.PauliZ(wires<span class="op">=</span>i)) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n_qubits)]</span>
-<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>n_layers <span class="op">=</span> <span class="dv">5</span></span>
-<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>weight_shapes <span class="op">=</span> {<span class="st">"weights"</span>: (n_layers, n_qubits)}</span>
-<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>qlayer <span class="op">=</span> qml.qnn.TorchLayer(qnode, weight_shapes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>n_qubits <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a><span class="co"># NASZ kwantowy PQC - parametryzowany obwód kwantowy dla jednej warstwy ukrytej</span></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>dev <span class="op">=</span> qml.device(<span class="st">"default.qubit"</span>, wires<span class="op">=</span>n_qubits)</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a><span class="at">@qml.qnode</span>(dev)</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> qnode(inputs, weights):</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>    qml.AngleEmbedding(inputs, wires<span class="op">=</span><span class="bu">range</span>(n_qubits))</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>    qml.BasicEntanglerLayers(weights, wires<span class="op">=</span><span class="bu">range</span>(n_qubits))</span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> [qml.expval(qml.PauliZ(wires<span class="op">=</span>i)) <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n_qubits)]</span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>n_layers <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>weight_shapes <span class="op">=</span> {<span class="st">"weights"</span>: (n_layers, n_qubits)}</span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>qlayer <span class="op">=</span> qml.qnn.TorchLayer(qnode, weight_shapes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-5" class="cell">
+<div id="cell-5" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>qmodel <span class="op">=</span> QN(<span class="dv">1</span>, <span class="dv">1</span>, qlayer, n_qubits)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co">#print(qmodel)</span></span>
@@ -498,10 +510,24 @@ mac new processor: True</code></pre>
 </div>
 </div>
 </div>
-<div id="cell-7" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>,<span class="dv">4</span>))</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Lossfn Visualised'</span>)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>plt.plot(losses)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-6" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_result(x,y,x_data,y_data,yh, title<span class="op">=</span><span class="va">None</span>):</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>,<span class="dv">4</span>))</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    plt.title(title)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    plt.plot(x,y, color<span class="op">=</span><span class="st">"tab:grey"</span>, alpha<span class="op">=</span><span class="fl">0.6</span>, label<span class="op">=</span><span class="st">"Exact solution"</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    plt.plot(x,yh, color<span class="op">=</span><span class="st">"tab:green"</span>, label<span class="op">=</span><span class="st">"Neural network prediction"</span>)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    plt.scatter(x_data, y_data, alpha<span class="op">=</span><span class="fl">0.3</span>, label<span class="op">=</span><span class="st">'Training data'</span>)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    l <span class="op">=</span> plt.legend(loc<span class="op">=</span><span class="st">'best'</span>)</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>plot_result(</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    x.detach(),</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    torch.sin(x).detach(),</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    x.detach(),</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    y.detach(),</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    qmodel(x).detach(),</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">'Training of PINN'</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
@@ -510,108 +536,14 @@ mac new processor: True</code></pre>
 </div>
 </div>
 </div>
-<div id="cell-8" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_result(x,y,x_data,y_data,yh, title<span class="op">=</span><span class="va">None</span>):</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>,<span class="dv">4</span>))</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    plt.title(title)</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    plt.plot(x,y, color<span class="op">=</span><span class="st">"tab:grey"</span>, alpha<span class="op">=</span><span class="fl">0.6</span>, label<span class="op">=</span><span class="st">"Exact solution"</span>)</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    plt.plot(x,yh, color<span class="op">=</span><span class="st">"tab:green"</span>, label<span class="op">=</span><span class="st">"Neural network prediction"</span>)</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    plt.scatter(x_data, y_data, alpha<span class="op">=</span><span class="fl">0.3</span>, label<span class="op">=</span><span class="st">'Training data'</span>)</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    l <span class="op">=</span> plt.legend(loc<span class="op">=</span><span class="st">'best'</span>)</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>plot_result(</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    x.detach(),</span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    torch.sin(x).detach(),</span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>    x.detach(),</span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    y.detach(),</span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>    qmodel(x).detach(),</span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>    title<span class="op">=</span><span class="st">'Training of PINN'</span></span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="cw1_files/figure-html/cell-7-output-1.png" class="img-fluid figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-<div id="cell-9" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>mse(qmodel(x), torch.sin(x))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="8">
-<pre><code>tensor(0.0179, grad_fn=&lt;MeanBackward0&gt;)</code></pre>
-</div>
-</div>
-<section id="pennylane-wprowadzenie" class="level2">
-<h2 class="anchored" data-anchor-id="pennylane-wprowadzenie">Pennylane wprowadzenie</h2>
-<p><img src="../img/Qnode.png"></p>
-<p>Obiekt <code>Qnode</code> będziemy używać do definicji obwodów kwantowych. Obiekt ten wspiera wiele bibliotek do obliczeń numerycznych, tzw. interfejsów: - <code>NumPy</code>, - <code>PyTorch</code>, - <code>TensorFlow</code>, - <code>JAX</code></p>
-<p>Domyślnie <code>QNodes</code> używa interfejs <code>NumPy</code>. Dzięki niemu mamy dostęp do optymalizatorów domyślnych z biblioteki Pennylane. Pozostałe interferjsy wymagają użycia optymalizatorów z innych pakietów.</p>
-<p>PennyLane oferuje kilka <a href="https://pennylane.ai/plugins/">symulatorów</a>: - ‘default.qubit’, - ‘default.mixed’, - ‘lightning.qubit’, - ‘default.gaussian’, - ‘default.clifford’, - ‘default.tensor’</p>
-</section>
-<section id="kod-pennylane" class="level2">
-<h2 class="anchored" data-anchor-id="kod-pennylane">Kod Pennylane</h2>
-<p>Pennylane pozwala zrealizować obwód kwantowy (ang. quantum circuit) jako funkcję w Pythonie.</p>
-<div id="cell-12" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pennylane <span class="im">as</span> qml</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> qc(): <span class="co"># from quantum circuit</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    qml.Hadamard(wires<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> qml.counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>wires oznacza kwantowy podsystem - czyli nasz pojedynczy kubit. Liczymy od 0 nie od 1.</p>
-<ul>
-<li>Funkcja kwantowa może pobierać klasyczne pamaretry</li>
-<li>Funkcja kwantowa może zawierać klasyczny flow (przepływ) twojego programu <code>for</code> czy <code>if else</code>.</li>
-</ul>
-<p>Zbiór <a href="https://docs.pennylane.ai/en/stable/introduction/operations.html">kwantowych operatorów</a></p>
-</section>
-<section id="uruchomienie-obwodu-kwantowego" class="level2">
-<h2 class="anchored" data-anchor-id="uruchomienie-obwodu-kwantowego">Uruchomienie obwodu kwantowego</h2>
-<p>Uruchomienie odbywa się po wyborze <code>device</code> z określeniem ilości kubitów (wires)</p>
-<div id="cell-14" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># domyślnie</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>dev <span class="op">=</span> qml.device(<span class="st">"default.qubit"</span>, wires<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="cell-15" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># można nadać własne nazwy kubitów</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>dev_unique_wires <span class="op">=</span>  qml.device(<span class="st">"default.qubit"</span>, wires<span class="op">=</span>[<span class="st">'q1'</span>,<span class="st">'aux'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>W przypadku gdy będziemy chcieli powtórzyć wielokrotnie wykonanie obwodu w celu zebrania statystyki wyników mozemy zdefiniować parametr <code>shots</code></p>
-<div id="cell-17" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># shots </span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>shots_list <span class="op">=</span> [<span class="dv">5</span>,<span class="dv">10</span>,<span class="dv">1000</span>]</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>dev <span class="op">=</span> qml.device(<span class="st">"default.qubit"</span>, wires<span class="op">=</span><span class="dv">1</span>, shots<span class="op">=</span>shots_list)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p><code>qml.QNode</code> - łączy naszą kwantową funkcję ze środowiskiem na którym chcemy ją wykonać</p>
-<div id="cell-19" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>circ <span class="op">=</span> qml.QNode(qc, dev)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="cell-20" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>circ()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-7" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>mse(qmodel(x), torch.sin(x))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
-<pre><code>({'0': tensor(4, requires_grad=True), '1': tensor(1, requires_grad=True)},
- {'0': tensor(6, requires_grad=True), '1': tensor(4, requires_grad=True)},
- {'0': tensor(491, requires_grad=True), '1': tensor(509, requires_grad=True)})</code></pre>
-</div>
-</div>
-<p>Łatwiej skorzystać z dekoratora <code>@qml.qnode</code> bezpośrednio przy definicji funkcji kwantowej</p>
-<div id="cell-22" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>dev <span class="op">=</span> qml.device(<span class="st">"default.qubit"</span>, wires<span class="op">=</span><span class="dv">1</span>, shots<span class="op">=</span><span class="dv">1000</span>)</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="at">@qml.qnode</span>(dev)</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> circuit():</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    qml.Hadamard(wires<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> qml.counts()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="cell-23" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>circuit()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="12">
-<pre><code>{'0': tensor(467, requires_grad=True), '1': tensor(533, requires_grad=True)}</code></pre>
+<pre><code>tensor(0.0246, grad_fn=&lt;MeanBackward0&gt;)</code></pre>
 </div>
 </div>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

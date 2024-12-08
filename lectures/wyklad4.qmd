@@ -163,7 +163,6 @@ Jednak trzeba miec swiadomośc, że tutaj nie ma wewnętrznego mechanizmu, któr
 > Czy potrafisz wygenerowac losowy bajt?
 
 
-
 ### Gra w obracanie monety
 Wykorzystując powyżej zdefiniowane bramki możemy zrealizowa następującą grę:
 
@@ -177,6 +176,20 @@ Pytanie zasadnicze - a co jeśli zamienimy monetę na kubit?
 Możliwe operacje pozostawienia kubitu w takim samym stanie - bramka I, zmiany stanu na przeciwny bramka X. Czyli pierwszy gracz ustala pierwszą bramkę, drugi drugą i ponownie pierwszy trzecią. Otwarcie pudełka to pomiar stanu kubitu. 
 
 > Przeanalizuj wynik dla sekwencji I X I
+
+```python
+def klasycze_strategie():
+    wyniki = []
+    for ruch_1 in ['I','X']:
+        for ruch_2 in ['I','X']:
+            for ruch_3 in ['I','X']:
+                strategia = ruch_1 + ruch_2 + ruch_3
+                ob = obwod(strategia)
+                stats = sedzia(ob())
+                wyniki.append((strategia, stats))
+    return wyniki
+
+```
 
 A co jeśli pierwszy gracz wie, że działa na kubicie? 
 
