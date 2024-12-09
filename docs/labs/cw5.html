@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Optymalizacja – Wstęp do kwantowego uczenia maszynowego</title>
+<title>Optymalizacja z Variational Quantum Algorithms – Wstęp do kwantowego uczenia maszynowego</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -170,7 +170,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../labs/cw1.html">Ćwiczenia</a></li><li class="breadcrumb-item"><a href="../labs/cw5.html">Optymalizacja</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../labs/cw1.html">Ćwiczenia</a></li><li class="breadcrumb-item"><a href="../labs/cw5.html">Optymalizacja z Variational Quantum Algorithms</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -322,7 +322,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../labs/cw5.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Optymalizacja</span></a>
+ <span class="menu-text">Optymalizacja z Variational Quantum Algorithms</span></a>
   </div>
 </li>
       </ul>
@@ -366,9 +366,12 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#obwód-kwantowy-z-optymalizacją" id="toc-obwód-kwantowy-z-optymalizacją" class="nav-link active" data-scroll-target="#obwód-kwantowy-z-optymalizacją">Obwód kwantowy z optymalizacją</a></li>
-  <li><a href="#vqe" id="toc-vqe" class="nav-link" data-scroll-target="#vqe">VQE</a></li>
-  <li><a href="#zadanie" id="toc-zadanie" class="nav-link" data-scroll-target="#zadanie">Zadanie</a>
+  <li><a href="#vqe" id="toc-vqe" class="nav-link active" data-scroll-target="#vqe">VQE</a></li>
+  <li><a href="#obwód-kwantowy-z-optymalizacją" id="toc-obwód-kwantowy-z-optymalizacją" class="nav-link" data-scroll-target="#obwód-kwantowy-z-optymalizacją">Obwód kwantowy z optymalizacją</a>
+  <ul class="collapse">
+  <li><a href="#zadanie" id="toc-zadanie" class="nav-link" data-scroll-target="#zadanie">Zadanie</a></li>
+  </ul></li>
+  <li><a href="#zadanie-1" id="toc-zadanie-1" class="nav-link" data-scroll-target="#zadanie-1">Zadanie</a>
   <ul class="collapse">
   <li><a href="#qubo---quadratic-unconstrained-binary-optimization" id="toc-qubo---quadratic-unconstrained-binary-optimization" class="nav-link" data-scroll-target="#qubo---quadratic-unconstrained-binary-optimization">QUBO - Quadratic unconstrained binary optimization</a></li>
   <li><a href="#quantum-approximate-optimization-algorithm" id="toc-quantum-approximate-optimization-algorithm" class="nav-link" data-scroll-target="#quantum-approximate-optimization-algorithm">Quantum Approximate Optimization Algorithm</a>
@@ -382,9 +385,9 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../labs/cw1.html">Ćwiczenia</a></li><li class="breadcrumb-item"><a href="../labs/cw5.html">Optymalizacja</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../labs/cw1.html">Ćwiczenia</a></li><li class="breadcrumb-item"><a href="../labs/cw5.html">Optymalizacja z Variational Quantum Algorithms</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Optymalizacja</h1>
+<h1 class="title">Optymalizacja z Variational Quantum Algorithms</h1>
 </div>
 
 
@@ -401,6 +404,20 @@ window.Quarto = {
 </header>
 
 
+<p>Wariacyjne algorytmy kwantowe są odpowiedzią na problem klasycznych algorytmów wykorzystywanych w obliczeniach kwantowych - mianowicie algorytmy te (np wzmacnianie amplitudy) wymagają duzej liczby kubitów.</p>
+<p>Zamiast realizować zadania za pomocą ustalonej sekwencji ustaolnych bramek algorytmy VQA definiowane są za pomocą <code>ansatz $W(\theta)$</code>, który mozemy uznać za template (wzór) opisujący jakie bramki działają na który kubit. Dodatkowo kazdy ansatz moze byc wykonywany wiele razy (w jednym algorytmie) tworzą w ten sposób osobne warstwy (layers). Nazwa <code>variational</code> bierze się z tego, iz część bramek mozna realizować jako bramki obrotów zaleznych od parametrów.</p>
+<section id="vqe" class="level2">
+<h2 class="anchored" data-anchor-id="vqe">VQE</h2>
+<p>Algorytmy wariacyjne zostały zaproponowane w celu znalezienia stanu podstawowego, stanu o najnizszej energii (najmniejsza wartość własna z odpowiadaijącym wekrtorem własnym).</p>
+<p>Stan podstawowy <span class="math inline">\(\ket{\psi}\)</span> to stan dla którego wartość oczekiwana operatora jest minimalna. <span class="math display">\[ \bra{\psi} H \ket{\psi} \]</span></p>
+<p>Algorytm VQE propnuje aby stan podstawowy zrealizować jako <code>ansatz</code>.</p>
+<p>$ = W () $ Zamiast szukać stanu podstawowego $ $ znajdujemy prametr <span class="math inline">\(\theta\)</span> dla którego wartość oczekiwana jest minimalna.</p>
+<p><span class="math display">\[ C(\theta) = \bra{\psi \left(\theta\right)}  H \ket{\psi \left(\theta\right)}  \]</span></p>
+<p>Obliczenie wartości oczekiwanej dowolnego hamiltonianu nie musi być trudne ale wymaga duzej ilości powtórzeń dla niewielkiej liczby kubitów aby uzyskać odpowiednią statystykę.</p>
+<p>W wielu praktycznych przypadkach mozemy wyrazić nasz operator jako sumę jedno lub dwu kubitowych obserwabli. <span class="math display">\[ H = \sum_{j=1}^{J} h_j H_j \]</span></p>
+<p>W ogólności macierze Pauliego tworzą bazę dla macierzy 2x2 i dzieki temu zawsze mozemy zapisać ten wzór jako:</p>
+<p><span class="math display">\[ H = \sum_{i=1}^{n} \sum_{\alpha={x,y,z,1}} h^i_{\alpha} \sigma^i_{\alpha} + \]</span> <span class="math display">\[ +\sum_{i,j=1}^{n} \sum_{\alpha, \beta={x,y,z,1}} h^{ij}_{\alpha \beta} \sigma^i_{\alpha}\sigma^j_{\beta} + \]</span></p>
+</section>
 <section id="obwód-kwantowy-z-optymalizacją" class="level2">
 <h2 class="anchored" data-anchor-id="obwód-kwantowy-z-optymalizacją">Obwód kwantowy z optymalizacją</h2>
 <ul>
@@ -418,7 +435,7 @@ window.Quarto = {
 <li>Jako opt wybierz spadek po gradiencie : opt = qml.GradientDescentOptimizer(stepsize=0.1)</li>
 <li>uzyj poniższego kodu do wygenerowania pętli obiczeń</li>
 </ul>
-<div id="cell-2" class="cell">
+<div id="cell-3" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Rozwiązanie </span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pennylane <span class="im">as</span> qml</span>
@@ -448,6 +465,19 @@ window.Quarto = {
 <span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"epoka: </span><span class="sc">{</span>epoch<span class="sc">}</span><span class="ss">, theta: </span><span class="sc">{</span>theta<span class="sc">}</span><span class="ss">, koszt: </span><span class="sc">{</span>cost_fn(theta)<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Optymalizacja zakonczona dla theta=</span><span class="sc">{</span>theta<span class="sc">}</span><span class="ss">, koszt: </span><span class="sc">{</span>cost_fn(theta)<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>epoka: 0, theta: 0.010999883335916642, koszt: 0.24993950555333252
+epoka: 10, theta: 0.028520883980330904, koszt: 0.2495934725570593
+epoka: 20, theta: 0.07380240366299132, koszt: 0.24728524869432472
+epoka: 30, theta: 0.18848123038996684, koszt: 0.23260358196368314
+epoka: 40, theta: 0.44553231822816797, koszt: 0.1619107886095973
+epoka: 50, theta: 0.7954652635692223, koszt: 0.03998102446252434
+epoka: 60, theta: 0.9838691671205075, koszt: 0.002894983645374295
+epoka: 70, theta: 1.0340365114010706, koszt: 0.00012891702079013002
+epoka: 80, theta: 1.0445781695789977, koszt: 5.138079127884816e-06
+epoka: 90, theta: 1.0466807535250837, koszt: 2.002500944777545e-07
+Optymalizacja zakonczona dla theta=1.0470778036429096, koszt: 1.0753863888581739e-08</code></pre>
+</div>
 </div>
 <p>Jeszcze jeden przykład</p>
 <ul>
@@ -457,79 +487,105 @@ window.Quarto = {
 <p><span class="math display">\[&lt;Z&gt;  = \cos(\theta_1) \cos(\theta_2)\]</span></p>
 <p>Mozliwe wartości średniej zawierają się w przedziale <span class="math inline">\(-1\)</span>, <span class="math inline">\(1\)</span>.</p>
 <p>Przyjmij załozenie, ze optymalne rozwiązanie realizowane jest dla wartości oczekiwanej = 0.4</p>
-<div id="cell-5" class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pennylane <span class="im">as</span> qml</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pennylane <span class="im">import</span> numpy <span class="im">as</span> np </span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>dev <span class="op">=</span> qml.device(<span class="st">'default.qubit'</span>, wires<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="at">@qml.qnode</span>(dev)</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> par_c(theta):</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    qml.RX(theta[<span class="dv">0</span>], wires<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    qml.RY(theta[<span class="dv">1</span>], wires<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> qml.expval(qml.PauliZ(<span class="dv">0</span>))</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> cost_fn(theta):</span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (par_c(theta) <span class="op">-</span> <span class="fl">0.4</span>)<span class="op">**</span><span class="dv">2</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>theta <span class="op">=</span> np.array([<span class="fl">0.01</span>, <span class="fl">0.02</span>], requires_grad<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>opt <span class="op">=</span> qml.GradientDescentOptimizer(stepsize<span class="op">=</span><span class="fl">0.1</span>)</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>epochs <span class="op">=</span> <span class="dv">100</span></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> epoch <span class="kw">in</span> <span class="bu">range</span>(epochs):</span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    theta <span class="op">=</span> opt.step(cost_fn, theta)</span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> epoch <span class="op">%</span> <span class="dv">10</span> <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"epoka: </span><span class="sc">{</span>epoch<span class="sc">}</span><span class="ss">, theta: </span><span class="sc">{</span>theta<span class="sc">}</span><span class="ss">, koszt: </span><span class="sc">{</span>cost_fn(theta)<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Optymalizacja zakonczona dla theta=</span><span class="sc">{</span>theta<span class="sc">}</span><span class="ss">, koszt: </span><span class="sc">{</span>cost_fn(theta)<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-5" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pennylane <span class="im">as</span> qml</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pennylane <span class="im">import</span> numpy <span class="im">as</span> np </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>dev <span class="op">=</span> qml.device(<span class="st">'default.qubit'</span>, wires<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="at">@qml.qnode</span>(dev)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> par_c(theta):</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    qml.RX(theta[<span class="dv">0</span>], wires<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    qml.RY(theta[<span class="dv">1</span>], wires<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> qml.expval(qml.PauliZ(<span class="dv">0</span>))</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> cost_fn(theta):</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (par_c(theta) <span class="op">-</span> <span class="fl">0.4</span>)<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>theta <span class="op">=</span> np.array([<span class="fl">0.01</span>, <span class="fl">0.02</span>], requires_grad<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>opt <span class="op">=</span> qml.GradientDescentOptimizer(stepsize<span class="op">=</span><span class="fl">0.1</span>)</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>epochs <span class="op">=</span> <span class="dv">100</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> epoch <span class="kw">in</span> <span class="bu">range</span>(epochs):</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>    theta <span class="op">=</span> opt.step(cost_fn, theta)</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> epoch <span class="op">%</span> <span class="dv">10</span> <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"epoka: </span><span class="sc">{</span>epoch<span class="sc">}</span><span class="ss">, theta: </span><span class="sc">{</span>theta<span class="sc">}</span><span class="ss">, koszt: </span><span class="sc">{</span>cost_fn(theta)<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Optymalizacja zakonczona dla theta=</span><span class="sc">{</span>theta<span class="sc">}</span><span class="ss">, koszt: </span><span class="sc">{</span>cost_fn(theta)<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>epoka: 0, theta: [0.01119924 0.02239872], koszt: 0.3596238551650218
+epoka: 10, theta: [0.03468299 0.06939827], koszt: 0.35640059384126277
+epoka: 20, theta: [0.10485556 0.21069384], koszt: 0.3277736421372642
+epoka: 30, theta: [0.26595847 0.55025891], koszt: 0.17843868824086426
+epoka: 40, theta: [0.41114867 0.91214351], koszt: 0.02593550926609833
+epoka: 50, theta: [0.45600131 1.05610411], koszt: 0.0017612620807984237
+epoka: 60, theta: [0.46619699 1.09390217], koszt: 0.00010074458607215528
+epoka: 70, theta: [0.4685347  1.10295946], koszt: 5.557697121461739e-06
+epoka: 80, theta: [0.469078   1.10508776], koszt: 3.040948516747214e-07
+epoka: 90, theta: [0.46920476 1.10558565], koszt: 1.6607272093790385e-08
+Optymalizacja zakonczona dla theta=[0.46923296 1.10569646], koszt: 1.2125189676042736e-09</code></pre>
 </div>
-</section>
-<section id="vqe" class="level2">
-<h2 class="anchored" data-anchor-id="vqe">VQE</h2>
+</div>
+<section id="zadanie" class="level3">
+<h3 class="anchored" data-anchor-id="zadanie">Zadanie</h3>
 <p>Celem jest znalezienie najmnieszej wartości własnej dla Hamiltonianu <span class="math inline">\(H = Z_0 Z_1 + Z_0\)</span></p>
 <p>Tego typu hamiltoniany opisują układy fizyczne np. systemy spinowe.</p>
 <p><span class="math inline">\(Z_0 Z_1\)</span> - mozna interpretować jako krawedz miedzy dwoma wierzchołkami.</p>
 <p><span class="math inline">\(Z_0\)</span> - efekty lokalne wierzchołka 0</p>
-<div id="cell-7" class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pennylane <span class="im">as</span> qml</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pennylane <span class="im">import</span> numpy <span class="im">as</span> np </span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>dev <span class="op">=</span> qml.device(<span class="st">"default.qubit"</span>, wires<span class="op">=</span><span class="dv">2</span>)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>H <span class="op">=</span> qml.PauliZ(<span class="dv">0</span>) <span class="op">@</span> qml.PauliZ(<span class="dv">1</span>) <span class="op">+</span> qml.PauliZ(<span class="dv">0</span>)</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="at">@qml.qnode</span>(dev)</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> circuit(params):</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    qml.RY(params[<span class="dv">0</span>], wires<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    qml.RY(params[<span class="dv">1</span>], wires<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    qml.CNOT(wires<span class="op">=</span>[<span class="dv">0</span>,<span class="dv">1</span>])</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> qml.expval(H)</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> cost_fn(params):</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> circuit(params)</span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>init_param <span class="op">=</span> [random.uniform(<span class="dv">0</span>, <span class="dv">2</span><span class="op">*</span><span class="fl">3.1415</span>) <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>)]</span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>params <span class="op">=</span> np.array(init_param, requires_grad<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>opt <span class="op">=</span> qml.GradientDescentOptimizer(stepsize<span class="op">=</span><span class="fl">0.01</span>)</span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>epochs <span class="op">=</span> <span class="dv">500</span></span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> epoch <span class="kw">in</span> <span class="bu">range</span>(epochs):</span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>    params <span class="op">=</span> opt.step(cost_fn, params)</span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> epoch <span class="op">%</span> <span class="dv">50</span> <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"epoka: </span><span class="sc">{</span>epoch<span class="sc">}</span><span class="ss">, theta: </span><span class="sc">{</span>params<span class="sc">}</span><span class="ss">, koszt: </span><span class="sc">{</span>cost_fn(params)<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Optymalizacja zakonczona dla theta=</span><span class="sc">{</span>params<span class="sc">}</span><span class="ss">, koszt: </span><span class="sc">{</span>cost_fn(params)<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-7" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pennylane <span class="im">as</span> qml</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pennylane <span class="im">import</span> numpy <span class="im">as</span> np </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>dev <span class="op">=</span> qml.device(<span class="st">"default.qubit"</span>, wires<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>H <span class="op">=</span> qml.PauliZ(<span class="dv">0</span>) <span class="op">@</span> qml.PauliZ(<span class="dv">1</span>) <span class="op">+</span> qml.PauliZ(<span class="dv">0</span>)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="at">@qml.qnode</span>(dev)</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> circuit(params):</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    qml.RY(params[<span class="dv">0</span>], wires<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    qml.RY(params[<span class="dv">1</span>], wires<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    qml.CNOT(wires<span class="op">=</span>[<span class="dv">0</span>,<span class="dv">1</span>])</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> qml.expval(H)</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> cost_fn(params):</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> circuit(params)</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>init_param <span class="op">=</span> [random.uniform(<span class="dv">0</span>, <span class="dv">2</span><span class="op">*</span><span class="fl">3.1415</span>) <span class="cf">for</span> _ <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>)]</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>params <span class="op">=</span> np.array(init_param, requires_grad<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>opt <span class="op">=</span> qml.GradientDescentOptimizer(stepsize<span class="op">=</span><span class="fl">0.01</span>)</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>epochs <span class="op">=</span> <span class="dv">500</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> epoch <span class="kw">in</span> <span class="bu">range</span>(epochs):</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>    params <span class="op">=</span> opt.step(cost_fn, params)</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> epoch <span class="op">%</span> <span class="dv">50</span> <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"epoka: </span><span class="sc">{</span>epoch<span class="sc">}</span><span class="ss">, theta: </span><span class="sc">{</span>params<span class="sc">}</span><span class="ss">, koszt: </span><span class="sc">{</span>cost_fn(params)<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Optymalizacja zakonczona dla theta=</span><span class="sc">{</span>params<span class="sc">}</span><span class="ss">, koszt: </span><span class="sc">{</span>cost_fn(params)<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>epoka: 0, theta: [5.88669555 1.28880046], koszt: 1.2006955063928548
+epoka: 50, theta: [5.64481734 1.78327802], koszt: 0.5921828979857865
+epoka: 100, theta: [5.28682333 2.23179505], koszt: -0.07054550875885546
+epoka: 150, theta: [4.82192794 2.5658234 ], koszt: -0.7294536684111523
+epoka: 200, theta: [4.33137742 2.78696422], koszt: -1.3096352552201493
+epoka: 250, theta: [3.9195216  2.92558511], koszt: -1.6891294814014957
+epoka: 300, theta: [3.62793136 3.01057907], koszt: -1.8754800310643895
+epoka: 350, theta: [3.43960219 3.06225562], koszt: -1.9527772876417602
+epoka: 400, theta: [3.32275238 3.09357706], koszt: -1.9824828794237739
+epoka: 450, theta: [3.25138858 3.11253933], koszt: -1.9935564618679311
+Optymalizacja zakonczona dla theta=[3.20873373 3.12383687], koszt: -1.9975892545433391</code></pre>
+</div>
 </div>
 </section>
-<section id="zadanie" class="level1">
+</section>
+<section id="zadanie-1" class="level1">
 <h1>Zadanie</h1>
 <p>Jesteś firmą organizującą przyjęcia.</p>
 <p>Poproszono Cię o zorganizowanie 5 róznych eventów na Sobotę i Niedzielę. Kazde przyjęcie zaplanowane jest na cały dzień -&gt; Jeśli dwa eventy odbywają się w tym samym dniu to jedna osoba nie moze pojawić się na dwóch przyjęciach.</p>
@@ -583,59 +639,79 @@ F(z) = \sum_a h_a z_a + \sum_{a &lt; b} J_{a b} z_a z_b
 <p>Jak to zagadnienie wrzucić na komputer kwantowy</p>
 <p>Korzystając z zamiany zmiennych <span class="math display">\[f(z_1,...,z_5)  = 6 - \frac{1}{2} z_1 z_4 - \frac{1}{2} z_2 z_3 - \frac{1}{2} z_4 z_5 - \frac{1}{2} z_3 z_4 \]</span></p>
 <p>Mozemy teraz przygotować “Hamiltonian” dla tej konfiguracji - zamieniamy zmienne <span class="math inline">\(z_i\)</span> na macierze Pauliego <span class="math inline">\(Z_i\)</span></p>
-<div id="cell-9" class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pennylane <span class="im">as</span> qml</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pennylane <span class="im">import</span> numpy <span class="im">as</span> np </span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># H = 6* qml.Identity(1) - \ </span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 0.5 * qml.PauliZ(1) @ qml.PauliZ(4) - \</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 0.5 * qml.PauliZ(2) @ qml.PauliZ(3) - \</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 0.5 * qml.PauliZ(4) @ qml.PauliZ(5) - \</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 0.5 * qml.PauliZ(3) @ qml.PauliZ(4)</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co"># bo chcemy minimalizować </span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>H <span class="op">=</span> <span class="op">-</span> <span class="dv">6</span> <span class="op">*</span> qml.Identity(<span class="dv">0</span>) <span class="op">+</span>  <span class="op">\</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    <span class="fl">0.5</span> <span class="op">*</span> qml.PauliZ(<span class="dv">0</span>) <span class="op">@</span> qml.PauliZ(<span class="dv">3</span>) <span class="op">+</span> <span class="op">\</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="fl">0.5</span> <span class="op">*</span> qml.PauliZ(<span class="dv">1</span>) <span class="op">@</span> qml.PauliZ(<span class="dv">2</span>) <span class="op">+</span>  <span class="fl">0.5</span> <span class="op">*</span> qml.PauliZ(<span class="dv">3</span>) <span class="op">@</span> qml.PauliZ(<span class="dv">4</span>) <span class="op">+</span>  <span class="fl">0.5</span> <span class="op">*</span> qml.PauliZ(<span class="dv">2</span>) <span class="op">@</span> qml.PauliZ(<span class="dv">3</span>)</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(H, H.wires)</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>dev <span class="op">=</span> qml.device(<span class="st">"default.qubit"</span>,  H.wires)</span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="at">@qml.qnode</span>(dev)</span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> circuit(params):</span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> param, wire <span class="kw">in</span> <span class="bu">zip</span>(params, H.wires):</span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>        qml.RY(param, wires<span class="op">=</span>wire)</span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> qml.expval(H)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-9" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pennylane <span class="im">as</span> qml</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pennylane <span class="im">import</span> numpy <span class="im">as</span> np </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># H = 6* qml.Identity(1) - \ </span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 0.5 * qml.PauliZ(1) @ qml.PauliZ(4) - \</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 0.5 * qml.PauliZ(2) @ qml.PauliZ(3) - \</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 0.5 * qml.PauliZ(4) @ qml.PauliZ(5) - \</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co"># 0.5 * qml.PauliZ(3) @ qml.PauliZ(4)</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co"># bo chcemy minimalizować </span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>H <span class="op">=</span> <span class="op">-</span> <span class="dv">6</span> <span class="op">*</span> qml.Identity(<span class="dv">0</span>) <span class="op">+</span>  <span class="op">\</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    <span class="fl">0.5</span> <span class="op">*</span> qml.PauliZ(<span class="dv">0</span>) <span class="op">@</span> qml.PauliZ(<span class="dv">3</span>) <span class="op">+</span> <span class="op">\</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>    <span class="fl">0.5</span> <span class="op">*</span> qml.PauliZ(<span class="dv">1</span>) <span class="op">@</span> qml.PauliZ(<span class="dv">2</span>) <span class="op">+</span>  <span class="fl">0.5</span> <span class="op">*</span> qml.PauliZ(<span class="dv">3</span>) <span class="op">@</span> qml.PauliZ(<span class="dv">4</span>) <span class="op">+</span>  <span class="fl">0.5</span> <span class="op">*</span> qml.PauliZ(<span class="dv">2</span>) <span class="op">@</span> qml.PauliZ(<span class="dv">3</span>)</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(H, H.wires)</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>dev <span class="op">=</span> qml.device(<span class="st">"default.qubit"</span>,  H.wires)</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="at">@qml.qnode</span>(dev)</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> circuit(params):</span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> param, wire <span class="kw">in</span> <span class="bu">zip</span>(params, H.wires):</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>        qml.RY(param, wires<span class="op">=</span>wire)</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> qml.expval(H)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>-6 * I(0) + (0.5 * Z(0)) @ Z(3) + (0.5 * Z(1)) @ Z(2) + (0.5 * Z(3)) @ Z(4) + (0.5 * Z(2)) @ Z(3) &lt;Wires = [0, 3, 1, 2, 4]&gt;</code></pre>
+</div>
 </div>
 <p>Załózmy, ze wszystkie osoby poszly w ten sam dzień</p>
-<div id="cell-11" class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>circuit([<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-11" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>circuit([<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">0</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<pre><code>tensor(-4., requires_grad=True)</code></pre>
 </div>
-<div id="cell-12" class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>params <span class="op">=</span> np.random.rand(<span class="bu">len</span>(H.wires))</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>opt <span class="op">=</span> qml.GradientDescentOptimizer(stepsize<span class="op">=</span><span class="fl">0.5</span>)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>epochs <span class="op">=</span> <span class="dv">200</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> epoch <span class="kw">in</span> <span class="bu">range</span>(epochs):</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    params <span class="op">=</span> opt.step(circuit, params)</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> epoch <span class="op">%</span> <span class="dv">50</span> <span class="op">==</span> <span class="dv">0</span>:</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"epoka: </span><span class="sc">{</span>epoch<span class="sc">}</span><span class="ss">, theta: </span><span class="sc">{</span>params<span class="sc">}</span><span class="ss">, koszt: </span><span class="sc">{</span>circuit(params)<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Optymalizacja zakonczona dla theta=</span><span class="sc">{</span>params<span class="sc">}</span><span class="ss">, koszt: </span><span class="sc">{</span>circuit(params)<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-13" class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>dev <span class="op">=</span> qml.device(<span class="st">"default.qubit"</span>,  H.wires, shots<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="at">@qml.qnode</span>(dev)</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> results(params):</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> param, wire <span class="kw">in</span> <span class="bu">zip</span>(params, H.wires):</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>        qml.RY(param, wires<span class="op">=</span>wire)</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> qml.sample()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-12" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>params <span class="op">=</span> np.random.rand(<span class="bu">len</span>(H.wires))</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>opt <span class="op">=</span> qml.GradientDescentOptimizer(stepsize<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>epochs <span class="op">=</span> <span class="dv">200</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> epoch <span class="kw">in</span> <span class="bu">range</span>(epochs):</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    params <span class="op">=</span> opt.step(circuit, params)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> epoch <span class="op">%</span> <span class="dv">50</span> <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"epoka: </span><span class="sc">{</span>epoch<span class="sc">}</span><span class="ss">, theta: </span><span class="sc">{</span>params<span class="sc">}</span><span class="ss">, koszt: </span><span class="sc">{</span>circuit(params)<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Optymalizacja zakonczona dla theta=</span><span class="sc">{</span>params<span class="sc">}</span><span class="ss">, koszt: </span><span class="sc">{</span>circuit(params)<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>epoka: 0, theta: [0.37679377 0.50180955 0.71526509 0.06792695 1.1852201 ], koszt: -4.613596245970716
+epoka: 50, theta: [1.49184079e-06 3.14159265e+00 3.14158838e+00 1.41700443e-14
+ 5.95671295e-06], koszt: -7.999999999986002
+epoka: 100, theta: [8.44861748e-13 3.14159265e+00 3.14159265e+00 1.25855275e-29
+ 3.37341555e-12], koszt: -8.0
+epoka: 150, theta: [4.78463505e-19 3.14159265e+00 3.14159265e+00 1.11781940e-44
+ 1.91043828e-18], koszt: -8.0
+Optymalizacja zakonczona dla theta=[3.61285659e-25 3.14159265e+00 3.14159265e+00 1.98564613e-59
+ 1.44256343e-24], koszt: -8.0</code></pre>
 </div>
-<div id="cell-14" class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>results(params)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-13" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>dev <span class="op">=</span> qml.device(<span class="st">"default.qubit"</span>,  H.wires, shots<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="at">@qml.qnode</span>(dev)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> results(params):</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> param, wire <span class="kw">in</span> <span class="bu">zip</span>(params, H.wires):</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>        qml.RY(param, wires<span class="op">=</span>wire)</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> qml.sample()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-14" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>results(params)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<pre><code>array([0, 1, 1, 0, 0])</code></pre>
+</div>
 </div>
 <p>Bramki kwantowe realizowane są w modelu bramkowym przez <code>operatory unitarne</code> reprezentowane przez macierze.</p>
 <p><span class="math display">\[
@@ -679,199 +755,155 @@ e^{A + B} \approx \left( e^{A/n} e^{B/n} \right)^n
 <p>QAOA mozna zastosować do nietrywialnych problemów kombinatorycznych (optymalizacyjnych).</p>
 <p>Jest on przykładem realizacji <code>VQA</code> czyli <code>wariacyjnych algorytmów kwantowych</code> opartych na (<code>PQC</code>) <code>parametryzowanych obwodów kwantowych</code>.</p>
 <p>Mozna uruchomić go na współcześnie dostępnych komputerach kwantowych. Nie wymaga skomplikowanych bramek.</p>
-<div id="cell-16" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pennylane <span class="im">as</span> qml</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pennylane <span class="im">import</span> numpy <span class="im">as</span> np </span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pennylane <span class="im">import</span> qaoa</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt </span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> cmath</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="cell-17" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>cost_H <span class="op">=</span> qml.Hamiltonian(</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>],</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    [qml.PauliZ(<span class="dv">0</span>), qml.PauliZ(<span class="dv">1</span>), qml.PauliZ(<span class="dv">2</span>)]</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    ) <span class="co"># minimum dla |111&gt; </span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>mixer_H  <span class="op">=</span> qml.Hamiltonian(</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>],</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    [qml.PauliX(<span class="dv">0</span>), qml.PauliX(<span class="dv">1</span>), qml.PauliX(<span class="dv">2</span>)]</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    ) </span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>wires <span class="op">=</span> cost_H.wires</span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(wires)</span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="co"># circuit - one layer = H_cos + H mix</span></span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>num_layers <span class="op">=</span> <span class="dv">5</span> </span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> qoao_layer(gamma, alpha):</span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>    qaoa.cost_layer(gamma, cost_H)</span>
-<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>    qaoa.mixer_layer(alpha, mixer_H)</span>
-<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> circuit(params):</span>
-<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> w <span class="kw">in</span> wires:</span>
-<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>        qml.Hadamard(w)</span>
-<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>    qml.layer(qoao_layer, num_layers, params[<span class="dv">0</span>], params[<span class="dv">1</span>]) <span class="co"># potwarza layer n razy</span></span>
-<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>dev <span class="op">=</span> qml.device(<span class="st">'default.qubit'</span>, wires<span class="op">=</span>wires)</span>
-<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a><span class="at">@qml.qnode</span>(dev)</span>
-<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> cost_function(params):</span>
-<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>    circuit(params)</span>
-<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> qml.expval(cost_H)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>&lt;Wires = [0, 1, 2]&gt;</code></pre>
-</div>
-</div>
-<div id="cell-18" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>params <span class="op">=</span> np.array([[<span class="fl">0.5</span>]<span class="op">*</span>num_layers, [<span class="fl">0.5</span>]<span class="op">*</span>num_layers], requires_grad<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>opt <span class="op">=</span> qml.GradientDescentOptimizer()</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>epochs <span class="op">=</span> <span class="dv">100</span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> epoch <span class="kw">in</span> <span class="bu">range</span>(epochs):</span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    params <span class="op">=</span> opt.step(cost_function, params)</span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Optymalizacja zakonczona dla theta=</span><span class="sc">{</span>params<span class="sc">}</span><span class="ss">, koszt: </span><span class="sc">{</span>cost_function(params)<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Optymalizacja zakonczona dla theta=[[0.44741266 0.59627289 0.48116583 0.23007397 0.25139093]
- [0.25139093 0.23007397 0.48116583 0.59627289 0.44741266]], koszt: -2.9999999999999827</code></pre>
-</div>
-</div>
-<div id="cell-19" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="at">@qml.qnode</span>(dev)</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> circuit_state(params):</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    circuit(params)</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> qml.state()</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>np.round_(circuit_state(params),  decimals<span class="op">=</span><span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="4">
-<pre><code>tensor([ 0.-0.j,  0.-0.j,  0.-0.j, -0.-0.j,  0.-0.j, -0.-0.j, -0.-0.j,
-        -1.+0.j], requires_grad=True)</code></pre>
-</div>
-</div>
-<div id="cell-20" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="at">@qml.qnode</span>(dev)</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> probability_circuit(gamma, alpha):</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    circuit([gamma, alpha])</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> qml.probs(wires<span class="op">=</span>wires)</span>
+<div id="cell-16" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pennylane <span class="im">as</span> qml</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pennylane <span class="im">import</span> numpy <span class="im">as</span> np </span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pennylane <span class="im">import</span> qaoa</span>
 <span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>probs <span class="op">=</span> probability_circuit(params[<span class="dv">0</span>], params[<span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt </span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> cmath</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-21" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>plt.bar(<span class="bu">range</span>(<span class="dv">2</span> <span class="op">**</span> <span class="bu">len</span>(wires)), probs)</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="cw5_files/figure-html/cell-15-output-1.png" class="img-fluid figure-img"></p>
-</figure>
+<div id="cell-17" class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>cost_H <span class="op">=</span> qml.Hamiltonian(</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>],</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    [qml.PauliZ(<span class="dv">0</span>), qml.PauliZ(<span class="dv">1</span>), qml.PauliZ(<span class="dv">2</span>)]</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>    ) <span class="co"># minimum dla |111&gt; </span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>mixer_H  <span class="op">=</span> qml.Hamiltonian(</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>],</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>    [qml.PauliX(<span class="dv">0</span>), qml.PauliX(<span class="dv">1</span>), qml.PauliX(<span class="dv">2</span>)]</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>    ) </span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>wires <span class="op">=</span> cost_H.wires</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(wires)</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="co"># circuit - one layer = H_cos + H mix</span></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>num_layers <span class="op">=</span> <span class="dv">5</span> </span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> qoao_layer(gamma, alpha):</span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>    qaoa.cost_layer(gamma, cost_H)</span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>    qaoa.mixer_layer(alpha, mixer_H)</span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> circuit(params):</span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> w <span class="kw">in</span> wires:</span>
+<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a>        qml.Hadamard(w)</span>
+<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a>    qml.layer(qoao_layer, num_layers, params[<span class="dv">0</span>], params[<span class="dv">1</span>]) <span class="co"># potwarza layer n razy</span></span>
+<span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-26"><a href="#cb17-26" aria-hidden="true" tabindex="-1"></a>dev <span class="op">=</span> qml.device(<span class="st">'default.qubit'</span>, wires<span class="op">=</span>wires)</span>
+<span id="cb17-27"><a href="#cb17-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-28"><a href="#cb17-28" aria-hidden="true" tabindex="-1"></a><span class="at">@qml.qnode</span>(dev)</span>
+<span id="cb17-29"><a href="#cb17-29" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> cost_function(params):</span>
+<span id="cb17-30"><a href="#cb17-30" aria-hidden="true" tabindex="-1"></a>    circuit(params)</span>
+<span id="cb17-31"><a href="#cb17-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> qml.expval(cost_H)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<div id="cell-18" class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>params <span class="op">=</span> np.array([[<span class="fl">0.5</span>]<span class="op">*</span>num_layers, [<span class="fl">0.5</span>]<span class="op">*</span>num_layers], requires_grad<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>opt <span class="op">=</span> qml.GradientDescentOptimizer()</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>epochs <span class="op">=</span> <span class="dv">100</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> epoch <span class="kw">in</span> <span class="bu">range</span>(epochs):</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>    params <span class="op">=</span> opt.step(cost_function, params)</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Optymalizacja zakonczona dla theta=</span><span class="sc">{</span>params<span class="sc">}</span><span class="ss">, koszt: </span><span class="sc">{</span>cost_function(params)<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<div id="cell-19" class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="at">@qml.qnode</span>(dev)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> circuit_state(params):</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    circuit(params)</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> qml.state()</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>np.round_(circuit_state(params),  decimals<span class="op">=</span><span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-20" class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="at">@qml.qnode</span>(dev)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> probability_circuit(gamma, alpha):</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    circuit([gamma, alpha])</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> qml.probs(wires<span class="op">=</span>wires)</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>probs <span class="op">=</span> probability_circuit(params[<span class="dv">0</span>], params[<span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-21" class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>plt.bar(<span class="bu">range</span>(<span class="dv">2</span> <span class="op">**</span> <span class="bu">len</span>(wires)), probs)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="max-cut" class="level3">
 <h3 class="anchored" data-anchor-id="max-cut">Max-cut</h3>
-<div id="cell-23" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pennylane <span class="im">import</span> qaoa</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pennylane <span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> networkx <span class="im">as</span> nx</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-23" class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pennylane <span class="im">import</span> qaoa</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pennylane <span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib <span class="im">import</span> pyplot <span class="im">as</span> plt</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> networkx <span class="im">as</span> nx</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-24" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>edges <span class="op">=</span> [(<span class="dv">0</span>, <span class="dv">1</span>), (<span class="dv">1</span>, <span class="dv">2</span>),(<span class="dv">2</span>,<span class="dv">3</span>),(<span class="dv">3</span>,<span class="dv">0</span>)]</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>graph <span class="op">=</span> nx.Graph(edges)</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>nx.draw(graph, with_labels<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="cw5_files/figure-html/cell-17-output-1.png" class="img-fluid figure-img"></p>
-</figure>
+<div id="cell-24" class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>edges <span class="op">=</span> [(<span class="dv">0</span>, <span class="dv">1</span>), (<span class="dv">1</span>, <span class="dv">2</span>),(<span class="dv">2</span>,<span class="dv">3</span>),(<span class="dv">3</span>,<span class="dv">0</span>)]</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>graph <span class="op">=</span> nx.Graph(edges)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>nx.draw(graph, with_labels<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-</div>
-<div id="cell-25" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>cost_h, mixer_h <span class="op">=</span> qaoa.min_vertex_cover(graph, constrained<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Cost Hamiltonian"</span>, cost_h)</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Mixer Hamiltonian"</span>, mixer_h)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Cost Hamiltonian 0.75 * (Z(0) @ Z(1)) + 0.75 * Z(0) + 0.75 * Z(1) + 0.75 * (Z(0) @ Z(3)) + 0.75 * Z(0) + 0.75 * Z(3) + 0.75 * (Z(1) @ Z(2)) + 0.75 * Z(1) + 0.75 * Z(2) + 0.75 * (Z(2) @ Z(3)) + 0.75 * Z(2) + 0.75 * Z(3) + -1.0 * Z(0) + -1.0 * Z(1) + -1.0 * Z(2) + -1.0 * Z(3)
-Mixer Hamiltonian 1 * X(0) + 1 * X(1) + 1 * X(2) + 1 * X(3)</code></pre>
-</div>
-</div>
-<div id="cell-26" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> qaoa_layer(gamma, alpha):</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>    qaoa.cost_layer(gamma, cost_h)</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    qaoa.mixer_layer(alpha, mixer_h)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="cell-27" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>wires <span class="op">=</span> cost_h.wires</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>depth <span class="op">=</span> <span class="dv">2</span></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> circuit(params, <span class="op">**</span>kwargs):</span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> w <span class="kw">in</span> wires:</span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>        qml.Hadamard(wires<span class="op">=</span>w)</span>
-<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>    qml.layer(qaoa_layer, depth, params[<span class="dv">0</span>], params[<span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="cell-28" class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>dev <span class="op">=</span> qml.device(<span class="st">"default.qubit"</span>, wires<span class="op">=</span>wires)</span>
+<div id="cell-25" class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>cost_h, mixer_h <span class="op">=</span> qaoa.min_vertex_cover(graph, constrained<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="at">@qml.qnode</span>(dev)</span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> cost_function(params):</span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>    circuit(params)</span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> qml.expval(cost_h)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Cost Hamiltonian"</span>, cost_h)</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Mixer Hamiltonian"</span>, mixer_h)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-29" class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>optimizer <span class="op">=</span> qml.GradientDescentOptimizer()</span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>steps <span class="op">=</span> <span class="dv">70</span></span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>params <span class="op">=</span> np.array([[<span class="fl">0.5</span>, <span class="fl">0.5</span>], [<span class="fl">0.5</span>, <span class="fl">0.5</span>]], requires_grad<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-26" class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> qaoa_layer(gamma, alpha):</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>    qaoa.cost_layer(gamma, cost_h)</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>    qaoa.mixer_layer(alpha, mixer_h)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-30" class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(steps):</span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>    params <span class="op">=</span> optimizer.step(cost_function, params)</span>
+<div id="cell-27" class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>wires <span class="op">=</span> cost_h.wires</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>depth <span class="op">=</span> <span class="dv">2</span></span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Optimal Parameters"</span>)</span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(params)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Optimal Parameters
-[[0.63141524 1.02160759]
- [0.51521978 0.86666078]]</code></pre>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> circuit(params, <span class="op">**</span>kwargs):</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> w <span class="kw">in</span> wires:</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>        qml.Hadamard(wires<span class="op">=</span>w)</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>    qml.layer(qaoa_layer, depth, params[<span class="dv">0</span>], params[<span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<div id="cell-28" class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>dev <span class="op">=</span> qml.device(<span class="st">"default.qubit"</span>, wires<span class="op">=</span>wires)</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="at">@qml.qnode</span>(dev)</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> cost_function(params):</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>    circuit(params)</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> qml.expval(cost_h)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-31" class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="at">@qml.qnode</span>(dev)</span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> probability_circuit(gamma, alpha):</span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    circuit([gamma, alpha])</span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> qml.probs(wires<span class="op">=</span>wires)</span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>probs <span class="op">=</span> probability_circuit(params[<span class="dv">0</span>], params[<span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-29" class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>optimizer <span class="op">=</span> qml.GradientDescentOptimizer()</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>steps <span class="op">=</span> <span class="dv">70</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>params <span class="op">=</span> np.array([[<span class="fl">0.5</span>, <span class="fl">0.5</span>], [<span class="fl">0.5</span>, <span class="fl">0.5</span>]], requires_grad<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-32" class="cell" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>plt.bar(<span class="bu">range</span>(<span class="dv">2</span> <span class="op">**</span> <span class="bu">len</span>(wires)), probs)</span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="cw5_files/figure-html/cell-25-output-1.png" class="img-fluid figure-img"></p>
-</figure>
+<div id="cell-30" class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(steps):</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>    params <span class="op">=</span> optimizer.step(cost_function, params)</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Optimal Parameters"</span>)</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(params)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<div id="cell-31" class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="at">@qml.qnode</span>(dev)</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> probability_circuit(gamma, alpha):</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>    circuit([gamma, alpha])</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> qml.probs(wires<span class="op">=</span>wires)</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>probs <span class="op">=</span> probability_circuit(params[<span class="dv">0</span>], params[<span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<div id="cell-32" class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>plt.bar(<span class="bu">range</span>(<span class="dv">2</span> <span class="op">**</span> <span class="bu">len</span>(wires)), probs)</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-33" class="cell" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>(<span class="st">'</span><span class="sc">{0:04b}</span><span class="st">'</span>.<span class="bu">format</span>(<span class="dv">6</span>), <span class="st">'</span><span class="sc">{0:04b}</span><span class="st">'</span>.<span class="bu">format</span>(<span class="dv">9</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="20">
-<pre><code>('0110', '1001')</code></pre>
-</div>
+<div id="cell-33" class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>(<span class="st">'</span><span class="sc">{0:04b}</span><span class="st">'</span>.<span class="bu">format</span>(<span class="dv">6</span>), <span class="st">'</span><span class="sc">{0:04b}</span><span class="st">'</span>.<span class="bu">format</span>(<span class="dv">9</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 

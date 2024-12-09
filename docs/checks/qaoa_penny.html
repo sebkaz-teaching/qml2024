@@ -293,7 +293,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../labs/cw5.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Optymalizacja</span></a>
+ <span class="menu-text">Optymalizacja z Variational Quantum Algorithms</span></a>
   </div>
 </li>
       </ul>
@@ -341,46 +341,183 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<div id="cell-0" class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install pennylane <span class="op">--</span>quiet</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-0" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pennylane <span class="im">as</span> qml</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pennylane <span class="im">import</span> numpy <span class="im">as</span> np </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> networkx <span class="im">as</span> nx </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-1" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pennylane <span class="im">as</span> qml</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pennylane <span class="im">import</span> qaoa</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> networkx <span class="im">as</span> nx</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pennylane <span class="im">import</span> numpy <span class="im">as</span> np </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="cell-2" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>graph <span class="op">=</span> nx.Graph([(<span class="dv">0</span>,<span class="dv">1</span>),(<span class="dv">1</span>,<span class="dv">2</span>),(<span class="dv">2</span>,<span class="dv">0</span>)])</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>cost_h, mixer_h <span class="op">=</span> qaoa.maxcut(graph) <span class="co"># Tworzy hamiltioniany problemu </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="cell-3" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> qaoa_layer(gamma, alpha):</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    qaoa.cost_layer(gamma, cost_h)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    qaoa.mixer_layer(alpha, mixer_h)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="cell-4" class="cell" data-execution_count="25">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>dev <span class="op">=</span> qml.device(<span class="st">'default.qubit'</span>, wires<span class="op">=</span><span class="dv">3</span>)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="at">@qml.qnode</span>(dev)</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> circuit(params):</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(params)<span class="op">//</span> <span class="dv">2</span>) :</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>        qaoa_layer(params[i], params[i<span class="op">+</span><span class="bu">len</span>(params)<span class="op">//</span><span class="dv">2</span>])</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> qml.expval(qaoa.maxcut(graph)[<span class="dv">0</span>]) <span class="co"># cost_h</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>opt <span class="op">=</span> qml.GradientDescentOptimizer()</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>params <span class="op">=</span> np.array([<span class="fl">0.01</span>]<span class="op">*</span><span class="dv">2</span>, requires_grad<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">100</span>):</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    params <span class="op">=</span> opt.step(<span class="kw">lambda</span> v: <span class="op">-</span>circuit(v), params)</span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Optymalizowane parametry"</span>, params)</span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"wartość oczekiwana"</span>,circuit(params))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-1" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>edges <span class="op">=</span> [(<span class="dv">0</span>, <span class="dv">1</span>), (<span class="dv">1</span>, <span class="dv">2</span>),(<span class="dv">2</span>,<span class="dv">3</span>),(<span class="dv">3</span>,<span class="dv">0</span>)]</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>G <span class="op">=</span> nx.Graph(edges)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>n_edges <span class="op">=</span> <span class="bu">len</span>(G.edges)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>n_wires <span class="op">=</span> <span class="bu">len</span>(G.nodes)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"potrzebujesz </span><span class="sc">{</span>n_wires<span class="sc">}</span><span class="ss"> kubitów"</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>nx.draw(G, with_labels<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Optymalizowane parametry [1.00000000e-02 2.80761286e-08]
-wartość oczekiwana -4.551914400963142e-15</code></pre>
+<pre><code>potrzebujesz 4 kubitów</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="qaoa_penny_files/figure-html/cell-3-output-2.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="cell-2" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> maxcut_hamiltonian(graph):</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    coeffs <span class="op">=</span> []</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    obs <span class="op">=</span> []</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (i, j) <span class="kw">in</span> graph.edges:</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>        coeffs.append(<span class="fl">0.5</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>        obs.append(qml.PauliZ(i) <span class="op">@</span> qml.PauliZ(j))</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> qml.Hamiltonian(coeffs, obs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-3" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>H <span class="op">=</span> maxcut_hamiltonian(G)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-4" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>H.wires</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<pre><code>&lt;Wires = [0, 1, 3, 2]&gt;</code></pre>
+</div>
+</div>
+<div id="cell-5" class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>dev <span class="op">=</span> qml.device(<span class="st">'default.qubit'</span>, wires <span class="op">=</span> H.wires)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>wires <span class="op">=</span> H.wires</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> circuit(params):</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    n_params <span class="op">=</span> <span class="bu">int</span>(<span class="bu">len</span>(params)<span class="op">/</span><span class="dv">2</span>)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    gammas <span class="op">=</span> params[:n_params]</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    betas <span class="op">=</span> params[n_params:]</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># stan początkowy </span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n_wires):</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>        qml.Hadamard(wires<span class="op">=</span>i)</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> gamma, beta <span class="kw">in</span> <span class="bu">zip</span>(gammas, betas):</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>        <span class="co"># cost_h</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> (i,j) <span class="kw">in</span> G.edges:</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>            qml.CNOT(wires<span class="op">=</span>[i,j])</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>            qml.RZ(<span class="op">-</span>gamma, wires<span class="op">=</span>j)</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>            qml.CNOT(wires<span class="op">=</span>[i,j])</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>        <span class="co"># mixer</span></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n_wires):</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>            qml.RX(<span class="dv">2</span> <span class="op">*</span> beta, wires<span class="op">=</span>i)</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> qml.expval(H)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-6" class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> cost(params):</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> circuit(params)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>n_layers <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>params <span class="op">=</span> np.random.uniform(<span class="dv">0</span>, np.pi, size <span class="op">=</span> <span class="dv">2</span> <span class="op">*</span> n_layers, requires_grad<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-7" class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>circuit(params)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="19">
+<pre><code>expval(0.5 * (Z(0) @ Z(1)) + 0.5 * (Z(0) @ Z(3)) + 0.5 * (Z(1) @ Z(2)) + 0.5 * (Z(2) @ Z(3)))</code></pre>
+</div>
+</div>
+<div id="cell-8" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>optimizer <span class="op">=</span> qml.GradientDescentOptimizer()</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>epochs <span class="op">=</span> <span class="dv">50</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="cell-9" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> epoch <span class="kw">in</span> <span class="bu">range</span>(epochs):</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>        params <span class="op">=</span> optimizer.step(cost, params)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Optimal Parameters"</span>)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(params)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>/Users/seba/Documents/GitHub/qml2024/venv/lib/python3.11/site-packages/autograd/tracer.py:14: UserWarning: Output seems independent of input.
+  warnings.warn("Output seems independent of input.")</code></pre>
+</div>
+<div class="cell-output cell-output-error">
+<div class="ansi-escaped-output">
+<pre><span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">KeyError</span>                                  Traceback (most recent call last)
+File <span class="ansi-green-fg">~/Documents/GitHub/qml2024/venv/lib/python3.11/site-packages/autograd/core.py:233</span>, in <span class="ansi-cyan-fg">vspace</span><span class="ansi-blue-fg">(value)</span>
+<span class="ansi-green-fg ansi-bold">    232</span> <span style="font-weight:bold;color:rgb(0,135,0)">try</span>:
+<span class="ansi-green-fg">--&gt; 233</span>     <span style="font-weight:bold;color:rgb(0,135,0)">return</span> <span class="ansi-yellow-bg">VSpace</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">mappings</span><span class="ansi-yellow-bg">[</span><span style="color:rgb(0,135,0)" class="ansi-yellow-bg">type</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">value</span><span class="ansi-yellow-bg">)</span><span class="ansi-yellow-bg">]</span>(value)
+<span class="ansi-green-fg ansi-bold">    234</span> <span style="font-weight:bold;color:rgb(0,135,0)">except</span> <span style="font-weight:bold;color:rgb(215,95,95)">KeyError</span>:
+
+<span class="ansi-red-fg">KeyError</span>: &lt;class 'pennylane.measurements.expval.ExpectationMP'&gt;
+
+During handling of the above exception, another exception occurred:
+
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+Cell <span class="ansi-green-fg">In[9], line 2</span>
+<span class="ansi-green-fg ansi-bold">      1</span> <span style="font-weight:bold;color:rgb(0,135,0)">for</span> epoch <span style="font-weight:bold;color:rgb(175,0,255)">in</span> <span style="color:rgb(0,135,0)">range</span>(epochs):
+<span class="ansi-green-fg">----&gt; 2</span>         params <span style="color:rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">optimizer</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">step</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">cost</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">params</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-fg ansi-bold">      4</span> <span style="color:rgb(0,135,0)">print</span>(<span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">Optimal Parameters</span><span style="color:rgb(175,0,0)">"</span>)
+<span class="ansi-green-fg ansi-bold">      5</span> <span style="color:rgb(0,135,0)">print</span>(params)
+
+File <span class="ansi-green-fg">~/Documents/GitHub/qml2024/venv/lib/python3.11/site-packages/pennylane/optimize/gradient_descent.py:93</span>, in <span class="ansi-cyan-fg">GradientDescentOptimizer.step</span><span class="ansi-blue-fg">(self, objective_fn, grad_fn, *args, **kwargs)</span>
+<span class="ansi-green-fg ansi-bold">     75</span> <span style="font-weight:bold;color:rgb(0,135,0)">def</span> <span style="color:rgb(0,0,255)">step</span>(<span style="color:rgb(0,135,0)">self</span>, objective_fn, <span style="color:rgb(98,98,98)">*</span>args, grad_fn<span style="color:rgb(98,98,98)">=</span><span style="font-weight:bold;color:rgb(0,135,0)">None</span>, <span style="color:rgb(98,98,98)">*</span><span style="color:rgb(98,98,98)">*</span>kwargs):
+<span class="ansi-green-fg ansi-bold">     76</span> <span style="color:rgb(188,188,188)">    </span><span style="font-style:italic;color:rgb(175,0,0)">"""Update trainable arguments with one step of the optimizer.</span>
+<span class="ansi-green-fg ansi-bold">     77</span> 
+<span class="ansi-green-fg ansi-bold">     78</span> <span style="font-style:italic;color:rgb(175,0,0)">    Args:</span>
+<span class="ansi-green-fg">   (...)</span>
+<span class="ansi-green-fg ansi-bold">     90</span> <span style="font-style:italic;color:rgb(175,0,0)">        If single arg is provided, list [array] is replaced by array.</span>
+<span class="ansi-green-fg ansi-bold">     91</span> <span style="font-style:italic;color:rgb(175,0,0)">    """</span>
+<span class="ansi-green-fg">---&gt; 93</span>     g, _ <span style="color:rgb(98,98,98)">=</span> <span style="color:rgb(0,135,0)" class="ansi-yellow-bg">self</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">.</span><span class="ansi-yellow-bg">compute_grad</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">objective_fn</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">args</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">kwargs</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">grad_fn</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">=</span><span class="ansi-yellow-bg">grad_fn</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-fg ansi-bold">     94</span>     new_args <span style="color:rgb(98,98,98)">=</span> <span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>apply_grad(g, args)
+<span class="ansi-green-fg ansi-bold">     96</span>     <span style="font-style:italic;color:rgb(95,135,135)"># unwrap from list if one argument, cleaner return</span>
+
+File <span class="ansi-green-fg">~/Documents/GitHub/qml2024/venv/lib/python3.11/site-packages/pennylane/optimize/gradient_descent.py:122</span>, in <span class="ansi-cyan-fg">GradientDescentOptimizer.compute_grad</span><span class="ansi-blue-fg">(objective_fn, args, kwargs, grad_fn)</span>
+<span class="ansi-green-fg ansi-bold">    104</span> <span style="color:rgb(175,0,0)">r</span><span style="font-style:italic;color:rgb(175,0,0)">"""Compute gradient of the objective function at the given point and return it along with</span>
+<span class="ansi-green-fg ansi-bold">    105</span> <span style="font-style:italic;color:rgb(175,0,0)">the objective function forward pass (if available).</span>
+<span class="ansi-green-fg ansi-bold">    106</span> 
+<span class="ansi-green-fg">   (...)</span>
+<span class="ansi-green-fg ansi-bold">    119</span> <span style="font-style:italic;color:rgb(175,0,0)">    will not be evaluted and instead ``None`` will be returned.</span>
+<span class="ansi-green-fg ansi-bold">    120</span> <span style="font-style:italic;color:rgb(175,0,0)">"""</span>
+<span class="ansi-green-fg ansi-bold">    121</span> g <span style="color:rgb(98,98,98)">=</span> get_gradient(objective_fn) <span style="font-weight:bold;color:rgb(0,135,0)">if</span> grad_fn <span style="font-weight:bold;color:rgb(175,0,255)">is</span> <span style="font-weight:bold;color:rgb(0,135,0)">None</span> <span style="font-weight:bold;color:rgb(0,135,0)">else</span> grad_fn
+<span class="ansi-green-fg">--&gt; 122</span> grad <span style="color:rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">g</span><span class="ansi-yellow-bg">(</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">*</span><span class="ansi-yellow-bg">args</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">*</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">*</span><span class="ansi-yellow-bg">kwargs</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-fg ansi-bold">    123</span> forward <span style="color:rgb(98,98,98)">=</span> <span style="color:rgb(0,135,0)">getattr</span>(g, <span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">forward</span><span style="color:rgb(175,0,0)">"</span>, <span style="font-weight:bold;color:rgb(0,135,0)">None</span>)
+<span class="ansi-green-fg ansi-bold">    125</span> num_trainable_args <span style="color:rgb(98,98,98)">=</span> <span style="color:rgb(0,135,0)">sum</span>(<span style="color:rgb(0,135,0)">getattr</span>(arg, <span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">requires_grad</span><span style="color:rgb(175,0,0)">"</span>, <span style="font-weight:bold;color:rgb(0,135,0)">False</span>) <span style="font-weight:bold;color:rgb(0,135,0)">for</span> arg <span style="font-weight:bold;color:rgb(175,0,255)">in</span> args)
+
+File <span class="ansi-green-fg">~/Documents/GitHub/qml2024/venv/lib/python3.11/site-packages/pennylane/_grad.py:165</span>, in <span class="ansi-cyan-fg">grad.__call__</span><span class="ansi-blue-fg">(self, *args, **kwargs)</span>
+<span class="ansi-green-fg ansi-bold">    162</span>     <span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>_forward <span style="color:rgb(98,98,98)">=</span> <span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>_fun(<span style="color:rgb(98,98,98)">*</span>args, <span style="color:rgb(98,98,98)">*</span><span style="color:rgb(98,98,98)">*</span>kwargs)
+<span class="ansi-green-fg ansi-bold">    163</span>     <span style="font-weight:bold;color:rgb(0,135,0)">return</span> ()
+<span class="ansi-green-fg">--&gt; 165</span> grad_value, ans <span style="color:rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">grad_fn</span><span class="ansi-yellow-bg">(</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">*</span><span class="ansi-yellow-bg">args</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">*</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">*</span><span class="ansi-yellow-bg">kwargs</span><span class="ansi-yellow-bg">)</span>  <span style="font-style:italic;color:rgb(95,135,135)"># pylint: disable=not-callable</span>
+<span class="ansi-green-fg ansi-bold">    166</span> <span style="color:rgb(0,135,0)">self</span><span style="color:rgb(98,98,98)">.</span>_forward <span style="color:rgb(98,98,98)">=</span> ans
+<span class="ansi-green-fg ansi-bold">    168</span> <span style="font-weight:bold;color:rgb(0,135,0)">return</span> grad_value
+
+File <span class="ansi-green-fg">~/Documents/GitHub/qml2024/venv/lib/python3.11/site-packages/autograd/wrap_util.py:20</span>, in <span class="ansi-cyan-fg">unary_to_nary.&lt;locals&gt;.nary_operator.&lt;locals&gt;.nary_f</span><span class="ansi-blue-fg">(*args, **kwargs)</span>
+<span class="ansi-green-fg ansi-bold">     18</span> <span style="font-weight:bold;color:rgb(0,135,0)">else</span>:
+<span class="ansi-green-fg ansi-bold">     19</span>     x <span style="color:rgb(98,98,98)">=</span> <span style="color:rgb(0,135,0)">tuple</span>(args[i] <span style="font-weight:bold;color:rgb(0,135,0)">for</span> i <span style="font-weight:bold;color:rgb(175,0,255)">in</span> argnum)
+<span class="ansi-green-fg">---&gt; 20</span> <span style="font-weight:bold;color:rgb(0,135,0)">return</span> <span class="ansi-yellow-bg">unary_operator</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">unary_f</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">x</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">*</span><span class="ansi-yellow-bg">nary_op_args</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">*</span><span style="color:rgb(98,98,98)" class="ansi-yellow-bg">*</span><span class="ansi-yellow-bg">nary_op_kwargs</span><span class="ansi-yellow-bg">)</span>
+
+File <span class="ansi-green-fg">~/Documents/GitHub/qml2024/venv/lib/python3.11/site-packages/pennylane/_grad.py:185</span>, in <span class="ansi-cyan-fg">grad._grad_with_forward</span><span class="ansi-blue-fg">(fun, x)</span>
+<span class="ansi-green-fg ansi-bold">    180</span> <span style="font-style:italic;color:rgb(175,0,0)">"""This function is a replica of ``autograd.grad``, with the only</span>
+<span class="ansi-green-fg ansi-bold">    181</span> <span style="font-style:italic;color:rgb(175,0,0)">difference being that it returns both the gradient *and* the forward pass</span>
+<span class="ansi-green-fg ansi-bold">    182</span> <span style="font-style:italic;color:rgb(175,0,0)">value."""</span>
+<span class="ansi-green-fg ansi-bold">    183</span> vjp, ans <span style="color:rgb(98,98,98)">=</span> _make_vjp(fun, x)  <span style="font-style:italic;color:rgb(95,135,135)"># pylint: disable=redefined-outer-name</span>
+<span class="ansi-green-fg">--&gt; 185</span> <span style="font-weight:bold;color:rgb(0,135,0)">if</span> <span class="ansi-yellow-bg">vspace</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">ans</span><span class="ansi-yellow-bg">)</span><span style="color:rgb(98,98,98)">.</span>size <span style="color:rgb(98,98,98)">!=</span> <span style="color:rgb(98,98,98)">1</span>:
+<span class="ansi-green-fg ansi-bold">    186</span>     <span style="font-weight:bold;color:rgb(0,135,0)">raise</span> <span style="font-weight:bold;color:rgb(215,95,95)">TypeError</span>(
+<span class="ansi-green-fg ansi-bold">    187</span>         <span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">Grad only applies to real scalar-output functions. </span><span style="color:rgb(175,0,0)">"</span>
+<span class="ansi-green-fg ansi-bold">    188</span>         <span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">Try jacobian, elementwise_grad or holomorphic_grad.</span><span style="color:rgb(175,0,0)">"</span>
+<span class="ansi-green-fg ansi-bold">    189</span>     )
+<span class="ansi-green-fg ansi-bold">    191</span> grad_value <span style="color:rgb(98,98,98)">=</span> vjp(vspace(ans)<span style="color:rgb(98,98,98)">.</span>ones())
+
+File <span class="ansi-green-fg">~/Documents/GitHub/qml2024/venv/lib/python3.11/site-packages/autograd/core.py:238</span>, in <span class="ansi-cyan-fg">vspace</span><span class="ansi-blue-fg">(value)</span>
+<span class="ansi-green-fg ansi-bold">    236</span>     <span style="font-weight:bold;color:rgb(0,135,0)">return</span> vspace(getval(value))
+<span class="ansi-green-fg ansi-bold">    237</span> <span style="font-weight:bold;color:rgb(0,135,0)">else</span>:
+<span class="ansi-green-fg">--&gt; 238</span>     <span style="font-weight:bold;color:rgb(0,135,0)">raise</span> <span style="font-weight:bold;color:rgb(215,95,95)">TypeError</span>(<span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">Can</span><span style="color:rgb(175,0,0)">'</span><span style="color:rgb(175,0,0)">t find vector space for value </span><span style="font-weight:bold;color:rgb(175,95,135)">{}</span><span style="color:rgb(175,0,0)"> of type </span><span style="font-weight:bold;color:rgb(175,95,135)">{}</span><span style="color:rgb(175,0,0)">. </span><span style="color:rgb(175,0,0)">"</span>
+<span class="ansi-green-fg ansi-bold">    239</span>                     <span style="color:rgb(175,0,0)">"</span><span style="color:rgb(175,0,0)">Valid types are </span><span style="font-weight:bold;color:rgb(175,95,135)">{}</span><span style="color:rgb(175,0,0)">"</span><span style="color:rgb(98,98,98)">.</span>format(
+<span class="ansi-green-fg ansi-bold">    240</span>                         value, <span style="color:rgb(0,135,0)">type</span>(value), VSpace<span style="color:rgb(98,98,98)">.</span>mappings<span style="color:rgb(98,98,98)">.</span>keys()))
+
+<span class="ansi-red-fg">TypeError</span>: Can't find vector space for value expval(0.5 * (Z(0) @ Z(1)) + 0.5 * (Z(0) @ Z(3)) + 0.5 * (Z(1) @ Z(2)) + 0.5 * (Z(2) @ Z(3))) of type &lt;class 'pennylane.measurements.expval.ExpectationMP'&gt;. Valid types are dict_keys([&lt;class 'autograd.core.SparseObject'&gt;, &lt;class 'list'&gt;, &lt;class 'tuple'&gt;, &lt;class 'dict'&gt;, &lt;class 'numpy.ndarray'&gt;, &lt;class 'float'&gt;, &lt;class 'numpy.longdouble'&gt;, &lt;class 'numpy.float64'&gt;, &lt;class 'numpy.float32'&gt;, &lt;class 'numpy.float16'&gt;, &lt;class 'complex'&gt;, &lt;class 'numpy.clongdouble'&gt;, &lt;class 'numpy.complex64'&gt;, &lt;class 'numpy.complex128'&gt;, &lt;class 'numpy.linalg.linalg.EigResult'&gt;, &lt;class 'numpy.linalg.linalg.EighResult'&gt;, &lt;class 'numpy.linalg.linalg.QRResult'&gt;, &lt;class 'numpy.linalg.linalg.SlogdetResult'&gt;, &lt;class 'numpy.linalg.linalg.SVDResult'&gt;, &lt;class 'pennylane.numpy.tensor.tensor'&gt;])</pre>
+</div>
 </div>
 </div>
 
