@@ -32,6 +32,7 @@ website:
           - labs/cw3.ipynb
           - labs/cw4.ipynb
           - labs/cw5.ipynb
+          - labs/cw6.ipynb
           # - labs/ml.ipynb
           # - labs/titanic.ipynb
       - section: "Ćwiczenia Qiskit"
