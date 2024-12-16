@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>cw_w2 – Wstęp do kwantowego uczenia maszynowego</title>
+<title>modele uczenia maszynowego – Wstęp do kwantowego uczenia maszynowego</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -101,35 +101,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../style.css">
 </head>
@@ -170,7 +141,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lectures/wyklad1.html">Wykłady</a></li><li class="breadcrumb-item"><a href="../lectures/cw_w2.html">ćwiczenia do W2</a></li><li class="breadcrumb-item"><a href="../lectures/cw_w2.html">Bramki i funkcje</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lectures/wyklad1.html">Wykłady</a></li><li class="breadcrumb-item"><a href="../lectures/cw_w2.html">ćwiczenia do W2</a></li><li class="breadcrumb-item"><a href="../lectures/cw_w2.html">modele uczenia maszynowego</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -244,7 +215,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../lectures/cw_w2.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Bramki i funkcje</span></a>
+ <span class="menu-text">modele uczenia maszynowego</span></a>
   </div>
 </li>
       </ul>
@@ -380,9 +351,9 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lectures/wyklad1.html">Wykłady</a></li><li class="breadcrumb-item"><a href="../lectures/cw_w2.html">ćwiczenia do W2</a></li><li class="breadcrumb-item"><a href="../lectures/cw_w2.html">Bramki i funkcje</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../lectures/wyklad1.html">Wykłady</a></li><li class="breadcrumb-item"><a href="../lectures/cw_w2.html">ćwiczenia do W2</a></li><li class="breadcrumb-item"><a href="../lectures/cw_w2.html">modele uczenia maszynowego</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Bramki i funkcje</h1>
+<h1 class="title">modele uczenia maszynowego</h1>
 </div>
 
 
@@ -399,19 +370,9 @@ window.Quarto = {
 </header>
 
 
-<p>Napisać kod obiektowy, który pobiera string (treść do zaszyfrowania) i przekłada go na zapis bitowy. Dodatkowo wylosuj klucz do zaszyfrowania wiadomości (losowy ciąg 0 i 1).</p>
-<p>Metoda 1 - szyfrowanie - Zaszyfruj wiadomość wykorzystując operacje <code>XOR</code>.</p>
-<p>Metoda 2 - wyświetl zaszyfrowaną wiadomość w postaci normalnej.</p>
-<p>Metoda 3 - odszyfruj wiadomość (ciąg zaszyfrowanego kodu binarnego)</p>
-<p>Metoda 4 - wyświetl odszyfrowaną wiadomość</p>
-<p><span class="math display">\[
-\newcommand{\bra}[1]{\left \langle #1 \right \rvert}
-\newcommand{\ket}[1]{\left \rvert #1 \right \rangle}
-\newcommand{\braket}[2]{\left \langle #1 \middle \rvert #2 \right \rangle}
-\]</span></p>
-<section id="pytorch-regresja-liniowa" class="level3">
-<h3 class="anchored" data-anchor-id="pytorch-regresja-liniowa">PyTorch Regresja liniowa</h3>
-<div id="d06aecdf" class="cell" data-execution_count="1">
+<section id="pytorch-regresja-liniowa" class="level2">
+<h2 class="anchored" data-anchor-id="pytorch-regresja-liniowa">PyTorch Regresja liniowa</h2>
+<div id="cell-2" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -485,30 +446,30 @@ window.Quarto = {
   )
 )
 liczba trenowalnych parametrów: 2
-epoch: 050, loss = 0.36
-epoch: 100, loss = 0.20
-epoch: 150, loss = 0.12
-epoch: 200, loss = 0.07
-epoch: 250, loss = 0.04
-epoch: 300, loss = 0.02
-epoch: 350, loss = 0.01
-epoch: 400, loss = 0.01
+epoch: 050, loss = 0.85
+epoch: 100, loss = 0.48
+epoch: 150, loss = 0.28
+epoch: 200, loss = 0.16
+epoch: 250, loss = 0.09
+epoch: 300, loss = 0.05
+epoch: 350, loss = 0.03
+epoch: 400, loss = 0.02
 Parameter containing:
-tensor([[1.9775]], requires_grad=True) Parameter containing:
-tensor([-0.8440], requires_grad=True)</code></pre>
+tensor([[1.9655]], requires_grad=True) Parameter containing:
+tensor([-0.7603], requires_grad=True)</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="cw_w2_files/figure-html/cell-2-output-2.png" width="579" height="416" class="figure-img"></p>
+<p><img src="cw_w2_files/figure-html/cell-2-output-2.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
 </section>
-<section id="pytorch-regresja-logistyczna" class="level3">
-<h3 class="anchored" data-anchor-id="pytorch-regresja-logistyczna">PyTorch Regresja logistyczna</h3>
-<div id="aef61f88" class="cell" data-execution_count="2">
+<section id="pytorch-regresja-logistyczna" class="level2">
+<h2 class="anchored" data-anchor-id="pytorch-regresja-logistyczna">PyTorch Regresja logistyczna</h2>
+<div id="cell-4" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.datasets <span class="im">import</span> make_classification</span>
@@ -542,7 +503,7 @@ tensor([-0.8440], requires_grad=True)</code></pre>
 <span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>optimizer <span class="op">=</span> torch.optim.SGD(model.parameters(), lr<span class="op">=</span>learningRate)</span>
 <span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a><span class="co"># petla uczaca </span></span>
-<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>num_epochs <span class="op">=</span> <span class="dv">800</span></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>num_epochs <span class="op">=</span> <span class="dv">500</span></span>
 <span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> epoch <span class="kw">in</span> <span class="bu">range</span>(num_epochs):</span>
 <span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>    <span class="co"># forward pass and loss</span></span>
@@ -568,24 +529,18 @@ tensor([-0.8440], requires_grad=True)</code></pre>
 <span id="cb3-57"><a href="#cb3-57" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'accuracy = </span><span class="sc">{</span>acc<span class="sc">:.4f}</span><span class="ss">'</span>)</span>
 <span id="cb3-58"><a href="#cb3-58" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"predykcja dla wiersza 0:</span><span class="sc">{</span>y_predicted[<span class="dv">0</span>]<span class="sc">}</span><span class="ss">, wartosc prawdziwa: </span><span class="sc">{</span>y_train[<span class="dv">0</span>]<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>epoch: 50, loss = 0.6136
-epoch: 100, loss = 0.5085
-epoch: 150, loss = 0.4509
-epoch: 200, loss = 0.4153
-epoch: 250, loss = 0.3913
-epoch: 300, loss = 0.3740
-epoch: 350, loss = 0.3611
-epoch: 400, loss = 0.3511
-epoch: 450, loss = 0.3431
-epoch: 500, loss = 0.3366
-epoch: 550, loss = 0.3312
-epoch: 600, loss = 0.3266
-epoch: 650, loss = 0.3227
-epoch: 700, loss = 0.3194
-epoch: 750, loss = 0.3165
-epoch: 800, loss = 0.3140
-accuracy = 0.8870
-predykcja dla wiersza 0:tensor([0.8718]), wartosc prawdziwa: tensor([1.])</code></pre>
+<pre><code>epoch: 50, loss = 0.5996
+epoch: 100, loss = 0.5019
+epoch: 150, loss = 0.4471
+epoch: 200, loss = 0.4128
+epoch: 250, loss = 0.3894
+epoch: 300, loss = 0.3726
+epoch: 350, loss = 0.3599
+epoch: 400, loss = 0.3500
+epoch: 450, loss = 0.3422
+epoch: 500, loss = 0.3357
+accuracy = 0.8820
+predykcja dla wiersza 0:tensor([0.8049]), wartosc prawdziwa: tensor([1.])</code></pre>
 </div>
 </div>
 

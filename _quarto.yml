@@ -18,13 +18,13 @@ website:
           - lectures/wyklad2.qmd
           - section : "ćwiczenia do W2"
             contents:
-            - lectures/cw_w2.qmd
+            - lectures/cw_w2.ipynb
           - lectures/wyklad3.qmd
           - lectures/wyklad4.qmd
           - lectures/wyklad5.qmd
           - section : "ćwiczenia do W5"
             contents:
-            - lectures/cw_w5.qmd
+            - lectures/cw_w5.ipynb
       - section: "Ćwiczenia"
         contents:
           - labs/cw1.ipynb
