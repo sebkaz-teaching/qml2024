@@ -481,7 +481,7 @@
     "href": "labs/cw5.html",
     "title": "Optymalizacja z Variational Quantum Algorithms",
     "section": "",
-    "text": "Wariacyjne algorytmy kwantowe są odpowiedzią na problem klasycznych algorytmów wykorzystywanych w obliczeniach kwantowych - mianowicie algorytmy te (np wzmacnianie amplitudy) wymagają duzej liczby kubitów.\nZamiast realizować zadania za pomocą ustalonej sekwencji ustaolnych bramek algorytmy VQA definiowane są za pomocą ansatz $W(\\theta)$, który mozemy uznać za template (wzór) opisujący jakie bramki działają na który kubit. Dodatkowo kazdy ansatz moze byc wykonywany wiele razy (w jednym algorytmie) tworzą w ten sposób osobne warstwy (layers). Nazwa variational bierze się z tego, iz część bramek mozna realizować jako bramki obrotów zaleznych od parametrów.",
+    "text": "Wariacyjne algorytmy kwantowe są odpowiedzią na problem klasycznych algorytmów wykorzystywanych w obliczeniach kwantowych - mianowicie algorytmy te (np wzmacnianie amplitudy) wymagają duzej liczby kubitów.\nZamiast realizować zadania za pomocą ustalonej sekwencji ustaolnych bramek algorytmy VQA definiowane są za pomocą ansatz \\(W(\\theta)\\), który mozemy uznać za template (wzór) opisujący jakie bramki działają na który kubit. Dodatkowo kazdy ansatz moze byc wykonywany wiele razy (w jednym algorytmie) tworzą w ten sposób osobne warstwy (layers). Nazwa variational bierze się z tego, iz część bramek mozna realizować jako bramki obrotów zaleznych od parametrów.",
     "crumbs": [
       "Sylabus",
       "Ćwiczenia",
