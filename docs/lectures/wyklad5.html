@@ -304,7 +304,6 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#schemat-kodowania" id="toc-schemat-kodowania" class="nav-link" data-scroll-target="#schemat-kodowania">Schemat kodowania</a></li>
   </ul></li>
-  <li><a href="#qaoa" id="toc-qaoa" class="nav-link" data-scroll-target="#qaoa">QAOA</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -391,21 +390,32 @@ window.Quarto = {
 <p>Potrzebujemy określić <span class="math inline">\(X_i^{max}\)</span> oraz <span class="math inline">\(X_i^{min}\)</span>.</p>
 <p><span class="math inline">\(\theta^j_i = \frac{X^j_i - X_i^{min}}{X_i^{max}-X_i^{min}} \pi\)</span></p>
 <p>Korzystając z bramki <span class="math inline">\(R_y\)</span> mozemy zakodować kazdy kubit z osobnym kątem. Mozna takze wybrać dwie bramki z dwoma kątami dla jednego kubitu (<span class="math inline">\(R_y\)</span> i <span class="math inline">\(R_z\)</span>)</p>
-</section>
-</section>
-<section id="qaoa" class="level2">
-<h2 class="anchored" data-anchor-id="qaoa">QAOA</h2>
-<p>Bramki kwantowe realizowane są w modelu bramkowym przez <code>operatory unitarne</code> reprezentowane przez macierze.</p>
-<p><span class="math inline">\(U U^{\dagger} = U^{\dagger} U = I\)</span></p>
-<p>Kazda macierz unitarna moze być przedstawiona jako:</p>
-<p><span class="math inline">\(U(H,t) = e^{-i H t}\)</span></p>
-<p>gdzie <span class="math inline">\(H\)</span> to macierz Hermitowska (<span class="math inline">\(H=H^{\dagger}\)</span>)</p>
-<p>W ogólności, implementacja obwodu kwantowego, który dokładnie realizuje macierz unitarną dla zadanego Hamiltonianiu jest bardzo trudnym zadaniem. Hamiltonian taki zazwyczaj składa się z sumy wielu niekomutujących części.</p>
-<p><span class="math inline">\(H = H_1 + H_2 + \dots + H_n\)</span></p>
-<p>Mozemy wykorzystać wzór <code>Trotter'a-Suzuki</code>, który przybliza dowolną sumę macierzy <span class="math inline">\(e^{A + B} \approx \left( e^{A/n} e^{B/n} \right)^n\)</span></p>
-<p>dlatego dla <span class="math inline">\(H=\sum_k H_k\)</span> otrzymujemy $ U(H,t,n) = _{j=1}^n _k e^{-i H_k t/n} $</p>
+<!-- ## QAOA 
+
+Bramki kwantowe realizowane są w modelu bramkowym przez `operatory unitarne` reprezentowane przez macierze.
+
+$U U^{\dagger} = U^{\dagger} U = I$
+
+Kazda macierz unitarna moze być przedstawiona jako: 
+
+$U(H,t) = e^{-i H t}$
+
+gdzie $H$ to macierz Hermitowska ($H=H^{\dagger}$)
+
+W ogólności, implementacja obwodu kwantowego, który dokładnie realizuje macierz unitarną dla zadanego 
+Hamiltonianiu jest bardzo trudnym zadaniem. 
+Hamiltonian taki zazwyczaj składa się z sumy wielu niekomutujących części.  
+
+$H = H_1 + H_2 + \dots + H_n$ 
+
+Mozemy wykorzystać wzór  `Trotter'a-Suzuki`, który przybliza dowolną sumę macierzy 
+$e^{A + B} \approx \left( e^{A/n} e^{B/n} \right)^n$ 
+ 
+dlatego dla  $H=\sum_k H_k$ otrzymujemy
+$ U(H,t,n) = \prod_{j=1}^n \prod_k e^{-i H_k t/n} $ -->
 
 
+</section>
 </section>
 </section>
 

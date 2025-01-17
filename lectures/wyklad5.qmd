@@ -135,7 +135,7 @@ $\theta^j_i = \frac{X^j_i - X_i^{min}}{X_i^{max}-X_i^{min}} \pi$
 Korzystając z bramki $R_y$ mozemy zakodować kazdy kubit z osobnym kątem. 
 Mozna takze wybrać dwie bramki z dwoma kątami dla jednego kubitu ($R_y$ i $R_z$)
 
-## QAOA 
+<!-- ## QAOA 
 
 Bramki kwantowe realizowane są w modelu bramkowym przez `operatory unitarne` reprezentowane przez macierze.
 
@@ -157,4 +157,4 @@ Mozemy wykorzystać wzór  `Trotter'a-Suzuki`, który przybliza dowolną sumę m
 $e^{A + B} \approx \left( e^{A/n} e^{B/n} \right)^n$ 
  
 dlatego dla  $H=\sum_k H_k$ otrzymujemy
-$ U(H,t,n) = \prod_{j=1}^n \prod_k e^{-i H_k t/n} $
+$ U(H,t,n) = \prod_{j=1}^n \prod_k e^{-i H_k t/n} $ -->

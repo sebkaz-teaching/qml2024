@@ -96,18 +96,6 @@
     ]
   },
   {
-    "objectID": "lectures/wyklad5.html#qaoa",
-    "href": "lectures/wyklad5.html#qaoa",
-    "title": "Algorytmy kwantowego uczenia maszynowego QML",
-    "section": "QAOA",
-    "text": "QAOA\nBramki kwantowe realizowane są w modelu bramkowym przez operatory unitarne reprezentowane przez macierze.\n\\(U U^{\\dagger} = U^{\\dagger} U = I\\)\nKazda macierz unitarna moze być przedstawiona jako:\n\\(U(H,t) = e^{-i H t}\\)\ngdzie \\(H\\) to macierz Hermitowska (\\(H=H^{\\dagger}\\))\nW ogólności, implementacja obwodu kwantowego, który dokładnie realizuje macierz unitarną dla zadanego Hamiltonianiu jest bardzo trudnym zadaniem. Hamiltonian taki zazwyczaj składa się z sumy wielu niekomutujących części.\n\\(H = H_1 + H_2 + \\dots + H_n\\)\nMozemy wykorzystać wzór Trotter'a-Suzuki, który przybliza dowolną sumę macierzy \\(e^{A + B} \\approx \\left( e^{A/n} e^{B/n} \\right)^n\\)\ndlatego dla \\(H=\\sum_k H_k\\) otrzymujemy $ U(H,t,n) = _{j=1}^n _k e^{-i H_k t/n} $",
-    "crumbs": [
-      "Sylabus",
-      "Wykłady",
-      "Algorytmy kwantowego uczenia maszynowego QML"
-    ]
-  },
-  {
     "objectID": "lectures/wyklad4.html",
     "href": "lectures/wyklad4.html",
     "title": "Kwantowe bramki logiczne w prostych algorytmach i obwodach kwantowych",
