@@ -7,7 +7,7 @@ $$
 \newcommand{\braket}[2]{\left \langle #1 \middle \rvert #2 \right \rangle}
 $$
 
-Mechanika Kwantowa a zatem i opiera się na _algebrze liniowej_. 
+Mechanika Kwantowa a zatem i obliczenia kwantowe opierają się na _algebrze liniowej_. 
 W ogólności teoria ta posługuje się pojęciem nieskończenie wymiarowej przestrzeni liniowej.
 Na szczęście do opisu kubitów (2-dim) i układów kwantowych ($2^{n}$-dim) wystarczy nam pojęcie skończenie wymiarowej przestrzeni wektorowej.
 Bardzo upraszcza nam to naukę o kwantowym uczeniu maszynowym, gdyż wiele problemów matematycznych (dla fizyków) tutaj nie występuje. 

@@ -10,23 +10,41 @@ $$
 \newcommand{\braket}[2]{\left \langle #1 \middle \rvert #2 \right \rangle}
 $$
 
-Dziedziną łączącą klasyczne uczenie maszynowe i obliczenia kwantowe nazywamy kwantowym uczeniem maszynowym.
-QML (Quantum Machine Learning) powstało aby szybciej (czas trenowania modelu) i sprawniej (ewaluacja) rozwiązywać problemy uczenia maszynowego.
-Do tego celu chcemy wykorzystać procesory kwantowe oraz własności algorytmów kwantowych i ich przewagi nad klasycznymi odpowiednikami.
+Komputery kwantowe nie są jeszcze maszynami, które moglibyśmy wykorzystać do codziennych zadań. 
+Dostępne komputery kwantowe pozwalają wykonywać algorytmy i obliczenia na około 100 kubitach. 
+Nie posiadają one jednak mechanizmu korekcji błędów. 
+Ponadto, bramki muszą działać znacznie szybciej niż ich czas dekoherencji, co uniemożliwia realizację długich sekwencji bramek dla złożonych algorytmów. 
+Dlatego obecny etap rozwoju tych maszyn nazywany jest erą **NISQ**(ang. _Noisy Intermediate-Scale Quantum_)
 
-Dobre i uzyteczne procesory kwantowe, realizujące w pełni nasze oczekiwania to wciąz odległa przyszłość. 
-Jednak bardzo szybko rozwija się dziedzina, która wskazuje jak uzywać aktualnych (słabych i zaszumionych) procesorów kwantowych z wykorzystaniem klasycznych optymalizatorów
-w podejściu hybrydowym. 
+Pomimo ograniczeń technologicznych, wciąż można wykazać tzw. kwantową supremację (czyli przewagę algorytmów kwantowych nad klasycznymi) w problemach optymalizacyjnych i w modelowaniu danych wykorzystując do tego celu parametryzowane obwody kwantowe (ang. _Parameterized quantum circuits_, PQCs), które z wykorzystaniem klasycznych optymalizatorów mogą być trenowane w celu znalezienia optymalnych wartości dla zadanej funkcji kosztu. 
+Podejście takie nazywane jest **uczeniem hybrydowym**. 
 
-Postaramy się zdefiniować jakie problemy i modele mozemy sformułować tak by nie wymagały one duzej liczby (zaszumionych) kubitów.
+PQC realizowane są z wykorzystaniem bramek w postaci ustalonej (np. bramki CNOT). 
+Wykorzystują one również bramki parametryzowane, co pozwala generować nietrywialne wyniki.
+Algorytmy przystosowane do realizacji na obecnych komputerach kwantowych nazywamy algorytmami NISQ.  
 
-W podejściu tym komputery kwantowe mogą być uzywane i trenowane podobnie do sieci neuronowych.
-Mozemy np. kontrolować parametry fizyczne naszego układu kwantowego (natęzenie pola elektromagnetycznego, częstotliwość promienia laserowego), co pozwinno pozwolić rozwiązać probelmy analogicznie jak ma to miejsce w sieciach neuronowych. 
-W bardziej rozszerzonym podejściu okazuje się, ze cały obwód kwantowy moze być kontrolowany za pomocą parametrów realizowanych w bramkach. Mozna go traktować jako rózniczkowalną funkcję. 
+Modele kwantowego uczenia maszynowego (ang. _Quantum Machine Learning_, **QML**) realizowane przez kwantowe algorytmy wariacyjne (ang. _Variational Quantum Algorithms_, **VQA**) reprezentują całą klasę algorytmów, które używają klasycznych optymalizatorów do znalezienia parametrów kwantowych obwodów. 
+Szczególnymi realizacjami tak zdefiniowanych modeli są: 
+- Variational Quantum Eigensolver
+- Variational Quantum Solvers
+- Variational Quantum Classifier
+- Quantum Support Vector Classification
+- Quantum Neural Networks
+- Quantum Autoencoder
+- Quantum Approximate Optimization Algorithm 
+
+
+
+Postaramy się zdefiniować jakie problemy i modele możemy sformułować tak by nie wymagały one duzej liczby (zaszumionych) kubitów.
+
+
+Cały obwód kwantowy moze być kontrolowany za pomocą parametrów realizowanych w bramkach. 
+Mozna go traktować jako **rózniczkowalną funkcję**. 
+
 Automatyczne rózniczkowanie wykorzystywane jest w paradygmacie programowania [Differentiable programming](https://en.wikipedia.org/wiki/Differentiable_programming) jak równiez w szeroko 
-stosowanych sieciach neuronowych. Podejście to mozna wyrazic jako coś więcej niz sieci neuronowe. To paradygmat gdzie algorytmy nie są kodowane ale "uczące się".
-
-Dlatego idea trenowania komputerów kwantowych pozwala na więcej niz tylko realizacja modeli uczenia maszynowego. Trenowane obwody kwantowe mozna wykorzystać w chemii kwantowe, kwantowej optymalizacji, projektowaniu algorytmów kwantowych, kwantowej korekcji błędów czy zrozumienia układów fizycznych. 
+stosowanych sieciach neuronowych. 
+Podejście to mozna wyrazic jako coś więcej niz sieci neuronowe. 
+To paradygmat gdzie algorytmy nie są kodowane ale **uczące się**.
 
 
 ## Parameterised Quantum Circuit jak ogólny model uczenia maszynowego
@@ -66,10 +84,45 @@ Prawdopodobieństwo pojawienia się wartości otrzymanych z próbki zakodowane z
 
 # Kodowanie danych
 
+Do zakodowania informacji klasyczne komputery używają bitów (które przyjąć mogą wartość 0 lub 1). 
+Aktualnie używa się systemów, które kodują znaki w postaci 32 lub 64 bitowych sekwencjach.
+Pozwala to zakodować wszystkie znaki z kodowania ASCII bądź Unicode. 
+
+Preprocessing pozwalający załadować wektor danych $x$ do parametrycznego obwodu kwantowego z wykorzystaniem tzw. _feature mapy_, czyli funkcji $\psi(x)$. 
+Funkcja ta wyrażana jest jako parametryzowany obwód kwantowy opisany przez operator  $U_{\psi(x)}\ket{0}$. 
+
+W tym miejscu warto zwrócić uwagę, iż procedura ta jest podobna do stosowania zanurzeń danych nieustrukturyzowanych w sieciach neuronowych (ang. embedding).
+Na przykład przetworzenie danych tekstowych z wykorzystaniem algorytmu Word2Vec. 
+W fazie tej bardzo ważnym krokiem jest klasyczne przygotowanie danych poprzez takie elementy jak czyszczenie braków danych, standaryzacja czy też transformacje pozwalające otrzymać odpowiedni rozkład zmiennej. 
+
+
+
+Istnieje wiele różnych sposobów kodowania (ang. encode) lub zanurzenia (ang. embed) informacji w układ n-kubitów opisany przez stan kwantowy. 
+Ponieważ chcemy użyć kwantowego komputera do uczenia się algorytmu na podstawie klasycznych danych musimy zdecydować w jaki sposób będziemy reprezentować wiersz danych a nawet cały zbiór danych w postaci stanu kwantowego.
+
+## Basis encoding
+Jedną ze strategii jest tzw. kodowanie bazowe (ang. basis encoding), które polega na zamianie wektora danych wyrażonego w postaci bitowej na wektory bazowe kubitów ($0\to \ket{0}$ i $1\to \ket{1}$). 
+Chcąc jednak kodować dużo zmiennych i z dużą precyzją poszczególnych wartości będziemy zmuszeni do wykorzystania bardzo dużej ilości kubitów, co dla obecnych maszyn nie jest zbyt dobrym rozwiązaniem. Kodowanie to, tak samo jak w przypadku bitów, pozwala realizować zarówno liczby całkowite jak i rzeczywiste (dla z góry określonej precyzji). 
+
+## Amplitude encoding
+
+Układ n-kubitów może być reprezentowany jako superpozycja stanów bazowych. Pozwala to zakodować dane w amplitudach (ang. amplitude encoding).
+Normalizując wektor danych $x=(x_1,\dots x_{2^k})$ , tak by $\sum_k |x_k|^2 = 1$  możemy zakodować wszystkie  $x_k$ jako amplitudy. 
+Na przykład  $$x=(0.073,-0.438,0.730,0.000) \to \ket{x}=0.073\ket{00}-0.438 \ket{01} + 0.730 \ket{10} + 0\ket{11} $$    
+
+Więcej przykładów [kwantowego embeddingu](https://pennylane.ai/qml/glossary/quantum_embedding/)
+
 ## Angle Encoding
 
-Kazdy kubit moze być opisany przez **dwa** kąty $\theta\in [0,\pi]$ oraz $\phi \in [0,2\pi]$. 
-Kazda wartość opisuje jeden punkt na sferze Blocha. 
+Każdy kubit moze być opisany przez **dwa** kąty $\theta\in [0,\pi]$ oraz $\phi \in [0,2\pi]$. 
+Każda wartość opisuje jeden punkt na sferze Blocha. 
+Przetwarza ono zmienne na iloczyny i sumy funkcji cosinus i sinus. 
+W kodowaniu tym istotne jest, aby podczas procesu skalowania zmiennych wyskalować je do wartości $(-1,1)$. 
+
+$$
+|x⟩ = cos⁡(x_i) \ket{0} + sin⁡(x_i)\ket{1}  
+$$
+
 
 ### Schemat kodowania 
 
@@ -81,11 +134,6 @@ $\theta^j_i = \frac{X^j_i - X_i^{min}}{X_i^{max}-X_i^{min}} \pi$
 
 Korzystając z bramki $R_y$ mozemy zakodować kazdy kubit z osobnym kątem. 
 Mozna takze wybrać dwie bramki z dwoma kątami dla jednego kubitu ($R_y$ i $R_z$)
-
-
-
-Więcej przykładów [kwantowego embeddingu](https://pennylane.ai/qml/glossary/quantum_embedding/)
-
 
 ## QAOA 
 

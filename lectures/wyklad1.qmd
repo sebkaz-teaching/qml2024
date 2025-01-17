@@ -274,7 +274,7 @@ Dla porównania, obecnie IBM oferuje komputery kwantowe oparte na 127 kubitach, 
 Pamięć w komputerach kwantowych jest znacznie bardziej efektywna w przechowywaniu informacji w porównaniu do klasycznych komputerów. 
 Dzięki możliwości reprezentowania wielu stanów jednocześnie, komputery kwantowe oferują potencjalnie ogromne możliwości obliczeniowe przy znacznie mniejszych wymaganiach pamięciowych.
 
-#### Kwantowa Korekcja Błędów (Quantum Error Correction)
+#### Kwantowa korekcja błędów (Quantum Error Correction)
 
 Dekoherencja, czyli oddziaływanie kwantowego systemu z jego otoczeniem, może zniszczyć stan komputera kwantowego i wprowadzać błędy obliczeniowe. 
 Aby zapewnić integralność obliczeń w komputerach kwantowych, konieczne jest zastosowanie technik korekcji błędów.
@@ -287,7 +287,6 @@ Systemy NISQ są wystarczająco zaawansowane, by wykonywać pewne interesujące 
 
 W praktyce, kwantowa korekcja błędów wymaga stosowania specjalnych kodów kwantowych, które pozwalają na detekcję i korekcję błędów bez bezpośredniego pomiaru stanów kwantowych. 
 Kody te wprowadzają redundancję w reprezentacji informacji kwantowej, co pozwala na naprawę błędów i utrzymanie poprawności obliczeń.
-
 
 
 ## Proces obliczeń kwantowych

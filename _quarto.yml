@@ -12,9 +12,6 @@ website:
       - section : "Wykłady"
         contents:
           - lectures/wyklad1.qmd
-          - section : "ćwiczenia do W1"
-            contents:
-            - lectures/cw_w1.qmd
           - lectures/wyklad2.qmd
           - section : "ćwiczenia do W2"
             contents:
@@ -33,13 +30,11 @@ website:
           - labs/cw4.ipynb
           - labs/cw5.ipynb
           - labs/cw6.ipynb
-          # - labs/ml.ipynb
-          # - labs/titanic.ipynb
-      - section: "Ćwiczenia Qiskit"
-        contents:
-          - labs/Qiskit/cw1.ipynb
-          - labs/Qiskit/cw2.ipynb
-          - labs/Qiskit/cw3.ipynb
+      # - section: "Ćwiczenia Qiskit"
+      #   contents:
+      #     - labs/Qiskit/cw1.ipynb
+      #     - labs/Qiskit/cw2.ipynb
+      #     - labs/Qiskit/cw3.ipynb
   navbar:
     left:
           - href: sylabus.qmd

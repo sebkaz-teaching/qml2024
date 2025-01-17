@@ -5,9 +5,10 @@ title: "Informacje ogólne"
 Witajcie wszyscy! Dziś chiałbym poruszyć temat nowego kursu z zakresu kwantowego uczenia maszynowego. 
 Kurs ten będzie skupiał się na wykorzystaniu biblioteki pennylane, która jest jedną z najpopularniejszych bibliotek do tworzenia modeli kwantowych. 
 W ramach kursu będziemy uczyć się podstaw kwantowego uczenia maszynowego, a także zastosowania tej wiedzy w praktyce. 
-W trakcie kursu będziemy mieli okazję zapoznać się z różnymi narzędziami i technikami, które pozwolą nam na tworzenie skomplikowanych modeli kwantowych. 
+W trakcie kursu będziemy mieli okazję zapoznać się z różnymi narzędziami i technikami, które pozwolą nam na tworzenie modeli kwantowych opartych o sieci neuronowe. 
 W trakcie kursu będziemy również mieli okazję zapoznać się z różnymi algorytmami kwantowymi.
-Bardziej szczegółowo przetwarzać będziemy parametryzowane obwody kwantowe, które będą podstawowym elementem naszych modeli kwantowego uczenia maszynowego. Wszystko to pozwoli nam na lepsze zrozumienie zasad rządzących światem kwantowym i na wykorzystanie tej wiedzy w praktyce.
+Bardziej szczegółowo przetwarzać będziemy parametryzowane obwody kwantowe, które będą podstawowym elementem naszych modeli kwantowego uczenia maszynowego. 
+Wszystko to pozwoli nam na lepsze zrozumienie zasad rządzących światem kwantowym i na wykorzystanie tej wiedzy w praktyce.
 
 
 ## {{< var main.nazwa >}}
@@ -30,33 +31,33 @@ Jeśli chciał(a)byś coś dodać prześlij informację przez MS teams.
 Wykład jest realizowany w trybie hybrydowym.
 Jest on NIEOBOWIĄZKOWY i odbywa się w sali C4D.
 
-1. <del>30-09-2024 (poniedziałek) 11:40-13:20 -  Wykład 1</del>
-2. <del>07-10-2024 (poniedziałek) 11:40-13:20 -  Wykład 2</del>
-3. <del>14-10-2024 (poniedziałek) 11:40-13:20 -  Wykład 3</del> 
-4. <del>21-10-2023 (poniedziałek) 11:40-13:20 -  Wykład 4</del>
-5. <del>28-10-2023 (poniedziałek) 11:40-13:20 -  Wykład 5</del>
+1. 30-09-2024 (poniedziałek) 11:40-13:20 -  Wykład 1
+2. 07-10-2024 (poniedziałek) 11:40-13:20 -  Wykład 2
+3. 14-10-2024 (poniedziałek) 11:40-13:20 -  Wykład 3 
+4. 21-10-2023 (poniedziałek) 11:40-13:20 -  Wykład 4
+5. 28-10-2023 (poniedziałek) 11:40-13:20 -  Wykład 5
 
 #### Laboratoria
 
 Wszystkie laboratoria odbywają się w sali C4D.
 
-1. <del>04-11-2024 (poniedziałek) 11:40-13:20 - Lab1</del>
-2. <del>13-11-2023 (poniedziałek) 11:40-13:20 - Lab2</del>
-3. <del>20-11-2023 (poniedziałek) 11:40-13:20 - Lab3</del>
-4. <del>25-11-2023 (poniedziałek) 11:40-13:20 - Lab4</del>
-5. <del>02-12-2023 (poniedziałek) 11:40-13:20 - Lab5</del>
-6. <del>09-12-2023 (poniedziałek) 11:40-13:20 - Lab6</del>
-7. <del>16-12-2023 (poniedziałek) 11:40-13:20 - Lab7</del>
+1. 04-11-2024 (poniedziałek) 11:40-13:20 - Lab1
+2. 13-11-2023 (poniedziałek) 11:40-13:20 - Lab2
+3. 20-11-2023 (poniedziałek) 11:40-13:20 - Lab3
+4. 25-11-2023 (poniedziałek) 11:40-13:20 - Lab4
+5. 02-12-2023 (poniedziałek) 11:40-13:20 - Lab5
+6. 09-12-2023 (poniedziałek) 11:40-13:20 - Lab6
+7. 16-12-2023 (poniedziałek) 11:40-13:20 - Lab7
 8. 13-01-2024 (poniedziałek) 11:40-13:20 - Lab8
 
 
 ## Sobota-Niedziela
 
-1. <del>12.10.2024 11:40-13:20 - Wykład 1</del>
-2. <del>26.10.2024 11:40-13:20 - Wykład 2</del>
-3. <del>09.11.2024 11:40-13:20 - Lab1 </del>
-4. <del>23.11.2024 11:40-13:20 - Lab2 </del>
-5. <del>07.12.2024 11:40-13:20 - Lab3</del>
+1. 12.10.2024 11:40-13:20 - Wykład 1
+2. 26.10.2024 11:40-13:20 - Wykład 2
+3. 09.11.2024 11:40-13:20 - Lab1 
+4. 23.11.2024 11:40-13:20 - Lab2 
+5. 07.12.2024 11:40-13:20 - Lab3
 6. 21.12.2024 11:40-13:20 - Lab4
 7. 18.01.2025 11:40-13:20 - Lab5 
 
