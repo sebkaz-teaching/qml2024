@@ -24,7 +24,8 @@ Wykorzystują one również bramki parametryzowane, co pozwala generować nietry
 Algorytmy przystosowane do realizacji na obecnych komputerach kwantowych nazywamy algorytmami NISQ.  
 
 Modele kwantowego uczenia maszynowego (ang. _Quantum Machine Learning_, **QML**) realizowane przez kwantowe algorytmy wariacyjne (ang. _Variational Quantum Algorithms_, **VQA**) reprezentują całą klasę algorytmów, które używają klasycznych optymalizatorów do znalezienia parametrów kwantowych obwodów. 
-Szczególnymi realizacjami tak zdefiniowanych modeli są: 
+Szczególnymi realizacjami tak zdefiniowanych modeli są:
+
 - Variational Quantum Eigensolver
 - Variational Quantum Solvers
 - Variational Quantum Classifier
@@ -64,8 +65,8 @@ Dla nas najwazniejszym aspektem jest mozliwość trenowania parametrów obwodu.
 
 ![](../img/proces.png)
 
-## Variational Quantum Eigensolver
-PQC uzywany jest do wygenerowania końcowego stanu $\ket{\psi'}$, który jest bliski stanowi odpowiadającemu najmniejszej wartości własnej problemu zakodowanego w postaci Hamiltonianiu. Odpowiada to stanowi podstawowemu (o najnizszej energii) powiązanemu z minimum funkcji kosztu.
+<!-- ## Variational Quantum Eigensolver
+PQC uzywany jest do wygenerowania końcowego stanu $\ket{\psi'}$, który jest bliski stanowi odpowiadającemu najmniejszej wartości własnej problemu zakodowanego w postaci Hamiltonianiu. Odpowiada to stanowi podstawowemu (o najnizszej energii) powiązanemu z minimum funkcji kosztu. -->
 
 ## Quantum Neural Networks
 
@@ -134,6 +135,29 @@ $\theta^j_i = \frac{X^j_i - X_i^{min}}{X_i^{max}-X_i^{min}} \pi$
 
 Korzystając z bramki $R_y$ mozemy zakodować kazdy kubit z osobnym kątem. 
 Mozna takze wybrać dwie bramki z dwoma kątami dla jednego kubitu ($R_y$ i $R_z$)
+
+
+# Ansatz i schematy modelowe 
+
+Parametryzowany kwantowy obwód wariacyjny reprezentowany przez operator $W_\theta$ zależny od wektora parametrów $\theta$, który działa na wektor stanu przygotowany przez obwód kodujący dane $W_\theta \ket{\phi}$, gdzie $\ket{phi}$ przygotowaliśmy za pomocą kodowania danych. 
+Ze względu na bardzo dużą ilość kombinacji bramek, które można łączyć równolegle i szeregowo trudno jest wskazać jeden konkretny obwód pozwalający realizować wszystkie problemy analityczne (nie ma darmowych obiadów). 
+Wybór odbywa się najczęściej poprzez ustalenie różnych schematów i ich trenowania. 
+Porównać można to do klasycznych sieci neuronowych, gdzie ilość warstw ukrytych, liczba neuronów w każdej warstwie czy funkcje aktywacji są tzw. hiper-parametrami, które ustala się przez doświadczenie. 
+Wybrany schemat obwodów kwantowych określa się często mianem ansatzu. 
+
+# Pomiar i interpretacja wyników 
+
+Na tym etapie najczęściej estymuje się zbiór wartości oczekiwanych $\left{ < A_k >_(x,\theta) \right}_{k=1}^K  , przyjmujący wartości od -1 do 1.  
+W zależności od realizowanego procesu można wykonać pomiar jednego lub większej ilości kubitów.
+ Można również generować wynik w postaci amplitud, prawdopodobieństw czy też wyniku w postaci binarnej. 
+ Etap ten często nazywany jest postprocesingiem danych. 
+
+![](../img/Rys3.png)
+
+
+Inny sposób pomiaru 
+
+![](../img/rys6.png)
 
 <!-- ## QAOA 
 

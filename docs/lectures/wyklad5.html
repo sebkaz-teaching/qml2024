@@ -293,7 +293,6 @@ window.Quarto = {
    
   <ul>
   <li><a href="#parameterised-quantum-circuit-jak-ogólny-model-uczenia-maszynowego" id="toc-parameterised-quantum-circuit-jak-ogólny-model-uczenia-maszynowego" class="nav-link active" data-scroll-target="#parameterised-quantum-circuit-jak-ogólny-model-uczenia-maszynowego">Parameterised Quantum Circuit jak ogólny model uczenia maszynowego</a></li>
-  <li><a href="#variational-quantum-eigensolver" id="toc-variational-quantum-eigensolver" class="nav-link" data-scroll-target="#variational-quantum-eigensolver">Variational Quantum Eigensolver</a></li>
   <li><a href="#quantum-neural-networks" id="toc-quantum-neural-networks" class="nav-link" data-scroll-target="#quantum-neural-networks">Quantum Neural Networks</a></li>
   <li><a href="#modele-generatywne" id="toc-modele-generatywne" class="nav-link" data-scroll-target="#modele-generatywne">Modele generatywne</a></li>
   <li><a href="#kodowanie-danych" id="toc-kodowanie-danych" class="nav-link" data-scroll-target="#kodowanie-danych">Kodowanie danych</a>
@@ -305,6 +304,8 @@ window.Quarto = {
   <li><a href="#schemat-kodowania" id="toc-schemat-kodowania" class="nav-link" data-scroll-target="#schemat-kodowania">Schemat kodowania</a></li>
   </ul></li>
   </ul></li>
+  <li><a href="#ansatz-i-schematy-modelowe" id="toc-ansatz-i-schematy-modelowe" class="nav-link" data-scroll-target="#ansatz-i-schematy-modelowe">Ansatz i schematy modelowe</a></li>
+  <li><a href="#pomiar-i-interpretacja-wyników" id="toc-pomiar-i-interpretacja-wyników" class="nav-link" data-scroll-target="#pomiar-i-interpretacja-wyników">Pomiar i interpretacja wyników</a></li>
   </ul>
 </nav>
     </div>
@@ -339,7 +340,16 @@ window.Quarto = {
 <p>Komputery kwantowe nie są jeszcze maszynami, które moglibyśmy wykorzystać do codziennych zadań. Dostępne komputery kwantowe pozwalają wykonywać algorytmy i obliczenia na około 100 kubitach. Nie posiadają one jednak mechanizmu korekcji błędów. Ponadto, bramki muszą działać znacznie szybciej niż ich czas dekoherencji, co uniemożliwia realizację długich sekwencji bramek dla złożonych algorytmów. Dlatego obecny etap rozwoju tych maszyn nazywany jest erą <strong>NISQ</strong>(ang. <em>Noisy Intermediate-Scale Quantum</em>)</p>
 <p>Pomimo ograniczeń technologicznych, wciąż można wykazać tzw. kwantową supremację (czyli przewagę algorytmów kwantowych nad klasycznymi) w problemach optymalizacyjnych i w modelowaniu danych wykorzystując do tego celu parametryzowane obwody kwantowe (ang. <em>Parameterized quantum circuits</em>, PQCs), które z wykorzystaniem klasycznych optymalizatorów mogą być trenowane w celu znalezienia optymalnych wartości dla zadanej funkcji kosztu. Podejście takie nazywane jest <strong>uczeniem hybrydowym</strong>.</p>
 <p>PQC realizowane są z wykorzystaniem bramek w postaci ustalonej (np. bramki CNOT). Wykorzystują one również bramki parametryzowane, co pozwala generować nietrywialne wyniki. Algorytmy przystosowane do realizacji na obecnych komputerach kwantowych nazywamy algorytmami NISQ.</p>
-<p>Modele kwantowego uczenia maszynowego (ang. <em>Quantum Machine Learning</em>, <strong>QML</strong>) realizowane przez kwantowe algorytmy wariacyjne (ang. <em>Variational Quantum Algorithms</em>, <strong>VQA</strong>) reprezentują całą klasę algorytmów, które używają klasycznych optymalizatorów do znalezienia parametrów kwantowych obwodów. Szczególnymi realizacjami tak zdefiniowanych modeli są: - Variational Quantum Eigensolver - Variational Quantum Solvers - Variational Quantum Classifier - Quantum Support Vector Classification - Quantum Neural Networks - Quantum Autoencoder - Quantum Approximate Optimization Algorithm</p>
+<p>Modele kwantowego uczenia maszynowego (ang. <em>Quantum Machine Learning</em>, <strong>QML</strong>) realizowane przez kwantowe algorytmy wariacyjne (ang. <em>Variational Quantum Algorithms</em>, <strong>VQA</strong>) reprezentują całą klasę algorytmów, które używają klasycznych optymalizatorów do znalezienia parametrów kwantowych obwodów. Szczególnymi realizacjami tak zdefiniowanych modeli są:</p>
+<ul>
+<li>Variational Quantum Eigensolver</li>
+<li>Variational Quantum Solvers</li>
+<li>Variational Quantum Classifier</li>
+<li>Quantum Support Vector Classification</li>
+<li>Quantum Neural Networks</li>
+<li>Quantum Autoencoder</li>
+<li>Quantum Approximate Optimization Algorithm</li>
+</ul>
 <p>Postaramy się zdefiniować jakie problemy i modele możemy sformułować tak by nie wymagały one duzej liczby (zaszumionych) kubitów.</p>
 <p>Cały obwód kwantowy moze być kontrolowany za pomocą parametrów realizowanych w bramkach. Mozna go traktować jako <strong>rózniczkowalną funkcję</strong>.</p>
 <p>Automatyczne rózniczkowanie wykorzystywane jest w paradygmacie programowania <a href="https://en.wikipedia.org/wiki/Differentiable_programming">Differentiable programming</a> jak równiez w szeroko stosowanych sieciach neuronowych. Podejście to mozna wyrazic jako coś więcej niz sieci neuronowe. To paradygmat gdzie algorytmy nie są kodowane ale <strong>uczące się</strong>.</p>
@@ -349,10 +359,8 @@ window.Quarto = {
 <p>Część indywidualnych bramek (ze zbioru <span class="math inline">\((U_i)_{i=1,/dots,m}\)</span>) moze być ustalona np. <span class="math inline">\(X\)</span>, <span class="math inline">\(CNOT\)</span>, czyli ich parametry są ściśle określone (np. <span class="math inline">\(\pi\)</span>). Jednak część bramek moze zalezeć od parametrów obrotów wyrazonych najczęściej jako radiany (w zakresi <span class="math inline">\(\theta \in [-\pi, \pi]\)</span>). Po przygotowaniu stanu <span class="math inline">\(\ket{\psi'}\)</span> mozemy zmierzyć jeden lub cały zestaw kubitów. Po pomiarze kubity zostają w stanie bazowym zgodnie z wykorzystanym operatorem. Najczęściej wybieramy bazę obliczeniową pozwalającą uzyskać rezultat jako listę bitów.</p>
 <p>Tak zdefiniowany i działający obwód kwantowy mozna wykorzystać do wielu rzeczy. Dla nas najwazniejszym aspektem jest mozliwość trenowania parametrów obwodu.</p>
 <p><img src="../img/proces.png" class="img-fluid"></p>
-</section>
-<section id="variational-quantum-eigensolver" class="level2">
-<h2 class="anchored" data-anchor-id="variational-quantum-eigensolver">Variational Quantum Eigensolver</h2>
-<p>PQC uzywany jest do wygenerowania końcowego stanu <span class="math inline">\(\ket{\psi'}\)</span>, który jest bliski stanowi odpowiadającemu najmniejszej wartości własnej problemu zakodowanego w postaci Hamiltonianiu. Odpowiada to stanowi podstawowemu (o najnizszej energii) powiązanemu z minimum funkcji kosztu.</p>
+<!-- ## Variational Quantum Eigensolver
+PQC uzywany jest do wygenerowania końcowego stanu $\ket{\psi'}$, który jest bliski stanowi odpowiadającemu najmniejszej wartości własnej problemu zakodowanego w postaci Hamiltonianiu. Odpowiada to stanowi podstawowemu (o najnizszej energii) powiązanemu z minimum funkcji kosztu. -->
 </section>
 <section id="quantum-neural-networks" class="level2">
 <h2 class="anchored" data-anchor-id="quantum-neural-networks">Quantum Neural Networks</h2>
@@ -390,6 +398,20 @@ window.Quarto = {
 <p>Potrzebujemy określić <span class="math inline">\(X_i^{max}\)</span> oraz <span class="math inline">\(X_i^{min}\)</span>.</p>
 <p><span class="math inline">\(\theta^j_i = \frac{X^j_i - X_i^{min}}{X_i^{max}-X_i^{min}} \pi\)</span></p>
 <p>Korzystając z bramki <span class="math inline">\(R_y\)</span> mozemy zakodować kazdy kubit z osobnym kątem. Mozna takze wybrać dwie bramki z dwoma kątami dla jednego kubitu (<span class="math inline">\(R_y\)</span> i <span class="math inline">\(R_z\)</span>)</p>
+</section>
+</section>
+</section>
+<section id="ansatz-i-schematy-modelowe" class="level1">
+<h1>Ansatz i schematy modelowe</h1>
+<p>Parametryzowany kwantowy obwód wariacyjny reprezentowany przez operator <span class="math inline">\(W_\theta\)</span> zależny od wektora parametrów <span class="math inline">\(\theta\)</span>, który działa na wektor stanu przygotowany przez obwód kodujący dane <span class="math inline">\(W_\theta \ket{\phi}\)</span>, gdzie <span class="math inline">\(\ket{phi}\)</span> przygotowaliśmy za pomocą kodowania danych. Ze względu na bardzo dużą ilość kombinacji bramek, które można łączyć równolegle i szeregowo trudno jest wskazać jeden konkretny obwód pozwalający realizować wszystkie problemy analityczne (nie ma darmowych obiadów). Wybór odbywa się najczęściej poprzez ustalenie różnych schematów i ich trenowania. Porównać można to do klasycznych sieci neuronowych, gdzie ilość warstw ukrytych, liczba neuronów w każdej warstwie czy funkcje aktywacji są tzw. hiper-parametrami, które ustala się przez doświadczenie. Wybrany schemat obwodów kwantowych określa się często mianem ansatzu.</p>
+</section>
+<section id="pomiar-i-interpretacja-wyników" class="level1">
+<h1>Pomiar i interpretacja wyników</h1>
+<p>Na tym etapie najczęściej estymuje się zbiór wartości oczekiwanych $_{k=1}^K , przyjmujący wartości od -1 do 1.<br>
+W zależności od realizowanego procesu można wykonać pomiar jednego lub większej ilości kubitów. Można również generować wynik w postaci amplitud, prawdopodobieństw czy też wyniku w postaci binarnej. Etap ten często nazywany jest postprocesingiem danych.</p>
+<p><img src="../img/Rys3.png" class="img-fluid"></p>
+<p>Inny sposób pomiaru</p>
+<p><img src="../img/rys6.png" class="img-fluid"></p>
 <!-- ## QAOA 
 
 Bramki kwantowe realizowane są w modelu bramkowym przez `operatory unitarne` reprezentowane przez macierze.
@@ -415,8 +437,6 @@ dlatego dla  $H=\sum_k H_k$ otrzymujemy
 $ U(H,t,n) = \prod_{j=1}^n \prod_k e^{-i H_k t/n} $ -->
 
 
-</section>
-</section>
 </section>
 
 </main> <!-- /main -->
