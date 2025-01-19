@@ -364,6 +364,11 @@ window.Quarto = {
 </header>
 
 
+<p><span class="math display">\[
+\renewcommand{\bra}[1]{\left \langle #1 \right \rvert}
+\renewcommand{\ket}[1]{\left \rvert #1 \right \rangle}
+\renewcommand{\braket}[2]{\left \langle #1 \middle \rvert #2 \right \rangle}
+\]</span></p>
 <p>Wariacyjne algorytmy kwantowe są odpowiedzią na problem klasycznych algorytmów wykorzystywanych w obliczeniach kwantowych - mianowicie algorytmy te (np wzmacnianie amplitudy) wymagają duzej liczby kubitów.</p>
 <p>Zamiast realizować zadania za pomocą ustalonej sekwencji ustaolnych bramek algorytmy VQA definiowane są za pomocą <code>ansatz</code> <span class="math inline">\(W(\theta)\)</span>, który mozemy uznać za template (wzór) opisujący jakie bramki działają na który kubit. Dodatkowo kazdy ansatz moze byc wykonywany wiele razy (w jednym algorytmie) tworzą w ten sposób osobne warstwy (layers). Nazwa <code>variational</code> bierze się z tego, iz część bramek mozna realizować jako bramki obrotów zaleznych od parametrów.</p>
 <section id="vqe" class="level2">
@@ -371,7 +376,8 @@ window.Quarto = {
 <p>Algorytmy wariacyjne zostały zaproponowane w celu znalezienia stanu podstawowego, stanu o najnizszej energii (najmniejsza wartość własna z odpowiadaijącym wekrtorem własnym).</p>
 <p>Stan podstawowy <span class="math inline">\(\ket{\psi}\)</span> to stan dla którego wartość oczekiwana operatora jest minimalna. <span class="math display">\[ \bra{\psi} H \ket{\psi} \]</span></p>
 <p>Algorytm VQE propnuje aby stan podstawowy zrealizować jako <code>ansatz</code>.</p>
-<p>$ = W () $ Zamiast szukać stanu podstawowego $ $ znajdujemy prametr <span class="math inline">\(\theta\)</span> dla którego wartość oczekiwana jest minimalna.</p>
+<p><span class="math display">\[\ket{\psi \left(\theta\right)} = W(\theta) \]</span></p>
+<p>Zamiast szukać stanu podstawowego <span class="math inline">\(\ket{\psi}\)</span> znajdujemy parametr <span class="math inline">\(\theta\)</span> dla którego wartość oczekiwana jest minimalna.</p>
 <p><span class="math display">\[ C(\theta) = \bra{\psi \left(\theta\right)}  H \ket{\psi \left(\theta\right)}  \]</span></p>
 <p>Obliczenie wartości oczekiwanej dowolnego hamiltonianu nie musi być trudne ale wymaga duzej ilości powtórzeń dla niewielkiej liczby kubitów aby uzyskać odpowiednią statystykę.</p>
 <p>W wielu praktycznych przypadkach mozemy wyrazić nasz operator jako sumę jedno lub dwu kubitowych obserwabli. <span class="math display">\[ H = \sum_{j=1}^{J} h_j H_j \]</span></p>
